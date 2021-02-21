@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "key": "lovelace_dashboards",
+    "data": {
+        "items": [
+            {
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "Upstairs",
+                "url_path": "lovelace-upstairs",
+                "mode": "storage",
+                "id": "lovelace_upstairs"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "Downstairs",
+                "url_path": "lovelace-downstairs",
+                "mode": "storage",
+                "id": "lovelace_downstairs"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "House",
+                "url_path": "lovelace-climate",
+                "mode": "storage",
+                "id": "lovelace_climate"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "Everything",
+                "url_path": "lovelace-everything",
+                "mode": "storage",
+                "id": "lovelace_everything"
+            }
+        ]
+    }
+}

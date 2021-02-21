@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "url": "/hacsfiles/lovelace-state-switch/state-switch.js",
+                "type": "module",
+                "id": "98b2474ceb754567a9398773ff4201a8"
+            },
+            {
+                "url": "/hacsfiles/harmony-card/harmony-card.js",
+                "type": "module",
+                "id": "5b3a8ee07bd94b8381ccb391bc4cf03f"
+            },
+            {
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+                "type": "module",
+                "id": "3fe32ce15d4d42e980e83a71c149db9b"
+            },
+            {
+                "url": "/hacsfiles/custom-sidebar/custom-sidebar.js",
+                "type": "module",
+                "id": "d2fd2d1cbe6b4e899747dcc535dae3d1"
+            },
+            {
+                "url": "/hacsfiles/lovelace-swipe-navigation/swipe-navigation.js",
+                "type": "module",
+                "id": "69575c44591b47769de134ab93689725"
+            },
+            {
+                "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js",
+                "type": "module",
+                "id": "b76242780a214d09adc89daa4e92b76f"
+            },
+            {
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js",
+                "type": "module",
+                "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
+            },
+            {
+                "url": "/hacsfiles/transmission-card/transmission-card.js",
+                "type": "module",
+                "id": "cb9d00fe1a0b470d94a622490fec471a"
+            },
+            {
+                "url": "/hacsfiles/button-card/button-card.js",
+                "type": "module",
+                "id": "d483028062714d8c90e1c76c4fd36664"
+            }
+        ]
+    }
+}

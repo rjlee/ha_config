@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "key": "input_boolean",
+    "data": {
+        "items": [
+            {
+                "name": "curtains_open",
+                "id": "curtains_open"
+            },
+            {
+                "name": "vacuum_awake",
+                "id": "vacuum_awake"
+            },
+            {
+                "name": "child1_asleep",
+                "id": "child1_awake"
+            },
+            {
+                "name": "kitchen_tv_switch",
+                "icon": "mdi:television",
+                "id": "kitchen_tv_switch"
+            },
+            {
+                "name": "main_bedroom_tv_switch",
+                "icon": "mdi:television",
+                "id": "main_bedroom_tv_switch"
+            }
+        ]
+    }
+}

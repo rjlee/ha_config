@@ -1,0 +1,343 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_climate",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Climate",
+                    "path": "house",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.blink_front_camera_temperature",
+                                    "name": "House - Front"
+                                },
+                                {
+                                    "entity": "sensor.blink_back_camera_temperature",
+                                    "name": "House - Rear"
+                                }
+                            ],
+                            "title": "Outside"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.lounge_temperature"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.velux_sensor_co2",
+                                    "name": "Main Bedroom - CO2"
+                                },
+                                {
+                                    "entity": "sensor.velux_sensor_humidity",
+                                    "name": "Main Bedroom - Humidity"
+                                }
+                            ],
+                            "title": "Inside"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.hottub_orp",
+                                    "name": "HotTub ORP"
+                                },
+                                {
+                                    "entity": "sensor.hottub_pump_temp",
+                                    "name": "HotTub Water Temperature"
+                                },
+                                {
+                                    "entity": "sensor.hottub_pump_target"
+                                },
+                                {
+                                    "entity": "switch.hottub_power"
+                                },
+                                {
+                                    "entity": "switch.hottub_heat"
+                                },
+                                {
+                                    "entity": "switch.hottub_filter"
+                                },
+                                {
+                                    "entity": "switch.hottub_bubbles"
+                                }
+                            ],
+                            "title": "Hot Tub",
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "title": "Heating",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "group": "group.heating"
+                                    },
+                                    {
+                                        "group": "group.radiators"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "cover.velux_internal_cover_2",
+                                    "name": "Main Bedroom - Blind 1"
+                                },
+                                {
+                                    "entity": "cover.velux_internal_cover",
+                                    "name": "Main Bedroom - Blind 2"
+                                },
+                                {
+                                    "entity": "cover.velux_internal_cover_6",
+                                    "name": "Bell Tower"
+                                },
+                                {
+                                    "entity": "cover.velux_internal_cover_4",
+                                    "name": "child1's Room"
+                                },
+                                {
+                                    "entity": "cover.velux_internal_cover_5",
+                                    "name": "child2's Room"
+                                },
+                                {
+                                    "entity": "cover.velux_internal_cover_3",
+                                    "name": "Spare Room"
+                                }
+                            ],
+                            "title": "Blinds"
+                        }
+                    ]
+                },
+                {
+                    "title": "Network",
+                    "path": "network",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_upload_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_monthly_data"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "picture-glance",
+                                        "camera_image": "camera.router_4g_speed_1h_image",
+                                        "entities": [
+                                            {
+                                                "entity": "camera.router_4g_speed_1h_image"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "picture-glance",
+                                        "camera_image": "camera.router_adsl_speed_1h_image",
+                                        "entities": [
+                                            {
+                                                "entity": "camera.router_adsl_speed_1h_image"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "picture-glance",
+                                    "camera_image": "camera.router_ping_latency_1h_image",
+                                    "entities": [
+                                        {
+                                            "entity": "camera.router_ping_latency_1h_image"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:transmission-card"
+                        }
+                    ]
+                },
+                {
+                    "title": "Cameras",
+                    "path": "cameras",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "title": "Front",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/blink_front/"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "title": "Back",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/blink_back/"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "title": "child2",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/blink_child2/"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "title": "Rear Doorbell",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/back_door/"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Smart Devices",
+                    "path": "smart-devices",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.dads_toothbrush"
+                                },
+                                {
+                                    "entity": "input_datetime.dad_last_cleaned_teeth"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "title": "Hot Tub",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.hottub*"
+                                    },
+                                    {
+                                        "entity_id": "switch.hottub*"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "title": "House"
+        }
+    }
+}

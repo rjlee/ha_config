@@ -1,0 +1,303 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_downstairs",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Lounge",
+                    "path": "lounge",
+                    "icon": "",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "custom:harmony-card",
+                                    "entity": "remote.lounge",
+                                    "volume_device": "LG TV",
+                                    "activities": [
+                                        {
+                                            "name": "Watch TV",
+                                            "device": "Sky DVR"
+                                        },
+                                        {
+                                            "name": "Play XBox",
+                                            "buttons": {
+                                                "dpad_center": {
+                                                    "command": "Select",
+                                                    "icon": "mdi:checkbox-blank-circle"
+                                                },
+                                                "back": {
+                                                    "command": "Return",
+                                                    "hide": false
+                                                },
+                                                "xbox": {
+                                                    "command": "Home",
+                                                    "icon": "mdi:home",
+                                                    "hide": false
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "Watch a Movie",
+                                            "device": "Amazon Fire TV Stick",
+                                            "buttons": {
+                                                "back": {
+                                                    "command": "Back",
+                                                    "hide": false
+                                                },
+                                                "xbox": {
+                                                    "command": "Menu",
+                                                    "icon": "mdi:home",
+                                                    "hide": false
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "buttons": {
+                                        "a": {
+                                            "hide": true
+                                        },
+                                        "b": {
+                                            "hide": true
+                                        },
+                                        "x": {
+                                            "hide": true
+                                        },
+                                        "y": {
+                                            "hide": true
+                                        },
+                                        "back": {
+                                            "hide": true
+                                        },
+                                        "xbox": {
+                                            "hide": true
+                                        }
+                                    },
+                                    "name": "Main TV"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "switch.samsung_q60_series_lounge",
+                                            "icon": "mdi:television",
+                                            "name": "TV"
+                                        },
+                                        {
+                                            "entity": "media_player.lounge_window_sky_q",
+                                            "name": "Sky Q",
+                                            "icon": "mdi:television-guide"
+                                        },
+                                        {
+                                            "entity": "media_player.xbox_lounge_window",
+                                            "name": "XBox",
+                                            "icon": "mdi:gamepad-variant"
+                                        },
+                                        {
+                                            "entity": "input_select.loungevr_options",
+                                            "name": "PC"
+                                        }
+                                    ],
+                                    "title": "Window TV"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "media_player.lounge",
+                                    "name": "Alexa",
+                                    "icon": "mdi:amazon"
+                                },
+                                {
+                                    "entity": "climate.lounge",
+                                    "name": "Heating",
+                                    "icon": "mdi:thermometer"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "",
+                    "title": "Kitchen",
+                    "path": "kitchen",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.kitchen_tv_switch",
+                                    "name": "TV"
+                                },
+                                {
+                                    "entity": "media_player.kitchen_sky_q",
+                                    "name": "Sky Q",
+                                    "icon": "mdi:television-guide"
+                                },
+                                {
+                                    "entity": "media_player.kitchen",
+                                    "name": "Alexa",
+                                    "icon": "mdi:amazon"
+                                },
+                                {
+                                    "entity": "climate.kitchen",
+                                    "name": "Heating",
+                                    "icon": "mdi:thermometer"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:vacuum-card",
+                            "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
+                            "image": "default",
+                            "compact_view": false,
+                            "show_name": true,
+                            "show_toolbar": true,
+                            "show_status": true,
+                            "stats": {
+                                "default": [
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_sidebrush",
+                                        "unit": "%",
+                                        "subtitle": "Side Brush"
+                                    },
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_brush",
+                                        "unit": "%",
+                                        "subtitle": "Main Brush"
+                                    },
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_heap",
+                                        "unit": "%",
+                                        "subtitle": "Heap"
+                                    }
+                                ],
+                                "cleaning": [
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_stats_area",
+                                        "unit": "m2",
+                                        "subtitle": "Area"
+                                    },
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_stats_time",
+                                        "unit": "min",
+                                        "subtitle": "Time"
+                                    }
+                                ]
+                            },
+                            "actions": [
+                                {
+                                    "service": "script.vacuum_kitchen",
+                                    "icon": "mdi:silverware",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "service": "script.vacuum_dogwalk",
+                                    "icon": "mdi:dog",
+                                    "name": "Dogwalk"
+                                },
+                                {
+                                    "service": "script.vacuum_downstairs",
+                                    "icon": "mdi:robot-vacuum-variant",
+                                    "name": "Downstairs"
+                                }
+                            ],
+                            "map": "camera.deebot_ozmo_t8_aivi_kitchen_live_map"
+                        }
+                    ]
+                },
+                {
+                    "title": "Bathroom",
+                    "path": "downstairs-bathroom",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.downstairs_bathroom_light",
+                                    "icon": "mdi:lightbulb"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Hallway",
+                    "path": "hallway",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "group": "group.downstairs_hallway"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Study",
+                    "path": "study",
+                    "icon": "",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "group": "group.study"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Back",
+                    "path": "back",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "show_header_toggle": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "group": "group.back"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

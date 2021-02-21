@@ -1,0 +1,250 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "path": "default_view",
+                    "title": "Home",
+                    "badges": [
+                        {
+                            "entity": "binary_sensor.remote_ui"
+                        },
+                        {
+                            "entity": "binary_sensor.updater"
+                        },
+                        {
+                            "entity": "sensor.hacs"
+                        },
+                        {
+                            "entity": "sun.sun"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "person.dad"
+                                },
+                                {
+                                    "entity": "person.mum"
+                                },
+                                {
+                                    "entity": "binary_sensor.minifox100"
+                                },
+                                {
+                                    "entity": "binary_sensor.dragsterfox100"
+                                },
+                                {
+                                    "entity": "person.libby",
+                                    "name": "Libby"
+                                }
+                            ],
+                            "title": "People",
+                            "show_header_toggle": true
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "binary_sensor.withings_in_bed_child1",
+                                            "state": "off"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bedtime",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:state-switch",
+                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                        "states": {
+                                            "on": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "icon": "mdi:account-check-outline",
+                                                        "name": "Occupied"
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": "child1s Room"
+                                            },
+                                            "off": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "icon": "mdi:account-cancel-outline",
+                                                        "name": "Vacant"
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": "child1s Room"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "binary_sensor.withings_in_bed_child1",
+                                            "state_not": "off"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bedtime",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:state-switch",
+                                        "entity": "input_boolean.child1_asleep",
+                                        "states": {
+                                            "on": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_boolean.child1_asleep",
+                                                        "icon": "mdi:bed",
+                                                        "name": "Asleep"
+                                                    },
+                                                    {
+                                                        "entity": "timer.child1_awake",
+                                                        "name": null
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.child1_noise_sensor",
+                                                        "name": null
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "name": null
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": "child1s Room"
+                                            },
+                                            "off": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_boolean.child1_asleep",
+                                                        "icon": "mdi:baby-face-outline",
+                                                        "name": "Awake"
+                                                    },
+                                                    {
+                                                        "entity": "timer.child1_awake",
+                                                        "name": null
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.child1_noise_sensor",
+                                                        "name": null
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "name": null
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": "child1s Room"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "markdown",
+                                    "content": " ",
+                                    "title": "Collection Days"
+                                },
+                                {
+                                    "type": "custom:garbage-collection-card",
+                                    "entity": "sensor.rubbish_collection",
+                                    "icon_size": "35px",
+                                    "icon_color": "black"
+                                },
+                                {
+                                    "type": "custom:garbage-collection-card",
+                                    "entity": "sensor.recycling_collection",
+                                    "icon_size": "35px",
+                                    "icon_color": "green"
+                                },
+                                {
+                                    "type": "custom:garbage-collection-card",
+                                    "entity": "sensor.garden_refuse_collection",
+                                    "icon_size": "35px",
+                                    "icon_color": "#8B4513"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
