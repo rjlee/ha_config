@@ -1,0 +1,25 @@
+automation:
+    - id: 'upstairs_bathroom_dad_clean_teeth_reminder'
+      alias: Upstairs Bathroom - Dad Brush Teeth Reminder
+      description: ''
+      trigger:
+      - platform: numeric_state
+        entity_id: switch.main_bedroom_dads_bedside_lamp
+        attribute: current_power_w
+        above: '0.5'
+      condition:
+      - condition: time
+        after: '21:00:00'
+        before: '23:30:00'
+      - condition: template
+        value_template: '{{(as_timestamp(now()) - states.input_datetime.dad_last_cleaned_teeth.attributes.timestamp
+          > 21600)}}'
+      action:
+      - service: notify.alexa_media
+        data:
+          message: Dad, don't forget to clean your teeth
+          data:
+            type: tts
+          target:
+          - media_player.mum_and_dad
+      mode: single

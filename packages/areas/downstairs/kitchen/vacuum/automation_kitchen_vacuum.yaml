@@ -1,0 +1,35 @@
+automation:
+- id: 'kitchen_vacuum_dogwalk'
+  alias: Kitchen - Vacuum - Start Clean - Dogwalk
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.dogwalk
+    to: home
+    from: not_home
+  condition: []
+  action:
+  - delay: 00:05:00
+  - service: script.turn_on
+    data:
+      entity_id: script.vacuum_dogwalk
+  mode: single
+- id: 'kitchen_vacuum_start'
+  alias: Kitchen - Vacuum - Start Clean
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.dogwalk
+    from: home
+    to: not_home
+  - platform: time
+    at: '20:00:00'
+  condition: []
+  action:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.deebot_ozmo_t8_aivi_kitchen
+      command: auto_clean
+      params:
+        type: auto
+  mode: single

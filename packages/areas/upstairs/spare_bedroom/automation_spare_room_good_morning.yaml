@@ -1,0 +1,15 @@
+automation:
+    - id: 'spare_room_good_morning'
+      alias: Spare Room - Good Morning
+      description: ''
+      trigger:
+      - platform: time
+        at: '9:00'
+      condition: []
+      action:
+      - device_id: 93f9118517b311ebb57a1fda086e02b4
+        domain: cover
+        entity_id: cover.velux_internal_cover_3
+        type: set_position
+        position: 100
+      mode: single

@@ -1,0 +1,9 @@
+input_select:
+  loungevr_options:
+    name: PC Power Options
+    options:
+      - None
+      - Wake
+      - Sleep
+    initial: None
+    icon: mdi:desktop-tower

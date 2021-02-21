@@ -1,0 +1,13 @@
+automation:
+    - id: 'blink_arm_scheduled'
+      alias: Blink - Arm - Scheduled
+      description: ''
+      trigger:
+      - platform: time
+        at: '22:00:00'
+      condition: []
+      action:
+      - service: alarm_control_panel.alarm_arm_away
+        data: {}
+        entity_id: alarm_control_panel.blink_home
+      mode: single

@@ -1,0 +1,63 @@
+automation:
+    - id: '1main_bedroom_climate_control_open'
+      alias: Main Bedroom - Climate Control - Open
+      description: ''
+      trigger:
+      - type: temperature
+        platform: device
+        device_id: 9f53442d01aa11eb8f2e075db8374889
+        entity_id: sensor.velux_sensor_temperature
+        domain: sensor
+        above: 0
+        for:
+          hours: 0
+          minutes: 5
+          seconds: 0
+        below: 24
+      condition:
+      - condition: sun
+        before: sunset
+        after: sunrise
+      action:
+      - scene: scene.blinds_open
+      mode: single
+    - id: '1601402318613'
+      alias: Main Bedroom - Close Curtains - Dusk
+      description: ''
+      trigger:
+      - platform: sun
+        event: sunset
+      condition: []
+      action:
+      - scene: scene.curtains_closed
+      mode: single
+    - id: 'main_bedroom_climate_control_close'
+      alias: Main Bedroom - Climate Control - Close
+      description: ''
+      trigger:
+      - type: temperature
+        platform: device
+        device_id: 9f53442d01aa11eb8f2e075db8374889
+        entity_id: sensor.velux_sensor_temperature
+        domain: sensor
+        above: 25
+        for:
+          hours: 0
+          minutes: 5
+          seconds: 0
+      condition:
+      - condition: sun
+        before: sunset
+        after: sunrise
+      action:
+      - device_id: 9f4cfdbd01aa11ebb3b81376e68fa89d
+        domain: cover
+        entity_id: cover.velux_internal_cover_2
+        type: set_position
+        position: 50
+      - device_id: 9f4cb42501aa11eb8abb81faf738796f
+        domain: cover
+        entity_id: cover.velux_internal_cover
+        type: set_position
+        position: 50
+      mode: single

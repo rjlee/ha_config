@@ -1,0 +1,8 @@
+webostv:
+   host: !secret main_bedroom_webostv_host
+   name: Master Bedroom TV
+   turn_on_action:
+     service: wake_on_lan.send_magic_packet
+     data:
+       mac: !secret main_bedroom_webostv_mac
+       broadcast_address: !secret main_bedroom_webostv_broadcast

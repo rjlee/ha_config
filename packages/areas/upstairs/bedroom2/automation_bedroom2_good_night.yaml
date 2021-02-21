@@ -1,0 +1,19 @@
+automation:
+    - id: 'child2_bedroom_good_night'
+      alias: child2 Bedroom - Good Night
+      description: ''
+      trigger:
+      - platform: sun
+        event: sunset
+      condition: []
+      action:
+      - type: turn_on
+        device_id: c8cfe19e07be11eba47edfb074f167c3
+        entity_id: switch.child2_bedside_lamp
+        domain: switch
+      - device_id: 93f9354117b311eb8b436525b0da5a14
+        domain: cover
+        entity_id: cover.velux_internal_cover_5
+        type: set_position
+        position: 0
+      mode: single

@@ -1,0 +1,182 @@
+people:
+    name: People 
+    icon: mdi:face
+    entities:
+      - person.dad
+      - person.mum
+      - device_tracker.libby
+
+dogwalk:
+    name: Dogwalk
+    icon: mdi:face
+    entities:
+      - person.mum
+      - device_tracker.libby
+
+blinds:
+    name: Blinds
+    icon: mdi:blinds
+    entities:
+      - cover.velux_internal_cover
+      - cover.velux_internal_cover_2
+      - cover.velux_internal_cover_3
+      - cover.velux_internal_cover_4
+      - cover.velux_internal_cover_5
+      - cover.velux_internal_cover_6
+
+curtains:
+    name: Blinds
+    icon: mdi:blinds
+    entities:
+      - cover.bedroom
+
+lights:
+    name: Blinds
+    icon: mdi:lightbulb-multiple
+    entities:
+      - switch.child1_bedside_lamp
+      - switch.child2_bedside_lamp
+      - switch.downstairs_bathroom_light
+
+radiators:
+    name: Radiators
+    icon: mdi:thermometer
+    entities:
+      - climate.lounge
+      - climate.kitchen
+      - climate.study
+      - climate.child2s_room
+      - climate.child1s_room
+      - climate.main_bedroom
+      - climate.spare_room
+      - climate.downstairs_hallway
+
+heating:
+    name: Heating
+    icon: mdi:thermometer
+    entities:
+      - group.radiators
+      - climate.heating
+      - water_heater.hot_water
+
+# Downstairs
+
+lounge:
+    name: Lounge
+    icon: mdi:television
+    entities:
+      - remote.lounge
+      - media_player.lounge
+      - climate.lounge
+      - input_select.loungevr_options
+      - media_player.xbox_lounge
+      - media_player.xbox_lounge_window
+
+kitchen:
+    name: Kitchen
+    icon: mdi:food
+    entities:
+      - switch.kitchen_tv_switch
+      - media_player.kitchen_sky_q
+      - media_player.kitchen
+      - climate.kitchen
+      - vacuum.deebot_ozmo_t8_aivi_kitchen
+
+downstairs_bathroom:
+    name: Downstairs Bathroom
+    icon: mdi:toilet
+    entities:
+      - switch.downstairs_bathroom_light
+      - binary_sensor.motion_sensor_motion
+      - sensor.motion_sensor_battery
+      - sensor.motion_sensor_temperature_measurement
+
+downstairs_hallway:
+    name: Downstairs Hallway
+    icon: mdi:broom
+    entities:
+      - sensor.hallway_volume
+      - climate.downstairs_hallway
+
+study:
+    name: Study
+    icon: mdi:desk
+    entities:
+      - climate.study
+
+
+back:
+    name: Back
+    icon: mdi:door
+    entities:
+      - binary_sensor.back_door_ding
+      - binary_sensor.back_door_motion
+      - sensor.back_door_battery
+      - sensor.back_door_volume
+      - sensor.back_door_last_activity
+      - sensor.back_door_last_ding
+      - sensor.back_door_last_motion
+      - camera.back_door
+
+# Upstairs
+
+main_bedroom:
+    name: Main Bedroom
+    icon: mdi:bed
+    entities:
+      - switch.kitchen_tv_switch
+      - media_player.master_bedroom_skyq
+      - sensor.velux_sensor_temperature
+      - sensor.velux_sensor_humidity
+      - sensor.velux_sensor_co2
+      - cover.velux_internal_cover_2
+      - cover.velux_internal_cover
+      - cover.velux_internal_cover_6
+      - cover.bedroom
+      - climate.main_bedroom
+      - switch.main_bedroom_dads_bedside
+      - sensor.main_bedroom_dads_bedside_lamp_power_meter
+
+child1s_room:
+    name: child1s Room
+    icon: mdi:bed
+    entities:
+      - binary_sensor.withings_in_bed_child1
+      - binary_sensor.child1_noise_sensor
+      - alarm_control_panel.blink_child1s_camera
+      - binary_sensor.child1s_room_motion_sensor_motion
+      - binary_sensor.blink_child1s_camera_motion_detected
+      - switch.child1_bedside_lamp
+      - cover.velux_internal_cover_4
+      - media_player.child1s_room
+      - climate.child1s_room
+      - timer.child1_awake
+
+child2s_room:
+    name: child2s Room
+    icon: mdi:bed
+    entities:
+      - alarm_control_panel.blink_child2s_camera
+      - binary_sensor.blink_child2s_camera_motion_detected
+      - switch.child2_bedside_lamp
+      - cover.velux_internal_cover_5
+      - media_player.child2s_room
+      - climate.child2s_room
+
+upstairs_hall:
+    name: Upstairs Hall
+    icon: mdi:broom
+    entities:
+      - climate.heating
+      - water_heater.hot_water
+
+spare_room:
+    name: Spare Room
+    icon: mdi:bed
+    entities:
+      - cover.velux_internal_cover_6
+      - media_player.spare_room
+      - climate.spare_room
+      - input_select.child1_laptop_options
+      - media_player.xbox_spareroom
+

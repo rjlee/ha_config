@@ -1,0 +1,24 @@
+automation:
+    - id: 'spare_room_leave_reminder'
+      alias: Spare Room - Leave Reminder
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:40:00
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      action:
+      - service: notify.alexa_media
+        data:
+          message: child1, its time to leave for school
+          data:
+            type: tts
+          target:
+          - media_player.spare_room
+      mode: single

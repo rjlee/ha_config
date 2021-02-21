@@ -1,0 +1,12 @@
+vacuum:
+
+deebot:
+  username: !secret deebot_username
+  password: !secret deebot_password
+  country: UK
+  continent: EU
+  deviceid:
+    - !secret deebot_kitchen_device_id
+  live_map: True
+  show_color_rooms: False
+  livemappath: 'www/'

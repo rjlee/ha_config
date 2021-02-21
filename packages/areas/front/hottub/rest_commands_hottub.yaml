@@ -1,0 +1,25 @@
+rest_command:
+  hottub_command: 
+    method: POST
+    content_type: "application/x-www-form-urlencoded"
+    url: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/{{hottub_command}}"
+    payload: !secret hottub_api_did
+
+  hottub_temp_set: 
+    method: POST
+    content_type: "application/x-www-form-urlencoded"
+    url: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/temp_set"
+    payload: "{{(states('sensor.hottub_api_did'))}}&temperature={{hottub_water_target}}"
+
+  hottub_temp_set_unit: 
+    method: POST
+    content_type: "application/x-www-form-urlencoded"
+    url: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/temp_set_unit"
+    payload: "{{hottub_api_did}}&unit={{hottub_tempcode}}"
+  # on for 3 hours, off for 4 at 36
+  # 0, 0, 0 for cancel schedule
+  hottub_set_schedule: 
+    method: POST
+    content_type: "application/x-www-form-urlencoded"
+    url: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/set_schedule"
+    payload: "{{ hottub_api_did }}&heat_in={{ hottub_heat_in | int | string }}&duration={{ hottub_duration | int | string }}&temperature={{ hottub_temp | int | string }}"

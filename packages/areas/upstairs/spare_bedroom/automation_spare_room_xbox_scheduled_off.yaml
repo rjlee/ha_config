@@ -1,0 +1,13 @@
+automation:
+    - id: 'spare_room_xbox_off'
+      alias: Spare Room - Xbox - Off
+      description: ''
+      trigger:
+      - platform: time
+        at: '21:00:00'
+      condition: []
+      action:
+      - service: media_player.turn_off
+        data: {}
+        entity_id: media_player.xbox_spareroom
+      mode: single

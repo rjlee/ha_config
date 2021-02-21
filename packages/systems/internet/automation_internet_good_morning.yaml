@@ -1,0 +1,17 @@
+automation:
+    - id: 'internet_good_morning'
+      alias: House - Internet - Good Morning
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:00:00
+      - platform: state
+        entity_id: group.people
+        from: not_home
+        to: home
+      condition: []
+      action:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.4g
+      mode: single

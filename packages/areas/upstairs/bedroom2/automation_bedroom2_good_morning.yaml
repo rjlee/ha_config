@@ -1,0 +1,50 @@
+automation:
+    - id: 'child2_bedroom_good_morning'
+      alias: child2 Bedroom - Good Morning
+      description: ''
+      trigger:
+      - platform: time
+        at: 07:50
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      action:
+      - device_id: 93f9354117b311eb8b436525b0da5a14
+        domain: cover
+        entity_id: cover.velux_internal_cover_5
+        type: set_position
+        position: 100
+      - delay: 00:00:20
+      - type: turn_off
+        device_id: c8cfe19e07be11eba47edfb074f167c3
+        entity_id: switch.child2_bedside_lamp
+        domain: switch
+      mode: single
+    - id: 'child2_bedroom_good_morning_weekend'
+      alias: child2 Bedroom - Good Morning - Weekend
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:30
+      condition:
+      - condition: time
+        weekday:
+        - sat
+        - sun
+      action:
+      - device_id: 93f9354117b311eb8b436525b0da5a14
+        domain: cover
+        entity_id: cover.velux_internal_cover_5
+        type: set_position
+        position: 100
+      - delay: 00:00:20
+      - type: turn_off
+        device_id: c8cfe19e07be11eba47edfb074f167c3
+        entity_id: switch.child2_bedside_lamp
+        domain: switch
+      mode: single

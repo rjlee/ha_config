@@ -1,0 +1,15 @@
+automation:
+    - id: 'spare_room_good_night'
+      alias: Spare Room - Good Night
+      description: ''
+      trigger:
+      - platform: sun
+        event: sunset
+      condition: []
+      action:
+      - device_id: 93f9118517b311ebb57a1fda086e02b4
+        domain: cover
+        entity_id: cover.velux_internal_cover_3
+        type: set_position
+        position: 0
+      mode: single

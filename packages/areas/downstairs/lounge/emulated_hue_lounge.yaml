@@ -1,0 +1,12 @@
+# Used by harmony remote, to avoid turning on both Xboxes at the same time via IR !
+emulated_hue:
+  expose_by_default: false
+  exposed_domains:
+    - media_player
+  entities:
+    media_player.xbox_lounge:
+      name: "Xbox Lounge"
+      hidden: false
+    media_player.lounge_sky_q:
+      name: "SkyQ Lounge"
+      hidden: false

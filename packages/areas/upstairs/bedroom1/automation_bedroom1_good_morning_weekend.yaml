@@ -1,0 +1,24 @@
+automation:
+    - id: 'child1_bedroom_good_morning_weekend'
+      alias: child1 Bedroom - Good Morning - Weekend
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:30
+      condition:
+      - condition: time
+        weekday:
+        - sat
+        - sun
+      action:
+      - device_id: 93f924d517b311ebb9bb8d79d0cf841c
+        domain: cover
+        entity_id: cover.velux_internal_cover_4
+        type: set_position
+        position: 100
+      - delay: 00:00:20
+      - type: turn_off
+        device_id: 043c8e66074011eb9d14e34a94f6f655
+        entity_id: switch.child1_bedside_lamp
+        domain: switch
+      mode: single

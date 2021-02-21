@@ -1,0 +1,35 @@
+automation:
+    - id: 'main_bedroom_curtains_state_open'
+      alias: Main Bedroom - Curtains - State Open
+      description: ''
+      trigger:
+      - platform: event
+        event_type: call_service
+        event_data:
+          service_data:
+            entity_id: scene.curtains_open
+          domain: scene
+          service: turn_on
+      condition: []
+      action:
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.curtains_open
+      mode: single
+    - id: 'main_bedroom_curtains_state_closed'
+      alias: Main Bedroom - Curtains - State Closed
+      description: ''
+      trigger:
+      - platform: event
+        event_type: call_service
+        event_data:
+          service_data:
+            entity_id: scene.curtains_closed
+          domain: scene
+          service: turn_on
+      condition: []
+      action:
+      - service: input_boolean.turn_off
+        data: {}
+        entity_id: input_boolean.curtains_open
+      mode: single

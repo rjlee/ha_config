@@ -1,0 +1,31 @@
+automation:
+    - id: 'child1_bedroom_wake_up_reminder'
+      alias: child1 Bedroom - Wake Up Reminder
+      description: ''
+      trigger:
+      - platform: time
+        at: 07:52:00
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      - condition: state
+        entity_id: binary_sensor.withings_in_bed_child1
+        state: 'on'
+      action:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.child1s_room
+          volume_level: 0.5
+      - service: notify.alexa_media
+        data:
+          message: child1, its time to get up for school.  Dont forget to put on deodorant
+          data:
+            type: tts
+          target:
+          - media_player.child1s_room
+      mode: single

@@ -1,0 +1,17 @@
+automation:
+    - id: 'blink_disarm_presence'
+      alias: Blink - Disarm - Presence
+      description: ''
+      trigger:
+      - platform: state
+        entity_id: group.people
+        from: not_home
+        to: home
+      condition:
+      - condition: sun
+        before: sunset
+      action:
+      - service: alarm_control_panel.alarm_disarm
+        data: {}
+        entity_id: alarm_control_panel.blink_home
+      mode: single

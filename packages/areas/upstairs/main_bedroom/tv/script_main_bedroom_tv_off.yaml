@@ -1,0 +1,14 @@
+script:
+    main_bedroom_tv_off:
+      alias: main_bedroom_tv_off
+      mode: single
+      icon: mdi:television
+      sequence:
+      - service: remote.send_command
+        entity_id: remote.main_bedroom_ir_blaster_remote
+        data:
+          device: main_bedroom_tv
+          command: power_off
+      - service: input_boolean.turn_off
+        data: {}
+        entity_id: input_boolean.main_bedroom_tv_switch

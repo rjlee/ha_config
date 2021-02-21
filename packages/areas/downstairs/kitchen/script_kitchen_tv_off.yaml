@@ -1,0 +1,14 @@
+script:
+    kitchen_tv_off:
+      alias: kitchen_tv_off
+      mode: single
+      icon: mdi:television
+      sequence:
+      - service: remote.send_command
+        entity_id: remote.kitchen_broadlink_ir_blaster_remote
+        data:
+          device: kitchen_tv
+          command: power_off
+      - service: input_boolean.turn_off
+        data: {}
+        entity_id: input_boolean.kitchen_tv_switch

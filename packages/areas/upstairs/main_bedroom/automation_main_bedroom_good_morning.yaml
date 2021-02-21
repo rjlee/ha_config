@@ -1,0 +1,11 @@
+automation:
+- id: 'main_bedroom_good_morning'
+  alias: Main Bedroom - Good Morning
+  mode: single
+  trigger:
+  - platform: time
+    at: '9:00'   
+  condition: []
+  action:
+  - scene: scene.curtains_open
+  - scene: scene.blinds_open

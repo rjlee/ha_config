@@ -1,0 +1,9 @@
+switch:
+- platform: command_line
+  switches:
+     4g:
+       command_on: "/config/shell/router/router-4g.sh"
+       command_off: "/config/shell/router/router-adsl.sh"
+       command_state: "/config/shell/router/router-4g-status.sh"
+       value_template: '{{ value == "1" }}'
+       friendly_name: 4G Internet

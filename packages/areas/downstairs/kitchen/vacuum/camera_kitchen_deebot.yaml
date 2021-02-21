@@ -1,0 +1,5 @@
+camera:
+  - platform: generic
+    name: deebot_ozmo_t8_aivi_kitchen_live_map
+    still_image_url: !secret kitchen_deebot_camera
+    verify_ssl: false

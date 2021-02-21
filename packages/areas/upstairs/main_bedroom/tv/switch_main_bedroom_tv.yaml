@@ -1,0 +1,19 @@
+switch:
+    - platform: template
+      switches:
+          main_bedroom_tv_switch:
+            friendly_name: "Main Bedroom TV"
+            icon_template: mdi:television
+            value_template: "{{ is_state('input_boolean.main_bedroom_tv_switch', 'on') }}"
+            turn_on:
+              - condition: state
+                entity_id: input_boolean.main_bedroom_tv_switch
+                state: 'off'
+              - service: script.turn_on
+                entity_id: script.main_bedroom_tv_on
+            turn_off:
+              - condition: state
+                entity_id: input_boolean.main_bedroom_tv_switch
+                state: 'on'
+              - service: script.turn_on
+                entity_id: script.main_bedroom_tv_off

@@ -1,0 +1,3 @@
+timer:
+  child1_awake: 
+    duration: '00:10:00'

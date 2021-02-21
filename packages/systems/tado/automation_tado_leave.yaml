@@ -1,0 +1,17 @@
+automation:
+    - id: 'tado_leave'
+      alias: Heating - Leave
+      description: ''
+      trigger:
+      - platform: state
+        entity_id: group.people
+        from: home
+        to: not_home
+      condition: []
+      action:
+      - device_id: 0fa5fbc01b9911ebb57d7bea9876cb88
+        domain: climate
+        entity_id: climate.heating
+        type: set_preset_mode
+        preset_mode: away
+      mode: single

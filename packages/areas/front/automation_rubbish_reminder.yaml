@@ -1,0 +1,17 @@
+automation:
+    - id: 'front_garden_rubbish_reminder'
+      alias: Front - Rubbish Reminder
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:15
+      condition:
+      - condition: state
+        entity_id: sensor.rubbish_collection
+        state: 0
+        attribute: days
+      action:
+      - service: notify.mobile_mum
+        data:
+          message: Reminder, its black bin day
+      mode: single

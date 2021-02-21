@@ -1,0 +1,17 @@
+automation:
+    - id: 'front_garden_recycling_reminder'
+      alias: Main Bedroom - Recycling Reminder
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:15
+      condition:
+      - condition: state
+        entity_id: sensor.recycling_collection
+        state: 0
+        attribute: days
+      action:
+      - service: notify.mobile_mum
+        data:
+          message: Reminder, its green bin day
+      mode: single

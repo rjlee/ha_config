@@ -1,0 +1,20 @@
+automation:
+    - id: 'front_hottub_weekend'
+      alias: Front - Hot Tub - Weekend
+      description: ''
+      trigger:
+      - platform: time
+        at: 05:00:00
+      condition:
+      - condition: time
+        weekday:
+        - sat
+        - sun
+      - condition: state
+        entity_id: sensor.hottub_online
+        state: 'true'
+      action:
+      - service: rest_command.hottub_temp_set
+        data:
+          hottub_water_target: 35
+      mode: single

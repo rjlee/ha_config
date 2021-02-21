@@ -1,0 +1,14 @@
+automation:
+    - id: 'blink_trigger_camera_child2'
+      alias: Blink - Trigger Camera - child2
+      description: ''
+      trigger:
+      - platform: time_pattern
+        seconds: '30'
+      condition: []
+      action:
+      - service: blink.trigger_camera
+        data: {}
+        entity_id: camera.blink_child2s_camera
+      - delay: 00:00:05
+      mode: single

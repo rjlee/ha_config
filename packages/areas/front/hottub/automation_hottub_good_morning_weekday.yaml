@@ -1,0 +1,23 @@
+automation:
+    - id: 'front_hot_tub_school'
+      alias: Front - Hot Tub - School
+      description: ''
+      trigger:
+      - platform: time
+        at: 06:30:00
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      - condition: state
+        entity_id: sensor.hottub_online
+        state: 'true'
+      action:
+      - service: rest_command.hottub_temp_set
+        data:
+          hottub_water_target: 38
+      mode: single

@@ -1,0 +1,13 @@
+automation:
+    - id: 'main_bedroom_good_night'
+      alias: Main Bedroom - Good Night
+      description: ''
+      trigger:
+      - platform: sun
+        event: sunset
+        offset: 00:15:00
+      condition: []
+      action:
+      - scene: scene.curtains_closed
+      - scene: scene.blinds_closed
+      mode: single

@@ -1,0 +1,83 @@
+sensor:
+ - platform: rest
+   name: hottub_login
+   scan_interval: 172000
+   resource: "https://mobileapi.lay-z-spa.co.uk/v1/auth/login"
+   headers:
+     Content-Type: application/x-www-form-urlencoded
+   method: POST
+   payload: !secret hottub_email_password
+   value_template: "{{ value_json.data.api_token }}"    
+   json_attributes_path: "$.devices[0]"
+   json_attributes:
+     - did
+ - platform: rest
+   name: hottub_online
+   resource: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/is_online"
+   headers:
+     Content-Type: application/x-www-form-urlencoded
+   method: POST
+   payload: !secret hottub_api_did
+   value_template: "{{ value_json.data }}"
+ - platform: rest
+   name: hottub_status
+   resource: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/status"
+   headers:
+     Content-Type: application/x-www-form-urlencoded
+   method: POST
+   payload: !secret hottub_api_did
+   value_template: "{{ value_json.data.attr.power }}"    
+   json_attributes_path: "$.data.attr"
+   json_attributes:
+     - system_err2
+     - wave_appm_min
+     - heat_timer_min
+     - heat_power
+     - earth
+     - wave_timer_min
+     - system_err6
+     - system_err7
+     - system_err4
+     - system_err5
+     - heat_temp_reach
+     - system_err3
+     - system_err1
+     - system_err8
+     - system_err9
+     - filter_timer_min
+     - heat_appm_min
+     - power
+     - temp_set_unit
+     - filter_appm_min
+     - temp_now
+     - wave_power
+     - locked
+     - filter_power
+     - temp_set
+ - platform: template
+   sensors:
+     hottub_pump_temp:
+       availability_template: "{{ states('sensor.hottub_online') }}"
+       friendly_name: "HotTub Pump Temperature"
+       unit_of_measurement: '°C'
+       value_template: "{{ state_attr('sensor.hottub_status', 'temp_now') | int }}"  
+     hottub_water_temp:
+       availability_template: "{{ states('sensor.hottub_online') }}"
+       friendly_name: "HotTub Water Temperature"
+       unit_of_measurement: '°C'        
+       value_template: "{{ states('input_number.hottub_water_temp') | int }}"
+     hottub_pump_target:
+       availability_template: "{{ states('sensor.hottub_online') }}"
+       friendly_name: "HotTub Pump Target"
+       unit_of_measurement: '°C'
+       value_template: "{{ state_attr('sensor.hottub_status', 'temp_set') | int }}"      
+     hottub_summary:
+       availability_template: "{{ states('sensor.hottub_online') }}"
+       friendly_name: "HotTub Status"
+       value_template: "{% if is_state('sensor.hottub_online','false') %}offline{% elif is_state('sensor.hottub_error','on') %}error{% elif is_state('input_boolean.hottub_scheduled','on') and is_state('switch.hottub_filter','off') %}scheduled{% elif is_state('switch.hottub_power','off') %}off{% elif state_attr('sensor.hottub_status','heat_temp_reach')==1 %}reached{% elif is_state('switch.hottub_heat','on') %}heat{% elif is_state('switch.hottub_filter','off') %}on{% elif is_state('switch.hottub_heat','off') %}filter{% elif is_state('switch.hottub_bubbles','off') %}heat{% else %}bubbles{% endif %}"
+     hottub_error:
+       availability_template: "{{ states('sensor.hottub_online') }}"
+       friendly_name: "HotTub Error"      
+       value_template: "{% if ( state_attr('sensor.hottub_status','system_err1') + state_attr('sensor.hottub_status','system_err2') + state_attr('sensor.hottub_status','system_err3') + state_attr('sensor.hottub_status','system_err4') + state_attr('sensor.hottub_status','system_err5') + state_attr('sensor.hottub_status','system_err6') + state_attr('sensor.hottub_status','system_err7') + state_attr('sensor.hottub_status','system_err8') + state_attr('sensor.hottub_status','system_err9') + state_attr('sensor.hottub_status','earth')) > 0 %}on{% else %}off{% endif %}"
+     hottub_api_did:
+        value_template: !secret hottub_api_did

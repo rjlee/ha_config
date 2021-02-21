@@ -1,0 +1,17 @@
+automation:
+    - id: 'front_garden_refuse_reminder'
+      alias: Front - Garden Refuse Reminder
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:15
+      condition:
+      - condition: state
+        entity_id: sensor.garden_refuse_collection
+        state: 0
+        attribute: days
+      action:
+      - service: notify.mobile_mum
+        data:
+          message: Reminder, its brown bin day
+      mode: single
