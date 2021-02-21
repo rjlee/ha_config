@@ -28,13 +28,5 @@ panel_iframe:
   configurator:
     title: File Editor
     icon: mdi:wrench
-    url: http://wopr.home:3218
+    url: !secret url_file_editor
 
-#switch:
-#- platform: template
-#  switches: !include_dir_merge_named switches
-
-timer:
-  vacuum:
-    duration: '00:30:00'
-    
