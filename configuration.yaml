@@ -7,8 +7,8 @@ default_config:
 
 logger:
   default: info
-  logs:
-    homeassistant.components.automation: debug
+#  logs:
+#    homeassistant.components.automation: debug
 #    homeassistant.components.rest.sensor: debug
 #    homeassistant.components.rest_command: debug
 #    homeassistant.components.binary_sensor: debug
