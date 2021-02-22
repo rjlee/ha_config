@@ -8,4 +8,4 @@ automation:
   condition: []
   action:
   - scene: scene.curtains_open
-  - scene: scene.blinds_open
+  - scene: scene.blinds_open_2

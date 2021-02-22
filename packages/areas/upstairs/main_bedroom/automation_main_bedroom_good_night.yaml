@@ -9,5 +9,5 @@ automation:
       condition: []
       action:
       - scene: scene.curtains_closed
-      - scene: scene.blinds_closed
+      - scene: scene.blinds_closed_2
       mode: single
