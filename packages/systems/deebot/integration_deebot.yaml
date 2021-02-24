@@ -7,6 +7,7 @@ deebot:
   continent: EU
   deviceid:
     - !secret deebot_kitchen_device_id
+    - !secret deebot_lounge_device_id
   live_map: True
   show_color_rooms: False
   livemappath: 'www/'
