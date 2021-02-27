@@ -1,6 +1,7 @@
 automation:
   - id: 'internet_bandwidth_4g_monitoring'
-    description: House - Internet - 4G Monitoring 
+    alias: House - Internet - 4G Monitoring
+    description: ''
     mode: single
     trigger:
       - platform: numeric_state
