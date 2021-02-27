@@ -1,6 +1,6 @@
 automation:
-  - id: 'internet_bandwidth_warning'
-    description: House - Internet - Bandwidth Warning
+  - id: 'internet_bandwidth_4g_monitoring'
+    description: House - Internet - 4G Monitoring 
     mode: single
     trigger:
       - platform: numeric_state
