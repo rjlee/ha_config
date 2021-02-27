@@ -124,6 +124,47 @@
                                     "icon": "mdi:thermometer"
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:vacuum-card",
+                            "entity": "vacuum.deebot_ozmo_920_lounge",
+                            "image": "default",
+                            "compact_view": false,
+                            "show_name": true,
+                            "show_toolbar": true,
+                            "show_status": true,
+                            "stats": {
+                                "default": [
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_920_lounge_sidebrush",
+                                        "unit": "%",
+                                        "subtitle": "Side Brush"
+                                    },
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_920_lounge_brush",
+                                        "unit": "%",
+                                        "subtitle": "Main Brush"
+                                    },
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_920_lounge_heap",
+                                        "unit": "%",
+                                        "subtitle": "Heap"
+                                    }
+                                ],
+                                "cleaning": [
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_920_lounge_stats_area",
+                                        "unit": "m2",
+                                        "subtitle": "Area"
+                                    },
+                                    {
+                                        "entity_id": "sensor.deebot_ozmo_920_lounge_stats_time",
+                                        "unit": "min",
+                                        "subtitle": "Time"
+                                    }
+                                ]
+                            },
+                            "map": "camera.deebot_ozmo_920_lounge_live_map"
                         }
                     ]
                 },
