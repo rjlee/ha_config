@@ -1,0 +1,14 @@
+automation:
+  - id: 'internet_bandwidth_warning'
+    description: House - Internet - Bandwidth Warning
+    mode: single
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.4g_download_speed
+        above: '2000'
+        for: '00:05:00'
+    condition: []
+    action:
+      - service: notify.mobile_dad
+        data:
+          message: 4G Download speed > 2MB/s for 5 mins
