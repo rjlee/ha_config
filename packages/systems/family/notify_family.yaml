@@ -1,0 +1,6 @@
+notify:
+  - name: family
+    platform: group
+    services:
+    - service: mobile_dad
+    - service: mobile_mum

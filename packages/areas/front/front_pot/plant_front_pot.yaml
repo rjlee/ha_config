@@ -1,0 +1,17 @@
+plant:
+  front_pot:
+    sensors:
+      moisture: sensor.front_pot_moisture
+      battery: sensor.front_pot_battery
+      temperature: sensor.front_pot_temperature
+      conductivity: sensor.front_pot_conductivity
+      brightness: sensor.front_pot_brightness
+    min_battery: 15
+    min_brightness: 4000
+    max_brightness: 50000
+    min_temperature: 5 
+    min_temperature: 35
+    min_moisture: 15
+    max_moisture: 60
+    min_conductivity: 350
+    max_conductivity: 2000   

@@ -1,0 +1,26 @@
+sensor:
+  - platform: mqtt
+    name: "Front Pot Temperature"
+    state_topic: "miflora/FrontPot"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Front Pot Moisture"
+    state_topic: "miflora/FrontPot"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.moisture }}"
+  - platform: mqtt
+    name: "Front Pot Brightness"
+    state_topic: "miflora/FrontPot"
+    unit_of_measurement: "lux"
+    value_template: "{{ value_json.light }}"
+  - platform: mqtt
+    name: "Front Pot Conductivity"
+    state_topic: "miflora/FrontPot"
+    unit_of_measurement: "µS/cm"
+    value_template: "{{ value_json.conductivity }}"
+  - platform: mqtt
+    name: "Front Pot Battery"
+    state_topic: "miflora/FrontPot"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"

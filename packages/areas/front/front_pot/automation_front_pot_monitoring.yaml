@@ -1,0 +1,15 @@
+automation:
+    id: "front_pot_monitoring"
+    alias: Front Pot Monitoring
+    description: ''
+    mode: single
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.front_pot_moisture
+        below: '15'
+        for: '00:10:00'
+    condition: []
+    action:
+      - service: notify.family
+        data:
+          message: Water the front pot, it's thirsty !

@@ -120,6 +120,11 @@
                                 }
                             ],
                             "title": "Blinds"
+                        },
+                        {
+                            "type": "plant-status",
+                            "entity": "plant.front_pot",
+                            "name": "Front Pot"
                         }
                     ]
                 },
