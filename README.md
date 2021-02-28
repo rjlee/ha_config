@@ -29,9 +29,11 @@ Using a waterproof <a href="https://www.thetileapp.com/en-us/store/tiles/sticker
 
 See <a href="/packages/areas/downstairs/kitchen/vacuum/">`/packages/areas/downstairs/kitchen/vacuum/`</a>.
 
-## Automating Bedtime
+## Automating Kids Bedtime
 
-Coming soon
+Using <a href="https://www.veluxusa.com/products/smart-home/velux-active">Velux Active Blinds</a>, <a href="https://www.kasasmart.com/us/products/smart-plugs">Kasa Plugs</a> and scheduled powering off of devices, lots of the repetitive kids bedtime tasks are removed (other than tidying clothes !).
+
+See <a href="/packages/areas/upstairs/bedroom1/automation_bedroom1_good_night.yaml">`/packages/areas/upstairs/bedroom1/automation_bedroom1_good_night.yaml`</a> and <a href="/packages/areas/upstairs/spare_bedroom/automation_spare_room_xbox_scheduled_off.yaml">`/packages/areas/upstairs/spare_bedroom/automation_spare_room_xbox_scheduled_off.yaml`</a> for examples.
 
 ## School reminders
 
