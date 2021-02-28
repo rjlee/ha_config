@@ -19,6 +19,8 @@ See <a href="/packages/areas/upstairs/bedroom1/noise_sensor">`/packages/areas/up
 
 ## Hot Tub Water Quality Sensor
 
+<img src="/docs/images/hot_tub_sensor.png" />
+
 For the laz-y-spa hot tub, I built my own <a href="https://github.com/rjlee/grove_orp_exporter">water quality sensor</a> so I know when to add chemicals to the tub.  The hot tub is also automated via <a href="https://github.com/B-Hartley/bruces_homeassistant_config/tree/master/packages/areas/garden/hottub-lay-z-spa">lay-z-spa hottub</a>.
 
 ## Dog friendly auto vacuuming
