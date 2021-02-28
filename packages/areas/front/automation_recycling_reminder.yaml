@@ -11,7 +11,7 @@ automation:
         state: 0
         attribute: days
       action:
-      - service: notify.mobile_mum
+      - service: notify.family
         data:
           message: Reminder, its green bin day
       mode: single
