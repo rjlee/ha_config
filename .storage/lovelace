@@ -33,10 +33,10 @@
                                     "entity": "person.mum"
                                 },
                                 {
-                                    "entity": "binary_sensor.minifox100"
+                                    "entity": "person.child1"
                                 },
                                 {
-                                    "entity": "binary_sensor.dragsterfox100"
+                                    "entity": "person.child2"
                                 },
                                 {
                                     "entity": "person.libby",
