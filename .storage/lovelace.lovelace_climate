@@ -24,24 +24,9 @@
                             "title": "Outside"
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.lounge_temperature"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_temperature"
-                                },
-                                {
-                                    "entity": "sensor.velux_sensor_co2",
-                                    "name": "Main Bedroom - CO2"
-                                },
-                                {
-                                    "entity": "sensor.velux_sensor_humidity",
-                                    "name": "Main Bedroom - Humidity"
-                                }
-                            ],
-                            "title": "Inside"
+                            "type": "plant-status",
+                            "entity": "plant.front_pot",
+                            "name": "Front Pot"
                         },
                         {
                             "type": "entities",
@@ -72,6 +57,26 @@
                             ],
                             "title": "Hot Tub",
                             "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.lounge_temperature"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.velux_sensor_co2",
+                                    "name": "Main Bedroom - CO2"
+                                },
+                                {
+                                    "entity": "sensor.velux_sensor_humidity",
+                                    "name": "Main Bedroom - Humidity"
+                                }
+                            ],
+                            "title": "Inside"
                         },
                         {
                             "type": "custom:auto-entities",
@@ -120,11 +125,6 @@
                                 }
                             ],
                             "title": "Blinds"
-                        },
-                        {
-                            "type": "plant-status",
-                            "entity": "plant.front_pot",
-                            "name": "Front Pot"
                         }
                     ]
                 },
