@@ -23,6 +23,14 @@ See <a href="/packages/areas/upstairs/bedroom1/noise_sensor">`/packages/areas/up
 
 For the laz-y-spa hot tub, I built my own <a href="https://github.com/rjlee/grove_orp_exporter">water quality sensor</a> so I know when to add chemicals to the tub.  The hot tub is also automated via <a href="https://github.com/B-Hartley/bruces_homeassistant_config/tree/master/packages/areas/garden/hottub-lay-z-spa">lay-z-spa hottub</a>.
 
+## Brush your teeth reminder
+
+<img src="/docs/images/toothbrush_sensor.png" />
+
+This one is a little silly, but I'm terrible at remembering to brush my teeth in the evening.  Using an <a href="https://www.oralb.co.uk/en-gb/product-collections/electric-toothbrushes#series=genius">Oral B Genius toothbrush</a>, a <a href="https://www.samsung.com/uk/smartthings/outlet/smartthings-smart-plug-gp-wou019bbdwg/">smartthings power monitoring plug</a> and <a href="https://github.com/zewelor/bt-mqtt-gateway">bt-mqtt-gateway</a>, I get a reminder from the Alexa next to my bed if I forget to do it before going to bed.
+
+See <a href="/packages/areas/upstairs/upstairs_bathroom/">`/packages/areas/upstairs/upstairs_bathroom/`</a>.
+
 ## Dog friendly auto vacuuming
 
 Using a waterproof <a href="https://www.thetileapp.com/en-us/store/tiles/sticker">tile tracker</a>, home assistant knows when the dog is out for a walk and will start cleaning the house with the <a href="https://www.ecovacs.com/us/deebot-robotic-vacuum-cleaner/DEEBOT-OZMO-T8-AIVI">ecovacs</a> vacuums, plus do a quick spot clean shortly after she returns.
@@ -38,14 +46,6 @@ See <a href="/packages/areas/upstairs/bedroom1/automation_bedroom1_good_night.ya
 ## School reminders
 
 Some simple reminders for my son, to <a href="/packages/areas/upstairs/bedroom1/automation_bedroom1_wake_up_reminder.yaml">wake up</a> and then <a href="/packages/areas/upstairs/spare_bedroom/automation_spare_room_leave_reminder.yaml">leave for school</a> via the Alexa.
-
-## Brush your teeth reminder
-
-<img src="/docs/images/toothbrush_sensor.png" />
-
-This one is a little silly, but I'm terrible at remembering to brush my teeth in the evening.  Using an <a href="https://www.oralb.co.uk/en-gb/product-collections/electric-toothbrushes#series=genius">Oral B Genius toothbrush</a>, a <a href="https://www.samsung.com/uk/smartthings/outlet/smartthings-smart-plug-gp-wou019bbdwg/">smartthings power monitoring plug</a> and <a href="https://github.com/zewelor/bt-mqtt-gateway">bt-mqtt-gateway</a>, I get a reminder from the Alexa next to my bed if I forget to do it before going to bed.
-
-See <a href="/packages/areas/upstairs/upstairs_bathroom/">`/packages/areas/upstairs/upstairs_bathroom/`</a>.
 
 ## Inspired by
 
