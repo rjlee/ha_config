@@ -11,6 +11,8 @@ These are some of my favourite automations/integrations/devices:
 
 ## Child Sleep Sensor
 
+<img src="/docs/images/sleep_sensor.png" />
+
 Uses a combination of sensors (<a href="https://www.withings.com/us/en/sleep">withings sleep matt</a>, <a href="https://www.samsung.com/us/support/owners/product/motion-sensor-version-2">smartthings motion sensor</a>, <a href="https://github.com/rjlee/ha_noise_sensor">pi noise sensor</a>) to detect if my son is asleep.
 
 See <a href="/packages/areas/upstairs/bedroom1/noise_sensor">`/packages/areas/upstairs/bedroom1/noise_sensor`</a>.
