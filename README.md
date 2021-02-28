@@ -35,13 +35,13 @@ Coming soon
 
 ## School reminders
 
-Coming soon
+Some simple reminders for my son, to <a href="/packages/areas/upstairs/bedroom1/automation_bedroom1_wake_up_reminder.yaml">wake up</a> and then <a href="/packages/areas/upstairs/spare_bedroom/automation_spare_room_leave_reminder.yaml">leave for school</a> via the Alexa.
 
 ## Brush your teeth reminder
 
 <img src="/docs/images/toothbrush_sensor.png" />
 
-This one is a little silly, but I'm terrible at remembering to brush my teeth in the evening.  Using an <a href="https://www.oralb.co.uk/en-gb/product-collections/electric-toothbrushes#series=genius">Oral B Genius toothbrush</a>, a <a href="https://www.samsung.com/uk/smartthings/outlet/smartthings-smart-plug-gp-wou019bbdwg/">smartthings plug</a> and <a href="https://github.com/zewelor/bt-mqtt-gateway">bt-mqtt-gateway</a>, I get a reminder from the Alexa next to my bed if I forget to do it before going to bed.
+This one is a little silly, but I'm terrible at remembering to brush my teeth in the evening.  Using an <a href="https://www.oralb.co.uk/en-gb/product-collections/electric-toothbrushes#series=genius">Oral B Genius toothbrush</a>, a <a href="https://www.samsung.com/uk/smartthings/outlet/smartthings-smart-plug-gp-wou019bbdwg/">smartthings power monitoring plug</a> and <a href="https://github.com/zewelor/bt-mqtt-gateway">bt-mqtt-gateway</a>, I get a reminder from the Alexa next to my bed if I forget to do it before going to bed.
 
 See <a href="/packages/areas/upstairs/upstairs_bathroom/">`/packages/areas/upstairs/upstairs_bathroom/`</a>.
 
