@@ -2,7 +2,7 @@ script:
     main_bedroom_good_morning:
       alias: main_bedroom_good_morning
       mode: single
-      icon: mdi:sun
+      icon: mdi:weather-sunny
       sequence:
       - service: script.turn_on
         data:
