@@ -9,6 +9,8 @@ script:
         data:
           device: main_bedroom_tv
           command: power_on
+      - service: media_player.turn_on
+        entity_id: media_player.master_bedroom_skyq
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.main_bedroom_tv_switch
