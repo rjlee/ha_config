@@ -1,5 +1,5 @@
 automation:
-    - id: '1main_bedroom_climate_control_open'
+    - id: 'main_bedroom_climate_control_open'
       alias: Main Bedroom - Climate Control - Open
       description: ''
       trigger:
