@@ -10,7 +10,7 @@ plant:
     min_brightness: 4000
     max_brightness: 50000
     min_temperature: 5 
-    min_temperature: 35
+    max_temperature: 35
     min_moisture: 15
     max_moisture: 60
     min_conductivity: 350
