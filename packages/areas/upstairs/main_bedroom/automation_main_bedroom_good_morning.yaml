@@ -7,5 +7,7 @@ automation:
     at: '9:00'   
   condition: []
   action:
-  - scene: scene.curtains_open
-  - scene: scene.blinds_open_2
+  - service: script.turn_on
+    data:
+      entity_id: script.main_bedroom_good_morning
+  mode: single

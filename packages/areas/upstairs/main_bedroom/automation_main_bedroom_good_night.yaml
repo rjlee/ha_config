@@ -8,6 +8,7 @@ automation:
         offset: 00:15:00
       condition: []
       action:
-      - scene: scene.curtains_closed
-      - scene: scene.blinds_closed_2
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_good_morning
       mode: single
