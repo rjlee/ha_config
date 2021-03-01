@@ -10,4 +10,3 @@ automation:
   - service: script.turn_on
     data:
       entity_id: script.main_bedroom_good_morning
-  mode: single
