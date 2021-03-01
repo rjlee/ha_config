@@ -1,0 +1,10 @@
+script:
+    main_bedroom_good_morning:
+      alias: main_bedroom_good_morning
+      mode: single
+      icon: mdi:sun
+      sequence:
+      - service: scene.turn_on
+        entity_id: scene.blinds_open_2
+      - service: scene.turn_on
+        entity_id: scene.curtains_open 
