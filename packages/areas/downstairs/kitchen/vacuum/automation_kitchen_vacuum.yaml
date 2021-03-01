@@ -26,10 +26,7 @@ automation:
     at: '20:00:00'
   condition: []
   action:
-  - service: vacuum.send_command
+  - service: script.turn_on
     data:
-      entity_id: vacuum.deebot_ozmo_t8_aivi_kitchen
-      command: auto_clean
-      params:
-        type: auto
+      entity_id: script.vacuum_dogwalk
   mode: single
