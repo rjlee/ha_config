@@ -9,6 +9,8 @@ script:
         data:
           device: kitchen_tv
           command: power_on
+      - service: media_player.turn_on
+        entity_id: media_player.kitchen_sky_q
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.kitchen_tv_switch
