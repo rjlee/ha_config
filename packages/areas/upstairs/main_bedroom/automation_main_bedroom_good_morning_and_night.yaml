@@ -21,4 +21,4 @@ automation:
   action:
   - service: script.turn_on
     data:
-      entity_id: script.main_bedroom_good_morning
+      entity_id: script.main_bedroom_good_night
