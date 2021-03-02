@@ -1,0 +1,24 @@
+automation:
+- id: 'main_bedroom_good_morning'
+  alias: Main Bedroom - Good Morning
+  mode: single
+  trigger:
+  - platform: time
+    at: '9:00'   
+  condition: []
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.main_bedroom_good_morning
+- id: 'main_bedroom_good_night'
+  alias: Main Bedroom - Good Night
+  mode: single
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:15:00
+  condition: []
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.main_bedroom_good_morning
