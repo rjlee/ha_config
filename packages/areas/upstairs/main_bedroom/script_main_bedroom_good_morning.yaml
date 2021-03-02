@@ -4,6 +4,7 @@ script:
       mode: single
       icon: mdi:weather-sunny
       sequence:
-      - service: script.turn_on
-        data:
-          entity_id: script.main_bedroom_good_morning
+      - service: scene.turn_on
+        entity_id: scene.blinds_open_2
+      - service: scene.turn_on
+        entity_id: scene.curtains_open
