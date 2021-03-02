@@ -11,7 +11,7 @@ order:
   - item: map
     hide: true
   - item: Media Browser
-    hide: true
+    hide: false
   - item: HACS
     bottom: true
   - item: history
