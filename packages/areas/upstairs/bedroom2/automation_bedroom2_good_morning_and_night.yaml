@@ -19,7 +19,7 @@ automation:
         entity_id: cover.velux_internal_cover_5
         type: set_position
         position: 100
-      - delay: 00:00:20
+      - delay: 00:40:00
       - type: turn_off
         device_id: c8cfe19e07be11eba47edfb074f167c3
         entity_id: switch.child2_bedside_lamp
