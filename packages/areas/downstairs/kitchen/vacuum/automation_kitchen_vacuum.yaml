@@ -12,7 +12,7 @@ automation:
   - delay: 00:05:00
   - service: script.turn_on
     data:
-      entity_id: script.vacuum_dogwalk
+      entity_id: script.vacuum_downstairs
   mode: single
 - id: 'kitchen_vacuum_start'
   alias: Kitchen - Vacuum - Start Clean
