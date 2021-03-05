@@ -17,7 +17,7 @@ automation:
         entity_id: sensor.hottub_online
         state: 'true'
       - condition: numeric_state
-        entity_id: sensor.otley_probability_of_precipitation
+        entity_id: sensor.location_probability_of_precipitation
         below: 80
       action:
       - service: rest_command.hottub_temp_set
