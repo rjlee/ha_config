@@ -215,6 +215,10 @@
                             ]
                         },
                         {
+                            "type": "weather-forecast",
+                            "entity": "weather.met_office_location"
+                        },
+                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
