@@ -2,5 +2,5 @@ notify:
   - name: family
     platform: group
     services:
-    - service: mobile_dad
-    - service: mobile_mum
+    - service: mobile_app_mobile_dad
+    - service: mobile_app_mobile_mum
