@@ -10,6 +10,6 @@ automation:
         for: '00:05:00'
     condition: []
     action:
-      - service: notify.mobile_dad
+      - service: notify.mobile_app_mobile_dad
         data:
           message: 4G Download speed > 2MB/s for 5 mins
