@@ -307,6 +307,40 @@
                     ]
                 },
                 {
+                    "title": "Batteries",
+                    "path": "batteries",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "title": "Battery Levels",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*battery*",
+                                        "sort": {
+                                            "method": "state",
+                                            "numeric": true,
+                                            "ignore_case": true
+                                        }
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "*level*"
+                                    },
+                                    {
+                                        "entity_id": "*state*"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
                     "title": "Smart Devices",
                     "path": "smart-devices",
                     "badges": [],
