@@ -325,6 +325,20 @@
                         {
                             "type": "custom:auto-entities",
                             "card": {
+                                "title": "child1 Motion Sensor",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*bedroom1_motion_sensor*"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
                                 "title": "Hot Tub",
                                 "type": "entities"
                             },

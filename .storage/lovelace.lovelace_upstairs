@@ -117,13 +117,13 @@
                                     ],
                                     "card": {
                                         "type": "custom:state-switch",
-                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                         "states": {
                                             "on": {
                                                 "type": "glance",
                                                 "entities": [
                                                     {
-                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                                         "icon": "mdi:account-check-outline",
                                                         "name": "Occupied"
                                                     }
@@ -135,7 +135,7 @@
                                                 "type": "glance",
                                                 "entities": [
                                                     {
-                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                                         "icon": "mdi:account-cancel-outline",
                                                         "name": "Vacant"
                                                     }
@@ -175,7 +175,7 @@
                                                         "name": null
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                                         "name": null
                                                     }
                                                 ],
@@ -199,7 +199,7 @@
                                                         "name": null
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                                         "name": null
                                                     }
                                                 ],
@@ -214,6 +214,10 @@
                         {
                             "type": "entities",
                             "entities": [
+                                {
+                                    "entity": "light.child1_bedside_lamp_msl430_main_channel",
+                                    "name": "Bedside Lamp"
+                                },
                                 {
                                     "entity": "switch.child1_bedside_lamp",
                                     "name": "Bedside Lamp"

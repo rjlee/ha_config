@@ -20,7 +20,7 @@ automation:
         entity_id: binary_sensor.child1_noise_sensor
         to: 'on'
       - platform: state
-        entity_id: binary_sensor.child1s_room_motion_sensor_motion
+        entity_id: binary_sensor.bedroom1_motion_sensor_motion
         to: 'on'
       condition: []
       action:

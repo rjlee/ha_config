@@ -7,7 +7,9 @@ default_config:
 
 logger:
   default: info
-#  logs:
+  logs:
+    homeassistant.components.python_script: debug
+    homeassistant.components.automation: info
 #    homeassistant.components.automation: debug
 #    homeassistant.components.rest.sensor: debug
 #    homeassistant.components.rest_command: debug
@@ -30,3 +32,4 @@ panel_iframe:
     icon: mdi:wrench
     url: !secret url_file_editor
 
+python_script:
