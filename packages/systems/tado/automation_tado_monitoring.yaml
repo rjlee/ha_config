@@ -9,7 +9,7 @@ automation:
         for: 00:05:00
       condition: []
       action:
-      - service: notify.mobile_dad
+      - service: notify.mobile_app_mobile_dad
         data:
           message: Tado is unresponsive
       mode: single
