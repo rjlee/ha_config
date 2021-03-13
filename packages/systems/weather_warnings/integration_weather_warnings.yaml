@@ -1,0 +1,6 @@
+sensor:
+  platform: feedparser
+  name: Weather Warnings
+  feed_url: !secret weather_warnings_rss_feed
+  date_format: '%a, %b %d %I:%M %p'
+
