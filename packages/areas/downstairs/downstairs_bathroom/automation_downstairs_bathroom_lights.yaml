@@ -3,11 +3,10 @@ automation:
       alias: Downstairs Bathroom - Lights - On
       description: ''
       trigger:
-      - type: motion
-        platform: device
-        device_id: 91625606098111eb8bbb11d32d5ba14c
-        entity_id: binary_sensor.motion_sensor_motion
-        domain: binary_sensor
+      - platform: state
+        entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
+        from: 'off'
+        to: 'on'
       condition: []
       action:
       - type: turn_on
@@ -19,14 +18,13 @@ automation:
       alias: Downstairs Bathroom - Lights - Off
       description: ''
       trigger:
-      - type: no_motion
-        platform: device
-        device_id: 91625606098111eb8bbb11d32d5ba14c
-        entity_id: binary_sensor.motion_sensor_motion
-        domain: binary_sensor
+      - platform: state
+        entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
+        from: 'on'
+        to: 'off'
         for:
           hours: 0
-          minutes: 15
+          minutes: 5
           seconds: 0
       condition: []
       action:
