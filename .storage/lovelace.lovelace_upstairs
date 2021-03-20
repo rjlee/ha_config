@@ -219,10 +219,6 @@
                                     "name": "Bedside Lamp"
                                 },
                                 {
-                                    "entity": "switch.child1_bedside_lamp",
-                                    "name": "Bedside Lamp"
-                                },
-                                {
                                     "entity": "media_player.child1s_room",
                                     "name": "Alexa",
                                     "icon": "mdi:amazon"
@@ -250,8 +246,7 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.child2_bedside_lamp",
-                                    "name": "Bedside Lamp"
+                                    "entity": "light.child2_bedside_lamp_msl430_main_channel"
                                 },
                                 {
                                     "entity": "media_player.child2s_room",
