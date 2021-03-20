@@ -18,15 +18,11 @@ automation:
   alias: Kitchen - Vacuum - Start Clean
   description: ''
   trigger:
-  - platform: state
-    entity_id: group.dogwalk
-    from: home
-    to: not_home
   - platform: time
     at: '20:00:00'
   condition: []
   action:
   - service: script.turn_on
     data:
-      entity_id: script.vacuum_downstairs
+      entity_id: script.vacuum_kitchen
   mode: single
