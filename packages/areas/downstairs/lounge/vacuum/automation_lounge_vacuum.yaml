@@ -1,0 +1,13 @@
+automation:
+- id: 'lounge_vacuum_start'
+  alias: Lounge - Vacuum - Start Clean
+  description: ''
+  trigger:
+  - platform: time
+    at: '12:10:00'
+  condition: []
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.vacuum_lounge
+  mode: single
