@@ -56,26 +56,14 @@ automation:
         event: sunset
       condition: []
       action:
+      - service: light.turn_on
+        target:
+          entity_id:
+            - light.child1_bedside_lamp_msl430_main_channel
       - device_id: 93f924d517b311ebb9bb8d79d0cf841c
         domain: cover
         entity_id: cover.velux_internal_cover_4
         type: set_position
         position: 0
       mode: single
-    - id: 'child1_bedroom_good_night_lights'
-      alias: child1 Bedroom - Good Night Lights
-      trigger:
-      - platform: state
-        entity_id: binary_sensor.bedroom1_motion_sensor_motion
-        from: 'off'
-        to: 'on'
-      condition:
-        - condition: numeric_state
-          entity_id: sensor.bedroom1_motion_sensor_lux
-          below: '12'
-      action:
-      - service: light.turn_on
-        target:
-          entity_id:
-            - light.child1_bedside_lamp_msl430_main_channel
-            
+
