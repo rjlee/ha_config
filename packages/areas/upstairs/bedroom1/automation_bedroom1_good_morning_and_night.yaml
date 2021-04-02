@@ -52,8 +52,12 @@ automation:
       alias: child1 Bedroom - Good Night
       description: ''
       trigger:
-      - platform: sun
-        event: sunset
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: -2.5
+      - platform: time
+        at: '19:00'
       condition: []
       action:
       - service: light.turn_on
