@@ -1,0 +1,97 @@
+sensor:
+  - platform: template
+    sensors:
+      unavailable_entities:
+        friendly_name: Unavailable Entities
+        unit_of_measurement: Entities
+        icon_template: "{{ 'mdi:check-circle' if is_state('sensor.unavailable_entities','0') else 'mdi:alert-circle' }}"
+        value_template: >
+          {{ states|selectattr('state','in',['unavailable','unknown','none'])|rejectattr('domain','eq','group')
+            |rejectattr('entity_id','in',state_attr('group.ignored_entities','entity_id'))|list|count }}
+        attribute_templates:
+          entities: >
+            {{ states|selectattr('state','in',['unavailable','unknown','none'])|rejectattr('domain','eq','group')
+              |rejectattr('entity_id','in',state_attr('group.ignored_entities','entity_id'))|map(attribute='entity_id')|join(',') }}
+          names: >
+            {{ states|selectattr('state','in',['unavailable','unknown','none'])|rejectattr('domain','eq','group')
+              |rejectattr('entity_id','in',state_attr('group.ignored_entities','entity_id'))|map(attribute='name')|join(',') }}
+
+group:
+  ignored_entities:
+    entities:
+      - binary_sensor.updater
+      - sensor.blink_child2s_camera_temperature
+      - sensor.blink_child2s_camera_wifi_signal
+      - sensor.dads_toothbrush
+      - cover.bedroom
+      - sensor.samsung_q60_series_lounge_media_playback_status
+      - sensor.withings_body_temperature_c_child1
+      - sensor.withings_bone_mass_kg_child1
+      - sensor.withings_diastolic_blood_pressure_mmhg_child1
+      - sensor.withings_fat_free_mass_kg_child1
+      - sensor.withings_fat_mass_kg_child1
+      - sensor.withings_fat_ratio_pct_child1
+      - sensor.withings_heart_pulse_bpm_child1
+      - sensor.withings_muscle_mass_kg_child1
+      - sensor.withings_pulse_wave_velocity_child1
+      - sensor.withings_skin_temperature_c_child1
+      - sensor.withings_spo2_pct_child1
+      - sensor.withings_systolic_blood_pressure_mmhg_child1
+      - sensor.withings_temperature_c_child1
+      - sensor.withings_weight_kg_child1
+      - binary_sensor.withings_in_bed_child1
+
+binary_sensor:
+  - platform: template
+    sensors:
+      unavailable_entities_alert:
+        delay_on:
+          minutes: 15 # delay before activating alert
+        value_template: "{{ states('sensor.unavailable_entities')|int > 0 }}"
+
+automation:
+- id: ''
+  alias: Unavailable Sensors
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.unavailable_entities_alert
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.unavailable_entities
+          above: '0'
+        - condition: numeric_state
+          entity_id: sensor.unavailable_entities
+          below: '2'
+      sequence:
+      - service: notify.family
+        data:
+          title: There is {{ states('sensor.unavailable_entities')|int }} device offline!
+          message: '{{ state_attr(''sensor.unavailable_entities'',''names'').split('','')
+            | join(''
+
+            '') }}'
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.unavailable_entities
+        above: '1'
+      sequence:
+      - service: notify.family
+        data:
+          title: There are {{ states('sensor.unavailable_entities')|int }} devices
+            offline!
+          message: '{{ state_attr(''sensor.unavailable_entities'',''names'').split('','')
+            | join(''
+
+            '') }}'
+    default:
+    - service: notify.family
+      data:
+        title: Attention!
+        message: All devices are back online.
+  mode: restart

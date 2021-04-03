@@ -341,6 +341,17 @@
                     ]
                 },
                 {
+                    "title": "Unavailable Entities",
+                    "path": "unavailable-entities",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "markdown",
+                            "content": "{%- if states.sensor.unavailable_entities.attributes.entities is defined -%}\n  {%- if states('sensor.unavailable_entities')|int == 0 -%}\n    No unavailable entities.\n  {%- else -%}\n    {%- for device in state_attr('sensor.unavailable_entities','entities').split(',') -%}\n    - {{ device ~ '\\n' }}\n    {%- endfor %}\n  {%- endif -%}\n{%- endif -%}  \n"
+                        }
+                    ]
+                },
+                {
                     "title": "Smart Devices",
                     "path": "smart-devices",
                     "badges": [],
