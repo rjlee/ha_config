@@ -1,8 +1,0 @@
-#sensor:
-# - platform: template
-#   sensors:
-#     main_bedroom_dads_bedside_lamp_power_meter:
-#       friendly_name: "Main Bedroom - Dads Bedside Lamp - Power Meter"
-#       unit_of_measurement: "W"
-#       value_template: "{{ state_attr('switch.main_bedroom_dads_bedside_lamp','current_power_w') }}"
-#       icon_template: mdi:lamp
