@@ -10,8 +10,8 @@ automation:
       condition: []
       action:
       - type: turn_on
-        device_id: 522f07ec0ed311eb8d90f54ebe9f79f4
-        entity_id: switch.downstairs_bathroom_light
+        device_id: 217d2c47a94531d8ed7c597df2bf7a40
+        entity_id: switch.downstairs_bathroom_light_relay_0
         domain: switch
       mode: single
     - id: 'downstairs_bathroom_lights_off'
@@ -28,8 +28,8 @@ automation:
           seconds: 0
       condition: []
       action:
-      - type: turn_off
-        device_id: 522f07ec0ed311eb8d90f54ebe9f79f4
-        entity_id: switch.downstairs_bathroom_light
+      - type: turn_on
+        device_id: 217d2c47a94531d8ed7c597df2bf7a40
+        entity_id: switch.downstairs_bathroom_light_relay_0
         domain: switch
       mode: single
