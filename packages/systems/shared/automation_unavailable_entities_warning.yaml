@@ -81,7 +81,7 @@ automation:
         entity_id: sensor.unavailable_entities
         above: '1'
       sequence:
-      - service: notify.family
+      - service: notify.mobile_app_mobile_dad
         data:
           title: There are {{ states('sensor.unavailable_entities')|int }} devices
             offline!
@@ -90,7 +90,7 @@ automation:
 
             '') }}'
     default:
-    - service: notify.family
+    - service: notify.mobile_app_mobile_dad
       data:
         title: Attention!
         message: All devices are back online.
