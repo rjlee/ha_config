@@ -63,7 +63,7 @@
                                     ],
                                     "card": {
                                         "type": "custom:state-switch",
-                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                         "states": {
                                             "on": {
                                                 "type": "glance",
@@ -125,7 +125,7 @@
                                                         "name": null
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.child1s_room_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
                                                         "name": null
                                                     }
                                                 ],
