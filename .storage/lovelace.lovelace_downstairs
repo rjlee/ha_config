@@ -267,8 +267,9 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.downstairs_bathroom_light",
-                                    "icon": "mdi:lightbulb"
+                                    "entity": "switch.downstairs_bathroom_light_relay_0",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Light"
                                 }
                             ]
                         }
