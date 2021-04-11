@@ -39,7 +39,7 @@ group:
       - sensor.withings_systolic_blood_pressure_mmhg_child1
       - sensor.withings_temperature_c_child1
       - sensor.withings_weight_kg_child1
-      - binary_sensor.withings_in_bed_child1
+      - sensor.downstairs_bathroom_light_power_0
 
 binary_sensor:
   - platform: template
