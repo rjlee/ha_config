@@ -5,7 +5,14 @@ automation:
   trigger:
   - platform: time
     at: '12:10:00'
-  condition: []
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
   action:
   - service: script.turn_on
     data:
