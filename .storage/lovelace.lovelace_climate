@@ -32,10 +32,6 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "sensor.hottub_orp",
-                                    "name": "HotTub ORP"
-                                },
-                                {
                                     "entity": "sensor.hottub_pump_temp",
                                     "name": "HotTub Water Temperature"
                                 },
@@ -370,20 +366,6 @@
                         {
                             "type": "custom:auto-entities",
                             "card": {
-                                "title": "child1 Motion Sensor",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "*bedroom1_motion_sensor*"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
                                 "title": "Hot Tub",
                                 "type": "entities"
                             },
@@ -394,6 +376,37 @@
                                     },
                                     {
                                         "entity_id": "switch.hottub*"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "title": "Downstairs Bathroom Motion Sensor",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*bathroom_motion_sensor*"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "none"
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "title": "child1 Motion Sensor",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*bedroom1_motion_sensor*"
                                     }
                                 ]
                             }
