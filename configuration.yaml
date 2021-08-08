@@ -8,8 +8,10 @@ default_config:
 logger:
   default: info
   logs:
+#    pyhap: debug
     homeassistant.components.python_script: debug
     homeassistant.components.automation: info
+#    homeassistant.components.homekit: debug
 #    homeassistant.components.automation: debug
 #    homeassistant.components.rest.sensor: debug
 #    homeassistant.components.rest_command: debug
