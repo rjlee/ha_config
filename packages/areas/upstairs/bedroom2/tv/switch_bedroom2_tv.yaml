@@ -1,0 +1,24 @@
+switch:
+  - platform: template
+    switches:
+      bedroom2_tv_switch:
+        value_template: '{{ states("input_boolean.bedroom2_tv_switch") }}'
+        friendly_name: 'bedroom2_tv_switch'
+        turn_on:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.bedroom2_tv_switch
+          - service: webostv.command
+            data:
+              {
+                "entity_id": "media_player.bedroom2_tv",
+                "command": "system/turnOn"
+              }
+        turn_off:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.bedroom2_tv_switch
+          - service: webostv.command
+            data:
+              {
+                "entity_id": "media_player.bedroom2_tv",
+                "command": "system/turnOff"
+              }

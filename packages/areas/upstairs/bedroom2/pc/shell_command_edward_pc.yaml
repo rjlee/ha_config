@@ -1,0 +1,2 @@
+shell_command:
+  sleep_child2_pc: "/config/shell/pc/child2_pc_sleep.sh"
