@@ -224,13 +224,23 @@
                                     "icon": "mdi:amazon"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_4",
-                                    "name": "Velux Blind"
+                                    "entity": "media_player.xbox_spareroom"
                                 },
                                 {
-                                    "entity": "climate.child1s_room",
-                                    "name": "Heating",
-                                    "icon": "mdi:thermometer"
+                                    "entity": "input_select.child1_laptop_options"
+                                }
+                            ],
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "climate.child1s_room"
+                                },
+                                {
+                                    "entity": "cover.velux_internal_cover_4",
+                                    "name": "Velux Blind"
                                 }
                             ],
                             "show_header_toggle": false
@@ -246,7 +256,8 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "light.child2_bedside_lamp_msl430_main_channel"
+                                    "entity": "light.child2_bedside_lamp_msl430_main_channel",
+                                    "name": "Bedside Lamp"
                                 },
                                 {
                                     "entity": "media_player.child2s_room",
@@ -254,13 +265,29 @@
                                     "icon": "mdi:amazon"
                                 },
                                 {
+                                    "entity": "switch.bedroom2_tv_switch",
+                                    "name": "TV",
+                                    "icon": "mdi:television"
+                                },
+                                {
+                                    "entity": "media_player.xbox_child2",
+                                    "name": "Xbox"
+                                },
+                                {
+                                    "entity": "input_select.child2_pc_options",
+                                    "icon": "mdi:desktop-tower"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
                                     "entity": "cover.velux_internal_cover_5",
                                     "name": "Velux Blind"
                                 },
                                 {
-                                    "entity": "climate.child2s_room",
-                                    "name": "Heating",
-                                    "icon": "mdi:thermometer"
+                                    "entity": "climate.child2s_room"
                                 }
                             ]
                         }
@@ -295,15 +322,6 @@
                         {
                             "type": "entities",
                             "entities": [
-                                {
-                                    "entity": "input_select.child1_laptop_options",
-                                    "name": "Laptop"
-                                },
-                                {
-                                    "entity": "media_player.xbox_spareroom",
-                                    "name": "Xbox",
-                                    "icon": "mdi:gamepad-variant"
-                                },
                                 {
                                     "entity": "media_player.spare_room",
                                     "name": "Alexa",

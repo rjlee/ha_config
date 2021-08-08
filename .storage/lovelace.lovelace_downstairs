@@ -87,7 +87,7 @@
                                     "type": "entities",
                                     "entities": [
                                         {
-                                            "entity": "switch.samsung_q60_series_lounge",
+                                            "entity": "media_player.samsung_q60_series_lounge",
                                             "icon": "mdi:television",
                                             "name": "TV"
                                         },
@@ -164,7 +164,7 @@
                                     }
                                 ]
                             },
-                            "map": "camera.deebot_ozmo_920_lounge_live_map"
+                            "map": "camera.deebot_ozmo_920_lounge_livemap"
                         }
                     ]
                 },
@@ -254,7 +254,7 @@
                                     "name": "Downstairs"
                                 }
                             ],
-                            "map": "camera.deebot_ozmo_t8_aivi_kitchen_live_map"
+                            "map": "camera.deebot_ozmo_t8_aivi_kitchen_livemap"
                         }
                     ]
                 },
