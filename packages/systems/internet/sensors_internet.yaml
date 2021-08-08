@@ -2,39 +2,42 @@ sensor:
  - platform: command_line
    name: 4G Download Speed
    command: "/config/shell/router/stats-4g-download-speed.sh"
-   scan_interval: 10
+   scan_interval: 30
    unit_of_measurement: "KBs"
    value_template: '{{ value | multiply(0.001) | round(2) }}'
  - platform: command_line
    name: ADSL Upload Speed
    command: "/config/shell/router/stats-adsl-upload-speed.sh"
-   scan_interval: 10
+   scan_interval: 30
    unit_of_measurement: "KBs"
    value_template: '{{ value | multiply(0.001) | round(2) }}'
  - platform: command_line
    name: ADSL Download Speed
    command: "/config/shell/router/stats-adsl-download-speed.sh"
-   scan_interval: 10
+   scan_interval: 30
    unit_of_measurement: "KBs"
    value_template: '{{ value | multiply(0.001) | round(2) }}'
  - platform: command_line
    name: 4G Upload Speed
    command: "/config/shell/router/stats-4g-upload-speed.sh"
-   scan_interval: 10
+   scan_interval: 30
    unit_of_measurement: "KBs"
    value_template: '{{ value | multiply(0.001) | round(2) }}'
  - platform: command_line
    name: 4G Monthly Data
    command: "/config/shell/router/stats-4g-monthly-data.sh"
-   scan_interval: 10
+   scan_interval: 30
    unit_of_measurement: "GB"
    value_template: '{% set value = (value) | int / 1000000000 | round(2) %} {{ "{:.0f}".format(value) }}'
  - platform: command_line
    name: "Router ADSL Speed 1h Image"
    command: "/config/shell/router/stats-adsl-1h-image.sh"
+   scan_interval: 30
  - platform: command_line
    name: "Router 4g Speed 1h Image"
    command: "/config/shell/router/stats-4g-1h-image.sh"
+   scan_interval: 30
  - platform: command_line
    name: "Router Ping latency 1h Image"
    command: "/config/shell/router/stats-1h-ping-latency-image.sh"
+   scan_interval: 30
