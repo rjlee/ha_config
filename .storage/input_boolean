@@ -24,6 +24,10 @@
                 "name": "main_bedroom_tv_switch",
                 "icon": "mdi:television",
                 "id": "main_bedroom_tv_switch"
+            },
+            {
+                "name": "bedroom2_tv_switch",
+                "id": "bedroom2_tv_switch"
             }
         ]
     }
