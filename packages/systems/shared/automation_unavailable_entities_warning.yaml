@@ -19,27 +19,37 @@ sensor:
 group:
   ignored_entities:
     entities:
-      - binary_sensor.updater
-      - sensor.blink_child2s_camera_temperature
-      - sensor.blink_child2s_camera_wifi_signal
-      - sensor.dads_toothbrush
-      - cover.bedroom
-      - sensor.samsung_q60_series_lounge_media_playback_status
-      - sensor.withings_body_temperature_c_child1
-      - sensor.withings_bone_mass_kg_child1
-      - sensor.withings_diastolic_blood_pressure_mmhg_child1
-      - sensor.withings_fat_free_mass_kg_child1
-      - sensor.withings_fat_mass_kg_child1
-      - sensor.withings_fat_ratio_pct_child1
-      - sensor.withings_heart_pulse_bpm_child1
-      - sensor.withings_muscle_mass_kg_child1
-      - sensor.withings_pulse_wave_velocity_child1
-      - sensor.withings_skin_temperature_c_child1
-      - sensor.withings_spo2_pct_child1
-      - sensor.withings_systolic_blood_pressure_mmhg_child1
-      - sensor.withings_temperature_c_child1
-      - sensor.withings_weight_kg_child1
-      - sensor.downstairs_bathroom_light_power_0
+        - binary_sensor.updater
+        - sensor.blink_child2s_camera_temperature
+        - sensor.blink_child2s_camera_wifi_signal
+        - sensor.dads_toothbrush
+        - cover.bedroom
+        - sensor.samsung_q60_series_lounge_media_playback_status
+        - sensor.withings_body_temperature_c_child1
+        - sensor.withings_bone_mass_kg_child1
+        - sensor.withings_diastolic_blood_pressure_mmhg_child1
+        - sensor.withings_fat_free_mass_kg_child1
+        - sensor.withings_fat_mass_kg_child1
+        - sensor.withings_fat_ratio_pct_child1
+        - sensor.withings_heart_pulse_bpm_child1
+        - sensor.withings_muscle_mass_kg_child1
+        - sensor.withings_pulse_wave_velocity_child1
+        - sensor.withings_skin_temperature_c_child1
+        - sensor.withings_spo2_pct_child1
+        - sensor.withings_systolic_blood_pressure_mmhg_child1
+        - sensor.withings_temperature_c_child1
+        - sensor.withings_weight_kg_child1
+        - sensor.downstairs_bathroom_light_power_0
+        - sensor.velux_sensor_current_temperature
+        - sensor.downstairs_bathroom_motion_sensor_rssi
+        - sensor.downstairs_bathroom_motion_sensor_ssid
+        - sensor.downstairs_bathroom_motion_sensor_uptime
+        - sensor.bedroom1_motion_sensor_rssi
+        - sensor.bedroom1_motion_sensor_ssid
+        - sensor.bedroom1_motion_sensor_uptime
+        - sensor.deebot_ozmo_920_lounge_last_clean_image
+        - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
+        - sensor.libby_ble
 
 binary_sensor:
   - platform: template
