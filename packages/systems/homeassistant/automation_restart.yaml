@@ -1,0 +1,22 @@
+automation:
+- id: "Hass Startup Notification"
+  alias: 'Hass Startup Notification'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: notify.mobile_app_mobile_dad
+    data:
+      title: "Warning"
+      message: "Home Assistant restarted"
+
+- id: "Hass Shutdown Notification"
+  alias: 'Hass Shutdown Notification'
+  trigger:
+    - platform: homeassistant
+      event: shutdown
+  action:
+    service: notify.mobile_app_mobile_dad
+    data:
+      title: "Warning"
+      message: "Home Assistant shutdown"
