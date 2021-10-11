@@ -118,15 +118,15 @@
                                                     },
                                                     {
                                                         "entity": "timer.child1_awake",
-                                                        "name": null
+                                                        "name": ""
                                                     },
                                                     {
                                                         "entity": "binary_sensor.child1_noise_sensor",
-                                                        "name": null
+                                                        "name": ""
                                                     },
                                                     {
                                                         "entity": "binary_sensor.bedroom1_motion_sensor_motion",
-                                                        "name": null
+                                                        "name": ""
                                                     }
                                                 ],
                                                 "show_state": false,
@@ -142,15 +142,15 @@
                                                     },
                                                     {
                                                         "entity": "timer.child1_awake",
-                                                        "name": null
+                                                        "name": ""
                                                     },
                                                     {
                                                         "entity": "binary_sensor.child1_noise_sensor",
-                                                        "name": null
+                                                        "name": ""
                                                     },
                                                     {
                                                         "entity": "binary_sensor.bedroom1_motion_sensor_motion",
-                                                        "name": null
+                                                        "name": ""
                                                     }
                                                 ],
                                                 "show_state": false,
