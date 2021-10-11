@@ -19,6 +19,7 @@ sensor:
 group:
   ignored_entities:
     entities:
+        - sensor.back_door_last_ding
         - binary_sensor.updater
         - sensor.blink_child2s_camera_temperature
         - sensor.blink_child2s_camera_wifi_signal
