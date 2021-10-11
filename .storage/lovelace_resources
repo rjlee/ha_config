@@ -34,7 +34,7 @@
                 "id": "b76242780a214d09adc89daa4e92b76f"
             },
             {
-                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=2612912951230",
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=2612912951241",
                 "type": "module",
                 "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
             },
@@ -47,6 +47,16 @@
                 "url": "/hacsfiles/button-card/button-card.js",
                 "type": "module",
                 "id": "d483028062714d8c90e1c76c4fd36664"
+            },
+            {
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620100",
+                "type": "module",
+                "id": "0db750640e354b4b8692f6e18faef0d7"
+            },
+            {
+                "url": "/hacsfiles/bar-card/bar-card.js?hacstag=163363577320",
+                "type": "module",
+                "id": "271aeb7582cf4f8bbfcb1200b5fa8657"
             }
         ]
     }
