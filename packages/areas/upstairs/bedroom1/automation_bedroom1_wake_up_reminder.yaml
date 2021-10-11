@@ -4,7 +4,7 @@ automation:
       description: ''
       trigger:
       - platform: time
-        at: 07:52:00
+        at: 07:12:00
       condition:
       - condition: time
         weekday:
