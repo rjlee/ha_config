@@ -1,0 +1,24 @@
+automation:
+    - id: 'downstairs_hall_good_morning'
+      alias: Downstairs Hall - Good Morning
+      description: ''
+      trigger:
+      - platform: time
+        at: 06:00
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+      action:
+      - service: switch.turn_on
+        target:
+          entity_id: 
+            - switch.downstairs_hall_lamp
+      mode: single
+
