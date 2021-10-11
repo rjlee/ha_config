@@ -12,5 +12,5 @@ automation:
       action:
       - service: rest_command.hottub_temp_set
         data:
-          hottub_water_target: 30
+          hottub_water_target: 20
       mode: single
