@@ -12,8 +12,8 @@ order:
     hide: true
   - item: Media Browser
     hide: false
-  - item: HACS
-    bottom: true
+#  - item: HACS
+#    bottom: true
   - item: history
     bottom: true
   - item: logbook
