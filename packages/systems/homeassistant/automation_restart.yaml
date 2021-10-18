@@ -20,3 +20,14 @@ automation:
     data:
       title: "Warning"
       message: "Home Assistant shutdown"
+
+- id: "Hass Startup Fix Tasmota"
+  alias: 'Hass Startup Fix Tasmota'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: mqtt.publish
+      data:
+        payload: '0'
+        topic: cmnd/tasmotas/setoption19
