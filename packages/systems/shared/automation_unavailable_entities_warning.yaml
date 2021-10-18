@@ -23,6 +23,8 @@ group:
         - binary_sensor.updater
         - sensor.blink_child2s_camera_temperature
         - sensor.blink_child2s_camera_wifi_signal
+        - sensor.blink_child2s_camera_temperature_2
+        - sensor.blink_child2s_camera_wifi_signal_2
         - sensor.dads_toothbrush
         - cover.bedroom
         - sensor.samsung_q60_series_lounge_media_playback_status
@@ -45,11 +47,17 @@ group:
         - sensor.downstairs_bathroom_motion_sensor_rssi
         - sensor.downstairs_bathroom_motion_sensor_ssid
         - sensor.downstairs_bathroom_motion_sensor_uptime
+        - sensor.downstairs_bathroom_motion_sensor_ip
         - sensor.bedroom1_motion_sensor_rssi
         - sensor.bedroom1_motion_sensor_ssid
         - sensor.bedroom1_motion_sensor_uptime
+        - sensor.bedroom1_motion_sensor_ip
+        - binary_sensor.bedroom1_motion_sensor_charger
+        - binary_sensor.downstairs_bathroom_motion_sensor_charger
         - sensor.deebot_ozmo_920_lounge_last_clean_image
         - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
+        - sensor.deebot_ozmo_920_lounge_stats_area
+        - sensor.deebot_ozmo_920_lounge_stats_time
         - sensor.libby_ble
 
 binary_sensor:
