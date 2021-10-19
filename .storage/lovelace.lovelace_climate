@@ -32,6 +32,26 @@
                             "type": "entities",
                             "entities": [
                                 {
+                                    "entity": "sensor.lounge_temperature"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.velux_sensor_co2",
+                                    "name": "Main Bedroom - CO2"
+                                },
+                                {
+                                    "entity": "sensor.velux_sensor_humidity",
+                                    "name": "Main Bedroom - Humidity"
+                                }
+                            ],
+                            "title": "Inside"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
                                     "entity": "sensor.hottub_pump_temp",
                                     "name": "HotTub Water Temperature"
                                 },
@@ -53,26 +73,6 @@
                             ],
                             "title": "Hot Tub",
                             "show_header_toggle": false
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.lounge_temperature"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_temperature"
-                                },
-                                {
-                                    "entity": "sensor.velux_sensor_co2",
-                                    "name": "Main Bedroom - CO2"
-                                },
-                                {
-                                    "entity": "sensor.velux_sensor_humidity",
-                                    "name": "Main Bedroom - Humidity"
-                                }
-                            ],
-                            "title": "Inside"
                         },
                         {
                             "type": "custom:auto-entities",
@@ -168,13 +168,9 @@
                                         }
                                     ],
                                     "card": {
-                                        "type": "picture-glance",
-                                        "camera_image": "camera.router_4g_speed_1h_image",
-                                        "entities": [
-                                            {
-                                                "entity": "camera.router_4g_speed_1h_image"
-                                            }
-                                        ]
+                                        "type": "iframe",
+                                        "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=2",
+                                        "aspect_ratio": "50%"
                                     }
                                 },
                                 {
@@ -210,23 +206,15 @@
                                         }
                                     ],
                                     "card": {
-                                        "type": "picture-glance",
-                                        "camera_image": "camera.router_adsl_speed_1h_image",
-                                        "entities": [
-                                            {
-                                                "entity": "camera.router_adsl_speed_1h_image"
-                                            }
-                                        ]
+                                        "type": "iframe",
+                                        "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=18",
+                                        "aspect_ratio": "50%"
                                     }
                                 },
                                 {
-                                    "type": "picture-glance",
-                                    "camera_image": "camera.router_ping_latency_1h_image",
-                                    "entities": [
-                                        {
-                                            "entity": "camera.router_ping_latency_1h_image"
-                                        }
-                                    ]
+                                    "type": "iframe",
+                                    "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=38",
+                                    "aspect_ratio": "50%"
                                 }
                             ]
                         },
