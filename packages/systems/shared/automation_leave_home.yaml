@@ -1,6 +1,6 @@
 automation:
-    - id: 'tado_leave'
-      alias: Heating - Leave
+    - id: 'leave_home'
+      alias: Leave Home
       description: ''
       trigger:
       - platform: state
@@ -14,4 +14,9 @@ automation:
         entity_id: climate.heating
         type: set_preset_mode
         preset_mode: away
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.downstairs_hall_lamp_level_light_color_on_off
       mode: single
+
