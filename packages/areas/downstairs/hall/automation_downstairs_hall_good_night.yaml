@@ -16,8 +16,8 @@ automation:
         - sat
         - sun
       action:
-      - service: switch.turn_off
+      - service: light.turn_off
         target:
-          entity_id: 
-            - switch.downstairs_hall_lamp
+          entity_id:
+            - light.downstairs_hall_lamp_level_light_color_on_off
       mode: single
