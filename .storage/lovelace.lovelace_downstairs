@@ -270,6 +270,10 @@
                                     "entity": "switch.downstairs_bathroom_light_relay_0",
                                     "icon": "mdi:lightbulb",
                                     "name": "Light"
+                                },
+                                {
+                                    "entity": "binary_sensor.downstairs_bathroom_motion_sensor",
+                                    "name": "Presence"
                                 }
                             ]
                         }
@@ -281,18 +285,17 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities",
-                                "show_header_toggle": false
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "group": "group.downstairs_hallway"
-                                    }
-                                ]
-                            }
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.downstairs_hall_lamp_level_light_color_on_off",
+                                    "name": "Lamp"
+                                },
+                                {
+                                    "entity": "climate.downstairs_hallway",
+                                    "name": "Heating"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -324,18 +327,13 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities",
-                                "show_header_toggle": false
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "group": "group.back"
-                                    }
-                                ]
-                            }
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.downstairs_hall_back_door_sensor_status",
+                                    "name": "Back Door"
+                                }
+                            ]
                         }
                     ]
                 }
