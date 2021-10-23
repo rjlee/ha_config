@@ -4,7 +4,7 @@ people:
     entities:
       - person.dad
       - person.mum
-      - device_tracker.libby
+      - person.child1
 
 dogwalk:
     name: Dogwalk
