@@ -4,7 +4,7 @@ automation:
       description: ''
       trigger:
       - platform: state
-        entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
+        entity_id: binary_sensor.downstairs_bathroom_motion_sensor
         from: 'off'
         to: 'on'
       condition: []
@@ -19,7 +19,7 @@ automation:
       description: ''
       trigger:
       - platform: state
-        entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
+        entity_id: binary_sensor.downstairs_bathroom_motion_sensor
         from: 'on'
         to: 'off'
         for:
