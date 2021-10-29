@@ -6,12 +6,16 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+
+
 logger:
   default: info
-  logs:
+#  default: critical
+#  logs:
+#    custom_components.entity_controller: debug
 #    pyhap: debug
-    homeassistant.components.python_script: debug
-    homeassistant.components.automation: info
+#    homeassistant.components.python_script: debug
+#    homeassistant.components.automation: info
 #    homeassistant.components.homekit: debug
 #    homeassistant.components.automation: debug
 #    homeassistant.components.rest.sensor: debug
