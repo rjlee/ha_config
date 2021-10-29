@@ -21,7 +21,6 @@ automation:
           entity_id: 
             - switch.study_oil_radiator
       mode: single
-automation:
     - id: 'study_oil_radiator_off'
       alias: Study - Oil Radiator Off
       description: ''
