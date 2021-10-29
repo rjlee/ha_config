@@ -19,6 +19,7 @@ sensor:
 group:
   ignored_entities:
     entities:
+        - media_player.lg_webos_tv_d1bd
         - sensor.back_door_last_ding
         - binary_sensor.updater
         - sensor.blink_child2s_camera_temperature
@@ -56,9 +57,16 @@ group:
         - binary_sensor.downstairs_bathroom_motion_sensor_charger
         - sensor.deebot_ozmo_920_lounge_last_clean_image
         - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
+        - sensor.deebot_ozmo_t8_aivi_kitchen_stats_area
         - sensor.deebot_ozmo_920_lounge_stats_area
         - sensor.deebot_ozmo_920_lounge_stats_time
         - sensor.libby_ble
+        - sensor.bedroom_1_light_energy_0
+        - sensor.bedroom_1_light_power_0
+        - sensor.bedroom_2_light_energy_0
+        - sensor.bedroom_2_light_power_0
+        - sensor.downstairs_bathroom_light_power_0
+        - sensor.downstairs_bathroom_light_energy_0
 
 binary_sensor:
   - platform: template
@@ -88,7 +96,7 @@ automation:
           entity_id: sensor.unavailable_entities
           below: '2'
       sequence:
-      - service: notify.family
+      - service: notify.mobile_app_mobile_dad
         data:
           title: There is {{ states('sensor.unavailable_entities')|int }} device offline!
           message: '{{ state_attr(''sensor.unavailable_entities'',''names'').split('','')
