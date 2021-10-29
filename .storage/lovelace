@@ -162,6 +162,33 @@
                             ]
                         },
                         {
+                            "type": "custom:auto-entities",
+                            "show_empty": true,
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Upcoming Dates \ud83c\udf82",
+                                "type": "entities",
+                                "show_empty": false
+                            },
+                            "sort": {
+                                "method": "state",
+                                "numeric": true
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/anniversary/",
+                                        "state": "< 14"
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "/automation.|calendar.|scene.|script./"
+                                    }
+                                ]
+                            }
+                        },
+                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {

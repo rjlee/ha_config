@@ -1,0 +1,12 @@
+automation:
+  - alias: Anniversary Automation
+    trigger:
+    - platform: state
+      entity_id: 
+        - sensor.anniversary_birthday_person1
+        - sensor.anniversary_birthday_person2
+      to: '7'
+    action:
+      - service: notify.mobile_app_mobile_dad
+        data:
+          message: "{{trigger.to_state.attributes.friendly_name}}'s Birthday is in a week !"
