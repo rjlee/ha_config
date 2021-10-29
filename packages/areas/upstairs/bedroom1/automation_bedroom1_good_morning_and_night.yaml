@@ -25,6 +25,26 @@ automation:
           entity_id: 
             - light.child1_bedside_lamp_msl430_main_channel
       mode: single
+    - id: 'child1_bedroom_good_morning_left_for_school'
+      alias: child1 Bedroom - Good Morning - Left for school
+      description: ''
+      trigger:
+      - platform: time
+        at: 09:00
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      action:
+      - service: switch.turn_off
+        target:
+          entity_id: 
+            - switch.bedroom_1_light_relay_0
+      mode: single      
     - id: 'child1_bedroom_good_morning_weekend'
       alias: child1 Bedroom - Good Morning - Weekend
       description: ''
