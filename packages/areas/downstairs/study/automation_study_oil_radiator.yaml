@@ -1,0 +1,46 @@
+automation:
+    - id: 'study_oil_radiator_on'
+      alias: Study - Oil Radiator On
+      description: ''
+      trigger:
+      - platform: time
+        at: 06:00
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+      action:
+      - service: switch.turn_on
+        target:
+          entity_id: 
+            - switch.study_oil_radiator
+      mode: single
+automation:
+    - id: 'study_oil_radiator_off'
+      alias: Study - Oil Radiator Off
+      description: ''
+      trigger:
+      - platform: time
+        at: '11:00'
+      condition:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+      action:
+      - service: switch.turn_off
+        target:
+          entity_id: 
+            - switch.study_oil_radiator
+      mode: single

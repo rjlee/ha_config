@@ -306,18 +306,23 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities",
-                                "show_header_toggle": false
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "group": "group.study"
-                                    }
-                                ]
-                            }
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "climate.study",
+                                    "name": "Heating"
+                                },
+                                {
+                                    "entity": "switch.study_oil_radiator",
+                                    "name": "Oil Radiator"
+                                },
+                                {
+                                    "entity": "sensor.study_oil_radiator_status",
+                                    "name": "Oil Radiator Thermostat",
+                                    "icon": "mdi:fire"
+                                }
+                            ],
+                            "show_header_toggle": false
                         }
                     ]
                 },
