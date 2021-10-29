@@ -17,8 +17,10 @@ automation:
       alias: Spare Room - Good Night
       description: ''
       trigger:
-      - platform: sun
-        event: sunset
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: -2.5
       condition: []
       action:
       - device_id: 93f9118517b311ebb57a1fda086e02b4

@@ -14,9 +14,10 @@ automation:
   alias: Main Bedroom - Good Night
   mode: single
   trigger:
-  - platform: sun
-    event: sunset
-    offset: 00:15:00
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: -2.5
   condition: []
   action:
   - service: script.turn_on
