@@ -47,6 +47,10 @@
                                             "entity": "cover.velux_internal_cover"
                                         },
                                         {
+                                            "entity": "cover.mainbedroomcurtains",
+                                            "name": "Curtains"
+                                        },
+                                        {
                                             "entity": "cover.velux_internal_cover_6",
                                             "name": "Belltower Blind"
                                         }

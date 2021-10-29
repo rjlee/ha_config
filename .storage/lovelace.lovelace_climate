@@ -104,6 +104,10 @@
                                     "name": "Main Bedroom - Blind 2"
                                 },
                                 {
+                                    "entity": "cover.mainbedroomcurtains",
+                                    "name": "Main Bedroom - Curtains"
+                                },
+                                {
                                     "entity": "cover.velux_internal_cover_6",
                                     "name": "Bell Tower"
                                 },
@@ -151,9 +155,6 @@
                                             },
                                             {
                                                 "entity": "sensor.4g_upload_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_monthly_data"
                                             }
                                         ],
                                         "title": "House Internet"

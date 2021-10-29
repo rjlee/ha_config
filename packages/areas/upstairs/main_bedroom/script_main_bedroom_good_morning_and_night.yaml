@@ -6,8 +6,9 @@ script:
       sequence:
       - service: scene.turn_on
         entity_id: scene.blinds_open_2
-      - service: scene.turn_on
-        entity_id: scene.curtains_open
+      - service: cover.close_cover
+        target:
+          entity_id: cover.mainbedroomcurtains
     main_bedroom_good_night:
       alias: main_bedroom_good_night
       mode: single
@@ -15,5 +16,6 @@ script:
       sequence:
       - service: scene.turn_on
         entity_id: scene.blinds_closed_2
-      - service: scene.turn_on
-        entity_id: scene.curtains_closed 
+      - service: cover.open_cover
+        target:
+          entity_id: cover.mainbedroomcurtains
