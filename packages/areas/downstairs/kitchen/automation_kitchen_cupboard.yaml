@@ -7,7 +7,7 @@ automation:
     from: 'off'
     to: 'on'
   condition:
-    - condition: or
+    - condition: and
       conditions:
         - condition: time
           weekday:
@@ -19,6 +19,9 @@ automation:
     - condition: time
       after: '15:15:00'
       before: '18:00:00'
+    - condition: state
+      entity_id: device_tracker.child1_s_iphone
+      state: "home"
   action:
   - service: notify.family
     data:
