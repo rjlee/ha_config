@@ -1,0 +1,2 @@
+shell_command:
+  sleep_child1_laptop: "/config/shell/pc/child1_laptop_sleep.sh"
