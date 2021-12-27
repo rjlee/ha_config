@@ -1,9 +1,9 @@
 input_select:
-  child2_pc_options:
-    name: PC Power Options
+  child2_laptop_options:
+    name: child2 Laptop Power Options
     options:
       - None
       - Wake
       - Sleep
     initial: None
-    icon: mdi:pc-windows
+    icon: mdi:laptop

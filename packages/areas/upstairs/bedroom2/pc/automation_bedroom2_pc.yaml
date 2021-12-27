@@ -1,39 +1,39 @@
 automation:
     - id: 'bedroom2_pc_wake'
-      alias: Bedroom 2 - PC - Wake
+      alias: Bedroom 2 - Laptop - Wake
       description: ''
       trigger:
       - platform: state
-        entity_id: input_select.child2_pc_options
+        entity_id: input_select.child2_laptop_options
         to: Wake
       condition: []
       action:
       - service: wake_on_lan.send_magic_packet
         data:
-          mac: ac:e0:10:ef:c0:70
+          mac: e4:5e:37:a9:b6:f4
       - delay: '2'
       - service: input_select.select_option
         data:
           option: None
-        entity_id: input_select.child2_pc_options
+        entity_id: input_select.child2_laptop_options
       mode: single
     - id: 'bedroom2_pc_sleep'
-      alias: Bedroom 2 - PC - Sleep
+      alias: Bedroom 2 - Laptop - Sleep
       description: ''
       trigger:
       - platform: state
-        entity_id: input_select.child2_pc_options
+        entity_id: input_select.child2_laptop_options
         to: Sleep
       - platform: time
         at: '21:00:00'
       condition: []
       action:
-      - service: shell_command.sleep_child2_pc
+      - service: shell_command.sleep_child2_laptop
         data:
           option: None
       - delay: '2'
       - service: input_select.select_option
         data:
           option: None
-        entity_id: input_select.child2_pc_options
+        entity_id: input_select.child2_laptop_options
       mode: single
