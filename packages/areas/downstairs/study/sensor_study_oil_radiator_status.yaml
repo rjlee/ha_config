@@ -2,7 +2,7 @@ sensor:
   - platform: template
     sensors:
       study_oil_radiator_status:
-        entity_id: sensor.study_oil_radiator_energy_current
+        # entity_id: sensor.study_oil_radiator_energy_current
         value_template: >-
           {% if states('sensor.study_oil_radiator_energy_current') | float > 0.5 %}
             on

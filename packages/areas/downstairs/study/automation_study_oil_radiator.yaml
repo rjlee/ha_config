@@ -4,8 +4,11 @@ automation:
       description: ''
       trigger:
       - platform: time
-        at: 06:00
+        at: 09:00
       condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
       - condition: time
         weekday:
         - mon
@@ -26,8 +29,11 @@ automation:
       description: ''
       trigger:
       - platform: time
-        at: '11:00'
+        at: '15:00'
       condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
       - condition: time
         weekday:
         - mon
