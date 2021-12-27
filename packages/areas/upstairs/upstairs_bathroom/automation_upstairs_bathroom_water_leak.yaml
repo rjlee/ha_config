@@ -1,0 +1,14 @@
+automation:
+- id: "Upstairs Bathroom Water Leak Notification"
+  alias: 'Upstairs Bathroom Water Leak Notification'
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.lumi_lumi_sensor_wleak_aq1_ias_zone
+      from: "off"
+      to: "on"
+  action:
+    service: notify.family
+    data:
+      title: "Upstairs Bathroom Water Leak !"
+      message: "Have you left the bath running ?"
