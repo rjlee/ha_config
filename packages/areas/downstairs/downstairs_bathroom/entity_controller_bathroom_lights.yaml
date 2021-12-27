@@ -1,6 +1,5 @@
 entity_controller:
   bathroom_lights:
-#    sensor_type: duration
     block_timeout: 300
     delay: 300
     sensors: 
