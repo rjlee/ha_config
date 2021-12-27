@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_upstairs",
     "data": {
         "config": {
@@ -10,6 +11,10 @@
                     "icon": "",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "30d68fe5058411eba52633f70609353b"
+                        },
                         {
                             "type": "entities",
                             "entities": [
@@ -109,6 +114,10 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "area",
+                            "area": "08d28e33074111eba671674299d472f6"
+                        },
+                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
@@ -121,13 +130,13 @@
                                     ],
                                     "card": {
                                         "type": "custom:state-switch",
-                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                         "states": {
                                             "on": {
                                                 "type": "glance",
                                                 "entities": [
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "icon": "mdi:account-check-outline",
                                                         "name": "Occupied"
                                                     }
@@ -139,7 +148,7 @@
                                                 "type": "glance",
                                                 "entities": [
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "icon": "mdi:account-cancel-outline",
                                                         "name": "Vacant"
                                                     }
@@ -179,7 +188,7 @@
                                                         "name": ""
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "name": ""
                                                     }
                                                 ],
@@ -203,7 +212,7 @@
                                                         "name": ""
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "name": ""
                                                     }
                                                 ],
@@ -236,7 +245,8 @@
                                     "entity": "media_player.xbox_spareroom"
                                 },
                                 {
-                                    "entity": "input_select.child1_laptop_options"
+                                    "entity": "input_select.child1_laptop_options",
+                                    "icon": "mdi:laptop"
                                 }
                             ],
                             "show_header_toggle": false
@@ -261,6 +271,10 @@
                     "path": "child2s-room",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "30aa463f0b3311eba8b961560a186240"
+                        },
                         {
                             "type": "entities",
                             "entities": [
@@ -288,8 +302,8 @@
                                     "name": "Xbox"
                                 },
                                 {
-                                    "entity": "input_select.child2_pc_options",
-                                    "icon": "mdi:desktop-tower"
+                                    "entity": "input_select.child2_laptop_options",
+                                    "icon": "mdi:laptop"
                                 }
                             ]
                         },
@@ -304,27 +318,14 @@
                                     "entity": "climate.child2s_room"
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "title": "Upstairs Hall",
-                    "path": "upstairs-hall",
-                    "badges": [],
-                    "cards": [
+                        },
                         {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities",
-                                "show_header_toggle": false
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "group": "group.upstairs_hall"
-                                    }
-                                ]
-                            }
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -333,6 +334,10 @@
                     "path": "spare-room",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "088e1ead17b611eb81dd5f71ec537caf"
+                        },
                         {
                             "type": "entities",
                             "entities": [
@@ -349,6 +354,30 @@
                                     "entity": "climate.spare_room",
                                     "name": "Heating",
                                     "icon": "mdi:thermometer"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Bathroom",
+                    "path": "",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "area",
+                            "area": "upstairs_bathroom"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "media_player.upstairs_bathroom",
+                                    "name": "Alexa"
+                                },
+                                {
+                                    "entity": "binary_sensor.lumi_lumi_sensor_wleak_aq1_ias_zone",
+                                    "name": "Leak"
                                 }
                             ]
                         }

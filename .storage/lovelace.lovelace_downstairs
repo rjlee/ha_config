@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_downstairs",
     "data": {
         "config": {
@@ -10,6 +11,19 @@
                     "icon": "",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "lounge"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.lounge_lights_light_0",
+                                    "name": "Lights"
+                                }
+                            ]
+                        },
                         {
                             "type": "vertical-stack",
                             "cards": [
@@ -175,6 +189,10 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "area",
+                            "area": "da734d0b00ba11ebbfc457dafaa650cb"
+                        },
+                        {
                             "type": "entities",
                             "entities": [
                                 {
@@ -264,18 +282,8 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.downstairs_bathroom_light_relay_0",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Light"
-                                },
-                                {
-                                    "entity": "binary_sensor.downstairs_bathroom_motion_sensor",
-                                    "name": "Presence"
-                                }
-                            ]
+                            "type": "area",
+                            "area": "e4dc218e0ed411eb896345735c4f7890"
                         }
                     ]
                 },
@@ -284,6 +292,10 @@
                     "path": "hallway",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "downstairs_hallway"
+                        },
                         {
                             "type": "entities",
                             "entities": [
@@ -305,6 +317,10 @@
                     "icon": "",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "260a1e561b9911ebbd4ffb671ecb77c1"
+                        },
                         {
                             "type": "entities",
                             "entities": [
@@ -331,6 +347,11 @@
                     "path": "back",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "area",
+                            "area": "fc1ec4ee0e6011eb85e98da66e03329c",
+                            "show_camera": true
+                        },
                         {
                             "type": "entities",
                             "entities": [
