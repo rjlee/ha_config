@@ -13,6 +13,16 @@ dogwalk:
       - person.mum
       - device_tracker.libby
 
+echos:
+    name: echos
+    entities:
+      - media_player.child2s_room
+      - media_player.child1s_room
+      - media_player.kitchen
+      - media_player.lounge
+      - media_player.mum_and_dad
+      - media_player.spare_room
+
 blinds:
     name: Blinds
     icon: mdi:blinds
@@ -37,6 +47,13 @@ lights:
       - switch.child1_bedside_lamp
       - switch.child2_bedside_lamp
       - switch.downstairs_bathroom_light
+
+on_holiday_lights:
+  name: On Holiday Lights
+  icon: mdi:lightbulb-multiple
+  entities:
+    - light.lounge_lights_light_0
+    - switch.main_bedroom_lights_relay_0
 
 radiators:
     name: Radiators

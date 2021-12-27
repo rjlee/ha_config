@@ -1,0 +1,59 @@
+automation:
+    #############################################################################
+    ## Turn on/off indoor lights randomly
+    #############################################################################
+    # https://community.home-assistant.io/t/holiday-vacation-mode/151426/4
+    - id: 'Automatic light toggle'
+      alias: Random Away Lights
+      initial_state: True
+      hide_entity: False
+    
+      trigger:
+        - platform: time_pattern
+          minutes: '/30'
+    
+      condition:
+        - condition: state
+          entity_id: input_boolean.on_holiday
+          state: 'on'
+        - condition: sun
+          after: sunset
+          after_offset: '-00:30:00'
+        - condition: time
+          before: '22:00:00'
+    
+      action:
+        - delay: "00:{{ '{:02}'.format(range(0,30) | random | int) }}:00"
+    
+        # Selecting entity for toggling
+        - service: input_text.set_value
+          data_template:
+            entity_id: input_text.light_to_switch
+            value: "{{ state_attr('group.on_holiday_lights','entity_id') | random }}"
+    
+        # Toggling entity state
+        - service: homeassistant.toggle
+          data_template:
+            entity_id: "{{states('input_text.light_to_switch')}}"
+    
+    ################################################################
+    ## Stopping presence simulation randomly 22:30
+    ################################################################
+    - id: 'Turning off all toggled lights'
+      alias: Turn off all lights
+      initial_state: True
+      hide_entity: False
+    
+      trigger:
+        - platform: time
+          at: '22:30:00'
+    
+      condition:
+        - condition: state
+          entity_id: group.family
+          state: 'not_home'
+
+      action:
+        - delay: '00:{{ range(15,59) | random | int }}:00'
+        - service: homeassistant.turn_off
+          entity_id: group.on_holiday_lights
