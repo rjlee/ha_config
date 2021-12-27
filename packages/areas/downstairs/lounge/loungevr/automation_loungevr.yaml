@@ -7,8 +7,11 @@ automation lounge_loungevr_wake:
         entity_id: input_select.loungevr_options
         to: Wake
       - platform: time
-        at: 03:00:00
-      condition: []
+        at: 02:00:00
+      condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
       action:
       - service: wake_on_lan.send_magic_packet
         data:
@@ -27,8 +30,11 @@ automation lounge_loungevr_wake:
         entity_id: input_select.loungevr_options
         to: Sleep
       - platform: time
-        at: 04:00:00
-      condition: []
+        at: 08:00:00
+      condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
       action:
       - service: shell_command.sleep_loungevr
         data:

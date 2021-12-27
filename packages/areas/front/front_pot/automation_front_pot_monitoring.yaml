@@ -8,7 +8,10 @@ automation:
         entity_id: sensor.front_pot_moisture
         below: '15'
         for: '00:10:00'
-    condition: []
+    condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
     action:
       - service: notify.family
         data:

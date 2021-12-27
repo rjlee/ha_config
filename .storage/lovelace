@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -63,13 +64,13 @@
                                     ],
                                     "card": {
                                         "type": "custom:state-switch",
-                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                         "states": {
                                             "on": {
                                                 "type": "glance",
                                                 "entities": [
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "icon": "mdi:account-check-outline",
                                                         "name": "Occupied"
                                                     }
@@ -81,7 +82,7 @@
                                                 "type": "glance",
                                                 "entities": [
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "icon": "mdi:account-cancel-outline",
                                                         "name": "Vacant"
                                                     }
@@ -125,7 +126,7 @@
                                                         "name": ""
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "name": ""
                                                     }
                                                 ],
@@ -149,7 +150,7 @@
                                                         "name": ""
                                                     },
                                                     {
-                                                        "entity": "binary_sensor.bedroom1_motion_sensor_motion",
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                                                         "name": ""
                                                     }
                                                 ],
@@ -163,7 +164,7 @@
                         },
                         {
                             "type": "custom:auto-entities",
-                            "show_empty": true,
+                            "show_empty": false,
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Upcoming Dates \ud83c\udf82",
@@ -242,10 +243,6 @@
                             ]
                         },
                         {
-                            "type": "weather-forecast",
-                            "entity": "weather.met_office_location"
-                        },
-                        {
                             "type": "conditional",
                             "conditions": [
                                 {
@@ -259,6 +256,16 @@
                                 "style": "ha-card { --mdc-icon-size: 60px; }",
                                 "content": "{% if state_attr('sensor.weather_warnings','entries') != None %}\n  {% for item in state_attr('sensor.weather_warnings','entries') %}\n    {% for type, icon in [('rain', 'weather-pouring'), ('thunderstorms', 'weather-lightning-rainy'),\n                          ('wind', 'weather-windy'), ('snow', 'weather-snowy-heavy'), \n                          ('lightning', 'weather-lightning'), ('ice', 'car-traction-control'),\n                          ('fog', 'weather-fog')] if type == item.title.split(' ')[3]|trim(',') %}\n---\n| | | |\n| --- | --- | --- |\n| <font color = {%- if 'Yellow' == item.title.split(' ')[0]|trim(',') %}'gold'\n                {%- elif 'Amber' == item.title.split(' ')[0]|trim(',') %}'darkorange'\n                {%- else %}'firebrick'\n                {%- endif %}><ha-icon icon={{ \"'mdi:\" + icon + \"'\" }}></ha-icon></font> | | {{ item.title|trim(\"'[]'\") }}  |\n    {% endfor %}\n  {% endfor %}\n{% endif %}\n"
                             }
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.on_holiday",
+                                    "name": "On Holiday"
+                                }
+                            ],
+                            "show_header_toggle": false
                         },
                         {
                             "type": "vertical-stack",

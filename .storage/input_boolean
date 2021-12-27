@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "input_boolean",
     "data": {
         "items": [
@@ -28,6 +29,11 @@
             {
                 "name": "bedroom2_tv_switch",
                 "id": "bedroom2_tv_switch"
+            },
+            {
+                "name": "on_holiday",
+                "icon": "mdi:palm-tree",
+                "id": "on_holiday"
             }
         ]
     }
