@@ -55,18 +55,52 @@ group:
         - sensor.bedroom1_motion_sensor_ip
         - binary_sensor.bedroom1_motion_sensor_charger
         - binary_sensor.downstairs_bathroom_motion_sensor_charger
-        - sensor.deebot_ozmo_920_lounge_last_clean_image
-        - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
-        - sensor.deebot_ozmo_t8_aivi_kitchen_stats_area
+        - sensor.deebot_ozmo_920_kitchen_last_clean_image
+        - sensor.deebot_ozmo_920_kitchen_stats_area
+        - sensor.deebot_ozmo_920_kitchen_stats_time
+        - sensor.deebot_ozmo_920_kitchen_stats_type
+        - sensor.deebot_ozmo_920_kitchen_water_level
         - sensor.deebot_ozmo_920_lounge_stats_area
         - sensor.deebot_ozmo_920_lounge_stats_time
+        - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
+        - sensor.deebot_ozmo_t8_aivi_kitchen_stats_area
+        - sensor.deebot_ozmo_t8_aivi_kitchen_stats_time
+        - sensor.deebot_ozmo_t8_aivi_kitchen_stats_type
+        - sensor.deebot_ozmo_t8_aivi_kitchen_water_level
         - sensor.libby_ble
         - sensor.bedroom_1_light_energy_0
         - sensor.bedroom_1_light_power_0
         - sensor.bedroom_2_light_energy_0
         - sensor.bedroom_2_light_power_0
+        - button.lounge_lights_update_firmware
+        - button.main_bedroom_lights_update_firmware
         - sensor.downstairs_bathroom_light_power_0
         - sensor.downstairs_bathroom_light_energy_0
+        - sensor.hottub_error
+        - sensor.hottub_online
+        - sensor.hottub_pump_target
+        - sensor.hottub_pump_temp
+        - sensor.hottub_status
+        - sensor.hottub_summary
+        - sensor.hottub_water_temp
+        - switch.hottub_bubbles
+        - switch.hottub_filter
+        - switch.hottub_heat
+        - switch.hottub_power
+        - sensor.lounge_lights_overpower_value_0
+        - sensor.main_bedroom_lights_energy_0
+        - sensor.main_bedroom_lights_power_0
+        - button.bedroom1_lights_update_firmware
+        - button.bedroom2_lights_update_firmware
+        - button.curtains_my_position
+        - sensor.homekit_setup_code
+        - button.downstairs_bathroom_lights_update_firmware
+        - binary_sensor.shelly_motion_60a423936d7e_charger
+        - binary_sensor.shelly_motion_60a423936d7e_firmware_update
+        - binary_sensor.shelly_motion_60a423936d7e_motion
+        - binary_sensor.shelly_motion_60a423936d7e_vibration
+        - sensor.shelly_motion_60a423936d7e_battery
+        - sensor.shelly_motion_60a423936d7e_lux
 
 binary_sensor:
   - platform: template
