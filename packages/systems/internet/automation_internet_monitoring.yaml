@@ -1,15 +1,15 @@
-automation:
-  - id: 'internet_bandwidth_4g_monitoring'
-    alias: House - Internet - 4G Monitoring
-    description: ''
-    mode: single
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.4g_download_speed
-        above: '2000'
-        for: '00:05:00'
-    condition: []
-    action:
-      - service: notify.mobile_app_mobile_dad
-        data:
-          message: 4G Download speed > 2MB/s for 5 mins
+#automation:
+#  - id: 'internet_bandwidth_4g_monitoring'
+#    alias: House - Internet - 4G Monitoring
+#    description: ''
+#    mode: single
+#    trigger:
+#      - platform: numeric_state
+#        entity_id: sensor.4g_download_speed
+#        above: '2000'
+#        for: '00:05:00'
+#    condition: []
+#    action:
+#      - service: notify.mobile_app_mobile_dad
+#        data:
+#          message: 4G Download speed > 2MB/s for 5 mins
