@@ -1,7 +1,7 @@
-sensor:
-  - platform: google_travel_time
-    name: google_travel_time_dad_work
-    api_key: !secret google_travel_time_api_key
-    origin: !secret google_travel_time_origin
-    destination: !secret google_travel_time_destination
+#sensor:
+#  - platform: google_travel_time
+#    name: google_travel_time_dad_work
+#    api_key: !secret google_travel_time_api_key
+#    origin: !secret google_travel_time_origin
+#    destination: !secret google_travel_time_destination
 
