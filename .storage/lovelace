@@ -25,27 +25,80 @@
                     ],
                     "cards": [
                         {
+                            "type": "alarm-panel",
+                            "name": "House Alarm",
+                            "states": [
+                                "arm_home",
+                                "arm_away"
+                            ],
+                            "entity": "alarm_control_panel.alarmo"
+                        },
+                        {
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "person.dad"
+                                    "entity": "input_boolean.school_holidays",
+                                    "name": "School Holidays"
                                 },
                                 {
-                                    "entity": "person.mum"
-                                },
-                                {
-                                    "entity": "person.child1"
-                                },
-                                {
-                                    "entity": "person.child2"
-                                },
-                                {
-                                    "entity": "person.libby",
-                                    "name": "Libby"
+                                    "entity": "input_boolean.on_holiday",
+                                    "name": "On Holiday"
                                 }
                             ],
-                            "title": "People",
-                            "show_header_toggle": true
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "type": "vertical-stack",
@@ -190,59 +243,6 @@
                             }
                         },
                         {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "on"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_download_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_upload_speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
-                                },
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_download_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_upload_speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
-                                }
-                            ]
-                        },
-                        {
                             "type": "conditional",
                             "conditions": [
                                 {
@@ -256,16 +256,6 @@
                                 "style": "ha-card { --mdc-icon-size: 60px; }",
                                 "content": "{% if state_attr('sensor.weather_warnings','entries') != None %}\n  {% for item in state_attr('sensor.weather_warnings','entries') %}\n    {% for type, icon in [('rain', 'weather-pouring'), ('thunderstorms', 'weather-lightning-rainy'),\n                          ('wind', 'weather-windy'), ('snow', 'weather-snowy-heavy'), \n                          ('lightning', 'weather-lightning'), ('ice', 'car-traction-control'),\n                          ('fog', 'weather-fog')] if type == item.title.split(' ')[3]|trim(',') %}\n---\n| | | |\n| --- | --- | --- |\n| <font color = {%- if 'Yellow' == item.title.split(' ')[0]|trim(',') %}'gold'\n                {%- elif 'Amber' == item.title.split(' ')[0]|trim(',') %}'darkorange'\n                {%- else %}'firebrick'\n                {%- endif %}><ha-icon icon={{ \"'mdi:\" + icon + \"'\" }}></ha-icon></font> | | {{ item.title|trim(\"'[]'\") }}  |\n    {% endfor %}\n  {% endfor %}\n{% endif %}\n"
                             }
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.on_holiday",
-                                    "name": "On Holiday"
-                                }
-                            ],
-                            "show_header_toggle": false
                         },
                         {
                             "type": "vertical-stack",

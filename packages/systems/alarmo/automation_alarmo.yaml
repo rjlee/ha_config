@@ -1,0 +1,27 @@
+automation:
+  - id: 'Alarmo - Arm Night Mode'
+    alias: Alarmo - Arm Night Mode
+    description: ''
+    trigger:
+      - platform: time
+        at: '00:00:00'
+    condition: []
+    action:
+      - service: alarmo.arm
+        data:
+          entity_id: alarm_control_panel.alarmo
+          mode: home 
+          force: true
+    mode: single
+  - id: 'Alarmo - Disable Night Mode'
+    alias: Alarmo - Disable Night Mode
+    description: ''
+    trigger:
+      - platform: time
+        at: '06:00:00'
+    condition: []
+    action:
+      - service: alarmo.disarm
+        data:
+          entity_id: alarm_control_panel.alarmo
+    mode: single

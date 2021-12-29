@@ -58,6 +58,11 @@
                 "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524311",
                 "type": "module",
                 "id": "0607c62adee040dbab2c22f1da5f681a"
+            },
+            {
+                "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854122",
+                "type": "module",
+                "id": "32aaedb852dc4c2eb231e3b527861e94"
             }
         ]
     }
