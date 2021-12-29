@@ -293,6 +293,36 @@
                     ]
                 },
                 {
+                    "title": "People",
+                    "path": "people",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "person.dad"
+                                },
+                                {
+                                    "entity": "person.mum"
+                                },
+                                {
+                                    "entity": "person.child1"
+                                },
+                                {
+                                    "entity": "person.child2"
+                                },
+                                {
+                                    "entity": "person.libby",
+                                    "name": "Libby"
+                                }
+                            ],
+                            "title": "People",
+                            "show_header_toggle": true
+                        }
+                    ]
+                },
+                {
                     "title": "Batteries",
                     "path": "batteries",
                     "badges": [],
