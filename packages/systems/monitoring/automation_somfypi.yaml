@@ -1,0 +1,22 @@
+automation:
+    - id: 'somfypi_monitoring'
+      alias: Somfypi - Monitoring
+      description: ''
+      trigger:
+      - platform: state
+        entity_id: cover.mainbedroomcurtains
+        to: unavailable
+        for: 00:05:00
+      condition: []
+      action:
+      - service: notify.mobile_app_mobile_dad
+        data:
+          message: Sofypi is unresponsive, restarting
+      - service: light.toggle
+        data:
+          entity_id: light.main_bedroom_bedside_socket_on_off
+      - delay: '00:00:10'
+      - service: light.toggle
+        data:
+          entity_id: light.main_bedroom_bedside_socket_on_off      
+      mode: single
