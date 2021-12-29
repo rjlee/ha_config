@@ -7,6 +7,9 @@ automation:
         at: 08:15
       condition:
       - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
+      - condition: state
         entity_id: sensor.rubbish_collection
         state: 0
         attribute: days

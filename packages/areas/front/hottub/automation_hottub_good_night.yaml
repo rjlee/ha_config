@@ -7,6 +7,9 @@ automation:
         at: '18:00:00'
       condition:
       - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
+      - condition: state
         entity_id: sensor.hottub_online
         state: 'true'
       action:
