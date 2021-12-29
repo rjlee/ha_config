@@ -1,6 +1,6 @@
 automation:
-- id: "Upstairs Bathroom Water Leak Notification"
-  alias: 'Upstairs Bathroom Water Leak Notification'
+- id: "Upstairs - Bathroom Water Leak Notification"
+  alias: 'Upstairs - Bathroom Water Leak Notification'
   trigger:
     - platform: state
       entity_id:
