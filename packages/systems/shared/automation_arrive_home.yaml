@@ -1,6 +1,6 @@
 automation:
     - id: 'arrive_home'
-      alias: Arrive Home
+      alias: Presence - Arrive Home
       description: ''
       trigger:
       - platform: state
