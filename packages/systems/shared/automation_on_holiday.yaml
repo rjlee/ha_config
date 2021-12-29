@@ -4,7 +4,7 @@ automation:
     #############################################################################
     # https://community.home-assistant.io/t/holiday-vacation-mode/151426/4
     - id: 'Automatic light toggle'
-      alias: Random Away Lights
+      alias: Holiday - Random Away Lights
       initial_state: True
       hide_entity: False
     
@@ -40,7 +40,7 @@ automation:
     ## Stopping presence simulation randomly 22:30
     ################################################################
     - id: 'Turning off all toggled lights'
-      alias: Turn off all lights
+      alias: Holiday - Turn off all lights
       initial_state: True
       hide_entity: False
     
