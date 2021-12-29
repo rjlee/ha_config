@@ -6,6 +6,9 @@ automation:
       - platform: time
         at: 07:12:00
       condition:
+      - condition: state
+        entity_id: input_boolean.school_holidays
+        state: "off"
       - condition: time
         weekday:
         - mon

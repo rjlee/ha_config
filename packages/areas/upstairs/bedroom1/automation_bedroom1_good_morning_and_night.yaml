@@ -6,6 +6,9 @@ automation:
       - platform: time
         at: 07:10
       condition:
+      - condition: state
+        entity_id: input_boolean.school_holidays
+        state: "off"
       - condition: time
         weekday:
         - mon
@@ -50,12 +53,17 @@ automation:
       description: ''
       trigger:
       - platform: time
-        at: 08:30
+        at: 09:00
       condition:
-      - condition: time
-        weekday:
-        - sat
-        - sun
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "on"
+          - condition: time
+            weekday:
+            - sat
+            - sun
       action:
       - device_id: 93f924d517b311ebb9bb8d79d0cf841c
         domain: cover

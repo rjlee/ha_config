@@ -31,9 +31,14 @@
                 "id": "bedroom2_tv_switch"
             },
             {
-                "name": "on_holiday",
+                "name": "On Holiday",
                 "icon": "mdi:palm-tree",
                 "id": "on_holiday"
+            },
+            {
+                "name": "school_holidays",
+                "icon": "mdi:school-outline",
+                "id": "school_holidays"
             }
         ]
     }
