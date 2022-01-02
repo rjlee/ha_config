@@ -1,0 +1,12 @@
+template:
+  - sensor:
+    - name: "House Energy - Total Power"
+      unit_of_measurement: "W"
+      state: "{{ states('sensor.house_energy_monitor_smartenergy_metering')| float }}"
+      state_class: measurement
+      device_class: power
+    - name: "House Energy - Total Consumption"
+      unit_of_measurement: "Wh"
+      state: "{{ states('sensor.house_energy_monitor_smartenergy_metering_summation_delivered') | float }}"
+      state_class: total_increasing
+      device_class: energy
