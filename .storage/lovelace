@@ -25,6 +25,48 @@
                     ],
                     "cards": [
                         {
+                            "type": "conditional",
+                            "conditions": [
+                                {
+                                    "entity": "sensor.weather_warnings",
+                                    "state_not": "0"
+                                }
+                            ],
+                            "card": {
+                                "type": "markdown",
+                                "title": "Weather Warnings",
+                                "style": "ha-card { --mdc-icon-size: 60px; }",
+                                "content": "{% if state_attr('sensor.weather_warnings','entries') != None %}\n  {% for item in state_attr('sensor.weather_warnings','entries') %}\n    {% for type, icon in [('rain', 'weather-pouring'), ('thunderstorms', 'weather-lightning-rainy'),\n                          ('wind', 'weather-windy'), ('snow', 'weather-snowy-heavy'), \n                          ('lightning', 'weather-lightning'), ('ice', 'car-traction-control'),\n                          ('fog', 'weather-fog')] if type == item.title.split(' ')[3]|trim(',') %}\n---\n| | | |\n| --- | --- | --- |\n| <font color = {%- if 'Yellow' == item.title.split(' ')[0]|trim(',') %}'gold'\n                {%- elif 'Amber' == item.title.split(' ')[0]|trim(',') %}'darkorange'\n                {%- else %}'firebrick'\n                {%- endif %}><ha-icon icon={{ \"'mdi:\" + icon + \"'\" }}></ha-icon></font> | | {{ item.title|trim(\"'[]'\") }}  |\n    {% endfor %}\n  {% endfor %}\n{% endif %}\n"
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "show_empty": false,
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Upcoming Dates \ud83c\udf82",
+                                "type": "entities",
+                                "show_empty": false
+                            },
+                            "sort": {
+                                "method": "state",
+                                "numeric": true
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/anniversary/",
+                                        "state": "< 14"
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "/automation.|calendar.|scene.|script./"
+                                    }
+                                ]
+                            }
+                        },
+                        {
                             "type": "alarm-panel",
                             "name": "House Alarm",
                             "states": [
@@ -43,6 +85,9 @@
                                 {
                                     "entity": "input_boolean.on_holiday",
                                     "name": "On Holiday"
+                                },
+                                {
+                                    "entity": "group.lights"
                                 }
                             ],
                             "show_header_toggle": false
@@ -214,48 +259,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:auto-entities",
-                            "show_empty": false,
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Upcoming Dates \ud83c\udf82",
-                                "type": "entities",
-                                "show_empty": false
-                            },
-                            "sort": {
-                                "method": "state",
-                                "numeric": true
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "/anniversary/",
-                                        "state": "< 14"
-                                    }
-                                ],
-                                "exclude": [
-                                    {
-                                        "entity_id": "/automation.|calendar.|scene.|script./"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "conditional",
-                            "conditions": [
-                                {
-                                    "entity": "sensor.weather_warnings",
-                                    "state_not": "0"
-                                }
-                            ],
-                            "card": {
-                                "type": "markdown",
-                                "title": "Weather Warnings",
-                                "style": "ha-card { --mdc-icon-size: 60px; }",
-                                "content": "{% if state_attr('sensor.weather_warnings','entries') != None %}\n  {% for item in state_attr('sensor.weather_warnings','entries') %}\n    {% for type, icon in [('rain', 'weather-pouring'), ('thunderstorms', 'weather-lightning-rainy'),\n                          ('wind', 'weather-windy'), ('snow', 'weather-snowy-heavy'), \n                          ('lightning', 'weather-lightning'), ('ice', 'car-traction-control'),\n                          ('fog', 'weather-fog')] if type == item.title.split(' ')[3]|trim(',') %}\n---\n| | | |\n| --- | --- | --- |\n| <font color = {%- if 'Yellow' == item.title.split(' ')[0]|trim(',') %}'gold'\n                {%- elif 'Amber' == item.title.split(' ')[0]|trim(',') %}'darkorange'\n                {%- else %}'firebrick'\n                {%- endif %}><ha-icon icon={{ \"'mdi:\" + icon + \"'\" }}></ha-icon></font> | | {{ item.title|trim(\"'[]'\") }}  |\n    {% endfor %}\n  {% endfor %}\n{% endif %}\n"
-                            }
                         },
                         {
                             "type": "vertical-stack",
