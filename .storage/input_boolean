@@ -4,42 +4,6 @@
     "key": "input_boolean",
     "data": {
         "items": [
-            {
-                "name": "curtains_open",
-                "id": "curtains_open"
-            },
-            {
-                "name": "vacuum_awake",
-                "id": "vacuum_awake"
-            },
-            {
-                "name": "child1_asleep",
-                "id": "child1_awake"
-            },
-            {
-                "name": "kitchen_tv_switch",
-                "icon": "mdi:television",
-                "id": "kitchen_tv_switch"
-            },
-            {
-                "name": "main_bedroom_tv_switch",
-                "icon": "mdi:television",
-                "id": "main_bedroom_tv_switch"
-            },
-            {
-                "name": "bedroom2_tv_switch",
-                "id": "bedroom2_tv_switch"
-            },
-            {
-                "name": "On Holiday",
-                "icon": "mdi:palm-tree",
-                "id": "on_holiday"
-            },
-            {
-                "name": "school_holidays",
-                "icon": "mdi:school-outline",
-                "id": "school_holidays"
-            }
         ]
     }
 }
