@@ -1,0 +1,4 @@
+input_boolean:
+  kitchen_tv_switch:
+    name: kitchen_tv_switch
+    icon: mdi:television

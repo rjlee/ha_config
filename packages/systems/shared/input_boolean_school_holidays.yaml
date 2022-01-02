@@ -1,0 +1,4 @@
+input_boolean:
+  school_holidays:
+    name: school_holidays
+    icon: mdi:school-outline

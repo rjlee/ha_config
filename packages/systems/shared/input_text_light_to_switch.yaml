@@ -1,0 +1,4 @@
+input_text:
+ light_to_switch: 
+    name: light_to_switch
+    icon: mdi:lightbulb

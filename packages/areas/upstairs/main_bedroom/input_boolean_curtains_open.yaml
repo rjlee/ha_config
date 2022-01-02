@@ -1,0 +1,4 @@
+input_boolean:
+  curtains_open:
+    name: curtains_open
+    icon: mdi:curtains

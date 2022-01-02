@@ -1,0 +1,4 @@
+input_boolean:
+  bedroom2_tv_switch:
+    name: bedroom2_tv_switch
+    icon: mdi:television
