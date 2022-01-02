@@ -26,7 +26,7 @@ automation:
       - service: light.turn_off
         target:
           entity_id:
-            - light.child2_bedside_lamp_msl430_main_channel
+            - light.bedroom_2_bedside_lamp
       mode: single
     - id: 'child2_bedroom_good_morning_weekend'
       alias: child2 Bedroom - Good Morning - Weekend
@@ -54,7 +54,7 @@ automation:
       - service: light.turn_off
         target:
           entity_id:
-            - light.child2_bedside_lamp_msl430_main_channel
+            - light.bedroom_2_bedside_lamp
       mode: single
     - id: 'child2_bedroom_good_morning_left_for_school'
       alias: child2 Bedroom - Good Morning - Left for school
@@ -91,7 +91,7 @@ automation:
       - service: light.turn_on
         target:
           entity_id:
-            - light.child2_bedside_lamp_msl430_main_channel
+            - light.bedroom_2_bedside_lamp
       - device_id: 93f9354117b311eb8b436525b0da5a14
         domain: cover
         entity_id: cover.velux_internal_cover_5
