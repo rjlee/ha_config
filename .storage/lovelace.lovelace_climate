@@ -368,6 +368,45 @@
                     ]
                 },
                 {
+                    "title": "Energy",
+                    "path": "energy",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                "sensor.house_energy_total_power"
+                            ],
+                            "points_per_hour": 10,
+                            "labels": true
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.house_energy_total_power"
+                            ],
+                            "days_to_show": 30,
+                            "stat_types": [
+                                "mean",
+                                "min",
+                                "max"
+                            ],
+                            "title": "Power",
+                            "chart_type": "line"
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.house_energy_total_power"
+                            ],
+                            "stat_types": [
+                                "mean"
+                            ],
+                            "days_to_show": 1
+                        }
+                    ]
+                },
+                {
                     "title": "Smart Devices",
                     "path": "smart-devices",
                     "badges": [],
