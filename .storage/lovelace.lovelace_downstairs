@@ -356,8 +356,9 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.downstairs_hall_back_door_sensor_status",
-                                    "name": "Back Door"
+                                    "entity": "binary_sensor.back_door_contact_sensor_status",
+                                    "name": "Back Door",
+                                    "icon": "mdi:door"
                                 }
                             ]
                         }
