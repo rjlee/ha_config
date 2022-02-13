@@ -225,13 +225,16 @@
                                         "type": "entities",
                                         "entities": [
                                             {
-                                                "entity": "switch.4g"
+                                                "entity": "switch.4g",
+                                                "name": "Fibre Internet"
                                             },
                                             {
-                                                "entity": "sensor.4g_download_speed"
+                                                "entity": "sensor.4g_download_speed",
+                                                "name": "Fibre Download Speed"
                                             },
                                             {
-                                                "entity": "sensor.4g_upload_speed"
+                                                "entity": "sensor.4g_upload_speed",
+                                                "name": "Fibre Upload Speed"
                                             }
                                         ],
                                         "title": "House Internet"
@@ -263,7 +266,8 @@
                                         "type": "entities",
                                         "entities": [
                                             {
-                                                "entity": "switch.4g"
+                                                "entity": "switch.4g",
+                                                "name": "Fibre Internet"
                                             },
                                             {
                                                 "entity": "sensor.adsl_download_speed"
