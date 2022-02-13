@@ -16,9 +16,6 @@ automation:
         - wed
         - thu
         - fri
-      - condition: state
-        entity_id: binary_sensor.withings_in_bed_child1
-        state: 'on'
       action:
       - service: media_player.volume_set
         data:
@@ -27,6 +24,36 @@ automation:
       - service: notify.alexa_media
         data:
           message: child1, its time to get up for school.  Dont forget to put on deodorant
+          data:
+            type: tts
+          target:
+          - media_player.child1s_room
+      mode: single
+    - id: 'child1_bedroom_leave_reminder'
+      alias: child1 Bedroom - Leave Reminder
+      description: ''
+      trigger:
+      - platform: time
+        at: 08:00:00
+      condition:
+      - condition: state
+        entity_id: input_boolean.school_holidays
+        state: "off"
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      action:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.child1s_room
+          volume_level: 0.5
+      - service: notify.alexa_media
+        data:
+          message: child1, you've got ten minutes before your friends arrive, are you ready ?
           data:
             type: tts
           target:
