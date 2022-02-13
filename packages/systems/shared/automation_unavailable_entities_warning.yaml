@@ -1,23 +1,27 @@
-sensor:
-  - platform: template
-    sensors:
-      unavailable_entities:
-        friendly_name: Unavailable Entities
-        unit_of_measurement: Entities
-        icon_template: "{{ 'mdi:check-circle' if is_state('sensor.unavailable_entities','0') else 'mdi:alert-circle' }}"
-        value_template: >
-          {{ states|selectattr('state','in',['unavailable','unknown','none'])|rejectattr('domain','eq','group')
-            |rejectattr('entity_id','in',state_attr('group.ignored_entities','entity_id'))|list|count }}
-        attribute_templates:
+# https://github.com/jazzyisj/unavailable-entities-sensor
+# REQUIRED - This is the template sensor
+template:
+  - sensor:
+      - name: 'Unavailable Entities'
+        unique_id: unavailable_entities
+        icon: "{{ 'mdi:alert-circle' if states('sensor.unavailable_entities')|int(0) > 0 else 'mdi:check-circle' }}"
+        unit_of_measurement: entities
+        state: >
+          {% if state_attr('sensor.unavailable_entities','entities') != none %}
+            {{ state_attr('sensor.unavailable_entities','entities')|count }}
+          {% endif %}
+        attributes:
           entities: >
-            {{ states|selectattr('state','in',['unavailable','unknown','none'])|rejectattr('domain','eq','group')
-              |rejectattr('entity_id','in',state_attr('group.ignored_entities','entity_id'))|map(attribute='entity_id')|join(',') }}
-          names: >
-            {{ states|selectattr('state','in',['unavailable','unknown','none'])|rejectattr('domain','eq','group')
-              |rejectattr('entity_id','in',state_attr('group.ignored_entities','entity_id'))|map(attribute='name')|join(',') }}
+            {% set ignore_seconds = 60 %}
+            {% set ignore_ts = (now().timestamp() - ignore_seconds)|as_datetime %}
+            {{ states
+              |rejectattr('domain','eq','group')
+              |rejectattr('entity_id','in',state_attr('group.ignored_unavailable_entities','entity_id'))
+              |rejectattr('last_changed','ge',ignore_ts)
+              |selectattr('state','in',['unavailable','unknown','none'])|map(attribute='entity_id')|list }}
 
 group:
-  ignored_entities:
+  ignored_unavailable_entities:
     entities:
         - media_player.lg_webos_tv_d1bd
         - sensor.back_door_last_ding
@@ -43,6 +47,22 @@ group:
         - sensor.withings_systolic_blood_pressure_mmhg_child1
         - sensor.withings_temperature_c_child1
         - sensor.withings_weight_kg_child1
+        - sensor.withings_body_temperature_c_child2
+        - sensor.withings_bone_mass_kg_child2
+        - sensor.withings_diastolic_blood_pressure_mmhg_child2
+        - sensor.withings_fat_free_mass_kg_child2
+        - sensor.withings_fat_mass_kg_child2
+        - sensor.withings_fat_ratio_pct_child2
+        - sensor.withings_heart_pulse_bpm_child2
+        - sensor.withings_muscle_mass_kg_child2
+        - sensor.withings_pulse_wave_velocity_child2
+        - sensor.withings_skin_temperature_c_child2
+        - sensor.withings_spo2_pct_child2
+        - sensor.withings_systolic_blood_pressure_mmhg_child2
+        - sensor.withings_temperature_c_child2
+        - sensor.withings_weight_kg_child2
+        - binary_sensor.withings_in_bed_child2
+        - binary_sensor.withings_in_bed_child1
         - sensor.downstairs_bathroom_light_power_0
         - sensor.velux_sensor_current_temperature
         - sensor.downstairs_bathroom_motion_sensor_rssi
@@ -101,6 +121,77 @@ group:
         - binary_sensor.shelly_motion_60a423936d7e_vibration
         - sensor.shelly_motion_60a423936d7e_battery
         - sensor.shelly_motion_60a423936d7e_lux
+        - binary_sensor.child2s_laptop_battery_status
+        - binary_sensor.child2s_laptop_network_0_wired
+        - binary_sensor.child2s_laptop_power_status
+        - camera.child2s_laptop_screen_0
+        - sensor.child2s_laptop_battery_full_lifetime
+        - sensor.child2s_laptop_battery_level
+        - sensor.child2s_laptop_battery_remaining
+        - sensor.child2s_laptop_battery_remaining_time
+        - sensor.child2s_laptop_cpu_usage
+        - sensor.child2s_laptop_current_username
+        - sensor.child2s_laptop_memory_available
+        - sensor.child2s_laptop_memory_total
+        - sensor.child2s_laptop_memory_usage
+        - sensor.child2s_laptop_memory_used
+        - sensor.child2s_laptop_network_0_bps_received
+        - sensor.child2s_laptop_network_0_bps_sent
+        - sensor.child2s_laptop_network_0_bytes_received
+        - sensor.child2s_laptop_network_0_bytes_sent
+        - sensor.child2s_laptop_network_0_ipv4
+        - sensor.child2s_laptop_network_0_ipv6
+        - sensor.child2s_laptop_network_0_speed
+        - sensor.child2s_laptop_screen_0_height
+        - sensor.child2s_laptop_screen_0_width
+        - sensor.child2s_laptop_storage_c_available_free_space
+        - sensor.child2s_laptop_storage_c_format
+        - sensor.child2s_laptop_storage_c_label
+        - sensor.child2s_laptop_storage_c_total_free_space
+        - sensor.child2s_laptop_storage_c_total_storage
+        - sensor.child2s_laptop_storage_c_usage
+        - sensor.child2s_laptop_storage_c_used_space
+        - sensor.child2s_laptop_storage_d_available_free_space
+        - sensor.child2s_laptop_storage_d_format
+        - sensor.child2s_laptop_storage_d_label
+        - sensor.child2s_laptop_storage_d_total_free_space
+        - sensor.child2s_laptop_storage_d_total_storage
+        - sensor.child2s_laptop_storage_d_usage
+        - sensor.child2s_laptop_storage_d_used_space
+        - sensor.child2s_laptop_system_boot_time
+        - sensor.child2s_laptop_system_idle_time
+        - sensor.child2s_laptop_system_uptime
+        - sensor.lumi_lumi_remote_b1acn01_power
+        - button.develco_zhemi101_8a19021b_identify
+        - button.ewelink_ms01_d50e4e23_identify
+        - button.lg_webos_tv_d1bd_identify
+        - button.lumi_lumi_sensor_magnet_aq2_5c11bc07_identify
+        - button.lumi_lumi_sensor_motion_aq2_03b9f006_identify
+        - button.lumi_lumi_sensor_motion_aq2_283d5a07_identify
+        - button.lumi_lumi_sensor_motion_aq2_f59c5f07_identify
+        - button.lumi_lumi_sensor_wleak_aq1_d99dc207_identify
+        - button.msl430_abdf_identify
+        - button.msl430_b040_identify
+        - button.philips_lct026_8ff58809_identify
+        - button.sonoff_s26r2zb_0480c024_identify
+        - button.sonoff_s26r2zb_8d7ec024_identify
+        - button.sonoff_s26r2zb_bb7ec024_identify
+        - button.velux_gateway_identify
+        - button.velux_internal_cover_identify
+        - button.velux_internal_cover_identify_2
+        - button.velux_internal_cover_identify_3
+        - button.velux_internal_cover_identify_4
+        - button.velux_internal_cover_identify_5
+        - button.velux_internal_cover_identify_6
+        - button.velux_sensor_identify
+        - binary_sensor.downstairs_bathroom_light_longpush_0
+        - binary_sensor.downstairs_bathroom_light_longpush_1
+        - binary_sensor.downstairs_bathroom_light_shortpush_0
+        - binary_sensor.downstairs_bathroom_light_shortpush_1
+        - binary_sensor.main_bedroom_lights_longpush_0
+        - binary_sensor.main_bedroom_lights_longpush_1
+        - binary_sensor.main_bedroom_lights_shortpush_0
+        - binary_sensor.main_bedroom_lights_shortpush_1
 
 binary_sensor:
   - platform: template
