@@ -1,8 +1,0 @@
-entity_controller:
-  bathroom_lights:
-    block_timeout: 300
-    delay: 300
-    sensors: 
-      - binary_sensor.downstairs_bathroom_motion_sensor
-    entities:
-      - switch.downstairs_bathroom_light_relay_0
