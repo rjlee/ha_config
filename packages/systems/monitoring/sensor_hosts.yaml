@@ -1,0 +1,16 @@
+binary_sensor:
+  - platform: ping
+    host: !secret host_monitor_unifi
+    name: "host_unifi_availability"
+    count: 5
+    scan_interval: 60
+  - platform: ping
+    host: !secret host_monitor_synology
+    name: "host_synology_availability"
+    count: 5
+    scan_interval: 60
+  - platform: ping
+    host: !secret host_monitor_pihole1
+    name: "host_pihole1_availability"
+    count: 5
+    scan_interval: 60

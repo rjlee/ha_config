@@ -1,0 +1,13 @@
+binary_sensor:
+#  - platform: command_line
+#    name: http_unifi_availability
+#    command: response=$(curl -LIk -m 3 https://unifi.home/ -o /dev/null -w "%{http_code}\n" -s); test "$response" -eq 200 && echo "OFF" || echo "ON"
+#    scan_interval: 60
+#    value_template: '{{ value }}'
+#    device_class: 'problem'
+  - platform: command_line
+    name: http_pihole1_availability
+    command: response=$(curl -LIk -m 3 http://pihole1.home/ -o /dev/null -w "%{http_code}\n" -s); test "$response" -eq 200 && echo "off" || echo "on"
+    scan_interval: 60
+    value_template: '{{ value }}'
+    device_class: 'problem'
