@@ -67,83 +67,45 @@
                             }
                         },
                         {
-                            "type": "alarm-panel",
-                            "name": "House Alarm",
-                            "states": [
-                                "arm_home",
-                                "arm_away"
+                            "type": "conditional",
+                            "conditions": [
+                                {
+                                    "entity": "sensor.unavailable_entities",
+                                    "state_not": "0"
+                                }
                             ],
-                            "entity": "alarm_control_panel.alarmo"
+                            "card": {
+                                "type": "markdown",
+                                "content": "{%- if (state_attr('sensor.unavailable_entities','entities') == 0 ) %}\n  No unavailable entities\n{% else %} {%- for device in state_attr('sensor.unavailable_entities','entities')  -%} - {{ device ~ '\\n' }} {%- endfor %} {% endif %}\n",
+                                "title": "Unavailable Entities"
+                            }
                         },
                         {
-                            "type": "entities",
+                            "type": "custom:battery-state-card",
+                            "title": "Battery Level",
+                            "sort_by_level": "asc",
                             "entities": [
-                                {
-                                    "entity": "input_boolean.school_holidays",
-                                    "name": "School Holidays"
-                                },
-                                {
-                                    "entity": "input_boolean.on_holiday",
-                                    "name": "On Holiday"
-                                },
-                                {
-                                    "entity": "group.lights"
-                                }
+                                "sensor.bedroom_1_motion_sensor_battery",
+                                "sensor.bedroom_2_motion_sensor_battery",
+                                "sensor.downstairs_bathroom_motion_sensor_battery",
+                                "sensor.back_door_contact_sensor_power",
+                                "sensor.back_door_battery",
+                                "sensor.lumi_lumi_sensor_wleak_aq1_power",
+                                "sensor.kitchen_cupboard_motion_sensor_power"
                             ],
-                            "show_header_toggle": false
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "on"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_download_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_upload_speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "name": "state",
+                                        "value": 30,
+                                        "operator": ">"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "value": "Unavailable"
                                     }
-                                },
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_download_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_upload_speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
-                                }
-                            ]
+                                ]
+                            }
                         },
                         {
                             "type": "vertical-stack",
@@ -256,6 +218,68 @@
                                                 "title": "child1s Room"
                                             }
                                         }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "alarm-panel",
+                            "name": "House Alarm",
+                            "states": [
+                                "arm_home",
+                                "arm_away"
+                            ],
+                            "entity": "alarm_control_panel.alarmo"
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.4g_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "switch.4g",
+                                            "state": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "entities",
+                                        "entities": [
+                                            {
+                                                "entity": "switch.4g"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_download_speed"
+                                            },
+                                            {
+                                                "entity": "sensor.adsl_upload_speed"
+                                            }
+                                        ],
+                                        "title": "House Internet"
                                     }
                                 }
                             ]
