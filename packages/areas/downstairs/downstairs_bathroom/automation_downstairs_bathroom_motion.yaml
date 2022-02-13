@@ -1,0 +1,24 @@
+automation:
+  - id: downstairs_bathroom_motion_light
+    alias: Downstairs Bathroom - Motion Light
+    description: ''
+    mode: restart
+    max_exceeded: silent
+    trigger:
+      platform: state
+      entity_id: binary_sensor.downstairs_bathroom_motion_sensor
+      from: 'off'
+      to: 'on'
+    action:
+      - service: light.turn_on
+        target:
+          entity_id: light.downstairs_bathroom_light
+      - wait_for_trigger:
+          platform: state
+          entity_id: binary_sensor.downstairs_bathroom_motion_sensor
+          from: 'on'
+          to: 'off'
+      - delay: 600
+      - service: light.turn_off
+        target:
+          entity_id: light.downstairs_bathroom_light
