@@ -18,3 +18,22 @@ automation:
         data:
           message: Reminder, its black bin day
       mode: single
+    - id: 'front_garden_rubbish_reminder_previous_day'
+      alias: Front - Rubbish Reminder Previous Day
+      description: ''
+      trigger:
+      - platform: time
+        at: '21:00'
+      condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
+      - condition: state
+        entity_id: sensor.rubbish_collection
+        state: 1
+        attribute: days
+      action:
+      - service: notify.family
+        data:
+          message: Reminder, its black bin day tomorrow
+      mode: single
