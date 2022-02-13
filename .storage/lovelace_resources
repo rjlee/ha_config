@@ -25,7 +25,7 @@
                 "id": "69575c44591b47769de134ab93689725"
             },
             {
-                "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js?hacstag=2070182001200",
+                "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js?hacstag=2070182001201",
                 "type": "module",
                 "id": "b76242780a214d09adc89daa4e92b76f"
             },
@@ -45,7 +45,7 @@
                 "id": "d483028062714d8c90e1c76c4fd36664"
             },
             {
-                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620100",
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
                 "type": "module",
                 "id": "0db750640e354b4b8692f6e18faef0d7"
             },
@@ -55,14 +55,29 @@
                 "id": "271aeb7582cf4f8bbfcb1200b5fa8657"
             },
             {
-                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524311",
+                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524312",
                 "type": "module",
                 "id": "0607c62adee040dbab2c22f1da5f681a"
             },
             {
-                "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854122",
+                "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854123",
                 "type": "module",
                 "id": "32aaedb852dc4c2eb231e3b527861e94"
+            },
+            {
+                "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211",
+                "type": "module",
+                "id": "56b4922242c8421a84aba338d58199c9"
+            },
+            {
+                "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=3317011521100",
+                "type": "module",
+                "id": "6810d8c57e3e4a6ea44ef6f7a7f6b444"
+            },
+            {
+                "url": "/hacsfiles/uptime-card/uptime-card.js?hacstag=350509867093",
+                "type": "module",
+                "id": "373c26562a1e483c97b4a13198004e59"
             }
         ]
     }
