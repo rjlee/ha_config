@@ -1,3 +1,0 @@
-tahoma:
-  username: !secret tahoma_username
-  password: !secret tahoma_password
