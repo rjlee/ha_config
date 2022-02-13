@@ -6,6 +6,82 @@
         "config": {
             "views": [
                 {
+                    "title": "Summary",
+                    "path": "summary",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.school_holidays",
+                                    "name": "School Holidays"
+                                },
+                                {
+                                    "entity": "input_boolean.on_holiday",
+                                    "name": "On Holiday"
+                                },
+                                {
+                                    "entity": "group.lights"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "House Controls"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "person.dad"
+                                },
+                                {
+                                    "entity": "person.mum"
+                                },
+                                {
+                                    "entity": "person.child1"
+                                },
+                                {
+                                    "entity": "person.child2"
+                                },
+                                {
+                                    "entity": "person.libby",
+                                    "name": "Libby"
+                                }
+                            ],
+                            "title": "People",
+                            "show_header_toggle": true
+                        },
+                        {
+                            "type": "custom:battery-state-card",
+                            "title": "Battery Level",
+                            "sort_by_level": "asc",
+                            "entities": [
+                                "sensor.bedroom_1_motion_sensor_battery",
+                                "sensor.bedroom_2_motion_sensor_battery",
+                                "sensor.downstairs_bathroom_motion_sensor_battery",
+                                "sensor.back_door_contact_sensor_power",
+                                "sensor.back_door_battery",
+                                "sensor.lumi_lumi_sensor_wleak_aq1_power",
+                                "sensor.kitchen_cupboard_motion_sensor_power"
+                            ],
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "name": "state",
+                                        "value": "Unavailable"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "iframe",
+                            "url": "http://ha.home:8123/local/servers.html?t=9",
+                            "aspect_ratio": "60%",
+                            "title": "Services"
+                        }
+                    ]
+                },
+                {
                     "title": "Climate",
                     "path": "house",
                     "badges": [],
@@ -221,6 +297,72 @@
                             ]
                         },
                         {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.pihole1_home",
+                                    "name": "Enabled"
+                                },
+                                {
+                                    "entity": "sensor.pihole1_home_domains_blocked",
+                                    "name": "Domains Blocklist Size"
+                                },
+                                {
+                                    "entity": "sensor.pihole1_home_ads_blocked_today",
+                                    "name": "Ads Blocked Today"
+                                },
+                                {
+                                    "entity": "sensor.pihole1_home_seen_clients",
+                                    "name": "Clients Today"
+                                }
+                            ],
+                            "state_color": true,
+                            "title": "Pihole1"
+                        },
+                        {
+                            "type": "custom:uptime-card",
+                            "entity": "binary_sensor.http_pihole1_availability",
+                            "title_template": "HTTP - Pihole1",
+                            "alias": {
+                                "ok": "up",
+                                "ko": "down"
+                            },
+                            "ok": "off",
+                            "ko": "on"
+                        },
+                        {
+                            "type": "custom:uptime-card",
+                            "entity": "binary_sensor.host_pihole1_availability",
+                            "title_template": "Ping - Pihole1",
+                            "alias": {
+                                "ok": "up",
+                                "ko": "down"
+                            }
+                        },
+                        {
+                            "type": "custom:uptime-card",
+                            "entity": "binary_sensor.host_unifi_availability",
+                            "title_template": "Ping - Unifi",
+                            "alias": {
+                                "ok": "up",
+                                "ko": "down"
+                            },
+                            "bar": {},
+                            "init": {
+                                "animation": "raise"
+                            },
+                            "color": {}
+                        },
+                        {
+                            "type": "custom:uptime-card",
+                            "entity": "binary_sensor.host_synology_availability",
+                            "title_template": "Ping - Synology",
+                            "alias": {
+                                "ok": "up",
+                                "ko": "down"
+                            }
+                        },
+                        {
                             "type": "custom:transmission-card"
                         }
                     ]
@@ -293,92 +435,25 @@
                     ]
                 },
                 {
-                    "title": "People",
-                    "path": "people",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "person.dad"
-                                },
-                                {
-                                    "entity": "person.mum"
-                                },
-                                {
-                                    "entity": "person.child1"
-                                },
-                                {
-                                    "entity": "person.child2"
-                                },
-                                {
-                                    "entity": "person.libby",
-                                    "name": "Libby"
-                                }
-                            ],
-                            "title": "People",
-                            "show_header_toggle": true
-                        }
-                    ]
-                },
-                {
-                    "title": "Batteries",
-                    "path": "batteries",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "title": "Battery Levels",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "*battery*",
-                                        "sort": {
-                                            "method": "state",
-                                            "numeric": true,
-                                            "ignore_case": true
-                                        }
-                                    }
-                                ],
-                                "exclude": [
-                                    {
-                                        "entity_id": "*level*"
-                                    },
-                                    {
-                                        "entity_id": "*state*"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "title": "Unavailable Entities",
-                    "path": "unavailable-entities",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "markdown",
-                            "content": "{%- if states.sensor.unavailable_entities.attributes.entities is defined -%}\n  {%- if states('sensor.unavailable_entities')|int == 0 -%}\n    No unavailable entities.\n  {%- else -%}\n    {%- for device in state_attr('sensor.unavailable_entities','entities').split(',') -%}\n    - {{ device ~ '\\n' }}\n    {%- endfor %}\n  {%- endif -%}\n{%- endif -%}  \n"
-                        }
-                    ]
-                },
-                {
                     "title": "Energy",
                     "path": "energy",
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:mini-graph-card",
-                            "entities": [
-                                "sensor.house_energy_total_power"
-                            ],
-                            "points_per_hour": 10,
-                            "labels": true
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Power Consumption (W)"
+                            },
+                            "series": [
+                                {
+                                    "entity": "sensor.house_energy_total_power",
+                                    "group_by": {
+                                        "func": "max",
+                                        "duration": "5min"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "type": "statistics-graph",
@@ -391,23 +466,31 @@
                                 "min",
                                 "max"
                             ],
-                            "title": "Power",
+                            "title": "Power Consumption - 30 Days",
                             "chart_type": "line"
                         },
                         {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.house_energy_total_power"
-                            ],
-                            "stat_types": [
-                                "mean"
-                            ],
-                            "days_to_show": 1
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Radiator Power Usage",
+                                "show_states": true,
+                                "colorize_states": true
+                            },
+                            "series": [
+                                {
+                                    "entity": "sensor.study_oil_radiator_energy_power",
+                                    "group_by": {
+                                        "func": "max",
+                                        "duration": "5min"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "title": "Smart Devices",
+                    "title": "Debug",
                     "path": "smart-devices",
                     "badges": [],
                     "cards": [
@@ -435,37 +518,6 @@
                                     },
                                     {
                                         "entity_id": "switch.hottub*"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "title": "Downstairs Bathroom Motion Sensor",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "*bathroom_motion_sensor*"
-                                    }
-                                ]
-                            },
-                            "sort": {
-                                "method": "none"
-                            }
-                        },
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "title": "child1 Motion Sensor",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "*bedroom1_motion_sensor*"
                                     }
                                 ]
                             }
