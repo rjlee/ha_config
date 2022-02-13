@@ -60,48 +60,6 @@
                                             "name": "Belltower Blind"
                                         }
                                     ]
-                                },
-                                {
-                                    "type": "custom:state-switch",
-                                    "entity": "input_boolean.curtains_open",
-                                    "states": {
-                                        "on": {
-                                            "type": "glance",
-                                            "entities": [
-                                                {
-                                                    "entity": "cover.bedroom",
-                                                    "icon": "mdi:window-closed-variant",
-                                                    "name": "Close Curtains",
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "scene.turn_on",
-                                                        "service_data": {
-                                                            "entity_id": "scene.curtains_closed"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "show_state": false
-                                        },
-                                        "off": {
-                                            "type": "glance",
-                                            "entities": [
-                                                {
-                                                    "entity": "cover.bedroom",
-                                                    "icon": "mdi:window-open-variant",
-                                                    "name": "Open Curtains",
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "scene.turn_on",
-                                                        "service_data": {
-                                                            "entity_id": "scene.curtains_open"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "show_state": false
-                                        }
-                                    }
                                 }
                             ]
                         }
@@ -263,6 +221,20 @@
                                 }
                             ],
                             "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.withings_in_bed_child1",
+                                    "name": "In Bed"
+                                },
+                                {
+                                    "entity": "binary_sensor.child1_noise_sensor",
+                                    "name": "Noise"
+                                }
+                            ],
+                            "show_header_toggle": false
                         }
                     ]
                 },
@@ -286,6 +258,10 @@
                                 {
                                     "entity": "light.bedroom_2_bedside_lamp",
                                     "name": "Bedside Lamp"
+                                },
+                                {
+                                    "entity": "light.bedroom_2_led_sign_on_off",
+                                    "name": "LED Gaming Sign"
                                 },
                                 {
                                     "entity": "media_player.child2s_room",
@@ -323,7 +299,12 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion"
+                                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                    "name": "Motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.withings_in_bed_child2",
+                                    "name": "In Bed"
                                 }
                             ]
                         }
