@@ -1,0 +1,3 @@
+timer:
+  bedroom2_awake: 
+    duration: '00:10:00'
