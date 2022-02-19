@@ -1,0 +1,13 @@
+automation:
+- id: ifttt_withings_in_bed
+  alias: "IFTTT Withings In Bed"
+  trigger:
+  - platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
+  condition: []
+  action:
+  - service: '{{ trigger.event.data.service }}'
+    target:
+      entity_id: '{{ trigger.event.data.entity_id }}'
