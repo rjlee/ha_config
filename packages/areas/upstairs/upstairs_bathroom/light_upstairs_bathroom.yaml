@@ -1,0 +1,4 @@
+light:
+  - platform: switch
+    name: Upstairs Bathroom - Light
+    entity_id: switch.upstairs_bathroom_light_relay_0

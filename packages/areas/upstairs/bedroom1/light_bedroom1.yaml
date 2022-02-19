@@ -1,0 +1,4 @@
+light:
+  - platform: switch
+    name: Bedroom 1 - Light
+    entity_id: switch.bedroom_1_light_relay_0
