@@ -1,0 +1,15 @@
+#sensor:
+#  - platform: template
+#    sensors:
+#      last_alexa:
+#        value_template: >
+#          {% for echo in (expand(states.group.echos) | selectattr('attributes.last_called_timestamp') | 
+#          sort(attribute='attributes.last_called_timestamp', reverse=true)) %}
+#          {% if loop.first %}
+#          {{ echo.entity_id }}
+#          {% endif %}{% endfor -%}
+template:
+  - sensor:
+      - name: last alexa
+        state: >
+          {{ expand('group.echos') | selectattr('attributes.last_called_timestamp') | map(attribute='entity_id') | first }}
