@@ -74,9 +74,18 @@
                             }
                         },
                         {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.last_alexa",
+                                    "name": "Last Alexa"
+                                }
+                            ]
+                        },
+                        {
                             "type": "iframe",
-                            "url": "http://ha.home:8123/local/servers.html?t=9",
-                            "aspect_ratio": "60%",
+                            "url": "http://ha.home:8123/local/servers.html?t=22",
+                            "aspect_ratio": "80%",
                             "title": "Services"
                         }
                     ]
