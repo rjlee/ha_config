@@ -41,7 +41,6 @@ automation:
     - id: 'On Holiday - Turning off all toggled lights'
       alias: 'On Holiday - Turning off all toggled lights'
       initial_state: True
-      hide_entity: False
     
       trigger:
         - platform: time
