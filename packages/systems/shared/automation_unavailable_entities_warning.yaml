@@ -82,6 +82,12 @@ group:
         - sensor.deebot_ozmo_920_kitchen_water_level
         - sensor.deebot_ozmo_920_lounge_stats_area
         - sensor.deebot_ozmo_920_lounge_stats_time
+        - sensor.deebot_ozmo_920_lounge_brush
+        - sensor.deebot_ozmo_920_lounge_heap
+        - sensor.deebot_ozmo_920_lounge_sidebrush
+        - sensor.deebot_ozmo_920_lounge_stats_type
+        - sensor.deebot_ozmo_920_lounge_water_level
+        - binary_sensor.deebot_ozmo_920_lounge_mop_attached
         - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
         - sensor.deebot_ozmo_t8_aivi_kitchen_stats_area
         - sensor.deebot_ozmo_t8_aivi_kitchen_stats_time
@@ -184,6 +190,7 @@ group:
         - button.velux_internal_cover_identify_5
         - button.velux_internal_cover_identify_6
         - button.velux_sensor_identify
+        - button.velux_sensor_identify_2
         - binary_sensor.downstairs_bathroom_light_longpush_0
         - binary_sensor.downstairs_bathroom_light_longpush_1
         - binary_sensor.downstairs_bathroom_light_shortpush_0
@@ -192,6 +199,17 @@ group:
         - binary_sensor.main_bedroom_lights_longpush_1
         - binary_sensor.main_bedroom_lights_shortpush_0
         - binary_sensor.main_bedroom_lights_shortpush_1
+        - button.upstairs_bathroom_light_restart
+        - button.upstairs_bathroom_light_update_firmware
+        - sensor.upstairs_bathroom_light_power_0
+        - button.shelly_dimmer_2_e098069672cb_restart
+        - button.upstairs_bathroom_motion_sensor_identify
+        - sensor.upstairs_bathroom_motion_sensor_battery
+        - sensor.upstairs_bathroom_motion_sensor_temperature
+        - button.shelly_1l_3c6105e3579d_restart
+        - button.shelly_1l_3c6105e391c1_restart
+        - button.shelly_1l_e09806aa19a6_restart
+        - button.shelly_1l_e8db84a1ad9e_restart
 
 binary_sensor:
   - platform: template
@@ -224,7 +242,7 @@ automation:
       - service: notify.mobile_app_mobile_dad
         data:
           title: There is {{ states('sensor.unavailable_entities')|int }} device offline!
-          message: '{{ state_attr(''sensor.unavailable_entities'',''names'').split('','')
+          message: '{{ state_attr(''sensor.unavailable_entities'',''entities'').split('','')
             | join(''
 
             '') }}'
@@ -237,7 +255,7 @@ automation:
         data:
           title: There are {{ states('sensor.unavailable_entities')|int }} devices
             offline!
-          message: '{{ state_attr(''sensor.unavailable_entities'',''names'').split('','')
+          message: '{{ state_attr(''sensor.unavailable_entities'',''entities'').split('','')
             | join(''
 
             '') }}'
