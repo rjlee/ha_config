@@ -1,7 +1,7 @@
 binary_sensor:
   - platform: ffmpeg_noise
-    name: "child1 noise sensor"
-    input: !secret child1s_bedroom_noise_sensor_input
+    name: "Bedroom1 noise sensor"
+    input: !secret bedroom1_noise_sensor_input
     initial_state: true
     extra_arguments: -nostats
     duration: 1
