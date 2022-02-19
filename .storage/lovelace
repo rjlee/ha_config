@@ -9,6 +9,11 @@
                 {
                     "path": "default_view",
                     "title": "Home",
+                    "type": "custom:masonry-layout",
+                    "layout": {
+                        "width": 300,
+                        "max_cols": 10
+                    },
                     "badges": [
                         {
                             "entity": "binary_sensor.remote_ui"
@@ -36,7 +41,7 @@
                                 "type": "markdown",
                                 "title": "Weather Warnings",
                                 "style": "ha-card { --mdc-icon-size: 60px; }",
-                                "content": "{% if state_attr('sensor.weather_warnings','entries') != None %}\n  {% for item in state_attr('sensor.weather_warnings','entries') %}\n    {% for type, icon in [('rain', 'weather-pouring'), ('thunderstorms', 'weather-lightning-rainy'),\n                          ('wind', 'weather-windy'), ('snow', 'weather-snowy-heavy'), \n                          ('lightning', 'weather-lightning'), ('ice', 'car-traction-control'),\n                          ('fog', 'weather-fog')] if type == item.title.split(' ')[3]|trim(',') %}\n---\n| | | |\n| --- | --- | --- |\n| <font color = {%- if 'Yellow' == item.title.split(' ')[0]|trim(',') %}'gold'\n                {%- elif 'Amber' == item.title.split(' ')[0]|trim(',') %}'darkorange'\n                {%- else %}'firebrick'\n                {%- endif %}><ha-icon icon={{ \"'mdi:\" + icon + \"'\" }}></ha-icon></font> | | {{ item.title|trim(\"'[]'\") }}  |\n    {% endfor %}\n  {% endfor %}\n{% endif %}\n"
+                                "content": "{% if state_attr('sensor.weather_warnings','entries') != None %}\n\n    {% set item = state_attr('sensor.weather_warnings','entries') | first %}\n\n    {# for item in state_attr('sensor.weather_warnings','entries') #}\n    {% for type, icon in [('rain', 'weather-pouring'), ('thunderstorms', 'weather-lightning-rainy'),\n                          ('wind', 'weather-windy'), ('snow', 'weather-snowy-heavy'), \n                          ('lightning', 'weather-lightning'), ('ice', 'car-traction-control'),\n                          ('fog', 'weather-fog')] if type == item.title.split(' ')[3]|trim(',') %}\n---\n| | | |\n| --- | --- | --- |\n| <font color = {%- if 'Yellow' == item.title.split(' ')[0]|trim(',') %}'gold'\n                {%- elif 'Amber' == item.title.split(' ')[0]|trim(',') %}'darkorange'\n                {%- else %}'firebrick'\n                {%- endif %}><ha-icon icon={{ \"'mdi:\" + icon + \"'\" }}></ha-icon></font> | | <a href=\"{{ item.link }}\">{{ item.title|trim(\"'[]'\") }}</a>  |\n    {% endfor %}\n\n  {# endfor #}\n{% endif %}\n"
                             }
                         },
                         {
@@ -79,148 +84,6 @@
                                 "content": "{%- if (state_attr('sensor.unavailable_entities','entities') == 0 ) %}\n  No unavailable entities\n{% else %} {%- for device in state_attr('sensor.unavailable_entities','entities')  -%} - {{ device ~ '\\n' }} {%- endfor %} {% endif %}\n",
                                 "title": "Unavailable Entities"
                             }
-                        },
-                        {
-                            "type": "custom:battery-state-card",
-                            "title": "Battery Level",
-                            "sort_by_level": "asc",
-                            "entities": [
-                                "sensor.bedroom_1_motion_sensor_battery",
-                                "sensor.bedroom_2_motion_sensor_battery",
-                                "sensor.downstairs_bathroom_motion_sensor_battery",
-                                "sensor.back_door_contact_sensor_power",
-                                "sensor.back_door_battery",
-                                "sensor.lumi_lumi_sensor_wleak_aq1_power",
-                                "sensor.kitchen_cupboard_motion_sensor_power"
-                            ],
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "name": "state",
-                                        "value": 30,
-                                        "operator": ">"
-                                    },
-                                    {
-                                        "name": "state",
-                                        "value": "Unavailable"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "binary_sensor.withings_in_bed_child1",
-                                            "state": "off"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.bedtime",
-                                            "state": "on"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "custom:state-switch",
-                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                        "states": {
-                                            "on": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "icon": "mdi:account-check-outline",
-                                                        "name": "Occupied"
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": "child1s Room"
-                                            },
-                                            "off": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "icon": "mdi:account-cancel-outline",
-                                                        "name": "Vacant"
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": "child1s Room"
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "binary_sensor.withings_in_bed_child1",
-                                            "state_not": "off"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.bedtime",
-                                            "state": "on"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "custom:state-switch",
-                                        "entity": "input_boolean.child1_asleep",
-                                        "states": {
-                                            "on": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "input_boolean.child1_asleep",
-                                                        "icon": "mdi:bed",
-                                                        "name": "Asleep"
-                                                    },
-                                                    {
-                                                        "entity": "timer.child1_awake",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.child1_noise_sensor",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "name": ""
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": "child1s Room"
-                                            },
-                                            "off": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "input_boolean.child1_asleep",
-                                                        "icon": "mdi:baby-face-outline",
-                                                        "name": "Awake"
-                                                    },
-                                                    {
-                                                        "entity": "timer.child1_awake",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.child1_noise_sensor",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "name": ""
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": "child1s Room"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
                         },
                         {
                             "type": "alarm-panel",
@@ -287,6 +150,247 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_boolean.bedroom1_in_bed",
+                                            "state": "off"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bedtime",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:state-switch",
+                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                        "states": {
+                                            "on": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                                        "icon": "mdi:account-check-outline",
+                                                        "name": "Bedroom 1 Occupied"
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            },
+                                            "off": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                                        "icon": "mdi:account-cancel-outline",
+                                                        "name": "Bedroom 1 Vacant"
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_boolean.bedroom1_in_bed",
+                                            "state_not": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:state-switch",
+                                        "entity": "input_boolean.bedroom1_asleep",
+                                        "states": {
+                                            "on": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_boolean.bedroom1_asleep",
+                                                        "icon": "mdi:bed",
+                                                        "name": "Bedroom 1 Asleep"
+                                                    },
+                                                    {
+                                                        "entity": "timer.bedroom1_awake",
+                                                        "name": ""
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.bedroom1_noise_sensor",
+                                                        "name": ""
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                                        "name": ""
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            },
+                                            "off": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_boolean.bedroom1_asleep",
+                                                        "icon": "mdi:baby-face-outline",
+                                                        "name": "Bedroom 1 Awake"
+                                                    },
+                                                    {
+                                                        "entity": "timer.bedroom1_awake",
+                                                        "name": ""
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.bedroom1_noise_sensor",
+                                                        "name": ""
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                                        "name": ""
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_boolean.bedroom2_in_bed",
+                                            "state": "off"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bedtime",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:state-switch",
+                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                        "states": {
+                                            "on": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                                        "icon": "mdi:account-check-outline",
+                                                        "name": "Bedroom 2 Occupied"
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            },
+                                            "off": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                                        "icon": "mdi:account-cancel-outline",
+                                                        "name": "Bedroom 2 Vacant"
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_boolean.bedroom2_in_bed",
+                                            "state_not": "off"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:state-switch",
+                                        "entity": "input_boolean.bedroom2_asleep",
+                                        "states": {
+                                            "on": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_boolean.bedroom2_asleep",
+                                                        "icon": "mdi:bed",
+                                                        "name": "Bedroom 2 Asleep"
+                                                    },
+                                                    {
+                                                        "entity": "timer.bedroom2_awake",
+                                                        "name": ""
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                                        "name": ""
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            },
+                                            "off": {
+                                                "type": "glance",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_boolean.bedroom2_asleep",
+                                                        "icon": "mdi:baby-face-outline",
+                                                        "name": "Bedroom 2 Awake"
+                                                    },
+                                                    {
+                                                        "entity": "timer.bedroom2_awake",
+                                                        "name": ""
+                                                    },
+                                                    {
+                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                                        "name": ""
+                                                    }
+                                                ],
+                                                "show_state": false,
+                                                "title": null
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:battery-state-card",
+                            "title": "Battery Level",
+                            "sort_by_level": "asc",
+                            "entities": [
+                                "sensor.bedroom_1_motion_sensor_battery",
+                                "sensor.bedroom_2_motion_sensor_battery",
+                                "sensor.downstairs_bathroom_motion_sensor_battery",
+                                "sensor.back_door_contact_sensor_power",
+                                "sensor.back_door_battery",
+                                "sensor.lumi_lumi_sensor_wleak_aq1_power",
+                                "sensor.kitchen_cupboard_motion_sensor_power"
+                            ],
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "name": "state",
+                                        "value": 30,
+                                        "operator": ">"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "value": "Unavailable"
+                                    }
+                                ]
+                            }
                         },
                         {
                             "type": "vertical-stack",
