@@ -78,6 +78,11 @@
                 "url": "/hacsfiles/uptime-card/uptime-card.js?hacstag=350509867093",
                 "type": "module",
                 "id": "373c26562a1e483c97b4a13198004e59"
+            },
+            {
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866231",
+                "type": "module",
+                "id": "6dca9dcf7fd54ece86cbace068425519"
             }
         ]
     }
