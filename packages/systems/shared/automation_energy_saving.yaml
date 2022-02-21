@@ -2,6 +2,7 @@ automation:
     - id: 'energy_saving'
       alias: Energy Saving
       description: ''
+      mode: single
       trigger:
       - platform: time
         at: 09:00
@@ -29,7 +30,10 @@ automation:
         target:
           entity_id:
             - media_player.master_bedroom_skyq
-			- media_player.xbox_spareroom
-			- media_player.xbox_child2
-      mode: single
+            - media_player.xbox_spareroom
+            - media_player.xbox_child2
+      - service: remote.turn_off
+        data: {}
+        target:
+          entity_id: remote.lounge
 
