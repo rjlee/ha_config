@@ -1,9 +1,0 @@
-input_select:
-  child1_laptop_options:
-    name: Laptop Power Options
-    options:
-      - None
-      - Wake
-      - Sleep
-    initial: None
-    icon: mdi:laptop-windows
