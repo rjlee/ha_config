@@ -144,41 +144,7 @@
                             "entity": "vacuum.deebot_ozmo_920_lounge",
                             "image": "default",
                             "compact_view": false,
-                            "show_name": true,
-                            "show_toolbar": true,
-                            "show_status": true,
-                            "stats": {
-                                "default": [
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_920_lounge_sidebrush",
-                                        "unit": "%",
-                                        "subtitle": "Side Brush"
-                                    },
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_920_lounge_brush",
-                                        "unit": "%",
-                                        "subtitle": "Main Brush"
-                                    },
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_920_lounge_heap",
-                                        "unit": "%",
-                                        "subtitle": "Heap"
-                                    }
-                                ],
-                                "cleaning": [
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_920_lounge_stats_area",
-                                        "unit": "m2",
-                                        "subtitle": "Area"
-                                    },
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_920_lounge_stats_time",
-                                        "unit": "min",
-                                        "subtitle": "Time"
-                                    }
-                                ]
-                            },
-                            "map": "camera.deebot_ozmo_920_lounge_livemap"
+                            "map": "camera.deebot_ozmo_920_lounge_live_map"
                         }
                     ]
                 },
@@ -218,61 +184,10 @@
                         },
                         {
                             "type": "custom:vacuum-card",
-                            "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
                             "image": "default",
+                            "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
                             "compact_view": false,
-                            "show_name": true,
-                            "show_toolbar": true,
-                            "show_status": true,
-                            "stats": {
-                                "default": [
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_sidebrush",
-                                        "unit": "%",
-                                        "subtitle": "Side Brush"
-                                    },
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_brush",
-                                        "unit": "%",
-                                        "subtitle": "Main Brush"
-                                    },
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_heap",
-                                        "unit": "%",
-                                        "subtitle": "Heap"
-                                    }
-                                ],
-                                "cleaning": [
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_stats_area",
-                                        "unit": "m2",
-                                        "subtitle": "Area"
-                                    },
-                                    {
-                                        "entity_id": "sensor.deebot_ozmo_t8_aivi_kitchen_stats_time",
-                                        "unit": "min",
-                                        "subtitle": "Time"
-                                    }
-                                ]
-                            },
-                            "actions": [
-                                {
-                                    "service": "script.vacuum_kitchen",
-                                    "icon": "mdi:silverware",
-                                    "name": "Kitchen"
-                                },
-                                {
-                                    "service": "script.vacuum_dogwalk",
-                                    "icon": "mdi:dog",
-                                    "name": "Dogwalk"
-                                },
-                                {
-                                    "service": "script.vacuum_downstairs",
-                                    "icon": "mdi:robot-vacuum-variant",
-                                    "name": "Downstairs"
-                                }
-                            ],
-                            "map": "camera.deebot_ozmo_t8_aivi_kitchen_livemap"
+                            "map": "camera.deebot_ozmo_t8_aivi_kitchen_live_map"
                         }
                     ]
                 },

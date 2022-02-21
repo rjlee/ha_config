@@ -58,11 +58,12 @@
                             "entities": [
                                 "sensor.bedroom_1_motion_sensor_battery",
                                 "sensor.bedroom_2_motion_sensor_battery",
+                                "sensor.upstairs_bathroom_motion_sensor_battery",
                                 "sensor.downstairs_bathroom_motion_sensor_battery",
-                                "sensor.back_door_contact_sensor_power",
                                 "sensor.back_door_battery",
                                 "sensor.lumi_lumi_sensor_wleak_aq1_power",
-                                "sensor.kitchen_cupboard_motion_sensor_power"
+                                "sensor.kitchen_cupboard_motion_sensor_power",
+                                "sensor.back_door_contact_sensor_power"
                             ],
                             "filter": {
                                 "exclude": [
@@ -74,17 +75,8 @@
                             }
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.last_alexa",
-                                    "name": "Last Alexa"
-                                }
-                            ]
-                        },
-                        {
                             "type": "iframe",
-                            "url": "http://ha.home:8123/local/servers.html?t=22",
+                            "url": "http://ha.home:8123/local/servers.html?t=23",
                             "aspect_ratio": "80%",
                             "title": "Services"
                         }
