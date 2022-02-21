@@ -1,0 +1,17 @@
+script:
+    bedroom2_blind_open:
+      alias: Bedroom 2 Blinds Open
+      mode: single
+      icon: mdi:window-shutter
+      sequence:
+      - service: cover.open_cover
+        target:
+          entity_id: cover.velux_internal_cover_5
+    bedroom2_blind_close:
+      alias: Bedroom 2 Blinds Close
+      mode: single
+      icon: mdi:window-shutter
+      sequence:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.velux_internal_cover_5

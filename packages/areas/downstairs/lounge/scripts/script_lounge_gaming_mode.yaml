@@ -1,0 +1,10 @@
+script:
+    lounge_gaming_mode:
+      alias: Lounge Gaming Mode
+      mode: single
+      icon: mdi:gamepad-variant
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: 30
+        entity_id: light.lounge_lights_light_0

@@ -1,0 +1,38 @@
+script:
+  curtain_dispatch_on:
+    alias: "Curtain Dispatcher Open"
+    icon: "mdi:curtains"
+    description: "Opens curtains from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             script.main_bedroom_curtain_open
+           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
+             script.bedroom2_blind_open
+           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
+             script.bedroom1_blind_open
+           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+             script.spare_room_blind_open
+           {%- endif -%}
+  curtain_dispatch_off:
+    alias: "Curtain Dispatcher Close"
+    icon: "mdi:curtains"
+    description: "Closes curtains from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             script.main_bedroom_curtain_close
+           {%- endif -%}
+

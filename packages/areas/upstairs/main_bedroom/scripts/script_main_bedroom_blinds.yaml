@@ -1,0 +1,23 @@
+script:
+    main_bedroom_blind_open:
+      alias: Main bedroom Blinds Open
+      mode: single
+      icon: mdi:window-shutter
+      sequence:
+      - service: cover.open_cover
+        target:
+          entity_id: 
+            - cover.velux_internal_cover
+            - cover.velux_internal_cover_2
+            - cover.velux_internal_cover_6
+    main_bedroom_blind_close:
+      alias: Main bedroom Blinds Close
+      mode: single
+      icon: mdi:window-shutter
+      sequence:
+      - service: cover.close_cover
+        target:
+          entity_id:
+            - cover.velux_internal_cover
+            - cover.velux_internal_cover_2
+            - cover.velux_internal_cover_6

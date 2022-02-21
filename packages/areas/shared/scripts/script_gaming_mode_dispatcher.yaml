@@ -1,0 +1,20 @@
+script:
+  gaming_mode_dispatch:
+    alias: "Gaming Mode Dispatcher"
+    icon: "mdi:gamepad-variant"
+    description: "Activates gaming mode on the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
+             script.bedroom2_gaming_mode
+           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
+             script.bedroom1_gaming_mode
+           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+             script.lounge_gaming_mode
+           {%- endif -%}

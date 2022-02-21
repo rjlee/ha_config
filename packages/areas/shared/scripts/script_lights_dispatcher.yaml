@@ -1,0 +1,48 @@
+script:
+  light_dispatch_on:
+    alias: "Light Dispatcher On"
+    icon: "mdi:lightbulb"
+    description: "Turns lights on from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             script.main_bedroom_light_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+             script.kitchen_light_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+             script.lounge_light_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
+             script.bedroom2_light_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
+             script.bedroom1_light_on
+           {%- endif -%}
+  light_dispatch_off:
+    alias: "Light Dispatcher Off"
+    icon: "mdi:lightbulb"
+    description: "Turns lights off from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             script.main_bedroom_light_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+             script.kitchen_light_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+             script.lounge_light_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
+             script.bedroom2_light_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
+             script.bedroom1_light_off
+           {%- endif -%}
+

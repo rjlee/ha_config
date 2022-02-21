@@ -1,0 +1,77 @@
+script:
+  tv_dispatch_on:
+    alias: "TV Dispatcher On"
+    icon: "mdi:television"
+    description: "Turns TV on from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             script.main_bedroom_tv_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+             script.kitchen_tv_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+             script.lounge_tv_on
+           {%- endif -%}
+  tv_dispatch_off:
+    alias: "TV Dispatcher Off"
+    icon: "mdi:television"
+    description: "Turns TV off from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             script.main_bedroom_tv_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+             script.kitchen_tv_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+             script.lounge_tv_off
+           {%- endif -%}
+  tv_dispatch_bbcone:
+    alias: "TV Dispatcher BBC One"
+    icon: "mdi:television"
+    description: "Change to BBC One from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: switch.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             switch.skyq_bbconeyorksbedroom
+           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+             switch.skyq_bbconeyorkskitchen
+           {%- else -%}
+             none
+           {%- endif -%}
+  tv_dispatch_bbctwo:
+    alias: "TV Dispatcher BBC Two"
+    icon: "mdi:television"
+    description: "Change to BBC Two from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: switch.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+             switch.skyq_bbctwohdbedroom
+           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+             switch.skyq_bbctwohdkitchen
+           {%- else -%}
+             none
+           {%- endif -%}

@@ -1,0 +1,19 @@
+script:
+    lounge_light_on:
+      alias: "Lounge light turn on"
+      icon: mdi:lightbulb
+      description: "Turns on the lounge lights"
+      mode: single
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
+        entity_id: light.lounge_lights_light_0
+    lounge_light_off:
+      alias: "Lounge light turn off"
+      icon: mdi:lightbulb
+      description: "Turns off the lounge lights"
+      mode: single
+      sequence:
+      - service: light.turn_off
+        entity_id: light.lounge_lights_light_0

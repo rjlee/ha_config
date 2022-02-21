@@ -1,0 +1,15 @@
+script:
+    bedroom2_gaming_mode:
+      alias: Bedroom 2 Gaming Mode
+      mode: single
+      icon: mdi:gamepad-variant
+      sequence:
+      - service: light.turn_on
+        entity_id: light.bedroom_2_bedside_lamp
+      - service: light.turn_off
+        entity_id: light.bedroom2_light
+      - service: light.turn_on
+        entity_id: light.bedroom_2_led_sign_on_off
+      - service: cover.close_cover
+        target:
+          entity_id: cover.velux_internal_cover_5

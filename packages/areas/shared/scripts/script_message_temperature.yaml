@@ -1,0 +1,21 @@
+script:
+  message_temperature:
+    alias: "Outside temperature briefing"
+    icon: "mdi:home-thermometer-outline"
+    description: "Provides a briefing on the temperature outside and forecast"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: notify.alexa_media
+        data:
+          target: '{{ states.sensor.last_alexa.state }}'
+          message: >-
+            It's {{states('sensor.blink_back_camera_temperature')}} degrees C,
+            {{states.sensor.location_weather.state.lower()}},
+              with a
+            {{states.sensor.location_probability_of_precipitation.state|int|round}}
+            percent chance of rain.
+          data:
+            type: tts

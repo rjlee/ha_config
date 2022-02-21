@@ -1,0 +1,19 @@
+script:
+    main_bedroom_curtain_open:
+      alias: Main bedroom curtains Open
+      mode: single
+      icon: mdi:curtains
+      sequence:
+      - service: cover.open_cover
+        target:
+          entity_id: 
+            - cover.mainbedroomcurtains
+    main_bedroom_curtain_close:
+      alias: Main bedroom curtains Close
+      mode: single
+      icon: mdi:curtains
+      sequence:
+      - service: cover.close_cover
+        target:
+          entity_id:
+            - cover.mainbedroomcurtains
