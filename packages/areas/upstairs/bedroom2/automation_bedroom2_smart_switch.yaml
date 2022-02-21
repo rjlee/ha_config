@@ -1,0 +1,23 @@
+automation:
+- id: bedroom_2_desk_smart_switch
+  alias: Bedroom 2 - Desk Smart Switch 
+  description: ''
+  use_blueprint:
+    path: SeanM/zha-aqara-wireless-mini-switch.yaml
+    input:
+        aqara_mini_switch: 3039818830574af2af303280904a6628
+        button_single_press:
+          - service: light.turn_on
+            data: {}
+            target:
+              entity_id: light.bedroom_2_led_sign_on_off
+        button_double_press:
+          - service: light.turn_off
+            data: {}
+            target:
+              entity_id: light.bedroom_2_led_sign_on_off
+        button_long_press:
+          - service: script.turn_on
+            data: {}
+            target:
+              entity_id: script.bedroom2_gaming_mode
