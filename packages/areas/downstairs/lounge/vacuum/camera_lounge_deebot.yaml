@@ -1,5 +1,0 @@
-camera:
-  - platform: generic
-    name: deebot_ozmo_920_lounge_live_map
-    still_image_url: !secret lounge_deebot_camera
-    verify_ssl: false
