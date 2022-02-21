@@ -1,5 +1,0 @@
-tplink:
-  discovery: false
-  switch:
-    - host: !secret tplink_kasa_child1_lamp
-    - host: !secret tplink_kasa_child2_lamp
