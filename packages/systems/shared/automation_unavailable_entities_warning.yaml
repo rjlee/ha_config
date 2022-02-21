@@ -87,12 +87,23 @@ group:
         - sensor.deebot_ozmo_920_lounge_sidebrush
         - sensor.deebot_ozmo_920_lounge_stats_type
         - sensor.deebot_ozmo_920_lounge_water_level
+        - sensor.deebot_ozmo_920_lounge_last_clean_image
         - binary_sensor.deebot_ozmo_920_lounge_mop_attached
         - sensor.deebot_ozmo_t8_aivi_kitchen_last_clean_image
         - sensor.deebot_ozmo_t8_aivi_kitchen_stats_area
         - sensor.deebot_ozmo_t8_aivi_kitchen_stats_time
         - sensor.deebot_ozmo_t8_aivi_kitchen_stats_type
         - sensor.deebot_ozmo_t8_aivi_kitchen_water_level
+        - sensor.deebot_ozmo_t8_aivi_kitchen_brush
+        - sensor.deebot_ozmo_t8_aivi_kitchen_heap
+        - sensor.deebot_ozmo_t8_aivi_kitchen_sidebrush
+        - binary_sensor.deebot_ozmo_t8_aivi_kitchen_mop_attached
+        - button.deebot_ozmo_920_lounge_life_span_brush_reset
+        - button.deebot_ozmo_920_lounge_life_span_filter_reset
+        - button.deebot_ozmo_920_lounge_life_span_side_brush_reset
+        - button.deebot_ozmo_t8_aivi_kitchen_life_span_brush_reset
+        - button.deebot_ozmo_t8_aivi_kitchen_life_span_filter_reset
+        - button.deebot_ozmo_t8_aivi_kitchen_life_span_side_brush_reset
         - sensor.libby_ble
         - sensor.bedroom_1_light_energy_0
         - sensor.bedroom_1_light_power_0
