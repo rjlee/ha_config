@@ -21,6 +21,8 @@ script:
              script.bedroom2_light_on
            {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
              script.bedroom1_light_on
+           {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%}
+             script.upstairs_bathroom_light_on
            {%- endif -%}
   light_dispatch_off:
     alias: "Light Dispatcher Off"
@@ -44,5 +46,7 @@ script:
              script.bedroom2_light_off
            {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
              script.bedroom1_light_off
+           {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%}
+             script.upstairs_bathroom_light_off
            {%- endif -%}
 
