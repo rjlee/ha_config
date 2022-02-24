@@ -22,7 +22,7 @@ automation:
           before: '22:00:00'
     
       action:
-        - delay: "00:{{ '{:02}'.format(range(0,30) | random | int) }}:00"
+        - delay: "00:{{ '{:02}'.format(range(0,30) | random | int(0)) }}:00"
     
         # Selecting entity for toggling
         - service: input_text.set_value
@@ -48,11 +48,11 @@ automation:
     
       condition:
         - condition: state
-          entity_id: group.family
+          entity_id: group.people
           state: 'not_home'
 
       action:
-        - delay: '00:{{ range(15,59) | random | int }}:00'
+        - delay: '00:{{ range(15,59) | random | int(0) }}:00'
         - service: homeassistant.turn_off
           entity_id: group.on_holiday_lights
 
