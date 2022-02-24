@@ -4,7 +4,7 @@ sensor:
       study_oil_radiator_status:
         # entity_id: sensor.study_oil_radiator_energy_current
         value_template: >-
-          {% if states('sensor.study_oil_radiator_energy_current') | float > 0.5 %}
+          {% if states('sensor.study_oil_radiator_energy_current') | float(0) > 0.5 %}
             on
           {% else %}
             off

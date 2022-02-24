@@ -228,7 +228,7 @@ binary_sensor:
       unavailable_entities_alert:
         delay_on:
           minutes: 15 # delay before activating alert
-        value_template: "{{ states('sensor.unavailable_entities')|int > 0 }}"
+        value_template: "{{ states('sensor.unavailable_entities')|int(0) > 0 }}"
 
 automation:
 - id: ''
@@ -252,7 +252,7 @@ automation:
       sequence:
       - service: notify.mobile_app_mobile_dad
         data:
-          title: There is {{ states('sensor.unavailable_entities')|int }} device offline!
+          title: There is {{ states('sensor.unavailable_entities')|int(0) }} device offline!
           message: '{{ state_attr(''sensor.unavailable_entities'',''entities'').split('','')
             | join(''
 
@@ -264,7 +264,7 @@ automation:
       sequence:
       - service: notify.mobile_app_mobile_dad
         data:
-          title: There are {{ states('sensor.unavailable_entities')|int }} devices
+          title: There are {{ states('sensor.unavailable_entities')|int(0) }} devices
             offline!
           message: '{{ state_attr(''sensor.unavailable_entities'',''entities'').split('','')
             | join(''

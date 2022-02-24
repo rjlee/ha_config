@@ -22,4 +22,4 @@ rest_command:
     method: POST
     content_type: "application/x-www-form-urlencoded"
     url: "https://mobileapi.lay-z-spa.co.uk/v1/gizwits/set_schedule"
-    payload: "{{ hottub_api_did }}&heat_in={{ hottub_heat_in | int | string }}&duration={{ hottub_duration | int | string }}&temperature={{ hottub_temp | int | string }}"
+    payload: "{{ hottub_api_did }}&heat_in={{ hottub_heat_in | int(0) | string }}&duration={{ hottub_duration | int(0) | string }}&temperature={{ hottub_temp | int(0) | string }}"
