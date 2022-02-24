@@ -1,0 +1,45 @@
+automation:
+    - id: 'bedroom2_led_sign_on'
+      alias: Bedroom2 - LED Sign On
+      description: ''
+      trigger:
+      - platform: state
+        entity_id: media_player.xbox_child2
+        from: 'off'
+        to: 'playing'
+      - platform: state
+        entity_id: binary_sensor.child2s_laptop_power_status
+        from: 'unavailable'
+      condition: []
+      action:
+      - service: light.turn_on
+        target:
+          entity_id:
+            - light.bedroom_2_led_sign_on_off
+      mode: single
+    - id: 'bedroom2_led_sign_off'
+      alias: Bedroom2 - LED Sign Off
+      description: ''
+      trigger:
+      - platform: state
+        entity_id: media_player.xbox_child2
+        from: 'playing'
+        to: 'off'
+      - platform: state
+        entity_id: binary_sensor.child2s_laptop_power_status
+        to: 'unavailable'
+      condition:
+          condition: and
+          conditions:
+            - condition: state
+              entity_id: media_player.xbox_child2
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.child2s_laptop_power_status
+              state: 'unavailable'
+      action:
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bedroom_2_led_sign_on_off
+      mode: single
