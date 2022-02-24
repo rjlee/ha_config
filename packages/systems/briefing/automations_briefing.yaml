@@ -146,7 +146,7 @@ automation:
         
               {# Output the briefing #}
               {% macro briefing(person) -%}
-                {%- if as_timestamp(now())|timestamp_custom("%H", true)|int < 12 -%}
+                {%- if as_timestamp(now())|timestamp_custom("%H", true)|int(0) < 12 -%}
                   {{morning_briefing(person)}}
                     {%- else -%}
                   {{evening_briefing(person)}}
