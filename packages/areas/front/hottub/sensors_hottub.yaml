@@ -60,17 +60,17 @@ sensor:
        availability_template: "{{ states('sensor.hottub_online') }}"
        friendly_name: "HotTub Pump Temperature"
        unit_of_measurement: '°C'
-       value_template: "{{ state_attr('sensor.hottub_status', 'temp_now') | int }}"  
+       value_template: "{{ state_attr('sensor.hottub_status', 'temp_now') | int(0) }}"  
      hottub_water_temp:
        availability_template: "{{ states('sensor.hottub_online') }}"
        friendly_name: "HotTub Water Temperature"
        unit_of_measurement: '°C'        
-       value_template: "{{ states('input_number.hottub_water_temp') | int }}"
+       value_template: "{{ states('input_number.hottub_water_temp') | int(0) }}"
      hottub_pump_target:
        availability_template: "{{ states('sensor.hottub_online') }}"
        friendly_name: "HotTub Pump Target"
        unit_of_measurement: '°C'
-       value_template: "{{ state_attr('sensor.hottub_status', 'temp_set') | int }}"      
+       value_template: "{{ state_attr('sensor.hottub_status', 'temp_set') | int(0) }}"      
      hottub_summary:
        availability_template: "{{ states('sensor.hottub_online') }}"
        friendly_name: "HotTub Status"
