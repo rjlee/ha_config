@@ -9,7 +9,7 @@
                 {
                     "path": "default_view",
                     "title": "Home",
-                    "type": "custom:masonry-layout",
+                    "type": "custom:vertical-layout",
                     "layout": {
                         "width": 300,
                         "max_cols": 10
@@ -93,6 +93,34 @@
                                 "arm_away"
                             ],
                             "entity": "alarm_control_panel.alarmo"
+                        },
+                        {
+                            "type": "custom:battery-state-card",
+                            "title": "Battery Level",
+                            "sort_by_level": "asc",
+                            "entities": [
+                                "sensor.bedroom_1_motion_sensor_battery",
+                                "sensor.bedroom_2_motion_sensor_battery",
+                                "sensor.upstairs_bathroom_motion_sensor_battery",
+                                "sensor.downstairs_bathroom_motion_sensor_battery",
+                                "sensor.back_door_contact_sensor_power",
+                                "sensor.back_door_battery",
+                                "sensor.lumi_lumi_sensor_wleak_aq1_power",
+                                "sensor.kitchen_cupboard_motion_sensor_power"
+                            ],
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "name": "state",
+                                        "value": 30,
+                                        "operator": ">"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "value": "Unavailable"
+                                    }
+                                ]
+                            }
                         },
                         {
                             "type": "vertical-stack",
@@ -215,7 +243,7 @@
                                                     {
                                                         "entity": "input_boolean.bedroom1_asleep",
                                                         "icon": "mdi:bed",
-                                                        "name": "Bedroom 1 Asleep"
+                                                        "name": "Bed 1 Asleep"
                                                     },
                                                     {
                                                         "entity": "timer.bedroom1_awake",
@@ -239,7 +267,7 @@
                                                     {
                                                         "entity": "input_boolean.bedroom1_asleep",
                                                         "icon": "mdi:baby-face-outline",
-                                                        "name": "Bedroom 1 Awake"
+                                                        "name": "Bed 1 Awake"
                                                     },
                                                     {
                                                         "entity": "timer.bedroom1_awake",
@@ -326,7 +354,7 @@
                                                     {
                                                         "entity": "input_boolean.bedroom2_asleep",
                                                         "icon": "mdi:bed",
-                                                        "name": "Bedroom 2 Asleep"
+                                                        "name": "Bed 2 Asleep"
                                                     },
                                                     {
                                                         "entity": "timer.bedroom2_awake",
@@ -346,7 +374,7 @@
                                                     {
                                                         "entity": "input_boolean.bedroom2_asleep",
                                                         "icon": "mdi:baby-face-outline",
-                                                        "name": "Bedroom 2 Awake"
+                                                        "name": "Bed 2 Awake"
                                                     },
                                                     {
                                                         "entity": "timer.bedroom2_awake",
@@ -364,34 +392,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:battery-state-card",
-                            "title": "Battery Level",
-                            "sort_by_level": "asc",
-                            "entities": [
-                                "sensor.bedroom_1_motion_sensor_battery",
-                                "sensor.bedroom_2_motion_sensor_battery",
-                                "sensor.upstairs_bathroom_motion_sensor_battery",
-                                "sensor.downstairs_bathroom_motion_sensor_battery",
-                                "sensor.back_door_contact_sensor_power",
-                                "sensor.back_door_battery",
-                                "sensor.lumi_lumi_sensor_wleak_aq1_power",
-                                "sensor.kitchen_cupboard_motion_sensor_power"
-                            ],
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "name": "state",
-                                        "value": 30,
-                                        "operator": ">"
-                                    },
-                                    {
-                                        "name": "state",
-                                        "value": "Unavailable"
-                                    }
-                                ]
-                            }
                         },
                         {
                             "type": "vertical-stack",
