@@ -5,19 +5,23 @@ script:
       description: "Opens curtains and blinds in the main bedroom"
       mode: single
       sequence:
-      - service: scene.turn_on
-        entity_id: scene.blinds_open_2
       - service: cover.open_cover
         target:
-          entity_id: cover.mainbedroomcurtains
+          entity_id:
+          - cover.mainbedroomcurtains
+          - cover.velux_internal_cover
+          - cover.velux_internal_cover_2
+          - cover.velux_internal_cover_6
     main_bedroom_good_night:
       alias: "Main bedroom good night routine"
       icon: mdi:weather-night
       description: "Closes curtains and blinds in the main bedroom"
       mode: single
       sequence:
-      - service: scene.turn_on
-        entity_id: scene.blinds_closed_2
       - service: cover.close_cover
         target:
-          entity_id: cover.mainbedroomcurtains
+          entity_id:
+          - cover.mainbedroomcurtains
+          - cover.velux_internal_cover
+          - cover.velux_internal_cover_2
+          - cover.velux_internal_cover_6
