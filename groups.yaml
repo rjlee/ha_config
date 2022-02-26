@@ -95,6 +95,7 @@ lounge:
       - input_select.loungevr_options
       - media_player.xbox_lounge
       - media_player.xbox_lounge_window
+      - light.lounge_lights_light_0
 
 kitchen:
     name: Kitchen
