@@ -253,10 +253,10 @@ automation:
       - service: notify.mobile_app_mobile_dad
         data:
           title: There is {{ states('sensor.unavailable_entities')|int(0) }} device offline!
-          message: '{{ state_attr(''sensor.unavailable_entities'',''entities'').split('','')
-            | join(''
+          message: "{{ state_attr('sensor.unavailable_entities','entities')
+            | join('
 
-            '') }}'
+            ') }}"
     - conditions:
       - condition: numeric_state
         entity_id: sensor.unavailable_entities
@@ -266,10 +266,10 @@ automation:
         data:
           title: There are {{ states('sensor.unavailable_entities')|int(0) }} devices
             offline!
-          message: '{{ state_attr(''sensor.unavailable_entities'',''entities'').split('','')
-            | join(''
+          message: "{{ state_attr('sensor.unavailable_entities','entities')
+            | join('
 
-            '') }}'
+            ') }}"
     default:
     - service: notify.mobile_app_mobile_dad
       data:
