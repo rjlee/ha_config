@@ -221,6 +221,13 @@ group:
         - button.shelly_1l_3c6105e391c1_restart
         - button.shelly_1l_e09806aa19a6_restart
         - button.shelly_1l_e8db84a1ad9e_restart
+        - button.spare_room_light_restart
+        - button.spare_room_light_update_firmware
+        - sensor.spare_room_light_power_0
+        - cover.curtains
+        - scene.curtains_closed
+        - scene.curtains_open
+        - cover.velux_internal_cover_3
 
 binary_sensor:
   - platform: template
