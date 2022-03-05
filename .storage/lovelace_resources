@@ -5,7 +5,7 @@
     "data": {
         "items": [
             {
-                "url": "/hacsfiles/lovelace-state-switch/state-switch.js?hacstag=158756598191",
+                "url": "/hacsfiles/lovelace-state-switch/state-switch.js?hacstag=158756598193",
                 "type": "module",
                 "id": "98b2474ceb754567a9398773ff4201a8"
             },
@@ -15,7 +15,7 @@
                 "id": "5b3a8ee07bd94b8381ccb391bc4cf03f"
             },
             {
-                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841101",
                 "type": "module",
                 "id": "3fe32ce15d4d42e980e83a71c149db9b"
             },
@@ -30,7 +30,7 @@
                 "id": "b76242780a214d09adc89daa4e92b76f"
             },
             {
-                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295230",
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295231",
                 "type": "module",
                 "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
             },
@@ -80,7 +80,7 @@
                 "id": "373c26562a1e483c97b4a13198004e59"
             },
             {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866231",
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866241",
                 "type": "module",
                 "id": "6dca9dcf7fd54ece86cbace068425519"
             }
