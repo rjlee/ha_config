@@ -2,11 +2,8 @@ script:
     vacuum_lounge:
       alias: vacuum_downstairs
       sequence:
-      - service: vacuum.send_command
+      - service: vacuum.start
         data:
           entity_id: vacuum.deebot_ozmo_920_lounge
-          command: auto_clean
-          params:
-            type: auto
       mode: single
       icon: mdi:robot-vacuum-variant
