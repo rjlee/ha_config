@@ -326,17 +326,6 @@
                         },
                         {
                             "type": "custom:uptime-card",
-                            "entity": "binary_sensor.http_pihole1_availability",
-                            "title_template": "HTTP - Pihole1",
-                            "alias": {
-                                "ok": "up",
-                                "ko": "down"
-                            },
-                            "ok": "off",
-                            "ko": "on"
-                        },
-                        {
-                            "type": "custom:uptime-card",
                             "entity": "binary_sensor.host_pihole1_availability",
                             "title_template": "Ping - Pihole1",
                             "alias": {
