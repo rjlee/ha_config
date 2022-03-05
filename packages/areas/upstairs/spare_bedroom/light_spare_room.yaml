@@ -1,0 +1,4 @@
+light:
+  - platform: switch
+    name: Spare Room - Light
+    entity_id: switch.spare_room_light_relay_0
