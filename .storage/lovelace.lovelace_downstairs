@@ -21,6 +21,13 @@
                                 {
                                     "entity": "light.lounge_lights_light_0",
                                     "name": "Lights"
+                                },
+                                {
+                                    "entity": "binary_sensor.lounge_motion_sensor_motion",
+                                    "name": "Motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.lounge_motion_sensor_motion_2"
                                 }
                             ]
                         },

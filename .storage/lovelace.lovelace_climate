@@ -182,7 +182,7 @@
                                     "name": "Main Bedroom - Blind 2"
                                 },
                                 {
-                                    "entity": "cover.mainbedroomcurtains",
+                                    "entity": "cover.curtains",
                                     "name": "Main Bedroom - Curtains"
                                 },
                                 {
@@ -198,7 +198,7 @@
                                     "name": "child2's Room"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_3",
+                                    "entity": "cover.spare_room",
                                     "name": "Spare Room"
                                 }
                             ],
@@ -411,8 +411,8 @@
                             "type": "custom:auto-entities",
                             "card": {
                                 "type": "entities",
-                                "title": "child2",
-                                "show_header_toggle": false
+                                "show_header_toggle": false,
+                                "title": "Kitchen"
                             },
                             "filter": {
                                 "include": [

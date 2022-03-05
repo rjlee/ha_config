@@ -52,7 +52,7 @@
                                             "entity": "cover.velux_internal_cover"
                                         },
                                         {
-                                            "entity": "cover.mainbedroomcurtains",
+                                            "entity": "cover.curtains",
                                             "name": "Curtains"
                                         },
                                         {
@@ -427,7 +427,7 @@
                                     "icon": "mdi:amazon"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_3",
+                                    "entity": "cover.spare_room",
                                     "name": "Velux Blind"
                                 },
                                 {
