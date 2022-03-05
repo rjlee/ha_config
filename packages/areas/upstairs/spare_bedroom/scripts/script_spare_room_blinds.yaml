@@ -6,7 +6,8 @@ script:
       sequence:
       - service: cover.open_cover
         target:
-          entity_id: cover.velux_internal_cover_3
+          entity_id: cover.spare_room
+#          entity_id: cover.velux_internal_cover_3
     spare_room_blind_close:
       alias: Spare Room Blinds Close
       mode: single
@@ -14,4 +15,5 @@ script:
       sequence:
       - service: cover.close_cover
         target:
-          entity_id: cover.velux_internal_cover_3
+          entity_id: cover.spare_room
+#          entity_id: cover.velux_internal_cover_3
