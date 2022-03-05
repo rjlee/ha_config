@@ -6,6 +6,13 @@ people:
       - person.mum
       - person.child1
 
+parents:
+    name: Parents
+    icon: mdi:face
+    entities:
+      - person.dad
+      - person.mum
+
 dogwalk:
     name: Dogwalk
     icon: mdi:face
@@ -54,6 +61,7 @@ lights:
       - light.bedroom_2_bedside_lamp
       - light.main_bedroom_light
       - light.upstairs_bathroom_light
+      - light.spare_room_light
 
 on_holiday_lights:
   name: On Holiday Lights
@@ -181,8 +189,6 @@ child2s_room:
     name: child2s Room
     icon: mdi:bed
     entities:
-      - alarm_control_panel.blink_child2s_camera
-      - binary_sensor.blink_child2s_camera_motion_detected
       - switch.child2_bedside_lamp
       - cover.velux_internal_cover_5
       - media_player.child2s_room
@@ -202,4 +208,5 @@ spare_room:
       - cover.velux_internal_cover_6
       - media_player.spare_room
       - climate.spare_room
+      - light.spare_room_light
 
