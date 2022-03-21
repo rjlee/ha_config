@@ -1,9 +1,10 @@
 automation:
 - id: kitchen_cupboard_motion_detected
   alias: "Kitchen Cupboard Motion Detected"
+  mode: single
   trigger:
     platform: state
-    entity_id: binary_sensor.kitchen_cupboard_motion_sensor_motion
+    entity_id: binary_sensor.kitchen_cupboard_motion_sensor_ias_zone
     from: 'off'
     to: 'on'
   condition:
@@ -26,4 +27,5 @@ automation:
   - service: notify.family
     data:
       message: Snack attack, the snack pirates are in the cupboard
-  mode: single
+      data:
+        sticky: "true"
