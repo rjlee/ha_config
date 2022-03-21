@@ -1,9 +1,10 @@
 automation:
   - id: back_door_open
     alias: "Back door open"
+    mode: single
     trigger:
       platform: state
-      entity_id: binary_sensor.back_door_contact_sensor_status
+      entity_id: binary_sensor.back_door_contact_sensor
       from: 'off'
       to: 'on'
       for:
@@ -15,4 +16,5 @@ automation:
       - service: notify.family
         data:
           message: The back door is open, go check it
-    mode: single
+          data:
+            sticky: "true"
