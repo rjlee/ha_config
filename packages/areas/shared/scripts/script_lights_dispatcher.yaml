@@ -53,4 +53,18 @@ script:
            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
              script.spare_room_light_off
            {%- endif -%}
-
+  light_dispatch_dim:
+    alias: "Light Dispatcher Dim"
+    icon: "mdi:lightbulb"
+    description: "Dims lights from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 0.5
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+           {%- if is_state('sensor.last_alexa', 'media_player.lounge') -%}
+             script.lounge_light_dim
+           {%- endif -%}
