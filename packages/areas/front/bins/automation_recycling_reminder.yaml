@@ -2,6 +2,7 @@ automation:
     - id: 'front_garden_recycling_reminder'
       alias: Front - Recycling Reminder
       description: ''
+      mode: single
       trigger:
       - platform: time
         at: 08:15
@@ -17,10 +18,12 @@ automation:
       - service: notify.family
         data:
           message: Reminder, its green bin day
-      mode: single
+          data:
+            sticky: "true"
     - id: 'front_garden_recycling_reminder_previous_day'
       alias: Front - Recycling Reminder Previous Day
       description: ''
+      mode: single
       trigger:
       - platform: time
         at: '21:00'
@@ -36,4 +39,5 @@ automation:
       - service: notify.family
         data:
           message: Reminder, its green bin day tomorrow
-      mode: single
+          data:
+            sticky: "true"

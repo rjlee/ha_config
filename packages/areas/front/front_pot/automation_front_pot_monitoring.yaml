@@ -1,6 +1,6 @@
 automation:
     id: "front_pot_monitoring"
-    alias: Front Pot Monitoring
+    alias: Front - Pot Monitoring
     description: ''
     mode: single
     trigger:
@@ -16,3 +16,5 @@ automation:
       - service: notify.family
         data:
           message: Water the front pot, it's thirsty !
+          data:
+            sticky: "true"

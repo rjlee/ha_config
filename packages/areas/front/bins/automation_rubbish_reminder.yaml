@@ -2,6 +2,7 @@ automation:
     - id: 'front_garden_rubbish_reminder'
       alias: Front - Rubbish Reminder
       description: ''
+      mode: single
       trigger:
       - platform: time
         at: 08:15
@@ -17,10 +18,12 @@ automation:
       - service: notify.family
         data:
           message: Reminder, its black bin day
-      mode: single
+          data:
+            sticky: "true"
     - id: 'front_garden_rubbish_reminder_previous_day'
       alias: Front - Rubbish Reminder Previous Day
       description: ''
+      mode: single
       trigger:
       - platform: time
         at: '21:00'
@@ -36,4 +39,5 @@ automation:
       - service: notify.family
         data:
           message: Reminder, its black bin day tomorrow
-      mode: single
+          data:
+            sticky: "true"
