@@ -8,7 +8,7 @@ automation:
         from: 'off'
         to: 'playing'
       - platform: state
-        entity_id: binary_sensor.child2s_laptop_power_status
+        entity_id: sensor.bedroom2_laptop_sessionstate
         from: 'unavailable'
       condition: []
       action:
@@ -26,7 +26,7 @@ automation:
         from: 'playing'
         to: 'off'
       - platform: state
-        entity_id: binary_sensor.child2s_laptop_power_status
+        entity_id: sensor.bedroom2_laptop_sessionstate
         to: 'unavailable'
       condition:
           condition: and
@@ -35,7 +35,7 @@ automation:
               entity_id: media_player.xbox_child2
               state: 'off'
             - condition: state
-              entity_id: binary_sensor.child2s_laptop_power_status
+              entity_id: sensor.bedroom2_laptop_sessionstate
               state: 'unavailable'
       action:
       - service: light.turn_off
