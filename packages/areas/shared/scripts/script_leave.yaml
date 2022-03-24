@@ -1,0 +1,31 @@
+script:
+  leave_home_dispatch:
+    alias: "Leave dispatcher"
+    icon: "mdi:lightbulb"
+    description: "Turns off non-essential devices"
+    mode: single
+    sequence:
+      - service: script.turn_on
+        target:
+          entity_id:
+            - script.lounge_tv_off
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.main_bedroom_light
+            - light.bedroom_1_light
+            - light.bedroom2_light
+            - light.bedroom_1_bedside_lamp
+            - light.bedroom_2_bedside_lamp
+            - light.lounge_lights_light_0
+      - service: media_player.turn_off
+        target:
+          entity_id:
+            - media_player.lounge_window_sky_q
+            - media_player.master_bedroom_skyq
+            - media_player.xbox_spareroom
+            - media_player.xbox_child2
+            - media_player.xbox_lounge
+            - media_player.xbox_lounge_window
+            - media_player.samsung_q60_series_lounge
+

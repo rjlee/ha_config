@@ -1,0 +1,4 @@
+light:
+  - platform: switch
+    name: Front - Floodlight
+    entity_id: switch.front_floodlight_relay_0
