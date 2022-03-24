@@ -1,0 +1,30 @@
+script:
+    kitchen_light_on:
+      alias: "Kitchen light turn on"
+      icon: mdi:lightbulb
+      description: "Turns on the kitchen lights"
+      mode: single
+      sequence:
+      - service: notify.alexa_media
+        data_template:
+          message: >
+            Sorry, I can't turn on the lights in the Kitchen
+          target: "{{ states('sensor.last_alexa') }}"
+        data:
+          data:
+            type: tts
+    kitchen_light_off:
+      alias: "Kitchen light turn off"
+      icon: mdi:lightbulb
+      description: "Turns off the kitchen lights"
+      mode: single
+      sequence:
+      - service: notify.alexa_media
+        data_template:
+          message: >
+            Sorry, I can't turn off the lights in the Kitchen
+          target: "{{ states('sensor.last_alexa') }}"
+        data:
+          data:
+            type: tts
+ 
