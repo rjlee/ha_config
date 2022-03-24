@@ -138,46 +138,6 @@ group:
         - binary_sensor.shelly_motion_60a423936d7e_vibration
         - sensor.shelly_motion_60a423936d7e_battery
         - sensor.shelly_motion_60a423936d7e_lux
-        - binary_sensor.child2s_laptop_battery_status
-        - binary_sensor.child2s_laptop_network_0_wired
-        - binary_sensor.child2s_laptop_power_status
-        - camera.child2s_laptop_screen_0
-        - sensor.child2s_laptop_battery_full_lifetime
-        - sensor.child2s_laptop_battery_level
-        - sensor.child2s_laptop_battery_remaining
-        - sensor.child2s_laptop_battery_remaining_time
-        - sensor.child2s_laptop_cpu_usage
-        - sensor.child2s_laptop_current_username
-        - sensor.child2s_laptop_memory_available
-        - sensor.child2s_laptop_memory_total
-        - sensor.child2s_laptop_memory_usage
-        - sensor.child2s_laptop_memory_used
-        - sensor.child2s_laptop_network_0_bps_received
-        - sensor.child2s_laptop_network_0_bps_sent
-        - sensor.child2s_laptop_network_0_bytes_received
-        - sensor.child2s_laptop_network_0_bytes_sent
-        - sensor.child2s_laptop_network_0_ipv4
-        - sensor.child2s_laptop_network_0_ipv6
-        - sensor.child2s_laptop_network_0_speed
-        - sensor.child2s_laptop_screen_0_height
-        - sensor.child2s_laptop_screen_0_width
-        - sensor.child2s_laptop_storage_c_available_free_space
-        - sensor.child2s_laptop_storage_c_format
-        - sensor.child2s_laptop_storage_c_label
-        - sensor.child2s_laptop_storage_c_total_free_space
-        - sensor.child2s_laptop_storage_c_total_storage
-        - sensor.child2s_laptop_storage_c_usage
-        - sensor.child2s_laptop_storage_c_used_space
-        - sensor.child2s_laptop_storage_d_available_free_space
-        - sensor.child2s_laptop_storage_d_format
-        - sensor.child2s_laptop_storage_d_label
-        - sensor.child2s_laptop_storage_d_total_free_space
-        - sensor.child2s_laptop_storage_d_total_storage
-        - sensor.child2s_laptop_storage_d_usage
-        - sensor.child2s_laptop_storage_d_used_space
-        - sensor.child2s_laptop_system_boot_time
-        - sensor.child2s_laptop_system_idle_time
-        - sensor.child2s_laptop_system_uptime
         - sensor.lumi_lumi_remote_b1acn01_power
         - button.develco_zhemi101_8a19021b_identify
         - button.ewelink_ms01_d50e4e23_identify
@@ -221,13 +181,75 @@ group:
         - button.shelly_1l_3c6105e391c1_restart
         - button.shelly_1l_e09806aa19a6_restart
         - button.shelly_1l_e8db84a1ad9e_restart
+        - button.ewelink_ds01_f6569e23_identify
         - button.spare_room_light_restart
         - button.spare_room_light_update_firmware
         - sensor.spare_room_light_power_0
         - cover.curtains
         - scene.curtains_closed
         - scene.curtains_open
+        - button.deebot_ozmo_920_lounge_relocate
+        - button.deebot_ozmo_t8_aivi_kitchen_relocate
+        - binary_sensor.shelly_motion_60a4239a615c_motion
+        - binary_sensor.shelly_motion_60a4239a615c_vibration
+        - sensor.shelly_motion_60a4239a615c_battery
+        - sensor.shelly_motion_60a4239a615c_lux
+        - cover.velux_internal_cover
+        - cover.velux_internal_cover_2
+        - cover.velux_internal_cover_4
+        - cover.velux_internal_cover_6
+        - sensor.velux_sensor_co2
+        - sensor.velux_sensor_humidity
+        - sensor.velux_sensor_temperature
         - cover.velux_internal_cover_3
+        - cover.velux_internal_cover_5
+        - binary_sensor.blink_child2s_camera_battery
+        - binary_sensor.blink_child2s_camera_camera_armed
+        - binary_sensor.blink_child2s_camera_motion_detected
+        - camera.blink_child2s_camera
+        - binary_sensor.bedroom_1_light_longpush_0
+        - binary_sensor.bedroom_1_light_longpush_1
+        - binary_sensor.bedroom_1_light_shortpush_0
+        - binary_sensor.bedroom_1_light_shortpush_1
+        - binary_sensor.bedroom_2_light_longpush_0
+        - binary_sensor.bedroom_2_light_longpush_1
+        - binary_sensor.bedroom_2_light_shortpush_0
+        - binary_sensor.bedroom_2_light_shortpush_1
+        - binary_sensor.lounge_lights_longpush_0
+        - binary_sensor.lounge_lights_longpush_1
+        - binary_sensor.lounge_lights_shortpush_0
+        - binary_sensor.lounge_lights_shortpush_1
+        - binary_sensor.spare_room_light_longpush_0
+        - binary_sensor.spare_room_light_longpush_1
+        - binary_sensor.spare_room_light_shortpush_0
+        - binary_sensor.spare_room_light_shortpush_1
+        - binary_sensor.upstairs_bathroom_light_longpush_0
+        - binary_sensor.upstairs_bathroom_light_longpush_1
+        - binary_sensor.upstairs_bathroom_light_shortpush_0
+        - binary_sensor.upstairs_bathroom_light_shortpush_1
+        - sensor.spare_room_light_energy_0
+        - sensor.upstairs_bathroom_light_energy_0
+        - binary_sensor.front_floodlight_longpush_0
+        - binary_sensor.front_floodlight_longpush_1
+        - binary_sensor.front_floodlight_shortpush_0
+        - binary_sensor.front_floodlight_shortpush_1
+        - button.front_floodlight_restart
+        - button.front_floodlight_update_firmware
+        - sensor.front_floodlight_energy_0
+        - sensor.front_floodlight_power_0
+        - button.front_gate_contact_sensor_identify
+        - binary_sensor.front_gate_contact_sensor_status
+        - sensor.front_gate_contact_sensor_power
+        - sensor.bedroom1_laptop_sessionstate
+        - sensor.bedroom2_laptop_sessionstate
+        - switch.bedroom1_laptop_hibernate
+        - switch.bedroom1_laptop_restart
+        - switch.bedroom1_laptop_shutdown
+        - switch.bedroom2_laptop_hibernate
+        - switch.bedroom2_laptop_restart
+        - switch.bedroom2_laptop_shutdown
+        - sensor.co2_intensity
+        - sensor.grid_fossil_fuel_percentage
 
 binary_sensor:
   - platform: template
