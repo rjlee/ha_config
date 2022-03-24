@@ -12,3 +12,9 @@ automation:
     data:
       title: "Upstairs Bathroom Water Leak !"
       message: "Have you left the bath running ?"
+      data:
+        push:
+          sound:
+            name: "default"
+            critical: 1
+            volume: 1.0
