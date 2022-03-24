@@ -13,13 +13,6 @@ parents:
       - person.dad
       - person.mum
 
-dogwalk:
-    name: Dogwalk
-    icon: mdi:face
-    entities:
-      - person.mum
-      - device_tracker.libby
-
 echos:
     name: echos
     entities:
@@ -52,6 +45,7 @@ lights:
     name: House Lights 
     icon: mdi:lightbulb-multiple
     entities:
+      - light.front_floodlight
       - light.lounge_lights_light_0
       - light.downstairs_hall_lamp_level_light_color_on_off
       - light.downstairs_bathroom_light
@@ -91,6 +85,24 @@ heating:
       - climate.heating
       - water_heater.hot_water
 
+leave_home:
+    name: Leave home group
+    entities:
+      - remote.lounge
+      - media_player.xbox_lounge
+      - media_player.xbox_lounge_window
+      - media_player.samsung_q60_series_lounge
+      - light.lounge_lights_light_0
+      - light.bedroom_1_light
+      - light.bedroom2_light
+      - light.bedroom_1_bedside_lamp
+      - light.bedroom_2_bedside_lamp
+      - light.main_bedroom_light
+      - media_player.master_bedroom_skyq
+      - media_player.xbox_spareroom
+      - media_player.xbox_child2
+
+
 # Downstairs
 
 lounge:
@@ -105,8 +117,7 @@ lounge:
       - media_player.xbox_lounge_window
       - light.lounge_lights_light_0
 
-kitchen:
-    name: Kitchen
+
     icon: mdi:food
     entities:
       - switch.kitchen_tv_switch
