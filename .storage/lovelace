@@ -103,10 +103,11 @@
                                 "sensor.bedroom_2_motion_sensor_battery",
                                 "sensor.upstairs_bathroom_motion_sensor_battery",
                                 "sensor.downstairs_bathroom_motion_sensor_battery",
-                                "sensor.back_door_contact_sensor_power",
                                 "sensor.back_door_battery",
                                 "sensor.lumi_lumi_sensor_wleak_aq1_power",
-                                "sensor.kitchen_cupboard_motion_sensor_power"
+                                "sensor.kitchen_cupboard_motion_sensor_power",
+                                "sensor.lounge_motion_sensor_battery",
+                                "sensor.downstairs_hall_smoke_alarm_power"
                             ],
                             "filter": {
                                 "exclude": [
@@ -392,6 +393,47 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "show_name": true,
+                            "show_icon": true,
+                            "show_state": false,
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                    "name": "Bedroom 1"
+                                },
+                                {
+                                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                    "name": "Bedroom 2"
+                                },
+                                {
+                                    "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
+                                    "name": "Bathroom"
+                                }
+                            ]
+                        },
+                        {
+                            "show_name": true,
+                            "show_icon": true,
+                            "show_state": false,
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.lounge_motion_sensor_motion",
+                                    "name": "Lounge"
+                                },
+                                {
+                                    "entity": "binary_sensor.kitchen_motion_sensor",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                    "name": "Bathroom"
+                                }
+                            ],
+                            "state_color": true
                         },
                         {
                             "type": "vertical-stack",

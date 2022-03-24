@@ -46,17 +46,19 @@
                                     "type": "entities",
                                     "entities": [
                                         {
-                                            "entity": "cover.velux_internal_cover_2"
+                                            "entity": "cover.main_bedroom_1",
+                                            "name": "Blind 1"
                                         },
                                         {
-                                            "entity": "cover.velux_internal_cover"
+                                            "entity": "cover.main_bedroom_2",
+                                            "name": "Blind 2"
                                         },
                                         {
                                             "entity": "cover.curtains",
                                             "name": "Curtains"
                                         },
                                         {
-                                            "entity": "cover.velux_internal_cover_6",
+                                            "entity": "cover.belltower",
                                             "name": "Belltower Blind"
                                         }
                                     ]
@@ -216,7 +218,7 @@
                                     "entity": "climate.child1s_room"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_4",
+                                    "entity": "cover.bedroom_1",
                                     "name": "Velux Blind"
                                 }
                             ],
@@ -386,7 +388,7 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "cover.velux_internal_cover_5",
+                                    "entity": "cover.bedroom_2",
                                     "name": "Velux Blind"
                                 },
                                 {
@@ -400,10 +402,6 @@
                                 {
                                     "entity": "input_boolean.bedroom2_in_bed",
                                     "name": "In Bed"
-                                },
-                                {
-                                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                    "name": "Motion"
                                 }
                             ]
                         }

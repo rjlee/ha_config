@@ -6,6 +6,65 @@
         "config": {
             "views": [
                 {
+                    "theme": "Backend-selected",
+                    "title": "Front",
+                    "path": "front",
+                    "type": "custom:vertical-layout",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "area",
+                            "area": "front",
+                            "show_camera": true
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.blink_front_camera_temperature",
+                                    "name": "House - Front Temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_gate_contact_sensor_status",
+                                    "name": "Front Gate"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "plant-status",
+                            "entity": "plant.front_pot",
+                            "name": "Front Pot"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.hottub_pump_temp",
+                                    "name": "HotTub Water Temperature"
+                                },
+                                {
+                                    "entity": "sensor.hottub_pump_target"
+                                },
+                                {
+                                    "entity": "switch.hottub_power"
+                                },
+                                {
+                                    "entity": "switch.hottub_heat"
+                                },
+                                {
+                                    "entity": "switch.hottub_filter"
+                                },
+                                {
+                                    "entity": "switch.hottub_bubbles"
+                                }
+                            ],
+                            "title": "Hot Tub",
+                            "show_header_toggle": false
+                        }
+                    ]
+                },
+                {
+                    "theme": "Backend-selected",
                     "title": "Lounge",
                     "path": "lounge",
                     "icon": "",
@@ -13,7 +72,8 @@
                     "cards": [
                         {
                             "type": "area",
-                            "area": "lounge"
+                            "area": "lounge",
+                            "show_camera": true
                         },
                         {
                             "type": "entities",
@@ -21,13 +81,6 @@
                                 {
                                     "entity": "light.lounge_lights_light_0",
                                     "name": "Lights"
-                                },
-                                {
-                                    "entity": "binary_sensor.lounge_motion_sensor_motion",
-                                    "name": "Motion"
-                                },
-                                {
-                                    "entity": "binary_sensor.lounge_motion_sensor_motion_2"
                                 }
                             ]
                         },
@@ -163,7 +216,8 @@
                     "cards": [
                         {
                             "type": "area",
-                            "area": "da734d0b00ba11ebbfc457dafaa650cb"
+                            "area": "da734d0b00ba11ebbfc457dafaa650cb",
+                            "show_camera": true
                         },
                         {
                             "type": "entities",
@@ -278,9 +332,8 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.back_door_contact_sensor_status",
-                                    "name": "Back Door",
-                                    "icon": "mdi:door"
+                                    "entity": "sensor.blink_back_camera_temperature",
+                                    "name": "House - Back Temperature"
                                 }
                             ]
                         }

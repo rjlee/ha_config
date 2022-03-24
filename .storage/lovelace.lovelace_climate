@@ -23,6 +23,9 @@
                                 },
                                 {
                                     "entity": "group.lights"
+                                },
+                                {
+                                    "entity": "switch.alarm_key_switch"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -63,7 +66,8 @@
                                 "sensor.back_door_battery",
                                 "sensor.lumi_lumi_sensor_wleak_aq1_power",
                                 "sensor.kitchen_cupboard_motion_sensor_power",
-                                "sensor.back_door_contact_sensor_power"
+                                "sensor.lounge_motion_sensor_battery",
+                                "sensor.downstairs_hall_smoke_alarm_power"
                             ],
                             "filter": {
                                 "exclude": [
@@ -76,7 +80,7 @@
                         },
                         {
                             "type": "iframe",
-                            "url": "http://ha.home:8123/local/servers.html?t=23",
+                            "url": "http://ha.home:8123/local/servers.html?t=24",
                             "aspect_ratio": "80%",
                             "title": "Services"
                         }
@@ -102,11 +106,6 @@
                             "title": "Outside"
                         },
                         {
-                            "type": "plant-status",
-                            "entity": "plant.front_pot",
-                            "name": "Front Pot"
-                        },
-                        {
                             "type": "entities",
                             "entities": [
                                 {
@@ -114,43 +113,9 @@
                                 },
                                 {
                                     "entity": "sensor.kitchen_temperature"
-                                },
-                                {
-                                    "entity": "sensor.velux_sensor_co2",
-                                    "name": "Main Bedroom - CO2"
-                                },
-                                {
-                                    "entity": "sensor.velux_sensor_humidity",
-                                    "name": "Main Bedroom - Humidity"
                                 }
                             ],
                             "title": "Inside"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.hottub_pump_temp",
-                                    "name": "HotTub Water Temperature"
-                                },
-                                {
-                                    "entity": "sensor.hottub_pump_target"
-                                },
-                                {
-                                    "entity": "switch.hottub_power"
-                                },
-                                {
-                                    "entity": "switch.hottub_heat"
-                                },
-                                {
-                                    "entity": "switch.hottub_filter"
-                                },
-                                {
-                                    "entity": "switch.hottub_bubbles"
-                                }
-                            ],
-                            "title": "Hot Tub",
-                            "show_header_toggle": false
                         },
                         {
                             "type": "custom:auto-entities",
@@ -174,11 +139,11 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "cover.velux_internal_cover_2",
+                                    "entity": "cover.main_bedroom_1",
                                     "name": "Main Bedroom - Blind 1"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover",
+                                    "entity": "cover.main_bedroom_2",
                                     "name": "Main Bedroom - Blind 2"
                                 },
                                 {
@@ -186,15 +151,15 @@
                                     "name": "Main Bedroom - Curtains"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_6",
+                                    "entity": "cover.belltower",
                                     "name": "Bell Tower"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_4",
+                                    "entity": "cover.bedroom_1",
                                     "name": "child1's Room"
                                 },
                                 {
-                                    "entity": "cover.velux_internal_cover_5",
+                                    "entity": "cover.bedroom_2",
                                     "name": "child2's Room"
                                 },
                                 {
@@ -406,7 +371,22 @@
                             "filter": {
                                 "include": [
                                     {
-                                        "entity_id": "/blink_child2/"
+                                        "entity_id": "/blink_kitchen/"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "show_header_toggle": false,
+                                "title": "Lounge"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "/blink_lounge/"
                                     }
                                 ]
                             }
@@ -477,6 +457,25 @@
                                     "group_by": {
                                         "func": "max",
                                         "duration": "5min"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:apexcharts-card",
+                            "graph_span": "2h",
+                            "header": {
+                                "show": true,
+                                "title": "Dryer Power Usage",
+                                "show_states": true,
+                                "colorize_states": true
+                            },
+                            "series": [
+                                {
+                                    "entity": "sensor.main_bedroom_dads_bedside_lamp_energy_power",
+                                    "group_by": {
+                                        "func": "max",
+                                        "duration": "30sec"
                                     }
                                 }
                             ]
