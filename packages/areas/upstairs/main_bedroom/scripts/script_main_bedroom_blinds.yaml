@@ -7,9 +7,12 @@ script:
       - service: cover.open_cover
         target:
           entity_id: 
-            - cover.velux_internal_cover
-            - cover.velux_internal_cover_2
-            - cover.velux_internal_cover_6
+#            - cover.velux_internal_cover
+#            - cover.velux_internal_cover_2
+#            - cover.velux_internal_cover_6
+           - cover.main_bedroom_1
+           - cover.main_bedroom_2
+           - cover.belltower
     main_bedroom_blind_close:
       alias: Main bedroom Blinds Close
       mode: single
@@ -18,6 +21,9 @@ script:
       - service: cover.close_cover
         target:
           entity_id:
-            - cover.velux_internal_cover
-            - cover.velux_internal_cover_2
-            - cover.velux_internal_cover_6
+#            - cover.velux_internal_cover
+#            - cover.velux_internal_cover_2
+#            - cover.velux_internal_cover_6
+           - cover.main_bedroom_1
+           - cover.main_bedroom_2
+           - cover.belltower

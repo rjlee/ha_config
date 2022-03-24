@@ -8,11 +8,14 @@ script:
       - service: cover.open_cover
         target:
           entity_id:
-#          - cover.mainbedroomcurtains
-          - cover.curtains
-          - cover.velux_internal_cover
-          - cover.velux_internal_cover_2
-          - cover.velux_internal_cover_6
+          - cover.mainbedroomcurtains
+#          - cover.curtains
+#          - cover.velux_internal_cover
+#          - cover.velux_internal_cover_2
+#          - cover.velux_internal_cover_6
+          - cover.main_bedroom_1
+          - cover.main_bedroom_2
+          - cover.belltower
     main_bedroom_good_night:
       alias: "Main bedroom good night routine"
       icon: mdi:weather-night
@@ -22,8 +25,11 @@ script:
       - service: cover.close_cover
         target:
           entity_id:
-#          - cover.mainbedroomcurtains
-          - cover.curtains
-          - cover.velux_internal_cover
-          - cover.velux_internal_cover_2
-          - cover.velux_internal_cover_6
+          - cover.mainbedroomcurtains
+#          - cover.curtains
+#          - cover.velux_internal_cover
+#          - cover.velux_internal_cover_2
+#          - cover.velux_internal_cover_6
+          - cover.main_bedroom_1
+          - cover.main_bedroom_2
+          - cover.belltower
