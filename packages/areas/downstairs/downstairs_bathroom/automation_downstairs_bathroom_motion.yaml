@@ -6,7 +6,7 @@ automation:
     max_exceeded: silent
     trigger:
       platform: state
-      entity_id: binary_sensor.downstairs_bathroom_motion_sensor
+      entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
       from: 'off'
       to: 'on'
     action:
@@ -15,7 +15,7 @@ automation:
           entity_id: light.downstairs_bathroom_light
       - wait_for_trigger:
           platform: state
-          entity_id: binary_sensor.downstairs_bathroom_motion_sensor
+          entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
           from: 'on'
           to: 'off'
       - delay: 600
