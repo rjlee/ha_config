@@ -1,0 +1,23 @@
+script:
+    lounge_clean_on:
+      alias: "Lounge cleaning on"
+      icon: mdi:robot-vacuum-variant
+      description: "Starts cleaning in the lounge"
+      mode: single
+      sequence:
+      - service: script.vacuum_lounge_start
+    lounge_clean_off:
+      alias: "Lounge cleaning off"
+      icon: mdi:robot-vacuum-variant
+      description: "Stops cleaning in the lounge"
+      mode: single
+      sequence:
+      - service: script.vacuum_lounge_stop
+    lounge_clean_pause:
+      alias: "Lounge cleaning pause"
+      icon: mdi:robot-vacuum-variant
+      description: "Pauses cleaning in the lounge"
+      mode: single
+      sequence:
+      - service: script.vacuum_lounge_pause
+ 

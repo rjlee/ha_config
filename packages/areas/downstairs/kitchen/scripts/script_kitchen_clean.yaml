@@ -1,0 +1,23 @@
+script:
+    kitchen_clean_on:
+      alias: "Kitchen cleaning on"
+      icon: mdi:robot-vacuum-variant
+      description: "Starts cleaning in the kitchen"
+      mode: single
+      sequence:
+      - service: script.vacuum_kitchen_start
+    kitchen_clean_off:
+      alias: "Kitchen cleaning off"
+      icon: mdi:robot-vacuum-variant
+      description: "Stops cleaning in the kitchen"
+      mode: single
+      sequence:
+      - service: script.vacuum_kitchen_stop
+    kitchen_clean_pause:
+      alias: "Kitchen cleaning pause"
+      icon: mdi:robot-vacuum-variant
+      description: "Pauses cleaning in the kitchen"
+      mode: single
+      sequence:
+      - service: script.vacuum_kitchen_pause
+ 
