@@ -28,9 +28,12 @@ automation:
         at: '21:00:00'
       condition: []
       action:
-      - service: shell_command.sleep_child1_laptop
-        data:
-          option: None
+#      - service: shell_command.sleep_child1_laptop
+#        data:
+#          option: None
+      - service: switch.toggle
+        target:
+          entity_id: switch.bedroom1_laptop_hibernate
       - delay: '2'
       - service: input_select.select_option
         data:
