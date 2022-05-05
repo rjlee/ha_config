@@ -69,3 +69,48 @@ automation:
       action:
         - service: homeassistant.turn_off
           entity_id: group.lights
+
+
+
+    - id: 'On Holiday - Set Away'
+      alias: 'On Holiday - Set Away for heating, cameras and alarm'
+      trigger:
+        - platform: state
+          entity_id:
+            - input_boolean.on_holiday
+          from: "off"
+          to: "on"
+      action:
+        - service: climate.set_preset_mode
+          data:
+            preset_mode: away
+          target:
+            entity_id: climate.lounge
+        - service: alarm_control_panel.alarm_arm_away
+          target:
+            entity_id: alarm_control_panel.alarmo
+        - service: alarm_control_panel.alarm_arm_away
+          target:
+            entity_id: alarm_control_panel.blink_home
+
+    - id: 'On Holiday - Set Home'
+      alias: 'On Holiday - Set Home for heating, cameras and alarm'
+      trigger:
+        - platform: state
+          entity_id:
+            - input_boolean.on_holiday
+          from: "on"
+          to: "off"
+      action:
+        - service: climate.set_preset_mode
+          data:
+            preset_mode: home
+          target:
+            entity_id: climate.lounge
+        - service: alarm_control_panel.alarm_disarm
+          target:
+            entity_id: alarm_control_panel.alarmo
+        - service: alarm_control_panel.alarm_disarm
+          target:
+            entity_id: alarm_control_panel.blink_home
+
