@@ -26,7 +26,8 @@
                                 },
                                 {
                                     "entity": "binary_sensor.front_gate_contact_sensor_status",
-                                    "name": "Front Gate"
+                                    "name": "Front Gate",
+                                    "icon": "mdi:gate"
                                 }
                             ]
                         },
@@ -190,7 +191,7 @@
                                 {
                                     "entity": "media_player.lounge",
                                     "name": "Alexa",
-                                    "icon": "mdi:amazon"
+                                    "icon": ""
                                 },
                                 {
                                     "entity": "climate.lounge",
@@ -234,7 +235,7 @@
                                 {
                                     "entity": "media_player.kitchen",
                                     "name": "Alexa",
-                                    "icon": "mdi:amazon"
+                                    "icon": ""
                                 },
                                 {
                                     "entity": "climate.kitchen",
@@ -282,6 +283,11 @@
                                 {
                                     "entity": "climate.downstairs_hallway",
                                     "name": "Heating"
+                                },
+                                {
+                                    "entity": "switch.alarm_key_switch",
+                                    "name": "House Alarm",
+                                    "icon": "mdi:alarm-light"
                                 }
                             ]
                         }
@@ -303,6 +309,10 @@
                                 {
                                     "entity": "climate.study",
                                     "name": "Heating"
+                                },
+                                {
+                                    "entity": "media_player.study",
+                                    "name": "Alexa"
                                 },
                                 {
                                     "entity": "switch.study_oil_radiator",

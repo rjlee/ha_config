@@ -33,6 +33,20 @@
                             "type": "conditional",
                             "conditions": [
                                 {
+                                    "entity": "sensor.unavailable_entities",
+                                    "state_not": "0"
+                                }
+                            ],
+                            "card": {
+                                "type": "markdown",
+                                "content": "{%- if (state_attr('sensor.unavailable_entities','entities') == 0 ) %}\n  No unavailable entities\n{% else %} {%- for device in state_attr('sensor.unavailable_entities','entities')  -%} - {{ device ~ '\\n' }} {%- endfor %} {% endif %}\n",
+                                "title": "Unavailable Entities"
+                            }
+                        },
+                        {
+                            "type": "conditional",
+                            "conditions": [
+                                {
                                     "entity": "sensor.weather_warnings",
                                     "state_not": "0"
                                 }
@@ -72,20 +86,6 @@
                             }
                         },
                         {
-                            "type": "conditional",
-                            "conditions": [
-                                {
-                                    "entity": "sensor.unavailable_entities",
-                                    "state_not": "0"
-                                }
-                            ],
-                            "card": {
-                                "type": "markdown",
-                                "content": "{%- if (state_attr('sensor.unavailable_entities','entities') == 0 ) %}\n  No unavailable entities\n{% else %} {%- for device in state_attr('sensor.unavailable_entities','entities')  -%} - {{ device ~ '\\n' }} {%- endfor %} {% endif %}\n",
-                                "title": "Unavailable Entities"
-                            }
-                        },
-                        {
                             "type": "alarm-panel",
                             "name": "House Alarm",
                             "states": [
@@ -107,7 +107,8 @@
                                 "sensor.lumi_lumi_sensor_wleak_aq1_power",
                                 "sensor.kitchen_cupboard_motion_sensor_power",
                                 "sensor.lounge_motion_sensor_battery",
-                                "sensor.downstairs_hall_smoke_alarm_power"
+                                "sensor.downstairs_hall_smoke_alarm_power",
+                                "sensor.front_gate_contact_sensor_power"
                             ],
                             "filter": {
                                 "exclude": [
@@ -124,61 +125,30 @@
                             }
                         },
                         {
-                            "type": "vertical-stack",
-                            "cards": [
+                            "type": "entities",
+                            "entities": [
                                 {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g",
-                                                "name": "Fibre Internet"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_download_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_upload_speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
+                                    "entity": "sensor.internet_isp",
+                                    "name": "ISP",
+                                    "icon": "mdi:web"
                                 },
                                 {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "on"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g",
-                                                "name": "Fibre Internet"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_download_speed",
-                                                "name": "Fibre Download Speed"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_upload_speed",
-                                                "name": "Fibre Upload Speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
+                                    "entity": "sensor.internet_wan_download_speed",
+                                    "name": "WAN Download",
+                                    "icon": "mdi:gauge"
+                                },
+                                {
+                                    "entity": "sensor.internet_wan_upload_speed",
+                                    "name": "WAN Upload",
+                                    "icon": "mdi:gauge"
+                                },
+                                {
+                                    "entity": "switch.4g",
+                                    "name": "Fibre Internet",
+                                    "icon": "mdi:web"
                                 }
-                            ]
+                            ],
+                            "title": "House Internet"
                         },
                         {
                             "type": "vertical-stack",
@@ -395,54 +365,56 @@
                             ]
                         },
                         {
-                            "show_name": true,
-                            "show_icon": true,
-                            "show_state": false,
-                            "type": "glance",
-                            "entities": [
+                            "type": "custom:vertical-stack-in-card",
+                            "cards": [
                                 {
-                                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                    "name": "Bedroom 1"
+                                    "type": "glance",
+                                    "show_name": true,
+                                    "show_icon": true,
+                                    "show_state": false,
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                                            "name": "Bedroom 1"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                                            "name": "Bedroom 2"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
+                                            "name": "Bathroom"
+                                        }
+                                    ],
+                                    "state_color": true
                                 },
                                 {
-                                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                    "name": "Bedroom 2"
-                                },
-                                {
-                                    "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
-                                    "name": "Bathroom"
+                                    "type": "glance",
+                                    "show_name": true,
+                                    "show_icon": true,
+                                    "show_state": false,
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.lounge_motion_sensor_motion",
+                                            "name": "Lounge"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.kitchen_motion_sensor",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.downstairs_bathroom_motion_sensor_motion",
+                                            "name": "Bathroom"
+                                        }
+                                    ],
+                                    "state_color": true
                                 }
                             ]
                         },
                         {
-                            "show_name": true,
-                            "show_icon": true,
-                            "show_state": false,
-                            "type": "glance",
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.lounge_motion_sensor_motion",
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "entity": "binary_sensor.kitchen_motion_sensor",
-                                    "name": "Kitchen"
-                                },
-                                {
-                                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                    "name": "Bathroom"
-                                }
-                            ],
-                            "state_color": true
-                        },
-                        {
-                            "type": "vertical-stack",
+                            "type": "custom:vertical-stack-in-card",
+                            "title": "Collection Days",
                             "cards": [
-                                {
-                                    "type": "markdown",
-                                    "content": " ",
-                                    "title": "Collection Days"
-                                },
                                 {
                                     "type": "custom:garbage-collection-card",
                                     "entity": "sensor.rubbish_collection",

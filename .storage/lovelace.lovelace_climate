@@ -23,9 +23,6 @@
                                 },
                                 {
                                     "entity": "group.lights"
-                                },
-                                {
-                                    "entity": "switch.alarm_key_switch"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -67,7 +64,8 @@
                                 "sensor.lumi_lumi_sensor_wleak_aq1_power",
                                 "sensor.kitchen_cupboard_motion_sensor_power",
                                 "sensor.lounge_motion_sensor_battery",
-                                "sensor.downstairs_hall_smoke_alarm_power"
+                                "sensor.downstairs_hall_smoke_alarm_power",
+                                "sensor.front_gate_contact_sensor_power"
                             ],
                             "filter": {
                                 "exclude": [
@@ -80,8 +78,8 @@
                         },
                         {
                             "type": "iframe",
-                            "url": "http://ha.home:8123/local/servers.html?t=24",
-                            "aspect_ratio": "80%",
+                            "url": "http://ha.home:8123/local/servers.html?t=25",
+                            "aspect_ratio": "90%",
                             "title": "Services"
                         }
                     ]
@@ -113,6 +111,10 @@
                                 },
                                 {
                                     "entity": "sensor.kitchen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.particulate_matter_2_5um_concentration",
+                                    "name": "Air Quality"
                                 }
                             ],
                             "title": "Inside"
@@ -180,86 +182,39 @@
                             "type": "vertical-stack",
                             "cards": [
                                 {
-                                    "type": "conditional",
-                                    "conditions": [
+                                    "card": null,
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.internet_isp",
+                                            "name": "ISP",
+                                            "icon": "mdi:web"
+                                        },
+                                        {
+                                            "entity": "sensor.internet_wan_download_speed",
+                                            "name": "WAN Download",
+                                            "icon": "mdi:gauge"
+                                        },
+                                        {
+                                            "entity": "sensor.internet_wan_upload_speed",
+                                            "name": "WAN Upload",
+                                            "icon": "mdi:gauge"
+                                        },
                                         {
                                             "entity": "switch.4g",
-                                            "state": "on"
+                                            "name": "Fibre Internet",
+                                            "icon": "mdi:web"
                                         }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g",
-                                                "name": "Fibre Internet"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_download_speed",
-                                                "name": "Fibre Download Speed"
-                                            },
-                                            {
-                                                "entity": "sensor.4g_upload_speed",
-                                                "name": "Fibre Upload Speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
+                                    ]
                                 },
                                 {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "on"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "iframe",
-                                        "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=2",
-                                        "aspect_ratio": "50%"
-                                    }
+                                    "card": null,
+                                    "type": "iframe",
+                                    "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=15",
+                                    "aspect_ratio": "50%"
                                 },
                                 {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "entities",
-                                        "entities": [
-                                            {
-                                                "entity": "switch.4g",
-                                                "name": "Fibre Internet"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_download_speed"
-                                            },
-                                            {
-                                                "entity": "sensor.adsl_upload_speed"
-                                            }
-                                        ],
-                                        "title": "House Internet"
-                                    }
-                                },
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "switch.4g",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "iframe",
-                                        "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=18",
-                                        "aspect_ratio": "50%"
-                                    }
-                                },
-                                {
+                                    "card": null,
                                     "type": "iframe",
                                     "url": "http://monitoring.home:3000/d-solo/LunNE9k7k/house-internet?orgId=1&panelId=38",
                                     "aspect_ratio": "50%"

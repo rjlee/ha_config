@@ -30,7 +30,7 @@
                                 {
                                     "entity": "media_player.mum_and_dad",
                                     "name": "Alexa",
-                                    "icon": "mdi:amazon"
+                                    "icon": ""
                                 },
                                 {
                                     "entity": "climate.main_bedroom",
@@ -54,7 +54,7 @@
                                             "name": "Blind 2"
                                         },
                                         {
-                                            "entity": "cover.curtains",
+                                            "entity": "cover.mainbedroomcurtains",
                                             "name": "Curtains"
                                         },
                                         {
@@ -188,18 +188,13 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.bedroom_1_light_relay_0",
-                                    "name": "Lights",
-                                    "icon": "hass:lightbulb"
-                                },
-                                {
                                     "entity": "light.bedroom_1_bedside_lamp",
                                     "name": "Bedside Lamp"
                                 },
                                 {
                                     "entity": "media_player.child1s_room",
                                     "name": "Alexa",
-                                    "icon": "mdi:amazon"
+                                    "icon": ""
                                 },
                                 {
                                     "entity": "media_player.xbox_spareroom"
@@ -352,13 +347,12 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.bedroom_2_light_relay_0",
-                                    "name": "Lights",
-                                    "icon": "hass:lightbulb"
-                                },
-                                {
                                     "entity": "light.bedroom_2_bedside_lamp",
                                     "name": "Bedside Lamp"
+                                },
+                                {
+                                    "entity": "light.bedroom_2_led_lamp",
+                                    "name": "LED Corner Lamp"
                                 },
                                 {
                                     "entity": "light.bedroom_2_led_sign_on_off",
@@ -367,7 +361,7 @@
                                 {
                                     "entity": "media_player.child2s_room",
                                     "name": "Alexa",
-                                    "icon": "mdi:amazon"
+                                    "icon": ""
                                 },
                                 {
                                     "entity": "switch.bedroom2_tv_switch",
@@ -422,7 +416,7 @@
                                 {
                                     "entity": "media_player.spare_room",
                                     "name": "Alexa",
-                                    "icon": "mdi:amazon"
+                                    "icon": ""
                                 },
                                 {
                                     "entity": "cover.spare_room",

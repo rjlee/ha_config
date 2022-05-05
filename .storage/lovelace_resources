@@ -30,7 +30,7 @@
                 "id": "b76242780a214d09adc89daa4e92b76f"
             },
             {
-                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295233",
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295263",
                 "type": "module",
                 "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
             },
@@ -55,12 +55,12 @@
                 "id": "271aeb7582cf4f8bbfcb1200b5fa8657"
             },
             {
-                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524313",
+                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524314",
                 "type": "module",
                 "id": "0607c62adee040dbab2c22f1da5f681a"
             },
             {
-                "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854130",
+                "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854140",
                 "type": "module",
                 "id": "32aaedb852dc4c2eb231e3b527861e94"
             },
@@ -70,7 +70,7 @@
                 "id": "56b4922242c8421a84aba338d58199c9"
             },
             {
-                "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=3317011521100",
+                "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152201",
                 "type": "module",
                 "id": "6810d8c57e3e4a6ea44ef6f7a7f6b444"
             },
@@ -83,6 +83,11 @@
                 "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
                 "type": "module",
                 "id": "6dca9dcf7fd54ece86cbace068425519"
+            },
+            {
+                "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?hacstag=142051833041",
+                "type": "module",
+                "id": "7494adb46b1b4cc5af05ca7e81c8c8bb"
             }
         ]
     }
