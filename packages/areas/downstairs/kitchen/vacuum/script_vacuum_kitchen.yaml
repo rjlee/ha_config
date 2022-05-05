@@ -1,6 +1,6 @@
 script:
-    vacuum_kitchen:
-      alias: vacuum_kitchen
+    vacuum_kitchen_start:
+      alias: vacuum_kitchen_start
       sequence:
       - service: vacuum.send_command
         data:
@@ -9,5 +9,21 @@ script:
           params:
             coordinates: -3929,1492,716,-2472
             cleanings: 1
+      mode: single
+      icon: mdi:robot-vacuum-variant
+    vacuum_kitchen_stop:
+      alias: vacuum_kitchen_stop
+      sequence:
+      - service: vacuum.return_to_base
+        data:
+          entity_id: vacuum.deebot_ozmo_t8_aivi_kitchen
+      mode: single
+      icon: mdi:robot-vacuum-variant
+    vacuum_kitchen_pause:
+      alias: vacuum_kitchen_pause
+      sequence:
+      - service: vacuum.stop
+        data:
+          entity_id: vacuum.deebot_ozmo_t8_aivi_kitchen
       mode: single
       icon: mdi:robot-vacuum-variant
