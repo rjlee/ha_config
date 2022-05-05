@@ -23,6 +23,7 @@ echos:
       - media_player.mum_and_dad
       - media_player.spare_room
       - media_player.upstairs_bathroom
+      - media_player.study
 
 blinds:
     name: Blinds
@@ -117,7 +118,8 @@ lounge:
       - media_player.xbox_lounge_window
       - light.lounge_lights_light_0
 
-
+kitchen:
+    name: Kitchen
     icon: mdi:food
     entities:
       - switch.kitchen_tv_switch
