@@ -1,0 +1,17 @@
+sensor:
+  - platform: rest
+    resource: http://monitoring.home:3000/api/datasources/proxy/1/api/v1/query?query=unifipoller_site_receive_rate_bytes{subsystem=~"wan"}/125000
+    name: Internet WAN Download Speed
+    unit_of_measurement: "Mbps"
+    scan_interval: 30
+    json_attributes:
+      - data
+    value_template: "{{ value_json['data']['result'][0].value[1] | round(2) }}"
+  - platform: rest
+    resource: http://monitoring.home:3000/api/datasources/proxy/1/api/v1/query?query=unifipoller_site_transmit_rate_bytes{subsystem=~"wan"}/125000
+    name: Internet WAN Upload Speed
+    unit_of_measurement: "Mbps"
+    scan_interval: 30
+    json_attributes:
+      - data
+    value_template: "{{ value_json['data']['result'][0].value[1] | round(2) }}"

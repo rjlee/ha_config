@@ -1,0 +1,5 @@
+sensor:
+  - platform: rest
+    resource: http://ip-api.com/json/?fields=isp
+    name: Internet ISP
+    value_template: "{{ value_json.isp }}"
