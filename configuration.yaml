@@ -6,8 +6,6 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# TEST
-
 logger:
   default: warning
 #  default: info
