@@ -9,7 +9,12 @@ default_config:
 
 
 logger:
-  default: info
+  default: warning
+#  default: info
+  logs:
+    custom_components.reolink_dev: debug
+    custom_components.reolink_dev.base.data: warning
+    reolink: debug
 #  default: critical
 #  logs:
 #    custom_components.entity_controller: debug
@@ -38,6 +43,10 @@ panel_iframe:
     title: File Editor
     icon: mdi:wrench
     url: !secret url_file_editor
+  vscode:
+    title: VSCode
+    icon: mdi:wrench
+    url: http://ha.home:8888
 
 python_script:
 

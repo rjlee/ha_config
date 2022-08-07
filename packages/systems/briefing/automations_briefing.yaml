@@ -1,157 +1,157 @@
 automation:
-- id: 'morning_briefing'
-  alias: Morning Briefing
-  description: ''
-  mode: single
-  trigger:
-    - platform: state
-      entity_id: sensor.mobile_dad_battery_state
-      to: Not Charging
-      from: Charging
-  condition:
-    - condition: time
-      weekday:
-        - sat
-        - sun
-      before: '09:00:00'
-      after: '07:30:00'
-  action:
-  - service: notify.alexa_media_mum_and_dad
-    data_template:
-        data:
-          type: tts
-#message: !include ../../../templates/template_briefing.yaml
-        message: >
+  - id: "morning_briefing"
+    alias: Morning Briefing
+    description: ""
+    mode: single
+    trigger:
+      - platform: state
+        entity_id: sensor.dads_iphone_battery_state
+        to: Not Charging
+        from: Charging
+    condition:
+      - condition: time
+        weekday:
+          - sat
+          - sun
+        before: "09:00:00"
+        after: "07:30:00"
+    action:
+      - service: notify.alexa_media_mum_and_dad
+        data_template:
+          data:
+            type: tts
+          #message: !include ../../../templates/template_briefing.yaml
+          message: >
 
-              {# Friendly time #}
-              {% macro friendly_time(timestamp) -%}
-                {{as_timestamp(timestamp)|timestamp_custom('%I:%M', true)}}
-              {%- endmacro %}
-        
-              {# Evening greeting sentence #}
-              {% macro evening_greeting_sentence(person) %}
-                {% set greetings = [
-                  "Welcome home " ~ person ~ ".",
-                  "Hey there " ~ person ~ ".",
-                  person ~ "! You're home!",
-                  "Welcome back " ~ person ~ ".",
-                  "Welcome home " ~ person + ". I've missed you."
-                ] %}
-                {{greetings|random}}
-              {% endmacro %}
-        
-              {# Evening closing sentence #}
-              {% macro evening_closing_sentence(person) -%}
-                {% set closings = [
-                  "Have a great evening!",
-                  "Enjoy your night.",
-                  "Take it easy this evening.",
-                  "Have fun tonight!",
-                ] %}
-                {{closings|random}}
-              {% endmacro %}
-        
-              {# Morning greeting sentence #}
-              {% macro morning_greeting_sentence(person) -%}
-                {% set greetings = [
-                  "Good morning " ~ person ~ "!",
-                  "Hey there, " ~ person ~ ", good to see you!",
-                  "Ah, you're awake " ~ person ~ ".",
-                  "I see you finally got up. The bed must have been comfortable.",
-                  "Morning " ~ person ~ "."
-                ] %}
-                {{greetings|random}}
-              {%- endmacro %}
-        
-              {# Morning closing sentence #}
-              {% macro morning_closing_sentence(person) -%}
-                {% set closings = [
-                  "Have a great day!",
-                  "Enjoy your day.",
-                  "Have fun today!"
-                ] %}
-                {{closings|random}}
-              {%- endmacro %}
-        
-              {# Bin collection sentence #}
-              {% macro bin_collection_sentence() %}
-                {% if states.sensor["rubbish_collection"].state == '0' %}
-                  It's black bin day today, don't forget to put the black bin out.
-                {%- endif -%}
-                {% if states.sensor["recycling_collection"].state == '0' %}
-                  It's green bin day today, don't forget to put the green bin out.
-                {%- endif -%}
-                {% if states.sensor["garden_refuse_collection"].state == '0' %}
-                  It's brown bin day today, don't forget to put the brown bin out.
-                {%- endif -%}
-              {% endmacro %}
-        
-              {# Weather sentence #}
-              {% macro weather_sentence(extended) -%}
-                It's {{states.sensor.location_weather.state.lower()}}, {{states.sensor.blink_front_camera_temperature.state}} degrees C with a {{states.sensor.location_probability_of_precipitation.state|int|round}} percent chance of rain.
-              {%- endmacro %}
+            {# Friendly time #}
+            {% macro friendly_time(timestamp) -%}
+              {{as_timestamp(timestamp)|timestamp_custom('%I:%M', true)}}
+            {%- endmacro %}
 
-              {# Weather warnings sentence #}
-              {% macro weather_warnings_sentence(extended) -%}
-                {% if states.sensor["weather_warnings"].state != '0' %}
-                  There are {{states.sensor.weather_warnings.state}} severe weather warnings.
-                {%- endif -%}
-              {%- endmacro %}
-        
-              {% macro commute_sentence(person) -%}
-                It will take you {{states.sensor["google_travel_time_" ~ person ~ "_work"].state}} minutes to get to work if you leave soon.
-                It's {{friendly_time(now())}} now.
-              {%- endmacro %}
-        
-              {% macro everyones_commute_sentence() -%}
-                It will take {{his_name()}} {{states.sensor["his_morning_commute"].state}} minutes and {{her_name()}} {{states.sensor["her_morning_commute"].state}} minutes to get to work if you leave soon.
-                It's {{friendly_time(now())}} now.
-              {%- endmacro %}
-        
-              {# Validate requested person #}
-              {% macro validate_and_brief(person) -%}
-                {% if person -%}
-                    {{briefing(person)}}
-                {%- else -%}
-                  Specify a person.
-                {%- endif -%}
-              {% endmacro %}
-        
-              {# Morning briefing - generic #}
-              {% macro morning_briefing_generic() -%}
-                Good morning!
-                {{weather_sentence(true)}}
-                {{everyones_commute_sentence()}}
-                {{bin_collection_sentence()}}
-                {{morning_closing_sentence("")}}
-              {% endmacro %}
-        
-              {# Morning briefing #}
-              {% macro morning_briefing(person) -%}
-                {{morning_greeting_sentence(person)}}
-                {{weather_sentence(true)}}
-                {{weather_warnings_sentence(false)}}
-                {{commute_sentence(person)}}
-                {{bin_collection_sentence()}}
-                {{morning_closing_sentence(person)}}
-              {% endmacro %}
-        
-              {# Evening briefing #}
-              {% macro evening_briefing(person) -%}
-                {{evening_greeting_sentence(person)}}}
-                {{weather_sentence(false)}}
-                {{weather_warnings_sentence(false)}}
-                {{evening_closing_sentence(person)}}
-              {% endmacro %}
-        
-              {# Output the briefing #}
-              {% macro briefing(person) -%}
-                {%- if as_timestamp(now())|timestamp_custom("%H", true)|int(0) < 12 -%}
-                  {{morning_briefing(person)}}
-                    {%- else -%}
-                  {{evening_briefing(person)}}
-                {%- endif -%}
-              {% endmacro %}
-        
-              {# ... And, run the briefing #}
-              {{validate_and_brief('dad')}}
+            {# Evening greeting sentence #}
+            {% macro evening_greeting_sentence(person) %}
+              {% set greetings = [
+                "Welcome home " ~ person ~ ".",
+                "Hey there " ~ person ~ ".",
+                person ~ "! You're home!",
+                "Welcome back " ~ person ~ ".",
+                "Welcome home " ~ person + ". I've missed you."
+              ] %}
+              {{greetings|random}}
+            {% endmacro %}
+
+            {# Evening closing sentence #}
+            {% macro evening_closing_sentence(person) -%}
+              {% set closings = [
+                "Have a great evening!",
+                "Enjoy your night.",
+                "Take it easy this evening.",
+                "Have fun tonight!",
+              ] %}
+              {{closings|random}}
+            {% endmacro %}
+
+            {# Morning greeting sentence #}
+            {% macro morning_greeting_sentence(person) -%}
+              {% set greetings = [
+                "Good morning " ~ person ~ "!",
+                "Hey there, " ~ person ~ ", good to see you!",
+                "Ah, you're awake " ~ person ~ ".",
+                "I see you finally got up. The bed must have been comfortable.",
+                "Morning " ~ person ~ "."
+              ] %}
+              {{greetings|random}}
+            {%- endmacro %}
+
+            {# Morning closing sentence #}
+            {% macro morning_closing_sentence(person) -%}
+              {% set closings = [
+                "Have a great day!",
+                "Enjoy your day.",
+                "Have fun today!"
+              ] %}
+              {{closings|random}}
+            {%- endmacro %}
+
+            {# Bin collection sentence #}
+            {% macro bin_collection_sentence() %}
+              {% if states.sensor["rubbish_collection"].state == '0' %}
+                It's black bin day today, don't forget to put the black bin out.
+              {%- endif -%}
+              {% if states.sensor["recycling_collection"].state == '0' %}
+                It's green bin day today, don't forget to put the green bin out.
+              {%- endif -%}
+              {% if states.sensor["garden_refuse_collection"].state == '0' %}
+                It's brown bin day today, don't forget to put the brown bin out.
+              {%- endif -%}
+            {% endmacro %}
+
+            {# Weather sentence #}
+            {% macro weather_sentence(extended) -%}
+              It's {{states.sensor.otley_weather.state.lower()}}, {{states.sensor.blink_front_camera_temperature.state}} degrees C with a {{states.sensor.otley_probability_of_precipitation.state|int|round}} percent chance of rain.
+            {%- endmacro %}
+
+            {# Weather warnings sentence #}
+            {% macro weather_warnings_sentence(extended) -%}
+              {% if states.sensor["weather_warnings"].state != '0' %}
+                There are {{states.sensor.weather_warnings.state}} severe weather warnings.
+              {%- endif -%}
+            {%- endmacro %}
+
+            {% macro commute_sentence(person) -%}
+              It will take you {{states.sensor["google_travel_time_" ~ person ~ "_work"].state}} minutes to get to work if you leave soon.
+              It's {{friendly_time(now())}} now.
+            {%- endmacro %}
+
+            {% macro everyones_commute_sentence() -%}
+              It will take {{his_name()}} {{states.sensor["his_morning_commute"].state}} minutes and {{her_name()}} {{states.sensor["her_morning_commute"].state}} minutes to get to work if you leave soon.
+              It's {{friendly_time(now())}} now.
+            {%- endmacro %}
+
+            {# Validate requested person #}
+            {% macro validate_and_brief(person) -%}
+              {% if person -%}
+                  {{briefing(person)}}
+              {%- else -%}
+                Specify a person.
+              {%- endif -%}
+            {% endmacro %}
+
+            {# Morning briefing - generic #}
+            {% macro morning_briefing_generic() -%}
+              Good morning!
+              {{weather_sentence(true)}}
+              {{everyones_commute_sentence()}}
+              {{bin_collection_sentence()}}
+              {{morning_closing_sentence("")}}
+            {% endmacro %}
+
+            {# Morning briefing #}
+            {% macro morning_briefing(person) -%}
+              {{morning_greeting_sentence(person)}}
+              {{weather_sentence(true)}}
+              {{weather_warnings_sentence(false)}}
+              {{commute_sentence(person)}}
+              {{bin_collection_sentence()}}
+              {{morning_closing_sentence(person)}}
+            {% endmacro %}
+
+            {# Evening briefing #}
+            {% macro evening_briefing(person) -%}
+              {{evening_greeting_sentence(person)}}}
+              {{weather_sentence(false)}}
+              {{weather_warnings_sentence(false)}}
+              {{evening_closing_sentence(person)}}
+            {% endmacro %}
+
+            {# Output the briefing #}
+            {% macro briefing(person) -%}
+              {%- if as_timestamp(now())|timestamp_custom("%H", true)|int(0) < 12 -%}
+                {{morning_briefing(person)}}
+                  {%- else -%}
+                {{evening_briefing(person)}}
+              {%- endif -%}
+            {% endmacro %}
+
+            {# ... And, run the briefing #}
+            {{validate_and_brief('dad')}}

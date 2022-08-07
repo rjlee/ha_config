@@ -1,7 +1,7 @@
 script:
-    vacuum_dogwalk:
-      alias: vacuum_dogwalk
-      sequence:
+  vacuum_dogwalk:
+    alias: vacuum_dogwalk
+    sequence:
       - service: vacuum.send_command
         data:
           entity_id: vacuum.deebot_ozmo_t8_aivi_kitchen
@@ -9,5 +9,5 @@ script:
           params:
             coordinates: -2083,-3518,-4286,-771
             cleanings: 1
-      mode: single
-      icon: mdi:robot-vacuum-variant
+    mode: single
+    icon: mdi:robot-vacuum-variant

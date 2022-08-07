@@ -1,61 +1,61 @@
 automation:
-    - id: 'child1_bedroom_wake_up_reminder'
-      alias: child1 Bedroom - Wake Up Reminder
-      description: ''
-      trigger:
+  - id: "bedroom1_wake_up_reminder"
+    alias: Bedroom 1 - Wake Up Reminder
+    description: ""
+    trigger:
       - platform: time
         at: 07:12:00
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.school_holidays
         state: "off"
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.child1s_room
+          entity_id: media_player.bedroom_1_alexa
           volume_level: 0.5
       - service: notify.alexa_media
         data:
-          message: child1, its time to get up for school.  Dont forget to put on deodorant
+          message: Good morning, its time to get up for school.
           data:
             type: tts
           target:
-          - media_player.child1s_room
-      mode: single
-    - id: 'child1_bedroom_leave_reminder'
-      alias: child1 Bedroom - Leave Reminder
-      description: ''
-      trigger:
+            - media_player.bedroom_1_alexa
+    mode: single
+  - id: "bedroom1_leave_reminder"
+    alias: Bedroom 1 - Leave Reminder
+    description: ""
+    trigger:
       - platform: time
         at: 08:00:00
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.school_holidays
         state: "off"
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.child1s_room
+          entity_id: media_player.bedroom_1_alexa
           volume_level: 0.5
       - service: notify.alexa_media
         data:
-          message: child1, you've got ten minutes before your friends arrive, are you ready ?
+          message: Reminder.  You've got ten minutes before your friends arrive, are you ready ?
           data:
             type: tts
           target:
-          - media_player.child1s_room
-      mode: single
+            - media_player.bedroom_1_alexa
+    mode: single

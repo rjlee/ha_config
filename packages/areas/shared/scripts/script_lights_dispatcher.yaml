@@ -11,21 +11,21 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
-             script.main_bedroom_light_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
-             script.kitchen_light_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_light_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_light_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_light_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%}
-             script.upstairs_bathroom_light_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
-             script.spare_room_light_on
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+              script.kitchen_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%}
+              script.upstairs_bathroom_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              script.spare_room_light_on
+            {%- endif -%}
   light_dispatch_off:
     alias: "Light Dispatcher Off"
     icon: "mdi:lightbulb"
@@ -38,21 +38,21 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
-             script.main_bedroom_light_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
-             script.kitchen_light_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_light_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_light_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_light_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%}
-             script.upstairs_bathroom_light_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
-             script.spare_room_light_off
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+              script.kitchen_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%}
+              script.upstairs_bathroom_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              script.spare_room_light_off
+            {%- endif -%}
   light_dispatch_dim:
     alias: "Light Dispatcher Dim"
     icon: "mdi:lightbulb"
@@ -65,6 +65,6 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_light_dim
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_light_dim
+            {%- endif -%}

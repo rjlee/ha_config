@@ -1,19 +1,19 @@
 script:
-    bedroom1_good_morning:
-      alias: Bedroom 1 Good Morning
-      mode: single
-      icon: mdi:weather-sunny
-      sequence:
+  bedroom1_good_morning:
+    alias: Bedroom 1 Good Morning
+    mode: single
+    icon: mdi:weather-sunny
+    sequence:
       - service: script.turn_on
         entity_id: script.bedroom1_blind_open
       - delay: 00:00:10
       - service: light.turn_off
         entity_id: light.bedroom_1_bedside_lamp
-    bedroom1_good_night:
-      alias: Bedroom 1 Good Night
-      mode: single
-      icon: mdi:weather-night
-      sequence:
+  bedroom1_good_night:
+    alias: Bedroom 1 Good Night
+    mode: single
+    icon: mdi:weather-night
+    sequence:
       - service: script.turn_on
         entity_id: script.bedroom1_blind_close
       - delay: 00:00:10

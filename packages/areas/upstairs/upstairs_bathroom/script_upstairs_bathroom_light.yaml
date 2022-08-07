@@ -1,17 +1,17 @@
 script:
-    upstairs_bathroom_light_on:
-      alias: "Upstairs bathroom light turn on"
-      icon: mdi:lightbulb
-      description: "Turns on the upstairs bathroom lights"
-      mode: single
-      sequence:
+  upstairs_bathroom_light_on:
+    alias: "Upstairs bathroom light turn on"
+    icon: mdi:lightbulb
+    description: "Turns on the upstairs bathroom lights"
+    mode: single
+    sequence:
       - service: light.turn_on
         entity_id: light.upstairs_bathroom_light
-    upstairs_bathroom_light_off:
-      alias: "Upstairs bathroom light turn off"
-      icon: mdi:lightbulb
-      description: "Turns off the upstairs bathroom lights"
-      mode: single
-      sequence:
+  upstairs_bathroom_light_off:
+    alias: "Upstairs bathroom light turn off"
+    icon: mdi:lightbulb
+    description: "Turns off the upstairs bathroom lights"
+    mode: single
+    sequence:
       - service: light.turn_off
         entity_id: light.upstairs_bathroom_light

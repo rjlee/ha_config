@@ -1,0 +1,19 @@
+automation:
+  - id: spare_bedroom_motion_light
+    alias: Spare Bedroom - Motion Light
+    description: ""
+    mode: restart
+    max_exceeded: silent
+    condition:
+      - condition: state
+        entity_id: binary_sensor.dads_work_laptop_active
+        state: "off"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.spare_room_motion_sensor_motion
+      to: "off"
+      for: "00:10:00"
+    action:
+      - service: light.turn_off
+        target:
+          entity_id: light.spare_room_light

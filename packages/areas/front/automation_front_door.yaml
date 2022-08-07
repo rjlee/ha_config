@@ -4,15 +4,15 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_contact_sensor
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
       for:
         hours: 0
         minutes: 5
         seconds: 0
     condition:
       condition: numeric_state
-      entity_id: sensor.blink_front_camera_temperature
+      entity_id: sensor.outdoor_temperature
       below: 16
     action:
       - service: notify.family

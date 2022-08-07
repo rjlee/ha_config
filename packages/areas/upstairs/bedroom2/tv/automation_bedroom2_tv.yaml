@@ -1,13 +1,13 @@
 automation:
-    - id: 'bedroom2_tv_sleep'
-      alias: Bedroom 2 - TV - Sleep
-      description: ''
-      trigger:
+  - id: "bedroom2_tv_sleep"
+    alias: Bedroom 2 - TV - Sleep
+    description: ""
+    trigger:
       - platform: time
-        at: '21:00:00'
-      condition: []
-      action:
+        at: "21:00:00"
+    condition: []
+    action:
       - service: switch.turn_off
         target:
           entity_id: switch.bedroom2_tv_switch
-      mode: single
+    mode: single

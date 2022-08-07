@@ -1,63 +1,63 @@
 switch:
   - platform: template
     switches:
-        skyq_bbconeyorkskitchen:
-          value_template: '{{"off"}}'
-          friendly_name: 'BBC One in the Kitchen'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.kitchen_skyq
-              source: 'BBC One Yorks'
-          turn_off:
-            service: script.placeholder
-        skyq_bbctwohdkitchen:
-          value_template: '{{"off"}}'
-          friendly_name: 'BBC Two in the Kitchen'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.kitchen_skyq
-              source: 'BBC Two HD'
-          turn_off:
-            service: script.placeholder
-        skyq_itvhdkitchen:
-          value_template: '{{"off"}}'
-          friendly_name: 'ITV in the Kitchen'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.kitchen_skyq
-              source: 'ITV HD'
-          turn_off:
-            service: script.placeholder
-        skyq_channel4kitchen:
-          value_template: '{{"off"}}'
-          friendly_name: 'Channel 4 in the Kitchen'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.kitchen_skyq
-              source: 'Channel 4'
-          turn_off:
-            service: script.placeholder
-        skyq_skyonehdkitchen:
-          value_template: '{{"off"}}'
-          friendly_name: 'Sky One in the Kitchen'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.kitchen_skyq
-              source: 'Sky One HD'
-          turn_off:
-            service: script.placeholder
-        skyq_skynewshdkitchen:
-          value_template: '{{"off"}}'
-          friendly_name: 'Sky News in the Kitchen'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.kitchen_skyq
-              source: 'Sky News HD'
-          turn_off:
-            service: script.placeholder
+      skyq_bbconeyorkskitchen:
+        value_template: '{{"off"}}'
+        friendly_name: "BBC One in the Kitchen"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.kitchen_sky_q
+            source: "BBC One Yorks"
+        turn_off:
+          service: script.placeholder
+      skyq_bbctwohdkitchen:
+        value_template: '{{"off"}}'
+        friendly_name: "BBC Two in the Kitchen"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.kitchen_sky_q
+            source: "BBC Two HD"
+        turn_off:
+          service: script.placeholder
+      skyq_itvhdkitchen:
+        value_template: '{{"off"}}'
+        friendly_name: "ITV in the Kitchen"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.kitchen_sky_q
+            source: "ITV HD"
+        turn_off:
+          service: script.placeholder
+      skyq_channel4kitchen:
+        value_template: '{{"off"}}'
+        friendly_name: "Channel 4 in the Kitchen"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.kitchen_sky_q
+            source: "Channel 4"
+        turn_off:
+          service: script.placeholder
+      skyq_skyonehdkitchen:
+        value_template: '{{"off"}}'
+        friendly_name: "Sky One in the Kitchen"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.kitchen_sky_q
+            source: "Sky One HD"
+        turn_off:
+          service: script.placeholder
+      skyq_skynewshdkitchen:
+        value_template: '{{"off"}}'
+        friendly_name: "Sky News in the Kitchen"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.kitchen_sky_q
+            source: "Sky News HD"
+        turn_off:
+          service: script.placeholder

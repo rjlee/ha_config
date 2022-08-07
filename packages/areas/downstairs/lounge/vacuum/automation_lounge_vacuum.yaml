@@ -1,26 +1,26 @@
 automation:
-- id: 'lounge_vacuum_start'
-  alias: Lounge - Vacuum - Start Clean
-  description: ''
-  trigger:
-  - platform: time
-    at: '12:10:00'
-  condition:
-  - condition: state
-    entity_id: input_boolean.on_holiday
-    state: "off"
-  - condition: state
-    entity_id: input_boolean.school_holidays
-    state: "off"
-  - condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-  action:
-  - service: script.turn_on
-    data:
-      entity_id: script.vacuum_lounge
-  mode: single
+  - id: "lounge_vacuum_start"
+    alias: Lounge - Vacuum - Start Clean
+    description: ""
+    trigger:
+      - platform: time
+        at: "12:10:00"
+    condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
+      - condition: state
+        entity_id: input_boolean.school_holidays
+        state: "off"
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.vacuum_lounge_start
+    mode: single

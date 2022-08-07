@@ -1,9 +1,9 @@
 script:
-    vacuum_downstairs:
-      alias: vacuum_downstairs
-      sequence:
+  vacuum_downstairs:
+    alias: vacuum_downstairs
+    sequence:
       - service: vacuum.start
         data:
           entity_id: vacuum.deebot_ozmo_t8_aivi_kitchen
-      mode: single
-      icon: mdi:robot-vacuum-variant
+    mode: single
+    icon: mdi:robot-vacuum-variant

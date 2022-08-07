@@ -1,10 +1,10 @@
 script:
-    kitchen_light_on:
-      alias: "Kitchen light turn on"
-      icon: mdi:lightbulb
-      description: "Turns on the kitchen lights"
-      mode: single
-      sequence:
+  kitchen_light_on:
+    alias: "Kitchen light turn on"
+    icon: mdi:lightbulb
+    description: "Turns on the kitchen lights"
+    mode: single
+    sequence:
       - service: notify.alexa_media
         data_template:
           message: >
@@ -13,12 +13,12 @@ script:
         data:
           data:
             type: tts
-    kitchen_light_off:
-      alias: "Kitchen light turn off"
-      icon: mdi:lightbulb
-      description: "Turns off the kitchen lights"
-      mode: single
-      sequence:
+  kitchen_light_off:
+    alias: "Kitchen light turn off"
+    icon: mdi:lightbulb
+    description: "Turns off the kitchen lights"
+    mode: single
+    sequence:
       - service: notify.alexa_media
         data_template:
           message: >
@@ -27,4 +27,3 @@ script:
         data:
           data:
             type: tts
- 

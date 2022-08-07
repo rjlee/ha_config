@@ -1,21 +1,21 @@
 script:
-    lounge_tv_on:
-      alias: "Lounge TV turn on"
-      icon: mdi:television
-      description: "Turns on the lounge TV and Sky box"
-      mode: single
-      sequence:
+  lounge_tv_on:
+    alias: "Lounge TV turn on"
+    icon: mdi:television
+    description: "Turns on the lounge TV and Sky box"
+    mode: single
+    sequence:
       - service: remote.turn_on
         data:
           activity: Watch TV
         target:
           entity_id: remote.lounge
-    lounge_tv_off:
-      alias: "Lounge TV turn off"
-      icon: mdi:television
-      description: "Turns off the lounge TV and Sky box"
-      mode: single
-      sequence:
+  lounge_tv_off:
+    alias: "Lounge TV turn off"
+    icon: mdi:television
+    description: "Turns off the lounge TV and Sky box"
+    mode: single
+    sequence:
       - service: remote.turn_off
         data: {}
         target:

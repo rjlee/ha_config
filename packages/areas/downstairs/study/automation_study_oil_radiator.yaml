@@ -1,51 +1,57 @@
 automation:
-    - id: 'study_oil_radiator_on'
-      alias: Study - Oil Radiator On
-      description: ''
-      trigger:
-      - platform: time
-        at: 09:00
-      condition:
+  - id: "study_oil_radiator_on"
+    alias: Study - Oil Radiator On
+    description: ""
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.study_temperature
+        below: 20
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: time
+        after: "09:00:00"
+        before: "15:00:00"
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+    action:
       - service: switch.turn_on
         target:
-          entity_id: 
+          entity_id:
             - switch.study_oil_radiator
-      mode: single
-    - id: 'study_oil_radiator_off'
-      alias: Study - Oil Radiator Off
-      description: ''
-      trigger:
-      - platform: time
-        at: '15:00'
-      condition:
+    mode: single
+  - id: "study_oil_radiator_off"
+    alias: Study - Oil Radiator Off
+    description: ""
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.study_temperature
+        above: 20
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: time
+        after: "09:00:00"
+        before: "15:00:00"
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+    action:
       - service: switch.turn_off
         target:
-          entity_id: 
+          entity_id:
             - switch.study_oil_radiator
-      mode: single
+    mode: single

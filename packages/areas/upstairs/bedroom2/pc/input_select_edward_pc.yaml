@@ -1,6 +1,6 @@
 input_select:
-  child2_laptop_options:
-    name: child2 Laptop Power Options
+  bedroom_2_laptop_options:
+    name: Bedroom 2 Laptop Power Options
     options:
       - None
       - Wake

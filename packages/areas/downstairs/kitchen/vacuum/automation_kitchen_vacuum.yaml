@@ -1,34 +1,19 @@
 automation:
-- id: 'kitchen_vacuum_dogwalk'
-  alias: Kitchen - Vacuum - Start Clean - Dogwalk
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: group.dogwalk
-    to: home
-    from: not_home
-  condition: []
-  action:
-  - delay: 00:05:00
-  - service: script.turn_on
-    data:
-      entity_id: script.vacuum_dogwalk
-  mode: single
-- id: 'kitchen_vacuum_start'
-  alias: Kitchen - Vacuum - Start Clean
-  description: ''
-  trigger:
-  - platform: time
-    at: '21:00:00'
-  condition:
-  - condition: state
-    entity_id: input_boolean.on_holiday
-    state: "off"
-  - condition: state
-    entity_id: group.parents
-    state: home
-  action:
-  - service: script.turn_on
-    data:
-      entity_id: script.vacuum_kitchen
-  mode: single
+  - id: "kitchen_vacuum_start"
+    alias: Kitchen - Vacuum - Start Clean
+    description: ""
+    trigger:
+      - platform: time
+        at: "21:00:00"
+    condition:
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
+      - condition: state
+        entity_id: group.parents
+        state: home
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.vacuum_kitchen_start
+    mode: single

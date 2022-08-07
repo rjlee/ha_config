@@ -1,10 +1,13 @@
 script:
-    kitchen_tv_on:
-      alias: "Kitchen TV turn on"
-      icon: mdi:television
-      description: "Turns on the Kitchen TV and Sky box"
-      mode: single
-      sequence:
+  kitchen_tv_on:
+    alias: "Kitchen TV turn on"
+    icon: mdi:television
+    description: "Turns on the Kitchen TV and Sky box"
+    mode: single
+    sequence:
+      - condition: state
+        entity_id: input_boolean.kitchen_tv_switch
+        state: "off"
       - service: remote.send_command
         entity_id: remote.kitchen_broadlink_ir_blaster_remote
         data:
@@ -15,12 +18,15 @@ script:
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.kitchen_tv_switch
-    kitchen_tv_off:
-      alias: "Kitchen TV turn off"
-      icon: mdi:television
-      description: "Turns off the Kitchen TV and Sky box"
-      mode: single
-      sequence:
+  kitchen_tv_off:
+    alias: "Kitchen TV turn off"
+    icon: mdi:television
+    description: "Turns off the Kitchen TV and Sky box"
+    mode: single
+    sequence:
+      - condition: state
+        entity_id: input_boolean.kitchen_tv_switch
+        state: "on"
       - service: remote.send_command
         entity_id: remote.kitchen_broadlink_ir_blaster_remote
         data:

@@ -1,12 +1,12 @@
 automation:
-    - id: '1601402318613'
-      alias: Main Bedroom - Close Curtains - Dusk
-      description: ''
-      mode: single
-      trigger:
+  - id: "1601402318613"
+    alias: Main Bedroom - Close Curtains - Dusk
+    description: ""
+    mode: single
+    trigger:
       - platform: sun
         event: sunset
-      condition: []
-      action:
+    condition: []
+    action:
       - service: script.turn_on
         entity_id: script.main_bedroom_curtain_close

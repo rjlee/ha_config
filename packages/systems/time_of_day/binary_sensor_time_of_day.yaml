@@ -1,9 +1,9 @@
 binary_sensor:
   - platform: tod
     name: bedtime
-    after: '19:00'
-    before: '00:00'
+    after: "19:00"
+    before: "00:00"
   - platform: tod
     name: morning
-    after: '07:00'
-    before: '09:00'
+    after: "07:00"
+    before: "09:00"

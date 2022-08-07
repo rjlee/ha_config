@@ -1,18 +1,18 @@
 script:
-    bedroom1_light_on:
-      alias: "Bedroom 1 light turn on"
-      icon: mdi:lightbulb
-      description: "Turns on the bedroom lights"
-      mode: single
-      sequence:
+  bedroom1_light_on:
+    alias: "Bedroom 1 light turn on"
+    icon: mdi:lightbulb
+    description: "Turns on the bedroom lights"
+    mode: single
+    sequence:
       - service: light.turn_on
         entity_id: light.bedroom_1_light
-    bedroom1_light_off:
-      alias: "Bedroom 1 light turn off"
-      icon: mdi:lightbulb
-      description: "Turns off the bedroom lights"
-      mode: single
-      sequence:
+  bedroom1_light_off:
+    alias: "Bedroom 1 light turn off"
+    icon: mdi:lightbulb
+    description: "Turns off the bedroom lights"
+    mode: single
+    sequence:
       - service: light.turn_off
         entity_id: light.bedroom_1_light
       - service: light.turn_off

@@ -1,14 +1,14 @@
 script:
-    bedroom1_gaming_mode:
-      alias: Bedroom 1 Gaming Mode
-      mode: single
-      icon: mdi:gamepad-variant
-      sequence:
+  bedroom1_gaming_mode:
+    alias: Bedroom 1 Gaming Mode
+    mode: single
+    icon: mdi:gamepad-variant
+    sequence:
       - service: light.turn_on
         entity_id: light.bedroom_1_bedside_lamp
       - service: light.turn_off
         entity_id: light.bedroom_1_light
       - service: cover.close_cover
         target:
-#          entity_id: cover.velux_internal_cover_4
+          #          entity_id: cover.velux_internal_cover_4
           entity_id: cover.bedroom_1

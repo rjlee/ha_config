@@ -1,355 +1,375 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.lovelace_downstairs",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_downstairs",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "theme": "Backend-selected",
+          "title": "Front",
+          "path": "front",
+          "type": "custom:vertical-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "front",
+              "show_camera": true
+            },
+            {
+              "type": "entities",
+              "entities": [
                 {
-                    "theme": "Backend-selected",
-                    "title": "Front",
-                    "path": "front",
-                    "type": "custom:vertical-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "front",
-                            "show_camera": true
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.blink_front_camera_temperature",
-                                    "name": "House - Front Temperature"
-                                },
-                                {
-                                    "entity": "binary_sensor.front_gate_contact_sensor_status",
-                                    "name": "Front Gate",
-                                    "icon": "mdi:gate"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "plant-status",
-                            "entity": "plant.front_pot",
-                            "name": "Front Pot"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.hottub_pump_temp",
-                                    "name": "HotTub Water Temperature"
-                                },
-                                {
-                                    "entity": "sensor.hottub_pump_target"
-                                },
-                                {
-                                    "entity": "switch.hottub_power"
-                                },
-                                {
-                                    "entity": "switch.hottub_heat"
-                                },
-                                {
-                                    "entity": "switch.hottub_filter"
-                                },
-                                {
-                                    "entity": "switch.hottub_bubbles"
-                                }
-                            ],
-                            "title": "Hot Tub",
-                            "show_header_toggle": false
-                        }
-                    ]
-                },
-                {
-                    "theme": "Backend-selected",
-                    "title": "Lounge",
-                    "path": "lounge",
-                    "icon": "",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "lounge",
-                            "show_camera": true
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.lounge_lights_light_0",
-                                    "name": "Lights"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "custom:harmony-card",
-                                    "entity": "remote.lounge",
-                                    "volume_device": "LG TV",
-                                    "activities": [
-                                        {
-                                            "name": "Watch TV",
-                                            "device": "Sky DVR"
-                                        },
-                                        {
-                                            "name": "Play XBox",
-                                            "buttons": {
-                                                "dpad_center": {
-                                                    "command": "Select",
-                                                    "icon": "mdi:checkbox-blank-circle"
-                                                },
-                                                "back": {
-                                                    "command": "Return",
-                                                    "hide": false
-                                                },
-                                                "xbox": {
-                                                    "command": "Home",
-                                                    "icon": "mdi:home",
-                                                    "hide": false
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "name": "Watch a Movie",
-                                            "device": "Amazon Fire TV Stick",
-                                            "buttons": {
-                                                "back": {
-                                                    "command": "Back",
-                                                    "hide": false
-                                                },
-                                                "xbox": {
-                                                    "command": "Menu",
-                                                    "icon": "mdi:home",
-                                                    "hide": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "buttons": {
-                                        "a": {
-                                            "hide": true
-                                        },
-                                        "b": {
-                                            "hide": true
-                                        },
-                                        "x": {
-                                            "hide": true
-                                        },
-                                        "y": {
-                                            "hide": true
-                                        },
-                                        "back": {
-                                            "hide": true
-                                        },
-                                        "xbox": {
-                                            "hide": true
-                                        }
-                                    },
-                                    "name": "Main TV"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "entities",
-                                    "entities": [
-                                        {
-                                            "entity": "media_player.samsung_q60_series_lounge",
-                                            "icon": "mdi:television",
-                                            "name": "TV"
-                                        },
-                                        {
-                                            "entity": "media_player.lounge_window_sky_q",
-                                            "name": "Sky Q",
-                                            "icon": "mdi:television-guide"
-                                        },
-                                        {
-                                            "entity": "media_player.xbox_lounge_window",
-                                            "name": "XBox",
-                                            "icon": "mdi:gamepad-variant"
-                                        },
-                                        {
-                                            "entity": "input_select.loungevr_options",
-                                            "name": "PC"
-                                        }
-                                    ],
-                                    "title": "Window TV"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "media_player.lounge",
-                                    "name": "Alexa",
-                                    "icon": ""
-                                },
-                                {
-                                    "entity": "climate.lounge",
-                                    "name": "Heating",
-                                    "icon": "mdi:thermometer"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:vacuum-card",
-                            "entity": "vacuum.deebot_ozmo_920_lounge",
-                            "image": "default",
-                            "compact_view": false,
-                            "map": "camera.deebot_ozmo_920_lounge_live_map"
-                        }
-                    ]
-                },
-                {
-                    "icon": "",
-                    "title": "Kitchen",
-                    "path": "kitchen",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "da734d0b00ba11ebbfc457dafaa650cb",
-                            "show_camera": true
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.kitchen_tv_switch",
-                                    "name": "TV"
-                                },
-                                {
-                                    "entity": "media_player.kitchen_sky_q",
-                                    "name": "Sky Q",
-                                    "icon": "mdi:television-guide"
-                                },
-                                {
-                                    "entity": "media_player.kitchen",
-                                    "name": "Alexa",
-                                    "icon": ""
-                                },
-                                {
-                                    "entity": "climate.kitchen",
-                                    "name": "Heating",
-                                    "icon": "mdi:thermometer"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:vacuum-card",
-                            "image": "default",
-                            "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
-                            "compact_view": false,
-                            "map": "camera.deebot_ozmo_t8_aivi_kitchen_live_map"
-                        }
-                    ]
-                },
-                {
-                    "title": "Bathroom",
-                    "path": "downstairs-bathroom",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "e4dc218e0ed411eb896345735c4f7890"
-                        }
-                    ]
-                },
-                {
-                    "title": "Hallway",
-                    "path": "hallway",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "downstairs_hallway"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.downstairs_hall_lamp_level_light_color_on_off",
-                                    "name": "Lamp"
-                                },
-                                {
-                                    "entity": "climate.downstairs_hallway",
-                                    "name": "Heating"
-                                },
-                                {
-                                    "entity": "switch.alarm_key_switch",
-                                    "name": "House Alarm",
-                                    "icon": "mdi:alarm-light"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "title": "Study",
-                    "path": "study",
-                    "icon": "",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "260a1e561b9911ebbd4ffb671ecb77c1"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "climate.study",
-                                    "name": "Heating"
-                                },
-                                {
-                                    "entity": "media_player.study",
-                                    "name": "Alexa"
-                                },
-                                {
-                                    "entity": "switch.study_oil_radiator",
-                                    "name": "Oil Radiator"
-                                },
-                                {
-                                    "entity": "sensor.study_oil_radiator_status",
-                                    "name": "Oil Radiator Thermostat",
-                                    "icon": "mdi:fire"
-                                }
-                            ],
-                            "show_header_toggle": false
-                        }
-                    ]
-                },
-                {
-                    "title": "Back",
-                    "path": "back",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "fc1ec4ee0e6011eb85e98da66e03329c",
-                            "show_camera": true
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.blink_back_camera_temperature",
-                                    "name": "House - Back Temperature"
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "binary_sensor.front_gate_contact_sensor_status",
+                  "name": "Front Gate",
+                  "icon": "mdi:gate"
                 }
-            ]
+              ]
+            },
+            {
+              "type": "plant-status",
+              "entity": "plant.front_pot",
+              "name": "Front Pot"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.hottub_pump_temp",
+                  "name": "HotTub Water Temperature"
+                },
+                {
+                  "entity": "sensor.hottub_pump_target"
+                },
+                {
+                  "entity": "switch.hottub_power"
+                },
+                {
+                  "entity": "switch.hottub_heat"
+                },
+                {
+                  "entity": "switch.hottub_filter"
+                },
+                {
+                  "entity": "switch.hottub_bubbles"
+                }
+              ],
+              "title": "Hot Tub",
+              "show_header_toggle": false
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Lounge",
+          "path": "lounge",
+          "icon": "",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "lounge",
+              "show_camera": true
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "light.lounge_lights_light_0",
+                  "name": "Lights"
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:harmony-card",
+                  "entity": "remote.lounge",
+                  "volume_device": "LG TV",
+                  "activities": [
+                    {
+                      "name": "Watch TV",
+                      "device": "Sky DVR"
+                    },
+                    {
+                      "name": "Play XBox",
+                      "buttons": {
+                        "dpad_center": {
+                          "command": "Select",
+                          "icon": "mdi:checkbox-blank-circle"
+                        },
+                        "back": {
+                          "command": "Return",
+                          "hide": false
+                        },
+                        "xbox": {
+                          "command": "Home",
+                          "icon": "mdi:home",
+                          "hide": false
+                        }
+                      }
+                    },
+                    {
+                      "name": "Watch a Movie",
+                      "device": "Amazon Fire TV Stick",
+                      "buttons": {
+                        "back": {
+                          "command": "Back",
+                          "hide": false
+                        },
+                        "xbox": {
+                          "command": "Menu",
+                          "icon": "mdi:home",
+                          "hide": false
+                        }
+                      }
+                    }
+                  ],
+                  "buttons": {
+                    "a": {
+                      "hide": true
+                    },
+                    "b": {
+                      "hide": true
+                    },
+                    "x": {
+                      "hide": true
+                    },
+                    "y": {
+                      "hide": true
+                    },
+                    "back": {
+                      "hide": true
+                    },
+                    "xbox": {
+                      "hide": true
+                    }
+                  },
+                  "name": "Main TV"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "media_player.xbox_lounge"
+                }
+              ],
+              "show_header_toggle": false
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "switch.lounge_window_power_socket",
+                      "name": "Power Socket"
+                    },
+                    {
+                      "entity": "media_player.samsung_q60_series_lounge",
+                      "icon": "mdi:television",
+                      "name": "TV"
+                    },
+                    {
+                      "entity": "media_player.lounge_window_sky_q",
+                      "name": "Sky Q",
+                      "icon": "mdi:television-guide"
+                    },
+                    {
+                      "entity": "media_player.xbox_lounge_window",
+                      "name": "XBox",
+                      "icon": "mdi:gamepad-variant"
+                    },
+                    {
+                      "entity": "input_select.loungevr_options",
+                      "name": "PC"
+                    }
+                  ],
+                  "title": "Window TV"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "media_player.lounge",
+                  "name": "Alexa",
+                  "icon": ""
+                },
+                {
+                  "entity": "climate.lounge",
+                  "name": "Heating",
+                  "icon": "mdi:thermometer"
+                }
+              ]
+            },
+            {
+              "type": "custom:vacuum-card",
+              "entity": "vacuum.deebot_ozmo_920_lounge",
+              "image": "default",
+              "compact_view": false,
+              "map": "camera.deebot_ozmo_920_lounge_live_map"
+            }
+          ]
+        },
+        {
+          "icon": "",
+          "title": "Kitchen",
+          "path": "kitchen",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "da734d0b00ba11ebbfc457dafaa650cb",
+              "show_camera": true
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.kitchen_tv_switch",
+                  "name": "TV"
+                },
+                {
+                  "entity": "media_player.kitchen_sky_q",
+                  "name": "Sky Q",
+                  "icon": "mdi:television-guide"
+                },
+                {
+                  "entity": "media_player.kitchen",
+                  "name": "Alexa",
+                  "icon": ""
+                },
+                {
+                  "entity": "climate.kitchen",
+                  "name": "Heating",
+                  "icon": "mdi:thermometer"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.dishwasher_power"
+                },
+                {
+                  "entity": "switch.dishwasher_program_eco50"
+                },
+                {
+                  "entity": "sensor.kitchen_dishwasher_duration_friendly",
+                  "name": "Dishwasher Duration"
+                }
+              ]
+            },
+            {
+              "type": "custom:vacuum-card",
+              "image": "default",
+              "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
+              "compact_view": false,
+              "map": "camera.deebot_ozmo_t8_aivi_kitchen_live_map"
+            }
+          ]
+        },
+        {
+          "title": "Bathroom",
+          "path": "downstairs-bathroom",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "e4dc218e0ed411eb896345735c4f7890"
+            }
+          ]
+        },
+        {
+          "title": "Hallway",
+          "path": "hallway",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "downstairs_hallway"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "light.downstairs_hall_lamp_level_light_color_on_off",
+                  "name": "Lamp"
+                },
+                {
+                  "entity": "climate.downstairs_hallway",
+                  "name": "Heating"
+                },
+                {
+                  "entity": "switch.alarm_key_switch",
+                  "name": "House Alarm",
+                  "icon": "mdi:alarm-light"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Study",
+          "path": "study",
+          "icon": "",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "260a1e561b9911ebbd4ffb671ecb77c1"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.study_power_socket_on_off",
+                  "name": "Power Socket",
+                  "secondary_info": "none"
+                },
+                {
+                  "entity": "climate.study",
+                  "name": "Heating"
+                },
+                {
+                  "entity": "group.study",
+                  "name": "Alexa"
+                },
+                {
+                  "entity": "switch.study_oil_radiator",
+                  "name": "Oil Radiator"
+                },
+                {
+                  "entity": "sensor.study_oil_radiator_status",
+                  "name": "Oil Radiator Thermostat",
+                  "icon": "mdi:fire"
+                }
+              ],
+              "show_header_toggle": false
+            }
+          ]
+        },
+        {
+          "title": "Back",
+          "path": "back",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "fc1ec4ee0e6011eb85e98da66e03329c",
+              "show_camera": true
+            }
+          ]
         }
+      ]
     }
+  }
 }

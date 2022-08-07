@@ -1,16 +1,16 @@
 automation:
-    - id: 'upstairs_bathroom_dad_clean_teeth'
-      alias: Upstairs Bathroom - Dad Clean Teeth
-      description: ''
-      trigger:
+  - id: "upstairs_bathroom_dad_clean_teeth"
+    alias: Upstairs Bathroom - Dad Clean Teeth
+    description: ""
+    trigger:
       - platform: state
         entity_id: sensor.dads_toothbrush
         to: Running
-      condition: []
-      action:
+    condition: []
+    action:
       - service: input_datetime.set_datetime
         data_template:
           entity_id: input_datetime.dad_last_cleaned_teeth
           time: '{{ (as_timestamp(now()) | timestamp_custom("%H:%M:%S", true)) }}'
           date: '{{ (as_timestamp(now()) | timestamp_custom("%Y-%m-%d", true)) }}'
-      mode: single
+    mode: single

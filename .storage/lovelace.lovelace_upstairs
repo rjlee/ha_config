@@ -1,461 +1,495 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.lovelace_upstairs",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_upstairs",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Main Bedroom",
+          "path": "main-bedroom",
+          "icon": "",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "30d68fe5058411eba52633f70609353b"
+            },
+            {
+              "type": "entities",
+              "entities": [
                 {
-                    "title": "Main Bedroom",
-                    "path": "main-bedroom",
-                    "icon": "",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "30d68fe5058411eba52633f70609353b"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.main_bedroom_tv_switch",
-                                    "name": "TV"
-                                },
-                                {
-                                    "entity": "media_player.master_bedroom_skyq",
-                                    "name": "Sky Q",
-                                    "icon": "mdi:television-guide"
-                                },
-                                {
-                                    "entity": "media_player.mum_and_dad",
-                                    "name": "Alexa",
-                                    "icon": ""
-                                },
-                                {
-                                    "entity": "climate.main_bedroom",
-                                    "name": "Heating",
-                                    "icon": "mdi:thermometer"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "entities",
-                                    "entities": [
-                                        {
-                                            "entity": "cover.main_bedroom_1",
-                                            "name": "Blind 1"
-                                        },
-                                        {
-                                            "entity": "cover.main_bedroom_2",
-                                            "name": "Blind 2"
-                                        },
-                                        {
-                                            "entity": "cover.mainbedroomcurtains",
-                                            "name": "Curtains"
-                                        },
-                                        {
-                                            "entity": "cover.belltower",
-                                            "name": "Belltower Blind"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "switch.main_bedroom_power_socket",
+                  "name": "Power Socket"
                 },
                 {
-                    "title": "child1s Room",
-                    "path": "child1s-room",
-                    "icon": "",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "08d28e33074111eba671674299d472f6"
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "input_boolean.bedroom1_in_bed",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "custom:state-switch",
-                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                        "states": {
-                                            "on": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "icon": "mdi:account-check-outline",
-                                                        "name": "Occupied"
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            },
-                                            "off": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "icon": "mdi:account-cancel-outline",
-                                                        "name": "Vacant"
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "input_boolean.bedroom1_in_bed",
-                                            "state_not": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "custom:state-switch",
-                                        "entity": "input_boolean.bedroom1_asleep",
-                                        "states": {
-                                            "on": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "input_boolean.bedroom1_asleep",
-                                                        "icon": "mdi:bed",
-                                                        "name": "Asleep"
-                                                    },
-                                                    {
-                                                        "entity": "timer.bedroom1_awake",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom1_noise_sensor",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "name": ""
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            },
-                                            "off": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "input_boolean.bedroom1_asleep",
-                                                        "icon": "mdi:baby-face-outline",
-                                                        "name": "Awake"
-                                                    },
-                                                    {
-                                                        "entity": "timer.bedroom1_awake",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom1_noise_sensor",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                                                        "name": ""
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.bedroom_1_bedside_lamp",
-                                    "name": "Bedside Lamp"
-                                },
-                                {
-                                    "entity": "media_player.child1s_room",
-                                    "name": "Alexa",
-                                    "icon": ""
-                                },
-                                {
-                                    "entity": "media_player.xbox_spareroom"
-                                },
-                                {
-                                    "entity": "input_select.child1_laptop_options",
-                                    "icon": "mdi:laptop"
-                                }
-                            ],
-                            "show_header_toggle": false
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "climate.child1s_room"
-                                },
-                                {
-                                    "entity": "cover.bedroom_1",
-                                    "name": "Velux Blind"
-                                }
-                            ],
-                            "show_header_toggle": false
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.bedroom1_in_bed",
-                                    "name": "In Bed"
-                                },
-                                {
-                                    "entity": "binary_sensor.bedroom1_noise_sensor",
-                                    "name": "Noise"
-                                }
-                            ],
-                            "show_header_toggle": false
-                        }
-                    ]
+                  "entity": "switch.main_bedroom_tv_switch",
+                  "name": "TV"
                 },
                 {
-                    "title": "child2s Room",
-                    "path": "child2s-room",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "30aa463f0b3311eba8b961560a186240"
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "input_boolean.bedroom2_in_bed",
-                                            "state": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "custom:state-switch",
-                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                        "states": {
-                                            "on": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                                        "icon": "mdi:account-check-outline",
-                                                        "name": "Occupied"
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            },
-                                            "off": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                                        "icon": "mdi:account-cancel-outline",
-                                                        "name": "Vacant"
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "conditional",
-                                    "conditions": [
-                                        {
-                                            "entity": "input_boolean.bedroom2_in_bed",
-                                            "state_not": "off"
-                                        }
-                                    ],
-                                    "card": {
-                                        "type": "custom:state-switch",
-                                        "entity": "input_boolean.bedroom2_asleep",
-                                        "states": {
-                                            "on": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "input_boolean.bedroom2_asleep",
-                                                        "icon": "mdi:bed",
-                                                        "name": "Asleep"
-                                                    },
-                                                    {
-                                                        "entity": "timer.bedroom2_awake",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                                        "name": ""
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            },
-                                            "off": {
-                                                "type": "glance",
-                                                "entities": [
-                                                    {
-                                                        "entity": "input_boolean.bedroom2_asleep",
-                                                        "icon": "mdi:baby-face-outline",
-                                                        "name": "Awake"
-                                                    },
-                                                    {
-                                                        "entity": "timer.bedroom2_awake",
-                                                        "name": ""
-                                                    },
-                                                    {
-                                                        "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                                                        "name": ""
-                                                    }
-                                                ],
-                                                "show_state": false,
-                                                "title": null
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.bedroom_2_bedside_lamp",
-                                    "name": "Bedside Lamp"
-                                },
-                                {
-                                    "entity": "light.bedroom_2_led_lamp",
-                                    "name": "LED Corner Lamp"
-                                },
-                                {
-                                    "entity": "light.bedroom_2_led_sign_on_off",
-                                    "name": "LED Gaming Sign"
-                                },
-                                {
-                                    "entity": "media_player.child2s_room",
-                                    "name": "Alexa",
-                                    "icon": ""
-                                },
-                                {
-                                    "entity": "switch.bedroom2_tv_switch",
-                                    "name": "TV",
-                                    "icon": "mdi:television"
-                                },
-                                {
-                                    "entity": "media_player.xbox_child2",
-                                    "name": "Xbox"
-                                },
-                                {
-                                    "entity": "input_select.child2_laptop_options",
-                                    "icon": "mdi:laptop"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "cover.bedroom_2",
-                                    "name": "Velux Blind"
-                                },
-                                {
-                                    "entity": "climate.child2s_room"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.bedroom2_in_bed",
-                                    "name": "In Bed"
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "media_player.master_bedroom_skyq",
+                  "name": "Sky Q",
+                  "icon": "mdi:television-guide"
                 },
                 {
-                    "title": "Spare Room",
-                    "path": "spare-room",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "088e1ead17b611eb81dd5f71ec537caf"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "media_player.spare_room",
-                                    "name": "Alexa",
-                                    "icon": ""
-                                },
-                                {
-                                    "entity": "cover.spare_room",
-                                    "name": "Velux Blind"
-                                },
-                                {
-                                    "entity": "climate.spare_room",
-                                    "name": "Heating",
-                                    "icon": "mdi:thermometer"
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "media_player.mum_and_dad",
+                  "name": "Alexa",
+                  "icon": ""
                 },
                 {
-                    "title": "Bathroom",
-                    "path": "",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "area",
-                            "area": "upstairs_bathroom"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "media_player.upstairs_bathroom",
-                                    "name": "Alexa"
-                                },
-                                {
-                                    "entity": "binary_sensor.lumi_lumi_sensor_wleak_aq1_ias_zone",
-                                    "name": "Leak"
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "climate.main_bedroom",
+                  "name": "Heating",
+                  "icon": "mdi:thermometer"
                 }
-            ]
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "cover.main_bedroom_1",
+                      "name": "Blind 1"
+                    },
+                    {
+                      "entity": "cover.main_bedroom_2",
+                      "name": "Blind 2"
+                    },
+                    {
+                      "entity": "cover.mainbedroomcurtains",
+                      "name": "Curtains"
+                    },
+                    {
+                      "entity": "cover.belltower",
+                      "name": "Belltower Blind"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ethans Room",
+          "path": "ethans-room",
+          "icon": "",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "08d28e33074111eba671674299d472f6"
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "input_boolean.bedroom1_in_bed",
+                      "state": "off"
+                    }
+                  ],
+                  "card": {
+                    "type": "custom:state-switch",
+                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                    "states": {
+                      "on": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                            "icon": "mdi:account-check-outline",
+                            "name": "Occupied"
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      },
+                      "off": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                            "icon": "mdi:account-cancel-outline",
+                            "name": "Vacant"
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "input_boolean.bedroom1_in_bed",
+                      "state_not": "off"
+                    }
+                  ],
+                  "card": {
+                    "type": "custom:state-switch",
+                    "entity": "input_boolean.bedroom1_asleep",
+                    "states": {
+                      "on": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "input_boolean.bedroom1_asleep",
+                            "icon": "mdi:bed",
+                            "name": "Asleep"
+                          },
+                          {
+                            "entity": "timer.bedroom1_awake",
+                            "name": ""
+                          },
+                          {
+                            "entity": "binary_sensor.bedroom1_noise_sensor",
+                            "name": ""
+                          },
+                          {
+                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                            "name": ""
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      },
+                      "off": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "input_boolean.bedroom1_asleep",
+                            "icon": "mdi:baby-face-outline",
+                            "name": "Awake"
+                          },
+                          {
+                            "entity": "timer.bedroom1_awake",
+                            "name": ""
+                          },
+                          {
+                            "entity": "binary_sensor.bedroom1_noise_sensor",
+                            "name": ""
+                          },
+                          {
+                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                            "name": ""
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "light.bedroom_1_bedside_lamp",
+                  "name": "Bedside Lamp"
+                },
+                {
+                  "entity": "switch.bedroom_1_power_socket",
+                  "name": "Power Socket"
+                },
+                {
+                  "entity": "media_player.bedroom_1_alexa",
+                  "name": "Alexa",
+                  "icon": ""
+                },
+                {
+                  "entity": "media_player.xbox_spareroom",
+                  "name": "Xbox"
+                },
+                {
+                  "entity": "sensor.bedroom1_laptop_sessionstate",
+                  "icon": "mdi:laptop",
+                  "name": "Laptop"
+                },
+                {
+                  "entity": "input_select.ethan_laptop_options",
+                  "icon": "mdi:laptop"
+                }
+              ],
+              "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "climate.bedroom_1"
+                },
+                {
+                  "entity": "cover.bedroom_1",
+                  "name": "Velux Blind"
+                }
+              ],
+              "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_boolean.bedroom1_in_bed",
+                  "name": "In Bed"
+                },
+                {
+                  "entity": "binary_sensor.bedroom1_noise_sensor",
+                  "name": "Noise"
+                }
+              ],
+              "show_header_toggle": false
+            }
+          ]
+        },
+        {
+          "title": "Edwards Room",
+          "path": "edwards-room",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "30aa463f0b3311eba8b961560a186240"
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "input_boolean.bedroom2_in_bed",
+                      "state": "off"
+                    }
+                  ],
+                  "card": {
+                    "type": "custom:state-switch",
+                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                    "states": {
+                      "on": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                            "icon": "mdi:account-check-outline",
+                            "name": "Occupied"
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      },
+                      "off": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                            "icon": "mdi:account-cancel-outline",
+                            "name": "Vacant"
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "input_boolean.bedroom2_in_bed",
+                      "state_not": "off"
+                    }
+                  ],
+                  "card": {
+                    "type": "custom:state-switch",
+                    "entity": "input_boolean.bedroom2_asleep",
+                    "states": {
+                      "on": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "input_boolean.bedroom2_asleep",
+                            "icon": "mdi:bed",
+                            "name": "Asleep"
+                          },
+                          {
+                            "entity": "timer.bedroom2_awake",
+                            "name": ""
+                          },
+                          {
+                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                            "name": ""
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      },
+                      "off": {
+                        "type": "glance",
+                        "entities": [
+                          {
+                            "entity": "input_boolean.bedroom2_asleep",
+                            "icon": "mdi:baby-face-outline",
+                            "name": "Awake"
+                          },
+                          {
+                            "entity": "timer.bedroom2_awake",
+                            "name": ""
+                          },
+                          {
+                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                            "name": ""
+                          }
+                        ],
+                        "show_state": false,
+                        "title": null
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "light.bedroom_2_bedside_lamp",
+                  "name": "Bedside Lamp"
+                },
+                {
+                  "entity": "light.bedroom_2_led_lamp",
+                  "name": "LED Corner Lamp"
+                },
+                {
+                  "entity": "light.bedroom_2_led_sign_on_off",
+                  "name": "LED Gaming Sign"
+                },
+                {
+                  "entity": "media_player.bedroom_2_alexa",
+                  "name": "Alexa",
+                  "icon": ""
+                },
+                {
+                  "entity": "switch.bedroom_2_power_socket",
+                  "name": "Power Socket"
+                },
+                {
+                  "entity": "switch.bedroom2_tv_switch",
+                  "name": "TV",
+                  "icon": "mdi:television"
+                },
+                {
+                  "entity": "media_player.xbox_bedroom_2",
+                  "name": "Xbox"
+                },
+                {
+                  "entity": "sensor.bedroom2_laptop_sessionstate",
+                  "icon": "mdi:laptop",
+                  "name": "Laptop"
+                },
+                {
+                  "entity": "input_select.edward_laptop_options",
+                  "icon": "mdi:laptop",
+                  "secondary_info": "none"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "climate.bedroom_2",
+                  "name": "Heating"
+                },
+                {
+                  "entity": "cover.bedroom_2",
+                  "name": "Velux Blind"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_boolean.bedroom2_in_bed",
+                  "name": "In Bed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Spare Room",
+          "path": "spare-room",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "088e1ead17b611eb81dd5f71ec537caf"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "media_player.spare_room",
+                  "name": "Alexa",
+                  "icon": ""
+                },
+                {
+                  "entity": "binary_sensor.ssg_2440_active",
+                  "name": "Macbook Air",
+                  "icon": "mdi:laptop"
+                },
+                {
+                  "entity": "switch.spare_room_power_socket",
+                  "name": "Power Socket"
+                },
+                {
+                  "entity": "cover.spare_room",
+                  "name": "Velux Blind"
+                },
+                {
+                  "entity": "climate.spare_room",
+                  "name": "Heating",
+                  "icon": "mdi:thermometer"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bathroom",
+          "path": "",
+          "badges": [],
+          "cards": [
+            {
+              "type": "area",
+              "area": "upstairs_bathroom"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "media_player.upstairs_bathroom",
+                  "name": "Alexa"
+                },
+                {
+                  "entity": "binary_sensor.lumi_lumi_sensor_wleak_aq1_ias_zone",
+                  "name": "Leak"
+                }
+              ]
+            }
+          ]
         }
+      ]
     }
+  }
 }

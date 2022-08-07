@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.energy_glow",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "path": "energy",
+          "type": "custom:grid-layout",
+          "layout": {
+            "grid-template-columns": "1fr 1fr 1fr",
+            "grid-template-areas": "\"date date date\"\n\"graphs graphs graphs\"\n\"sources sources distribution\"\n\"entities entities entities\"\n",
+            "mediaquery": {
+              "(max-width: 900px)": {
+                "grid-template-columns": "100%",
+                "grid-template-areas": "\"date\"\n\"graphs\"\n\"sources\"\n\"distribution\"\n\"entities\"\n"
+              }
+            }
+          },
+          "badges": [],
+          "cards": [
+            {
+              "type": "energy-date-selection",
+              "view_layout": {
+                "grid-area": "date"
+              }
+            },
+            {
+              "type": "custom:layout-card",
+              "layout_type": "grid",
+              "layout": {
+                "margin": "0 -4px",
+                "grid-template-columns": "1fr 1fr",
+                "grid-template-rows": "auto",
+                "mediaquery": {
+                  "(max-width: 900px)": {
+                    "grid-template-columns": "1fr"
+                  }
+                }
+              },
+              "cards": [
+                {
+                  "type": "energy-usage-graph",
+                  "title": "Electricity usage"
+                },
+                {
+                  "type": "energy-gas-graph",
+                  "title": "Gas usage"
+                }
+              ],
+              "view_layout": {
+                "grid-area": "graphs"
+              }
+            },
+            {
+              "type": "energy-sources-table",
+              "title": "Sources",
+              "view_layout": {
+                "grid-area": "sources"
+              }
+            },
+            {
+              "type": "energy-distribution",
+              "title": "Energy distribution",
+              "card_mod": {
+                "style": "ha-card {\n  height: 100%;\n}\n"
+              },
+              "view_layout": {
+                "grid-area": "distribution"
+              }
+            },
+            {
+              "type": "custom:layout-card",
+              "layout_type": "grid",
+              "layout": {
+                "margin": "0 -4px",
+                "grid-template-columns": "1fr 1fr",
+                "grid-template-rows": "auto",
+                "mediaquery": {
+                  "(max-width: 900px)": {
+                    "grid-template-columns": "1fr"
+                  }
+                }
+              },
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.smart_meter_electricity_import_today",
+                      "name": "Import (Today)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_electricity_cost_today",
+                      "name": "Cost (Today)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_electricity_import",
+                      "name": "Import"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_electricity_import_this_week",
+                      "name": "Import (This week)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_electricity_import_this_month",
+                      "name": "Import (This month)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_electricity_import_unit_rate",
+                      "name": "Import Unit Rate"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_electricity_import_standing_charge",
+                      "name": "Import Standing Charge"
+                    }
+                  ],
+                  "title": "Electricity"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.smart_meter_gas_import_today",
+                      "name": "Import (Today)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_gas_cost_today",
+                      "name": "Cost (Today)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_gas_import",
+                      "name": "Import"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_gas_import_this_week",
+                      "name": "Import (This week)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_gas_import_this_month",
+                      "name": "Import (This month)"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_gas_import_unit_rate",
+                      "name": "Import Unit Rate"
+                    },
+                    {
+                      "entity": "sensor.smart_meter_gas_import_standing_charge",
+                      "name": "Import Standing Charge"
+                    }
+                  ],
+                  "title": "Gas"
+                }
+              ],
+              "view_layout": {
+                "grid-area": "entities"
+              }
+            },
+            {
+              "type": "custom:layout-card",
+              "layout_type": "grid",
+              "layout": {
+                "margin": "0 -4px",
+                "grid-template-columns": "1fr 1fr",
+                "grid-template-rows": "auto",
+                "mediaquery": {
+                  "(max-width: 900px)": {
+                    "grid-template-columns": "1fr"
+                  }
+                }
+              },
+              "cards": [
+                {
+                  "type": "energy-devices-graph",
+                  "title": "Electricity usage"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

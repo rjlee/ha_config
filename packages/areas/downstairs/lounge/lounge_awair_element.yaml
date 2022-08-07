@@ -1,0 +1,48 @@
+sensor:  
+  - platform: rest
+    name: lounge_awair_sensors
+    resource: http://lounge-awair-element.home/air-data/latest
+    json_attributes:
+      - timestamp
+      - score
+      - dew_point
+      - temp
+      - humid
+      - abs_humid
+      - co2
+      - co2_est
+      - voc
+      - voc_baseline
+      - voc_h2_raw
+      - voc_ethanol_raw
+      - pm25
+      - pm10_est
+    value_template: 'OK'
+  - platform: template
+    sensors:
+      lounge_awair_score:
+        friendly_name: "Air Quality Score"
+        value_template: '{{ states.sensor.lounge_awair_sensors.attributes["score"] }}'
+        unit_of_measurement: '%'
+      lounge_awair_temp:
+        friendly_name: "Temperature"
+        value_template: '{{ states.sensor.lounge_awair_sensors.attributes["temp"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+      lounge_awair_humid:
+        friendly_name: "Relative Humidity"
+        value_template: '{{ states.sensor.lounge_awair_sensors.attributes["humid"] }}'
+        device_class: humidity
+        unit_of_measurement: '%'
+      lounge_awair_co2:
+        friendly_name: "Carbon Dioxide"
+        value_template: '{{ states.sensor.lounge_awair_sensors.attributes["co2"] }}'
+        unit_of_measurement: 'ppm'
+      lounge_awair_voc:
+        friendly_name: "Total VOC"
+        value_template: '{{ states.sensor.lounge_awair_sensors.attributes["voc"] }}'
+        unit_of_measurement: 'ppb'
+      lounge_awair_pm25:
+        friendly_name: "Particulate Matter 2.5"
+        value_template: '{{ states.sensor.lounge_awair_sensors.attributes["pm25"] }}'
+        unit_of_measurement: 'μg/m³'

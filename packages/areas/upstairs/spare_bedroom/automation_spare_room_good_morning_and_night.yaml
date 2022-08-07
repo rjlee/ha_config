@@ -1,27 +1,27 @@
 automation:
-    - id: 'spare_room_good_morning'
-      alias: Spare Room - Good Morning
-      description: ''
-      mode: single
-      trigger:
+  - id: "spare_room_good_morning"
+    alias: Spare Room - Good Morning
+    description: ""
+    mode: single
+    trigger:
       - platform: time
-        at: '9:00'
-      condition: []
-      action:
+        at: "09:00"
+    condition: []
+    action:
       - service: cover.open_cover
         target:
           entity_id: cover.spare_room
-    - id: 'spare_room_good_night'
-      alias: Spare Room - Good Night
-      description: ''
-      mode: single
-      trigger:
+  - id: "spare_room_good_night"
+    alias: Spare Room - Good Night
+    description: ""
+    mode: single
+    trigger:
       - platform: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.5
-      condition: []
-      action:
+    condition: []
+    action:
       - service: cover.close_cover
         target:
           entity_id: cover.spare_room

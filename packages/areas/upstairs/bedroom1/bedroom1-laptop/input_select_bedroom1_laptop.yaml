@@ -1,5 +1,5 @@
 input_select:
-  child1_laptop_options:
+  bedroom_1_laptop_options:
     name: Laptop Power Options
     options:
       - None

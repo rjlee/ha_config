@@ -1,31 +1,31 @@
 automation:
-- id: system_low_battery_warning
-  alias: System - Low Battery Warning
-  description: ''
-  trigger:
-  - at: '19:00'
-    platform: time
-  condition:
-  - condition: template
-    value_template: >
-      {%- set ns = namespace(message = false) -%}
-      {%- set threshold = 20 -%}
-      {%- for item in states.sensor -%}
-      {%- if "battery" in item.name | lower and "iphone" not in item.name | lower and item.state | int(0) < threshold and  item.state|int(0) != 0 -%}
-      {%- set ns.message = (true) -%}
-      {%- endif -%}
-      {%- endfor -%}
-      {{ ns.message }}
-  action:
-  - data:
-      message: >
-        {%- set ns = namespace(message = 'The battery level of the following device(s) is low:\n') -%}
-        {%- set threshold = 20 -%}
-        {%- for item in states.sensor -%}
-          {%- if "battery" in item.name | lower and "iphone" not in item.name | lower and item.state | int(0) < threshold and item.state|int(0) != 0 -%}
-          {%- set ns.message = ns.message +  '-'  + item.name+ ' (' + item.state + '%)\n' -%}
+  - id: system_low_battery_warning
+    alias: System - Low Battery Warning
+    description: ""
+    trigger:
+      - at: "19:00"
+        platform: time
+    condition:
+      - condition: template
+        value_template: >
+          {%- set ns = namespace(message = false) -%}
+          {%- set threshold = 20 -%}
+          {%- for item in states.sensor -%}
+          {%- if "battery" in item.name | lower and "iphone" not in item.name | lower and item.state | int(0) < threshold and  item.state|int(0) != 0 -%}
+          {%- set ns.message = (true) -%}
           {%- endif -%}
-        {%- endfor -%}
-        {{ ns.message }}
-    service: notify.mobile_app_mobile_dad
-  mode: single
+          {%- endfor -%}
+          {{ ns.message }}
+    action:
+      - data:
+          message: >
+            {%- set ns = namespace(message = 'The battery level of the following device(s) is low:\n') -%}
+            {%- set threshold = 20 -%}
+            {%- for item in states.sensor -%}
+              {%- if "battery" in item.name | lower and "iphone" not in item.name | lower and item.state | int(0) < threshold and item.state|int(0) != 0 -%}
+              {%- set ns.message = ns.message +  '-'  + item.name+ ' (' + item.state + '%)\n' -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {{ ns.message }}
+        service: notify.dad
+    mode: single

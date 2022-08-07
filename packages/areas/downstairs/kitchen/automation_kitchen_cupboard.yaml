@@ -1,31 +1,31 @@
 automation:
-- id: kitchen_cupboard_motion_detected
-  alias: "Kitchen Cupboard Motion Detected"
-  mode: single
-  trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_cupboard_motion_sensor_ias_zone
-    from: 'off'
-    to: 'on'
-  condition:
-    - condition: and
-      conditions:
-        - condition: time
-          weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-    - condition: time
-      after: '15:15:00'
-      before: '18:00:00'
-    - condition: state
-      entity_id: device_tracker.child1_s_iphone
-      state: "home"
-  action:
-  - service: notify.family
-    data:
-      message: Snack attack, the snack pirates are in the cupboard
-      data:
-        sticky: "true"
+  - id: kitchen_cupboard_motion_detected
+    alias: "Kitchen Cupboard Motion Detected"
+    mode: single
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_cupboard_motion_sensor_ias_zone
+      from: "off"
+      to: "on"
+    condition:
+      - condition: and
+        conditions:
+          - condition: time
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+      - condition: time
+        after: "15:15:00"
+        before: "18:00:00"
+      - condition: state
+        entity_id: device_tracker.ethans_iphone
+        state: "home"
+    action:
+      - service: notify.family
+        data:
+          message: Snack attack, the snack pirates are in the cupboard
+          data:
+            sticky: "true"

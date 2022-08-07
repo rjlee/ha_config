@@ -5,8 +5,8 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.front_gate_contact_sensor_status
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
     condition: []
     action:
       - service: notify.alexa_media
@@ -16,7 +16,7 @@ automation:
             - media_player.lounge
             - media_player.mum_and_dad
           data:
-            type: tts 
+            type: tts
           message: '<audio src="soundbank://soundlibrary/alarms/beeps_and_bloops/bell_02"/>'
   - id: front_gate_open
     alias: "Front - Gate open"
@@ -24,8 +24,8 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.front_gate_contact_sensor_status
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
       for:
         hours: 0
         minutes: 2

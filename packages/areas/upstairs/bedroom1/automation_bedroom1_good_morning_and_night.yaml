@@ -1,58 +1,61 @@
 automation:
-    - id: 'child1_bedroom_good_morning'
-      alias: child1 Bedroom - Good Morning
-      description: ''
-      mode: single
-      trigger:
+  - id: "bedroom1_good_morning"
+    alias: Bedroom 1 - Good Morning
+    description: ""
+    mode: single
+    trigger:
       - platform: time
         at: 07:10
-      condition:
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.downstairs_hall_smoke_alarm_temperature
+        below: 21.5
       - condition: state
         entity_id: input_boolean.school_holidays
         state: "off"
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
       - service: script.turn_on
         entity_id: script.bedroom1_blind_open
       - delay: 01:05:00
       - service: light.turn_off
         target:
-          entity_id: 
+          entity_id:
             - light.bedroom_1_bedside_lamp
-    - id: 'child1_bedroom_good_morning_left_for_school'
-      alias: child1 Bedroom - Good Morning - Left for school
-      description: ''
-      mode: single      
-      trigger:
+  - id: "bedroom1_good_morning_left_for_school"
+    alias: Bedroom 1 - Good Morning - Left for school
+    description: ""
+    mode: single
+    trigger:
       - platform: time
         at: 09:00
-      condition:
+    condition:
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
       - service: switch.turn_off
         target:
-          entity_id: 
+          entity_id:
             - switch.bedroom_1_light_relay_0
-    - id: 'child1_bedroom_good_morning_weekend'
-      alias: child1 Bedroom - Good Morning - Weekend
-      description: ''
-      mode: single
-      trigger:
+  - id: "bedroom1_good_morning_weekend"
+    alias: Bedroom 1 - Good Morning - Weekend
+    description: ""
+    mode: single
+    trigger:
       - platform: time
         at: 09:00
-      condition:
+    condition:
       - condition: or
         conditions:
           - condition: state
@@ -60,24 +63,23 @@ automation:
             state: "on"
           - condition: time
             weekday:
-            - sat
-            - sun
-      action:
+              - sat
+              - sun
+    action:
       - service: script.turn_on
         entity_id: script.bedroom1_good_morning
-    - id: 'child1_bedroom_good_night'
-      alias: child1 Bedroom - Good Night
-      description: ''
-      mode: single
-      trigger:
+  - id: "bedroom1_good_night"
+    alias: Bedroom 1 - Good Night
+    description: ""
+    mode: single
+    trigger:
       - platform: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.5
       - platform: time
-        at: '19:00'
-      condition: []
-      action:
+        at: "20:30"
+    condition: []
+    action:
       - service: script.turn_on
         entity_id: script.bedroom1_good_night
-

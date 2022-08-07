@@ -11,17 +11,17 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
-             script.main_bedroom_good_morning
-           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_good_morning
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_good_morning
-           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
-             script.spare_room_good_morning
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_light_on
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_good_morning
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_good_morning
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_good_morning
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              script.spare_room_good_morning
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_light_on
+            {%- endif -%}
   good_night_dispatch:
     alias: "Good Night Dispatcher"
     icon: "mdi:weather-night"
@@ -34,15 +34,14 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
-             script.main_bedroom_good_night
-           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_good_night
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_good_night
-           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
-             script.spare_room_good_night
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_light_off
-           {%- endif -%}
-
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_good_night
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_good_night
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_good_night
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              script.spare_room_good_night
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_light_off
+            {%- endif -%}

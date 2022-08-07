@@ -1,0 +1,6 @@
+template:
+  - sensor:
+      - name: "Outdoor Temperature"
+        unit_of_measurement: "°C"
+        state: >
+          {{ states('sensor.front_gate_contact_sensor_temperature') | float }}

@@ -1,7 +1,7 @@
 sensor:
- - platform: rest
-   resource: !secret url_front_orp_sensor
-   name: hottub_orp
-   unit_of_measurement: "mV"
-   timeout: 5
-   value_template: '{{ value | regex_findall_index("orp_sensor_value_mv (\d+.\d+)\n") }}'
+  - platform: rest
+    resource: !secret url_front_orp_sensor
+    name: hottub_orp
+    unit_of_measurement: "mV"
+    timeout: 5
+    value_template: '{{ value | regex_findall_index("orp_sensor_value_mv (\d+.\d+)\n") }}'

@@ -11,15 +11,15 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
-             script.main_bedroom_blind_open
-           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_blind_open
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_blind_open
-           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
-             script.spare_room_blind_open
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_blind_open
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_blind_open
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_blind_open
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              script.spare_room_blind_open
+            {%- endif -%}
   blind_dispatch_off:
     alias: "Blind Dispatcher Close"
     icon: "mdi:window-shutter"
@@ -32,13 +32,12 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
-             script.main_bedroom_blind_close
-           {%- elif is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_blind_close
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_blind_close
-           {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
-             script.spare_room_blind_close
-           {%- endif -%}
-
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_blind_close
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_blind_close
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_blind_close
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              script.spare_room_blind_close
+            {%- endif -%}

@@ -1,35 +1,39 @@
 script:
-    main_bedroom_good_morning:
-      alias: "Main bedroom good morning routine"
-      icon: mdi:weather-sunny
-      description: "Opens curtains and blinds in the main bedroom"
-      mode: single
-      sequence:
-      - service: cover.open_cover
-        target:
-          entity_id:
-          - cover.mainbedroomcurtains
-#          - cover.curtains
-#          - cover.velux_internal_cover
-#          - cover.velux_internal_cover_2
-#          - cover.velux_internal_cover_6
-          - cover.main_bedroom_1
-          - cover.main_bedroom_2
-          - cover.belltower
-    main_bedroom_good_night:
-      alias: "Main bedroom good night routine"
-      icon: mdi:weather-night
-      description: "Closes curtains and blinds in the main bedroom"
-      mode: single
-      sequence:
-      - service: cover.close_cover
-        target:
-          entity_id:
-          - cover.mainbedroomcurtains
-#          - cover.curtains
-#          - cover.velux_internal_cover
-#          - cover.velux_internal_cover_2
-#          - cover.velux_internal_cover_6
-          - cover.main_bedroom_1
-          - cover.main_bedroom_2
-          - cover.belltower
+  main_bedroom_good_morning:
+    alias: "Main bedroom good morning routine"
+    icon: mdi:weather-sunny
+    description: "Opens curtains and blinds in the main bedroom"
+    mode: single
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_curtain_open
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_blind_open
+  #   - service: cover.open_cover
+  #     target:
+  #       entity_id:
+  #       - cover.mainbedroomcurtains
+  #       - cover.main_bedroom_1
+  #       - cover.main_bedroom_2
+  #       - cover.belltower
+  main_bedroom_good_night:
+    alias: "Main bedroom good night routine"
+    icon: mdi:weather-night
+    description: "Closes curtains and blinds in the main bedroom"
+    mode: single
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_curtain_close
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_blind_close
+  #   - service: cover.close_cover
+  #     target:
+  #       entity_id:
+  #       - cover.mainbedroomcurtains
+  #       - cover.main_bedroom_1
+  #       - cover.main_bedroom_2
+  #       - cover.belltower

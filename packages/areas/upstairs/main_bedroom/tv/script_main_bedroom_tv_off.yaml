@@ -1,13 +1,13 @@
 script:
-    main_bedroom_tv_off:
-      alias: "Main Bedroom TV off"
-      icon: mdi:television
-      description: "Turns of TV and Sky box in the main bedroom"
-      mode: single
-      sequence:
-#      - condition: state
-#        entity_id: input_boolean.main_bedroom_tv_switch
-#        state: 'on'
+  main_bedroom_tv_off:
+    alias: "Main Bedroom TV off"
+    icon: mdi:television
+    description: "Turns of TV and Sky box in the main bedroom"
+    mode: single
+    sequence:
+      #      - condition: state
+      #        entity_id: input_boolean.main_bedroom_tv_switch
+      #        state: 'on'
       - service: remote.send_command
         entity_id: remote.main_bedroom_ir_blaster_remote
         data:

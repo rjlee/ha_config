@@ -1,7 +1,7 @@
 automation:
   - id: bedroom_2_motion_light
     alias: Bedroom 2 - Motion Light
-    description: ''
+    description: ""
     mode: restart
     max_exceeded: silent
     condition:
@@ -13,8 +13,8 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.bedroom_2_motion_sensor_motion
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
     action:
       - service: light.turn_on
         target:
@@ -22,8 +22,8 @@ automation:
       - wait_for_trigger:
           platform: state
           entity_id: binary_sensor.bedroom_2_motion_sensor_motion
-          from: 'on'
-          to: 'off'
+          from: "on"
+          to: "off"
       - delay: 600
       - service: light.turn_off
         target:

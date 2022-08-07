@@ -1,31 +1,31 @@
 automation:
-  - id: 'Alarmo - Arm Night Mode'
+  - id: "Alarmo - Arm Night Mode"
     alias: Alarmo - Arm Night Mode
-    description: ''
+    description: ""
     trigger:
       - platform: time
-        at: '00:00:00'
+        at: "00:00:00"
     condition:
-    - condition: state
-      entity_id: input_boolean.on_holiday
-      state: "off"
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
     action:
       - service: alarmo.arm
         data:
           entity_id: alarm_control_panel.alarmo
-          mode: home 
+          mode: home
           force: true
     mode: single
-  - id: 'Alarmo - Disable Night Mode'
+  - id: "Alarmo - Disable Night Mode"
     alias: Alarmo - Disable Night Mode
-    description: ''
+    description: ""
     trigger:
       - platform: time
-        at: '06:00:00'
+        at: "06:00:00"
     condition:
-    - condition: state
-      entity_id: input_boolean.on_holiday
-      state: "off"
+      - condition: state
+        entity_id: input_boolean.on_holiday
+        state: "off"
     action:
       - service: alarmo.disarm
         data:

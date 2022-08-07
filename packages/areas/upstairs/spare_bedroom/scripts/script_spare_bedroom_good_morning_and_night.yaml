@@ -1,15 +1,15 @@
 script:
-    spare_room_good_morning:
-      alias: Spare Bedroom Good Morning
-      mode: single
-      icon: mdi:weather-sunny
-      sequence:
+  spare_room_good_morning:
+    alias: Spare Bedroom Good Morning
+    mode: single
+    icon: mdi:weather-sunny
+    sequence:
       - service: script.turn_on
         entity_id: script.spare_room_blind_open
-    spare_room_good_night:
-      alias: Spare Bedroom Good Night
-      mode: single
-      icon: mdi:weather-night
-      sequence:
+  spare_room_good_night:
+    alias: Spare Bedroom Good Night
+    mode: single
+    icon: mdi:weather-night
+    sequence:
       - service: script.turn_on
         entity_id: script.spare_room_blind_close

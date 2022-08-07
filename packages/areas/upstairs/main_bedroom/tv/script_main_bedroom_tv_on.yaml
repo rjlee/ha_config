@@ -1,10 +1,10 @@
 script:
-    main_bedroom_tv_on:
-      alias: "Main Bedroom TV on"
-      icon: mdi:television
-      description: "Turn on the TV and SKy box in the main bedroom"
-      mode: single
-      sequence:
+  main_bedroom_tv_on:
+    alias: "Main Bedroom TV on"
+    icon: mdi:television
+    description: "Turn on the TV and SKy box in the main bedroom"
+    mode: single
+    sequence:
       - service: remote.send_command
         entity_id: remote.main_bedroom_ir_blaster_remote
         data:

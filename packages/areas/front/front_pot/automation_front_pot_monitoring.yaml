@@ -1,20 +1,20 @@
 automation:
-    id: "front_pot_monitoring"
-    alias: Front - Pot Monitoring
-    description: ''
-    mode: single
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.front_pot_moisture
-        below: '15'
-        for: '00:10:00'
-    condition:
-      - condition: state
-        entity_id: input_boolean.on_holiday
-        state: "off"
-    action:
-      - service: notify.family
+  id: "front_pot_monitoring"
+  alias: Front - Pot Monitoring
+  description: ""
+  mode: single
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.front_pot_moisture
+      below: "15"
+      for: "00:10:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.on_holiday
+      state: "off"
+  action:
+    - service: notify.family
+      data:
+        message: Water the front pot, it's thirsty !
         data:
-          message: Water the front pot, it's thirsty !
-          data:
-            sticky: "true"
+          sticky: "true"

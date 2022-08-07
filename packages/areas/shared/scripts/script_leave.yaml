@@ -23,9 +23,8 @@ script:
           entity_id:
             - media_player.lounge_window_sky_q
             - media_player.master_bedroom_skyq
-            - media_player.xbox_spareroom
-            - media_player.xbox_child2
+            - media_player.xbox_bedroom_1
+            - media_player.xbox_bedroom_2
             - media_player.xbox_lounge
             - media_player.xbox_lounge_window
             - media_player.samsung_q60_series_lounge
-

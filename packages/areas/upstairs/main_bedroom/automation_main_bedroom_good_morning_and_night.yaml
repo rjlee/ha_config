@@ -1,25 +1,28 @@
 automation:
-- id: 'main_bedroom_good_morning'
-  alias: Main Bedroom - Good Morning
-  mode: single
-  trigger:
-  - platform: time
-    at: '9:00'   
-  condition: []
-  action:
-  - service: script.turn_on
-    data:
-      entity_id: script.main_bedroom_good_morning
-- id: 'main_bedroom_good_night'
-  alias: Main Bedroom - Good Night
-  mode: single
-  trigger:
+  - id: "main_bedroom_good_morning"
+    alias: Main Bedroom - Good Morning
+    mode: single
+    trigger:
+      - platform: time
+        at: "09:01"
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.downstairs_hall_smoke_alarm_temperature
+        below: 21.5
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_good_morning
+  - id: "main_bedroom_good_night"
+    alias: Main Bedroom - Good Night
+    mode: single
+    trigger:
       - platform: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.5
-  condition: []
-  action:
-  - service: script.turn_on
-    data:
-      entity_id: script.main_bedroom_good_night
+    condition: []
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.main_bedroom_good_night

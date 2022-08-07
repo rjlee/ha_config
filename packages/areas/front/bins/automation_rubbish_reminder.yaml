@@ -1,12 +1,12 @@
 automation:
-    - id: 'front_garden_rubbish_reminder'
-      alias: Front - Rubbish Reminder
-      description: ''
-      mode: single
-      trigger:
+  - id: "front_garden_rubbish_reminder"
+    alias: Front - Rubbish Reminder
+    description: ""
+    mode: single
+    trigger:
       - platform: time
         at: 08:15
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
@@ -14,20 +14,20 @@ automation:
         entity_id: sensor.rubbish_collection
         state: 0
         attribute: days
-      action:
+    action:
       - service: notify.family
         data:
           message: Reminder, its black bin day
           data:
             sticky: "true"
-    - id: 'front_garden_rubbish_reminder_previous_day'
-      alias: Front - Rubbish Reminder Previous Day
-      description: ''
-      mode: single
-      trigger:
+  - id: "front_garden_rubbish_reminder_previous_day"
+    alias: Front - Rubbish Reminder Previous Day
+    description: ""
+    mode: single
+    trigger:
       - platform: time
-        at: '21:00'
-      condition:
+        at: "21:00"
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
@@ -35,7 +35,7 @@ automation:
         entity_id: sensor.rubbish_collection
         state: 1
         attribute: days
-      action:
+    action:
       - service: notify.family
         data:
           message: Reminder, its black bin day tomorrow

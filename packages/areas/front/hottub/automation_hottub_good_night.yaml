@@ -1,19 +1,19 @@
 automation:
-    - id: 'front_hottub_good_night'
-      alias: Front - Hot Tub - Good Night
-      description: ''
-      trigger:
+  - id: "front_hottub_good_night"
+    alias: Front - Hot Tub - Good Night
+    description: ""
+    trigger:
       - platform: time
-        at: '18:00:00'
-      condition:
+        at: "18:00:00"
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: state
         entity_id: sensor.hottub_online
-        state: 'true'
-      action:
+        state: "true"
+    action:
       - service: rest_command.hottub_temp_set
         data:
           hottub_water_target: 20
-      mode: single
+    mode: single

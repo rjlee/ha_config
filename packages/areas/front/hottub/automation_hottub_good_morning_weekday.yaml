@@ -1,29 +1,29 @@
 automation:
-    - id: 'front_hot_tub_school'
-      alias: Front - Hot Tub - School
-      description: ''
-      trigger:
+  - id: "front_hot_tub_school"
+    alias: Front - Hot Tub - School
+    description: ""
+    trigger:
       - platform: time
         at: 06:30:00
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
       - condition: state
         entity_id: sensor.hottub_online
-        state: 'true'
+        state: "true"
       - condition: numeric_state
-        entity_id: sensor.location_probability_of_precipitation
+        entity_id: sensor.otley_probability_of_precipitation
         below: 80
-      action:
+    action:
       - service: rest_command.hottub_temp_set
         data:
           hottub_water_target: 20
-      mode: single
+    mode: single

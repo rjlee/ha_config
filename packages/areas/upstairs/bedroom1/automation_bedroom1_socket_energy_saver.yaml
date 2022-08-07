@@ -1,0 +1,41 @@
+automation:
+  - id: "bedroom1_power_socket_on"
+    alias: Bedroom 1 - Power Socket On
+    description: ""
+    trigger:
+      - platform: time
+        at: 06:00
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket
+    mode: single
+  - id: "bedroom1_power_socket_off"
+    alias: Bedroom 1 - Power Socket Off
+    description: ""
+    trigger:
+      - platform: time
+        at: "00:00"
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket
+    mode: single

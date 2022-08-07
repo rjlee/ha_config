@@ -1,0 +1,6 @@
+template:
+  - sensor:
+      - name: "Indoor Temperature"
+        unit_of_measurement: "°C"
+        state: >
+          {{ states('sensor.lounge_awair_temp') | float }}

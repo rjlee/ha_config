@@ -4,7 +4,7 @@ people:
     entities:
       - person.dad
       - person.mum
-      - person.child1
+      - person.ethan
 
 parents:
     name: Parents
@@ -16,8 +16,8 @@ parents:
 echos:
     name: echos
     entities:
-      - media_player.child2s_room
-      - media_player.child1s_room
+      - media_player.bedroom_2_alexa
+      - media_player.bedroom_1_alexa
       - media_player.kitchen
       - media_player.lounge
       - media_player.mum_and_dad
@@ -72,8 +72,8 @@ radiators:
       - climate.lounge
       - climate.kitchen
       - climate.study
-      - climate.child2s_room
-      - climate.child1s_room
+      - climate.bedroom_2
+      - climate.bedroom_1
       - climate.main_bedroom
       - climate.spare_room
       - climate.downstairs_hallway
@@ -83,7 +83,6 @@ heating:
     icon: mdi:thermometer
     entities:
       - group.radiators
-      - climate.heating
       - water_heater.hot_water
 
 leave_home:
@@ -100,8 +99,8 @@ leave_home:
       - light.bedroom_2_bedside_lamp
       - light.main_bedroom_light
       - media_player.master_bedroom_skyq
-      - media_player.xbox_spareroom
-      - media_player.xbox_child2
+      - media_player.xbox_bedroom_1
+      - media_player.xbox_bedroom_2
 
 
 # Downstairs
@@ -132,10 +131,8 @@ downstairs_bathroom:
     name: Downstairs Bathroom
     icon: mdi:toilet
     entities:
-      - switch.downstairs_bathroom_light
-      - binary_sensor.motion_sensor_motion
-      - sensor.motion_sensor_battery
-      - sensor.motion_sensor_temperature_measurement
+      - light.downstairs_bathroom_light
+      - binary_sensor.downstairs_bathroom_motion_sensor_motion
 
 downstairs_hallway:
     name: Downstairs Hallway
@@ -162,7 +159,7 @@ back:
       - sensor.back_door_last_activity
       - sensor.back_door_last_ding
       - sensor.back_door_last_motion
-      - camera.back_door
+      - camera.back_camera
 
 # Upstairs
 
@@ -172,46 +169,28 @@ main_bedroom:
     entities:
       - switch.kitchen_tv_switch
       - media_player.master_bedroom_skyq
-      - sensor.velux_sensor_temperature
-      - sensor.velux_sensor_humidity
-      - sensor.velux_sensor_co2
-      - cover.velux_internal_cover_2
-      - cover.velux_internal_cover
-      - cover.velux_internal_cover_6
-      - cover.bedroom
       - climate.main_bedroom
-      - switch.main_bedroom_dads_bedside
-      - sensor.main_bedroom_dads_bedside_lamp_power_meter
 
-child1s_room:
-    name: child1s Room
+ethans_room:
+    name: Ethans Room
     icon: mdi:bed
     entities:
-      - binary_sensor.withings_in_bed_child1
-      - binary_sensor.child1_noise_sensor
-      - alarm_control_panel.blink_child1s_camera
-      - binary_sensor.child1s_room_motion_sensor_motion
-      - binary_sensor.blink_child1s_camera_motion_detected
-      - switch.child1_bedside_lamp
       - cover.velux_internal_cover_4
-      - media_player.child1s_room
-      - climate.child1s_room
-      - timer.child1_awake
+      - media_player.bedroom_1_alexa
+      - climate.bedroom_1
 
-child2s_room:
-    name: child2s Room
+edwards_room:
+    name: Edwards Room
     icon: mdi:bed
     entities:
-      - switch.child2_bedside_lamp
       - cover.velux_internal_cover_5
-      - media_player.child2s_room
-      - climate.child2s_room
+      - media_player.bedroom_2_alexa
+      - climate.bedroom_2
 
 upstairs_hall:
     name: Upstairs Hall
     icon: mdi:broom
     entities:
-      - climate.heating
       - water_heater.hot_water
 
 spare_room:

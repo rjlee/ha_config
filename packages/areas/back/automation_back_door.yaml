@@ -5,8 +5,9 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.back_door_contact_sensor
-      from: 'off'
-      to: 'on'
+
+      from: "off"
+      to: "on"
       for:
         hours: 0
         minutes: 5

@@ -1,6 +1,0 @@
-notify:
-  - name: family
-    platform: group
-    services:
-    - service: mobile_app_mobile_dad
-    - service: mobile_app_iphone_mini

@@ -2,3 +2,5 @@ input_boolean:
   bedroom1_asleep:
     name: bedroom1_asleep
     icon: mdi:bed
+  bedroom1_noise_sensor_on:
+    name: bedroom1_noise_sensor_on

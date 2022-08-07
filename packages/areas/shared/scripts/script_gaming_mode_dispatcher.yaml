@@ -11,10 +11,10 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.child2s_room') -%}
-             script.bedroom2_gaming_mode
-           {%- elif is_state('sensor.last_alexa', 'media_player.child1s_room') -%}
-             script.bedroom1_gaming_mode
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_gaming_mode
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              script.bedroom2_gaming_mode
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              script.bedroom1_gaming_mode
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_gaming_mode
+            {%- endif -%}

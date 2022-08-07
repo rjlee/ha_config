@@ -11,11 +11,11 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.kitchen') -%}
-             script.kitchen_clean_on
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_clean_on
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+              script.kitchen_clean_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_clean_on
+            {%- endif -%}
   clean_dispatch_off:
     alias: "Clean Dispatcher Off"
     icon: "mdi:vacuum"
@@ -28,11 +28,11 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.kitchen') -%}
-             script.kitchen_clean_off
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_clean_off
-           {%- endif -%}
+            {%- if is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+              script.kitchen_clean_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_clean_off
+            {%- endif -%}
   clean_dispatch_pause:
     alias: "Clean Dispatcher Pause"
     icon: "mdi:vacuum"
@@ -45,9 +45,8 @@ script:
       - service: script.turn_on
         data_template:
           entity_id: >
-           {%- if is_state('sensor.last_alexa', 'media_player.kitchen') -%}
-             script.kitchen_clean_pause
-           {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
-             script.lounge_clean_pause
-           {%- endif -%}
-
+            {%- if is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+              script.kitchen_clean_pause
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              script.lounge_clean_pause
+            {%- endif -%}

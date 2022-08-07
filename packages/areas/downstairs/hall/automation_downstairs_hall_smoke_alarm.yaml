@@ -1,18 +1,18 @@
 automation:
-    - id: 'downstairs_hall_smoke_alarm'
-      alias: Downstairs Hall - Smoke Alarm Monitoring
-      description: ''
-      mode: single
-      trigger:
+  - id: "downstairs_hall_smoke_alarm"
+    alias: Downstairs Hall - Smoke Alarm Monitoring
+    description: ""
+    mode: single
+    trigger:
       - platform: state
         entity_id: binary_sensor.downstairs_hall_smoke_alarm_smoke
-        from: 'off'
-        to: 'on'
-      action:
+        from: "off"
+        to: "on"
+    action:
       - service: notify.family
         data:
           title: SMOKE ALARM
-          message: SMOKE DETECTED - Check the house 
+          message: SMOKE DETECTED - Check the house
           data:
             push:
               sound:

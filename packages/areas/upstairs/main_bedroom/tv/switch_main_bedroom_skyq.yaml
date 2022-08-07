@@ -1,63 +1,63 @@
 switch:
   - platform: template
     switches:
-        skyq_bbconeyorksbedroom:
-          value_template: '{{"off"}}'
-          friendly_name: 'BBC One in the Bedroom'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_skyq
-              source: 'BBC One Yorks'
-          turn_off:
-            service: script.placeholder
-        skyq_bbctwohdbedroom:
-          value_template: '{{"off"}}'
-          friendly_name: 'BBC Two in the Bedroom'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_skyq
-              source: 'BBC Two HD'
-          turn_off:
-            service: script.placeholder
-        skyq_itvhdbedroom:
-          value_template: '{{"off"}}'
-          friendly_name: 'ITV in the Bedroom'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_skyq
-              source: 'ITV HD'
-          turn_off:
-            service: script.placeholder
-        skyq_channel4bedroom:
-          value_template: '{{"off"}}'
-          friendly_name: 'Channel 4 in the Bedroom'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_skyq
-              source: 'Channel 4'
-          turn_off:
-            service: script.placeholder
-        skyq_skyonehdbedroom:
-          value_template: '{{"off"}}'
-          friendly_name: 'Sky One in the Bedroom'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_skyq
-              source: 'Sky One HD'
-          turn_off:
-            service: script.placeholder
-        skyq_skynewshdbedroom:
-          value_template: '{{"off"}}'
-          friendly_name: 'Sky News in the Bedroom'
-          turn_on:
-            service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_skyq
-              source: 'Sky News HD'
-          turn_off:
-            service: script.placeholder
+      skyq_bbconeyorksbedroom:
+        value_template: '{{"off"}}'
+        friendly_name: "BBC One in the Bedroom"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.master_bedroom_skyq
+            source: "BBC One Yorks"
+        turn_off:
+          service: script.placeholder
+      skyq_bbctwohdbedroom:
+        value_template: '{{"off"}}'
+        friendly_name: "BBC Two in the Bedroom"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.master_bedroom_skyq
+            source: "BBC Two HD"
+        turn_off:
+          service: script.placeholder
+      skyq_itvhdbedroom:
+        value_template: '{{"off"}}'
+        friendly_name: "ITV in the Bedroom"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.master_bedroom_skyq
+            source: "ITV HD"
+        turn_off:
+          service: script.placeholder
+      skyq_channel4bedroom:
+        value_template: '{{"off"}}'
+        friendly_name: "Channel 4 in the Bedroom"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.master_bedroom_skyq
+            source: "Channel 4"
+        turn_off:
+          service: script.placeholder
+      skyq_skyonehdbedroom:
+        value_template: '{{"off"}}'
+        friendly_name: "Sky One in the Bedroom"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.master_bedroom_skyq
+            source: "Sky One HD"
+        turn_off:
+          service: script.placeholder
+      skyq_skynewshdbedroom:
+        value_template: '{{"off"}}'
+        friendly_name: "Sky News in the Bedroom"
+        turn_on:
+          service: media_player.select_source
+          data:
+            entity_id: media_player.master_bedroom_skyq
+            source: "Sky News HD"
+        turn_off:
+          service: script.placeholder

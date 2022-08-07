@@ -1,23 +1,23 @@
 automation:
-    - id: 'downstairs_hall_good_night'
-      alias: Downstairs Hall - Good Night
-      description: ''
-      trigger:
+  - id: "downstairs_hall_good_night"
+    alias: Downstairs Hall - Good Night
+    description: ""
+    trigger:
       - platform: time
         at: 00:00
-      condition:
+    condition:
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+    action:
       - service: light.turn_off
         target:
           entity_id:
             - light.downstairs_hall_lamp_level_light_color_on_off
-      mode: single
+    mode: single

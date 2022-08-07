@@ -1,0 +1,41 @@
+automation:
+  - id: "kitchen_tv_power_socket_on"
+    alias: Kitchen - TV Power Socket On
+    description: ""
+    trigger:
+      - platform: time
+        at: 06:00
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.kitchen_tv_power_switch
+    mode: single
+  - id: "kitchen_tv_power_socket_off"
+    alias: Kitchen - TV Power Socket Off
+    description: ""
+    trigger:
+      - platform: time
+        at: "00:00"
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.kitchen_tv_power_switch
+    mode: single

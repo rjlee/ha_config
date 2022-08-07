@@ -9,9 +9,9 @@ plant:
     min_battery: 15
     min_brightness: 4000
     max_brightness: 50000
-    min_temperature: 5 
+    min_temperature: 5
     max_temperature: 35
     min_moisture: 15
     max_moisture: 60
     min_conductivity: 350
-    max_conductivity: 2000   
+    max_conductivity: 2000

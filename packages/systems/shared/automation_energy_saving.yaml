@@ -1,23 +1,23 @@
 automation:
-    - id: 'energy_saving'
-      alias: Energy Saving
-      description: ''
-      mode: single
-      trigger:
+  - id: "energy_saving"
+    alias: Energy Saving
+    description: ""
+    mode: single
+    trigger:
       - platform: time
         at: 09:00
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.school_holidays
         state: "off"
       - condition: time
         weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-      action:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
       - service: light.turn_off
         target:
           entity_id:
@@ -30,10 +30,9 @@ automation:
         target:
           entity_id:
             - media_player.master_bedroom_skyq
-            - media_player.xbox_spareroom
-            - media_player.xbox_child2
+            - media_player.xbox_bedroom_1
+            - media_player.xbox_bedroom_2
       - service: remote.turn_off
         data: {}
         target:
           entity_id: remote.lounge
-

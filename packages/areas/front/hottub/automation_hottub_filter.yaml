@@ -1,54 +1,53 @@
 automation:
-    - id: 'front_hot_tub_filter_cycle_1'
-      alias: Front - Hot Tub - Filter Cycle 1
-      description: ''
-      trigger:
+  - id: "front_hot_tub_filter_cycle_1"
+    alias: Front - Hot Tub - Filter Cycle 1
+    description: ""
+    trigger:
       - platform: time
-        at: '06:00:00'
-      condition:
+        at: "06:00:00"
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: state
         entity_id: sensor.hottub_online
-        state: 'true'
-      action:
+        state: "true"
+    action:
       - service: switch.turn_on
         entity_id: switch.hottub_power
-      - delay: '00:00:05'
+      - delay: "00:00:05"
       - service: switch.turn_on
         entity_id: switch.hottub_filter
-      - delay: '02:00:00'
+      - delay: "02:00:00"
       - service: switch.turn_off
         entity_id: switch.hottub_power
-      - delay: '00:00:05'
+      - delay: "00:00:05"
       - service: switch.turn_off
         entity_id: switch.hottub_filter
-      mode: single
-    - id: 'front_hot_tub_filter_cycle_2'
-      alias: Front - Hot Tub - Filter Cycle 2
-      description: ''
-      trigger:
+    mode: single
+  - id: "front_hot_tub_filter_cycle_2"
+    alias: Front - Hot Tub - Filter Cycle 2
+    description: ""
+    trigger:
       - platform: time
-        at: '18:00:00'
-      condition:
+        at: "18:00:00"
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: state
         entity_id: sensor.hottub_online
-        state: 'true'
-      action:
+        state: "true"
+    action:
       - service: switch.turn_on
         entity_id: switch.hottub_power
-      - delay: '00:00:05'
+      - delay: "00:00:05"
       - service: switch.turn_on
         entity_id: switch.hottub_filter
-      - delay: '02:00:00'
+      - delay: "02:00:00"
       - service: switch.turn_off
         entity_id: switch.hottub_power
-      - delay: '00:00:05'
+      - delay: "00:00:05"
       - service: switch.turn_off
         entity_id: switch.hottub_filter
-      mode: single
-
+    mode: single

@@ -1,0 +1,23 @@
+automation:
+  - id: "kitchen_tv_state_on"
+    alias: Kitchen TV - State on
+    description: ""
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.kitchen_tv_power_switch_energy_power
+        above: "5"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.kitchen_tv_switch
+    mode: single
+  - id: "kitchen_tv_state_off"
+    alias: Kitchen TV - State off
+    description: ""
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.kitchen_tv_power_switch_energy_power
+        below: "5"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.kitchen_tv_switch
+    mode: single

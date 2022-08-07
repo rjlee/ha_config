@@ -1,47 +1,47 @@
 automation lounge_loungevr_wake:
-    - id: '1608473042965'
-      alias: Lounge - LoungeVR - Wake
-      description: ''
-      trigger:
+  - id: "1608473042965"
+    alias: Lounge - LoungeVR - Wake
+    description: ""
+    trigger:
       - platform: state
         entity_id: input_select.loungevr_options
         to: Wake
       - platform: time
         at: 02:00:00
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
-      action:
+    action:
       - service: wake_on_lan.send_magic_packet
         data:
           mac: FC:AA:14:62:3C:E3
-      - delay: '2'
+      - delay: "2"
       - service: input_select.select_option
         data:
           option: None
         entity_id: input_select.loungevr_options
-      mode: single
-    - id: '1608464432319'
-      alias: Lounge - LoungeVR - Sleep
-      description: ''
-      trigger:
+    mode: single
+  - id: "1608464432319"
+    alias: Lounge - LoungeVR - Sleep
+    description: ""
+    trigger:
       - platform: state
         entity_id: input_select.loungevr_options
         to: Sleep
       - platform: time
         at: 08:00:00
-      condition:
+    condition:
       - condition: state
         entity_id: input_boolean.on_holiday
         state: "off"
-      action:
+    action:
       - service: shell_command.sleep_loungevr
         data:
           option: None
-      - delay: '2'
+      - delay: "2"
       - service: input_select.select_option
         data:
           option: None
         entity_id: input_select.loungevr_options
-      mode: single
+    mode: single
