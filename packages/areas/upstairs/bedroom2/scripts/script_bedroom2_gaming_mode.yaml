@@ -14,5 +14,4 @@ script:
           - light.bedroom_2_led_lamp
       - service: cover.close_cover
         target:
-          #          entity_id: cover.velux_internal_cover_5
           entity_id: cover.bedroom_2

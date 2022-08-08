@@ -10,25 +10,7 @@ automation:
       entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
       to: "off"
       for: "00:02:00"
-    # condition:
-    #   condition: state
-    #   entity_id: light.downstairs_bathroom_light
-    #   state: 'on'
-    # trigger:
-    #   platform: state
-    #   entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
-    #   from: 'off'
-    #   to: 'on'
     action:
-      #   - service: light.turn_on
-      #     target:
-      #       entity_id: light.downstairs_bathroom_light
-      #   - wait_for_trigger:
-      #       platform: state
-      #       entity_id: binary_sensor.downstairs_bathroom_motion_sensor_motion
-      #       from: 'on'
-      #       to: 'off'
-      #   - delay: 600
       - service: light.turn_off
         target:
           entity_id: light.downstairs_bathroom_light

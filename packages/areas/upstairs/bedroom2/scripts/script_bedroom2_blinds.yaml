@@ -6,7 +6,6 @@ script:
     sequence:
       - service: cover.open_cover
         target:
-          #          entity_id: cover.velux_internal_cover_5
           entity_id: cover.bedroom_2
   bedroom2_blind_close:
     alias: Bedroom 2 Blinds Close
@@ -15,5 +14,4 @@ script:
     sequence:
       - service: cover.close_cover
         target:
-          #          entity_id: cover.velux_internal_cover_5
           entity_id: cover.bedroom_2

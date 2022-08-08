@@ -11,13 +11,6 @@ script:
       - service: script.turn_on
         data:
           entity_id: script.main_bedroom_blind_open
-  #   - service: cover.open_cover
-  #     target:
-  #       entity_id:
-  #       - cover.mainbedroomcurtains
-  #       - cover.main_bedroom_1
-  #       - cover.main_bedroom_2
-  #       - cover.belltower
   main_bedroom_good_night:
     alias: "Main bedroom good night routine"
     icon: mdi:weather-night
@@ -30,10 +23,3 @@ script:
       - service: script.turn_on
         data:
           entity_id: script.main_bedroom_blind_close
-  #   - service: cover.close_cover
-  #     target:
-  #       entity_id:
-  #       - cover.mainbedroomcurtains
-  #       - cover.main_bedroom_1
-  #       - cover.main_bedroom_2
-  #       - cover.belltower

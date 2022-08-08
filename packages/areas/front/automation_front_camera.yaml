@@ -1,12 +1,3 @@
-#folder_watcher:
-#  - folder: /media/camera/front
-#    patterns:
-#      - '*.jpg'
-
-#  condition:
-#    condition: template
-#    value_template: "{{ if '/media/camera/front/' in {{ trigger.event.data.folder }} }}"
-
 automation:
   - id: front_camera_alert
     alias: "Front Camera Motion Alert"
@@ -15,24 +6,24 @@ automation:
       conditions:
         - condition: state
           entity_id: alarm_control_panel.alarmo
-          state: 'armed_home'
+          state: "armed_home"
         - condition: state
           entity_id: alarm_control_panel.alarmo
-          state: 'armed_away'
-#        - condition:
-#          condition: and
-#          conditions:
-#            - condition: state
-#              entity_id: binary_sensor.front_door_contact_sensor
-#              state: 'off'
-#            - condition: state
-#              entity_id: group.people
-#              state: 'not_home'
+          state: "armed_away"
+    #        - condition:
+    #          condition: and
+    #          conditions:
+    #            - condition: state
+    #              entity_id: binary_sensor.front_door_contact_sensor
+    #              state: 'off'
+    #            - condition: state
+    #              entity_id: group.people
+    #              state: 'not_home'
     trigger:
       - platform: state
         entity_id: binary_sensor.front_camera_person_motion
-        from: 'off'
-        to: 'on'
+        from: "off"
+        to: "on"
       - platform: event
         event_type: folder_watcher
         event_data:
@@ -47,7 +38,7 @@ automation:
           title: Front Camera Motion
           message: "Hold message to view image"
           data:
-            url: '/lovelace-downstairs/front'
+            url: "/lovelace-downstairs/front"
             attachment:
               url: "/media/local/camera/front-latest.jpg"
               content-type: "JPEG"

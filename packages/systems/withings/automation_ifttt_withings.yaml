@@ -5,7 +5,7 @@ automation:
       - platform: event
         event_type: ifttt_webhook_received
         event_data:
-          action: call_service # the same action 'name' you used in the Body section of the IFTTT recipe
+          action: call_service
     condition: []
     action:
       - service: "{{ trigger.event.data.service }}"

@@ -1,10 +1,10 @@
 template:
   - sensor:
-    - name: "Kitchen Dishwasher Duration Friendly"
-      unique_id: kitchen_dishwasher_duration_friendly
-      state: >
-        {% if states('sensor.dishwasher_remaining_program_time')  != 'unavailable' %}
-          {{ (as_timestamp(states('sensor.dishwasher_remaining_program_time')) - as_timestamp(utcnow())) | timestamp_custom('%H:%M', false) }}
-        {% else %}
-          Not running
-        {% endif %}
+      - name: "Kitchen Dishwasher Duration Friendly"
+        unique_id: kitchen_dishwasher_duration_friendly
+        state: >
+          {% if states('sensor.dishwasher_remaining_program_time')  != 'unavailable' %}
+            {{ (as_timestamp(states('sensor.dishwasher_remaining_program_time')) - as_timestamp(utcnow())) | timestamp_custom('%H:%M', false) }}
+          {% else %}
+            Not running
+          {% endif %}

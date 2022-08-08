@@ -1,9 +1,0 @@
-#binary_sensor:
-#  - platform: ffmpeg_noise
-#    name: "Bedroom2 noise sensor"
-#    input: !secret bedroom2_noise_sensor_input
-#    initial_state: true
-#    extra_arguments: -nostats
-#    duration: 1
-#    reset: 5
-#    peak: -27
