@@ -6,9 +6,11 @@
     "config": {
       "views": [
         {
+          "theme": "Backend-selected",
           "title": "Main Bedroom",
           "path": "main-bedroom",
           "icon": "",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -205,16 +207,16 @@
                   "icon": ""
                 },
                 {
-                  "entity": "media_player.xbox_spareroom",
+                  "entity": "media_player.xbox_bedroom_1",
                   "name": "Xbox"
                 },
                 {
-                  "entity": "sensor.bedroom1_laptop_sessionstate",
+                  "entity": "sensor.bedroom2_laptop_sessionstate",
                   "icon": "mdi:laptop",
                   "name": "Laptop"
                 },
                 {
-                  "entity": "input_select.ethan_laptop_options",
+                  "entity": "input_select.bedroom_1_laptop_options",
                   "icon": "mdi:laptop"
                 }
               ],
@@ -396,7 +398,7 @@
                   "name": "Laptop"
                 },
                 {
-                  "entity": "input_select.edward_laptop_options",
+                  "entity": "input_select.bedroom_2_laptop_options",
                   "icon": "mdi:laptop",
                   "secondary_info": "none"
                 }
@@ -444,7 +446,7 @@
                   "icon": ""
                 },
                 {
-                  "entity": "binary_sensor.ssg_2440_active",
+                  "entity": "binary_sensor.dads_work_laptop_active",
                   "name": "Macbook Air",
                   "icon": "mdi:laptop"
                 },

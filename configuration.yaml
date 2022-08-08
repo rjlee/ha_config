@@ -37,10 +37,6 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 panel_iframe:
-  configurator:
-    title: File Editor
-    icon: mdi:wrench
-    url: !secret url_file_editor
   vscode:
     title: VSCode
     icon: mdi:wrench

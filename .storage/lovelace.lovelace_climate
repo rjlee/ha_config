@@ -280,8 +280,10 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Cameras",
           "path": "cameras",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {

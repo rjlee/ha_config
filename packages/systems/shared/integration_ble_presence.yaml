@@ -1,4 +1,4 @@
-sensor:
-  - platform: mqtt
-    name: "libby ble"
-    state_topic: blescan/presence/libby
+mqtt:
+  sensor:
+    - name: "libby ble"
+      state_topic: blescan/presence/libby
