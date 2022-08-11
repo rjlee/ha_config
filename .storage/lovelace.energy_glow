@@ -160,21 +160,15 @@
             },
             {
               "type": "custom:layout-card",
-              "layout_type": "grid",
+              "layout_type": "custom:grid-layout",
               "layout": {
-                "margin": "0 -4px",
-                "grid-template-columns": "1fr 1fr",
-                "grid-template-rows": "auto",
-                "mediaquery": {
-                  "(max-width: 900px)": {
-                    "grid-template-columns": "1fr"
-                  }
-                }
+                "grid-template-columns": "100%",
+                "place-content": "center"
               },
               "cards": [
                 {
-                  "type": "energy-devices-graph",
-                  "title": "Electricity usage"
+                  "type": "markdown",
+                  "content": "[Energy Dashboard](/energy)"
                 }
               ]
             }

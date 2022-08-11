@@ -39,3 +39,58 @@ automation:
           entity_id:
             - switch.bedroom_1_power_socket
     mode: single
+  - id: "bedroom_1_power_socket_energy_saver_on"
+    alias:  Bedroom 1 Power Socket Energy Saver On
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bedroom_1_motion_sensor_motion
+        to: "on"
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
+          - condition: state
+            entity_id: switch.bedroom_1_power_socket
+            state: "off"
+          - condition: time
+            after: "08:00:00"
+            before: "22:00:00"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket
+    mode: single
+  - id: "bedroom_1_power_socket_energy_saver_off"
+    alias: Bedroom 1 - Power Socket Energy Saver Off
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bedroom_1_motion_sensor_motion
+        to: "off"
+        for: 00:30:00
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
+          - condition: state
+            entity_id: switch.bedroom_1_power_socket
+            state: "on"
+          - condition: time
+            after: "08:00:00"
+            before: "22:00:00"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket
+    mode: single
