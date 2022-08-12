@@ -33,13 +33,13 @@
               "type": "conditional",
               "conditions": [
                 {
-                  "entity": "sensor.unavailable_entities",
+                  "entity": "watchman",
                   "state_not": "0"
                 }
               ],
               "card": {
                 "type": "markdown",
-                "content": "{%- if (state_attr('sensor.unavailable_entities','entities') == 0 ) %}\n  No unavailable entities\n{% else %} {%- for device in state_attr('sensor.unavailable_entities','entities')  -%} - {{ device ~ '\\n' }} {%- endfor %} {% endif %}\n",
+                "content": "{%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}]</td></tr></table> {%- endfor %}",
                 "title": "Unavailable Entities"
               }
             },

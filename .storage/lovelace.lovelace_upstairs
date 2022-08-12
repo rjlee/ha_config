@@ -74,9 +74,11 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Ethans Room",
           "path": "ethans-room",
           "icon": "",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -251,8 +253,10 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Edwards Room",
           "path": "edwards-room",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -370,7 +374,7 @@
                   "name": "LED Corner Lamp"
                 },
                 {
-                  "entity": "light.bedroom_2_led_sign_on_off",
+                  "entity": "light.bedroom_2_led_sign",
                   "name": "LED Gaming Sign"
                 },
                 {

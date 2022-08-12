@@ -10,7 +10,7 @@ script:
         entity_id: light.bedroom2_light
       - service: light.turn_on
         entity_id:
-          - light.bedroom_2_led_sign_on_off
+          - light.bedroom_2_led_sign
           - light.bedroom_2_led_lamp
       - service: cover.close_cover
         target:

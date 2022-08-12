@@ -10,12 +10,12 @@ automation:
           - service: light.turn_on
             data: {}
             target:
-              entity_id: light.bedroom_2_led_sign_on_off
+              entity_id: light.bedroom_2_led_sign
         button_double_press:
           - service: light.turn_off
             data: {}
             target:
-              entity_id: light.bedroom_2_led_sign_on_off
+              entity_id: light.bedroom_2_led_sign
         button_long_press:
           - service: script.turn_on
             data: {}

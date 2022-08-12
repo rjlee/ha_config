@@ -244,6 +244,7 @@ group:
       - sensor.dishwasher_duration
       - sensor.dishwasher_program_progress
       - sensor.dishwasher_remaining_program_time
+      - sensor.ethan_laptop_sessionstate
 
 binary_sensor:
   - platform: template
