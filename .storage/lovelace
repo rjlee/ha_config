@@ -33,7 +33,7 @@
               "type": "conditional",
               "conditions": [
                 {
-                  "entity": "watchman",
+                  "entity": "sensor.watchman_missing_entities",
                   "state_not": "0"
                 }
               ],

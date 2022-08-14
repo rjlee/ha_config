@@ -1,99 +1,104 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace_resources",
-    "data": {
-        "items": [
-            {
-                "url": "/hacsfiles/lovelace-state-switch/state-switch.js?hacstag=158756598195",
-                "type": "module",
-                "id": "98b2474ceb754567a9398773ff4201a8"
-            },
-            {
-                "url": "/hacsfiles/harmony-card/harmony-card.js?hacstag=2375327500141",
-                "type": "module",
-                "id": "5b3a8ee07bd94b8381ccb391bc4cf03f"
-            },
-            {
-                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841110",
-                "type": "module",
-                "id": "3fe32ce15d4d42e980e83a71c149db9b"
-            },
-            {
-                "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js?hacstag=2070182001201",
-                "type": "module",
-                "id": "b76242780a214d09adc89daa4e92b76f"
-            },
-            {
-                "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295263",
-                "type": "module",
-                "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
-            },
-            {
-                "url": "/hacsfiles/transmission-card/transmission-card.js?hacstag=315044466083",
-                "type": "module",
-                "id": "cb9d00fe1a0b470d94a622490fec471a"
-            },
-            {
-                "url": "/hacsfiles/button-card/button-card.js",
-                "type": "module",
-                "id": "d483028062714d8c90e1c76c4fd36664"
-            },
-            {
-                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
-                "type": "module",
-                "id": "0db750640e354b4b8692f6e18faef0d7"
-            },
-            {
-                "url": "/hacsfiles/bar-card/bar-card.js?hacstag=163363577320",
-                "type": "module",
-                "id": "271aeb7582cf4f8bbfcb1200b5fa8657"
-            },
-            {
-                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524315",
-                "type": "module",
-                "id": "0607c62adee040dbab2c22f1da5f681a"
-            },
-            {
-                "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854141",
-                "type": "module",
-                "id": "32aaedb852dc4c2eb231e3b527861e94"
-            },
-            {
-                "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211",
-                "type": "module",
-                "id": "56b4922242c8421a84aba338d58199c9"
-            },
-            {
-                "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152201",
-                "type": "module",
-                "id": "6810d8c57e3e4a6ea44ef6f7a7f6b444"
-            },
-            {
-                "url": "/hacsfiles/uptime-card/uptime-card.js?hacstag=3505098670111",
-                "type": "module",
-                "id": "373c26562a1e483c97b4a13198004e59"
-            },
-            {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
-                "type": "module",
-                "id": "6dca9dcf7fd54ece86cbace068425519"
-            },
-            {
-                "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?hacstag=142051833042",
-                "type": "module",
-                "id": "7494adb46b1b4cc5af05ca7e81c8c8bb"
-            },
-            {
-                "url": "/hacsfiles/frigate-hass-card/frigate-hass-card.js?hacstag=394082552300",
-                "type": "module",
-                "id": "3bee5ebd39984bab9907a52cb1c78418"
-            },
-            {
-                "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=501725479150",
-                "type": "module",
-                "id": "3a823bc924514593b915c989daa9f548"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "url": "/hacsfiles/lovelace-state-switch/state-switch.js?hacstag=158756598195",
+        "type": "module",
+        "id": "98b2474ceb754567a9398773ff4201a8"
+      },
+      {
+        "url": "/hacsfiles/harmony-card/harmony-card.js?hacstag=2375327500141",
+        "type": "module",
+        "id": "5b3a8ee07bd94b8381ccb391bc4cf03f"
+      },
+      {
+        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841110",
+        "type": "module",
+        "id": "3fe32ce15d4d42e980e83a71c149db9b"
+      },
+      {
+        "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js?hacstag=2070182001201",
+        "type": "module",
+        "id": "b76242780a214d09adc89daa4e92b76f"
+      },
+      {
+        "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295263",
+        "type": "module",
+        "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
+      },
+      {
+        "url": "/hacsfiles/transmission-card/transmission-card.js?hacstag=315044466083",
+        "type": "module",
+        "id": "cb9d00fe1a0b470d94a622490fec471a"
+      },
+      {
+        "url": "/hacsfiles/button-card/button-card.js",
+        "type": "module",
+        "id": "d483028062714d8c90e1c76c4fd36664"
+      },
+      {
+        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
+        "type": "module",
+        "id": "0db750640e354b4b8692f6e18faef0d7"
+      },
+      {
+        "url": "/hacsfiles/bar-card/bar-card.js?hacstag=163363577320",
+        "type": "module",
+        "id": "271aeb7582cf4f8bbfcb1200b5fa8657"
+      },
+      {
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524315",
+        "type": "module",
+        "id": "0607c62adee040dbab2c22f1da5f681a"
+      },
+      {
+        "url": "/hacsfiles/alarmo-card/alarmo-card.js?hacstag=391372854141",
+        "type": "module",
+        "id": "32aaedb852dc4c2eb231e3b527861e94"
+      },
+      {
+        "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211",
+        "type": "module",
+        "id": "56b4922242c8421a84aba338d58199c9"
+      },
+      {
+        "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152201",
+        "type": "module",
+        "id": "6810d8c57e3e4a6ea44ef6f7a7f6b444"
+      },
+      {
+        "url": "/hacsfiles/uptime-card/uptime-card.js?hacstag=3505098670111",
+        "type": "module",
+        "id": "373c26562a1e483c97b4a13198004e59"
+      },
+      {
+        "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
+        "type": "module",
+        "id": "6dca9dcf7fd54ece86cbace068425519"
+      },
+      {
+        "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?hacstag=142051833042",
+        "type": "module",
+        "id": "7494adb46b1b4cc5af05ca7e81c8c8bb"
+      },
+      {
+        "url": "/hacsfiles/frigate-hass-card/frigate-hass-card.js?hacstag=394082552300",
+        "type": "module",
+        "id": "3bee5ebd39984bab9907a52cb1c78418"
+      },
+      {
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=501725479150",
+        "type": "module",
+        "id": "3a823bc924514593b915c989daa9f548"
+      },
+      {
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375213",
+        "type": "module",
+        "id": "bd8e68bfcd4e4a0898f51ab155cee524"
+      }
+    ]
+  }
 }

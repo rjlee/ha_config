@@ -112,6 +112,9 @@
               "type": "history-graph",
               "entities": [
                 {
+                  "entity": "sensor.lounge_awair_temp"
+                },
+                {
                   "entity": "sensor.lounge_awair_score"
                 },
                 {
