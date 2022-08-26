@@ -2,10 +2,17 @@ automation:
   - id: "bedroom1_xbox_off"
     alias: Bedroom 1 - Xbox - Off
     description: ""
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.school_holidays
+            state: "off"
     trigger:
       - platform: time
         at: "21:00:00"
-    condition: []
     action:
       - service: media_player.turn_off
         data: {}

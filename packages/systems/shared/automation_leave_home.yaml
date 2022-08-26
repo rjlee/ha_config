@@ -18,6 +18,11 @@ automation:
         target:
           entity_id:
             - light.downstairs_hall_lamp_level_light_color_on_off
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.reolink_lounge_recording
+            - switch.reolink_kitchen_recording
     mode: single
   - id: "leave_home_ethan"
     alias: Presence - Leave Home Ethan
