@@ -98,6 +98,11 @@
         "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375213",
         "type": "module",
         "id": "bd8e68bfcd4e4a0898f51ab155cee524"
+      },
+      {
+        "url": "/hacsfiles/ha-card-weather-conditions/ha-card-weather-conditions.js?hacstag=2609401361912",
+        "type": "module",
+        "id": "7a85dc02782c4fe090922f9675f0577f"
       }
     ]
   }

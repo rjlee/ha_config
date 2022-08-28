@@ -36,9 +36,9 @@ automation lounge_loungevr_wake:
         entity_id: input_boolean.on_holiday
         state: "off"
     action:
-      - service: shell_command.sleep_loungevr
-        data:
-          option: None
+      - service: button.press
+        target:
+          entity_id: button.loungevr_sleep
       - delay: "2"
       - service: input_select.select_option
         data:

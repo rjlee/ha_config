@@ -1,5 +1,5 @@
 automation:
-  - id: "bedroom2_led_sign_on"
+  - id: "bedroom_2_led_sign_on"
     alias: Bedroom2 - LED Sign On
     description: ""
     trigger:
@@ -8,7 +8,7 @@ automation:
         from: "off"
         to: "playing"
       - platform: state
-        entity_id: sensor.bedroom2_laptop_sessionstate
+        entity_id: sensor.bedroom_2_laptop_sessionstate
         from: "unavailable"
     condition: []
     action:
@@ -17,7 +17,7 @@ automation:
           entity_id:
             - light.bedroom_2_led_sign
     mode: single
-  - id: "bedroom2_led_sign_off"
+  - id: "bedroom_2_led_sign_off"
     alias: Bedroom2 - LED Sign Off
     description: ""
     trigger:
@@ -26,7 +26,7 @@ automation:
         from: "playing"
         to: "off"
       - platform: state
-        entity_id: sensor.bedroom2_laptop_sessionstate
+        entity_id: sensor.bedroom_2_laptop_sessionstate
         to: "unavailable"
     condition:
       condition: and
@@ -35,7 +35,7 @@ automation:
           entity_id: media_player.xbox_bedroom_2
           state: "off"
         - condition: state
-          entity_id: sensor.bedroom2_laptop_sessionstate
+          entity_id: sensor.bedroom_2_laptop_sessionstate
           state: "unavailable"
     action:
       - service: light.turn_off

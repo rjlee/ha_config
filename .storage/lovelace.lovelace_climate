@@ -78,8 +78,8 @@
             },
             {
               "type": "iframe",
-              "url": "http://ha.home:8123/local/servers.html?t=26",
-              "aspect_ratio": "95%",
+              "url": "http://ha.home:8123/local/servers.html?t=27",
+              "aspect_ratio": "100%",
               "title": "Services"
             }
           ]

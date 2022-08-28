@@ -213,8 +213,9 @@
                   "name": "Xbox"
                 },
                 {
-                  "entity": "sensor.bedroom1_laptop_sessionstate",
-                  "name": "Laptop"
+                  "entity": "sensor.bedroom_1_laptop_sessionstate",
+                  "name": "Laptop",
+                  "icon": "mdi:laptop"
                 },
                 {
                   "entity": "input_select.bedroom_1_laptop_options",
@@ -396,7 +397,7 @@
                   "name": "Xbox"
                 },
                 {
-                  "entity": "sensor.bedroom2_laptop_sessionstate",
+                  "entity": "sensor.bedroom_2_laptop_sessionstate",
                   "icon": "mdi:laptop",
                   "name": "Laptop"
                 },
