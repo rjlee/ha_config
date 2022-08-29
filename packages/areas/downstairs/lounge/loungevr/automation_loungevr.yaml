@@ -6,8 +6,8 @@ automation lounge_loungevr_wake:
       - platform: state
         entity_id: input_select.loungevr_options
         to: Wake
-      - platform: time
-        at: 02:00:00
+ #     - platform: time
+ #       at: 02:00:00
     condition:
       - condition: state
         entity_id: input_boolean.on_holiday
@@ -29,8 +29,8 @@ automation lounge_loungevr_wake:
       - platform: state
         entity_id: input_select.loungevr_options
         to: Sleep
-      - platform: time
-        at: 08:00:00
+#      - platform: time
+#        at: 08:00:00
     condition:
       - condition: state
         entity_id: input_boolean.on_holiday
