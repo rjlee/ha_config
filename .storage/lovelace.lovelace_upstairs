@@ -215,15 +215,6 @@
                 {
                   "entity": "switch.bedroom1_laptop_switch",
                   "name": "Laptop"
-                },
-                {
-                  "entity": "sensor.bedroom_1_laptop_sessionstate",
-                  "name": "Laptop",
-                  "icon": "mdi:laptop"
-                },
-                {
-                  "entity": "input_select.bedroom_1_laptop_options",
-                  "icon": "mdi:laptop"
                 }
               ],
               "show_header_toggle": false
@@ -383,13 +374,13 @@
                   "name": "LED Gaming Sign"
                 },
                 {
+                  "entity": "switch.bedroom_2_power_socket",
+                  "name": "Power Socket"
+                },
+                {
                   "entity": "media_player.bedroom_2_alexa",
                   "name": "Alexa",
                   "icon": ""
-                },
-                {
-                  "entity": "switch.bedroom_2_power_socket",
-                  "name": "Power Socket"
                 },
                 {
                   "entity": "switch.bedroom2_tv_switch",

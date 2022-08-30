@@ -57,16 +57,15 @@ automation:
         entity_id: person.ethan
         from: home
         to: not_home
-    condition:
-      - condition: state
-        entity_id: "switch.bedroom1_laptop_hibernate"
-        state: "unknown"
     action:
       - service: switch.turn_off
         target:
           entity_id:
             - switch.bedroom_1_light_relay_0
-      - service: switch.toggle
+      - service: button.press
         target:
-          entity_id: switch.bedroom1_laptop_hibernate
+          entity_id: button.bedroom_1_laptop_sleep
+      - service: media_player.turn_off
+        data: {}
+        entity_id: media_player.xbox_bedroom_1
     mode: single
