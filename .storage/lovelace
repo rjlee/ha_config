@@ -369,6 +369,10 @@
                   "show_state": false,
                   "entities": [
                     {
+                      "entity": "binary_sensor.main_bedroom_presence_person_occupancy",
+                      "name": "Main Bed"
+                    },
+                    {
                       "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                       "name": "Bedroom 1"
                     },
@@ -394,11 +398,11 @@
                   "show_state": false,
                   "entities": [
                     {
-                      "entity": "binary_sensor.front_camera_person_motion",
+                      "entity": "binary_sensor.front_camera_person_occupancy",
                       "name": "Front"
                     },
                     {
-                      "entity": "binary_sensor.lounge_camera_person_motion",
+                      "entity": "binary_sensor.lounge_camera_person_occupancy",
                       "name": "Lounge"
                     },
                     {
@@ -410,7 +414,7 @@
                       "name": "WC"
                     },
                     {
-                      "entity": "binary_sensor.back_camera_person_motion",
+                      "entity": "binary_sensor.back_camera_person_occupancy",
                       "name": "Back"
                     }
                   ],

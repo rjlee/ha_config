@@ -44,7 +44,7 @@ automation:
     description: ""
     trigger:
       - platform: state
-        entity_id: binary_sensor.lounge_camera_person_motion
+        entity_id: binary_sensor.lounge_camera_person_occupancy
         to: "on"
     condition:
       - and:
@@ -68,7 +68,7 @@ automation:
     description: ""
     trigger:
       - platform: state
-        entity_id: binary_sensor.lounge_camera_person_motion
+        entity_id: binary_sensor.lounge_camera_person_occupancy
         to: "off"
         for: 00:30:00
     condition:

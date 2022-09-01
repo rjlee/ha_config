@@ -21,7 +21,7 @@ automation:
     #              state: 'not_home'
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_camera_person_motion
+        entity_id: binary_sensor.front_camera_person_occupancy
         from: "off"
         to: "on"
       - platform: event
