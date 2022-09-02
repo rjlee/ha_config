@@ -1,0 +1,16 @@
+automation:
+  - id: main_bedroom_motion_light
+    alias: Main Bedroom - Motion Light
+    description: ""
+    mode: restart
+    max_exceeded: silent
+
+    trigger:
+      platform: state
+      entity_id: binary_sensor.main_bedroom_presence_person_occupancy
+      to: "off"
+      for: "00:10:00"
+    action:
+      - service: light.turn_off
+        target:
+          entity_id: light.main_bedroom_light

@@ -374,11 +374,11 @@
                     },
                     {
                       "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                      "name": "Bedroom 1"
+                      "name": "Bed 1"
                     },
                     {
                       "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                      "name": "Bedroom 2"
+                      "name": "Bed 2"
                     },
                     {
                       "entity": "binary_sensor.spare_room_motion_sensor_motion",
