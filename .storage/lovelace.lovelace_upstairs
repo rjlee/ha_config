@@ -483,7 +483,7 @@
                   "name": "Alexa"
                 },
                 {
-                  "entity": "binary_sensor.lumi_lumi_sensor_wleak_aq1_ias_zone",
+                  "entity": "binary_sensor.lumi_lumi_sensor_wleak_aq1_iaszone",
                   "name": "Leak"
                 }
               ]
