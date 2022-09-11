@@ -82,6 +82,13 @@ automation:
           - condition: state
             entity_id: switch.lounge_window_power_socket
             state: "on"
+          - condition: time
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
     action:
       - service: switch.turn_off
         target:
