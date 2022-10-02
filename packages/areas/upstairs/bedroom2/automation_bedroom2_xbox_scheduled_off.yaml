@@ -16,7 +16,6 @@ automation:
               - tue
               - wed
               - thu
-              - fri
     trigger:
       - platform: time
         at: "21:00:00"

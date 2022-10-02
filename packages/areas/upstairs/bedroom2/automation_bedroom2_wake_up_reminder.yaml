@@ -1,0 +1,61 @@
+automation:
+  - id: "bedroom2_wake_up_reminder"
+    alias: Bedroom 2 - Wake Up Reminder
+    description: ""
+    trigger:
+      - platform: time
+        at: 07:15:00
+    condition:
+      - condition: state
+        entity_id: input_boolean.school_holidays
+        state: "off"
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.bedroom_2_alexa
+          volume_level: 0.5
+      - service: notify.alexa_media
+        data:
+          message: Good morning, its time to get up for school.
+          data:
+            type: tts
+          target:
+            - media_player.bedroom_2_alexa
+    mode: single
+  - id: "bedroom2_leave_reminder"
+    alias: Bedroom 2 - Leave Reminder
+    description: ""
+    trigger:
+      - platform: time
+        at: 08:20:00
+    condition:
+      - condition: state
+        entity_id: input_boolean.school_holidays
+        state: "off"
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.bedroom_2_alexa
+          volume_level: 0.5
+      - service: notify.alexa_media
+        data:
+          message: Reminder.  Don't forget to put your deodorant on.
+          data:
+            type: tts
+          target:
+            - media_player.bedroom_2_alexa
+    mode: single

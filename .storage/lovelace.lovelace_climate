@@ -294,31 +294,29 @@
               "cameras": [
                 {
                   "camera_entity": "camera.lounge_camera",
-                  "frigate_url": "http://frigate.home:5000"
+                  "frigate": {
+                    "client_id": "frigate0"
+                  }
                 },
                 {
-                  "camera_entity": "camera.kitchen_camera"
+                  "camera_entity": "camera.kitchen_camera",
+                  "frigate": {
+                    "client_id": "frigate0"
+                  }
                 },
                 {
-                  "camera_entity": "camera.front_camera"
+                  "camera_entity": "camera.front_camera",
+                  "frigate": {
+                    "client_id": "frigate0"
+                  }
                 },
                 {
-                  "camera_entity": "camera.back_camera"
+                  "camera_entity": "camera.back_camera",
+                  "frigate": {
+                    "client_id": "frigate0"
+                  }
                 }
-              ],
-              "view": {
-                "default": "snapshot"
-              },
-              "menu": {
-                "buttons": {
-                  "image": true,
-                  "download": true
-                },
-                "mode": "overlay-bottom"
-              },
-              "image": {
-                "mode": "camera"
-              }
+              ]
             },
             {
               "type": "custom:auto-entities",
