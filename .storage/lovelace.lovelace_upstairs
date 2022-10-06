@@ -388,6 +388,10 @@
                   "icon": "mdi:television"
                 },
                 {
+                  "entity": "media_player.xboxs_edward",
+                  "name": "XBox-S"
+                },
+                {
                   "entity": "media_player.xbox_bedroom_2",
                   "name": "Xbox"
                 },

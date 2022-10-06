@@ -135,6 +135,10 @@
                       "name": "Import"
                     },
                     {
+                      "entity": "sensor.smart_meter_gas_import_vol",
+                      "name": "Import (Volume)"
+                    },
+                    {
                       "entity": "sensor.smart_meter_gas_import_this_week",
                       "name": "Import (This week)"
                     },

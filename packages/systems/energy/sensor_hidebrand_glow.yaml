@@ -88,6 +88,19 @@ mqtt:
           {{ value_json['gasmeter']['energy']['import']['cumulative'] }}
         {% endif %}
       icon: "mdi:fire"
+    - name: "Smart Meter Gas: Import Vol"
+      unique_id: "smart_meter_gas_import_vol"
+      state_topic: "glow/441793506AB4/SENSOR/gasmeter"
+      device_class: "energy"
+      unit_of_measurement: "m3"
+      state_class: "total_increasing"
+      value_template: >
+        {% if value_json['gasmeter']['energy']['import']['cumulativevol'] == 0 %}
+          {{ states('sensor.smart_meter_gas_import_vol') }}
+        {% else %}
+          {{ value_json['gasmeter']['energy']['import']['cumulativevol'] }}
+        {% endif %}
+      icon: "mdi:fire"
     - name: "Smart Meter Gas: Import (Today)"
       unique_id: "smart_meter_gas_import_today"
       state_topic: "glow/441793506AB4/SENSOR/gasmeter"
