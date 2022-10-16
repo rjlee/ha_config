@@ -104,11 +104,9 @@
                 "sensor.upstairs_bathroom_motion_sensor_battery",
                 "sensor.downstairs_bathroom_motion_sensor_battery",
                 "sensor.back_door_battery",
-                "sensor.lumi_lumi_sensor_wleak_aq1_power",
-                "sensor.kitchen_cupboard_motion_sensor_power",
-                "sensor.lounge_motion_sensor_battery",
                 "sensor.downstairs_hall_smoke_alarm_power",
-                "sensor.front_gate_contact_sensor_power"
+                "sensor.front_gate_contact_sensor_power",
+                "sensor.lumi_lumi_sensor_wleak_aq1_battery"
               ],
               "filter": {
                 "exclude": [
