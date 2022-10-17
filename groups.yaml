@@ -63,7 +63,7 @@ on_holiday_lights:
   icon: mdi:lightbulb-multiple
   entities:
     - light.lounge_lights_light_0
-    - switch.main_bedroom_lights_relay_0
+    - light.main_bedroom_light
 
 radiators:
     name: Radiators

@@ -15,3 +15,13 @@ script:
     sequence:
       - service: light.turn_off
         entity_id: light.main_bedroom_light
+  main_bedroom_light_dim:
+    alias: "Main bedroom light Dim"
+    icon: mdi:lightbulb
+    description: "Dims the main bedroom lights"
+    mode: single
+    sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: 35
+        entity_id: light.main_bedroom_light

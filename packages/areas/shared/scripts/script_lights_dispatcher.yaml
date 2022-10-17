@@ -67,4 +67,6 @@ script:
           entity_id: >
             {%- if is_state('sensor.last_alexa', 'media_player.lounge') -%}
               script.lounge_light_dim
+            {%- elif is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              script.main_bedroom_light_dim
             {%- endif -%}

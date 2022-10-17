@@ -21,6 +21,16 @@
               "type": "entities",
               "entities": [
                 {
+                  "entity": "light.main_bedroom_light",
+                  "name": "Lights"
+                }
+              ],
+              "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
                   "entity": "switch.main_bedroom_power_socket",
                   "name": "Power Socket"
                 },
