@@ -83,6 +83,8 @@ automation:
             entity_id: switch.lounge_window_power_socket
             state: "on"
           - condition: time
+            after: "09:00:00"
+            before: "15:00:00"
             weekday:
               - mon
               - tue

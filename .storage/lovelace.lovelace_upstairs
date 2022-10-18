@@ -385,7 +385,11 @@
                 },
                 {
                   "entity": "switch.bedroom_2_power_socket",
-                  "name": "Power Socket"
+                  "name": "TV Power Socket"
+                },
+                {
+                  "entity": "switch.bedroom_2_bed_power_socket",
+                  "name": "Bed Power Socket"
                 },
                 {
                   "entity": "media_player.bedroom_2_alexa",

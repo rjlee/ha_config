@@ -6,6 +6,8 @@ script:
     mode: single
     sequence:
       - service: light.turn_on
+        data:
+          brightness_pct: 100
         entity_id: light.main_bedroom_light
   main_bedroom_light_off:
     alias: "Main bedroom light turn off"
