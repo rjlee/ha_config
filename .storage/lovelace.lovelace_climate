@@ -11,6 +11,20 @@
           "badges": [],
           "cards": [
             {
+              "type": "conditional",
+              "conditions": [
+                {
+                  "entity": "sensor.watchman_missing_entities",
+                  "state_not": "0"
+                }
+              ],
+              "card": {
+                "type": "markdown",
+                "content": "{%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}]</td></tr></table> {%- endfor %}",
+                "title": "Unavailable Entities"
+              }
+            },
+            {
               "type": "entities",
               "entities": [
                 {

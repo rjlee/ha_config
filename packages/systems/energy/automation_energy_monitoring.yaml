@@ -1,0 +1,16 @@
+automation:
+  - id: "energy_monitoring"
+    alias: Energy Monitoring
+    description: ""
+    mode: single
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.smart_meter_electricity_power
+        above: "1.5"
+        for: "00:10:00"
+    action:
+      - service: notify.family
+        data:
+          message: Electricty Usage has been 1.5kW for over 10 minutes
+          data:
+            sticky: "true"

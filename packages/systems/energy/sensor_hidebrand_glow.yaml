@@ -1,5 +1,13 @@
 mqtt:
   sensor:
+    - name: "Smart Meter Electricity Power"
+      unique_id: "smart_meter_electricity_power"
+      state_topic: "glow/441793506AB4/SENSOR/electricitymeter"
+      device_class: "power"
+      unit_of_measurement: "kW"
+      state_class: "measurement"
+      value_template: "{{ value_json['electricitymeter']['power']['value'] }}"
+      icon: "mdi:flash"
     - name: "Smart Meter Electricity: Export"
       unique_id: "smart_meter_electricity_export"
       state_topic: "glow/441793506AB4/SENSOR/electricitymeter"

@@ -58,7 +58,7 @@ automation:
             entity_id: switch.bedroom_2_power_socket
             state: "off"
           - condition: time
-            after: "07:00:00"
+            after: "08:00:00"
             before: "22:00:00"
     action:
       - service: switch.turn_on
@@ -87,7 +87,7 @@ automation:
             entity_id: switch.bedroom_2_power_socket
             state: "on"
           - condition: time
-            after: "09:00:00"
+            after: "08:00:00"
             before: "15:00:00"
     action:
       - service: switch.turn_off

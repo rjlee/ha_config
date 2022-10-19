@@ -103,6 +103,11 @@
         "url": "/hacsfiles/ha-card-weather-conditions/ha-card-weather-conditions.js?hacstag=2609401361912",
         "type": "module",
         "id": "7a85dc02782c4fe090922f9675f0577f"
+      },
+      {
+        "url": "/hacsfiles/power-flow-card/power-flow-card.js?hacstag=484538222251",
+        "type": "module",
+        "id": "55e06069b8d841dfaebdf2eab2c04a8e"
       }
     ]
   }

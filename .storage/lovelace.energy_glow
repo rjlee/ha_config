@@ -97,6 +97,10 @@
                       "name": "Cost (Today)"
                     },
                     {
+                      "entity": "sensor.smart_meter_electricity_power",
+                      "name": "Power"
+                    },
+                    {
                       "entity": "sensor.smart_meter_electricity_import",
                       "name": "Import"
                     },
