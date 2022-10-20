@@ -1,0 +1,4 @@
+input_boolean:
+  energy_saver:
+    name: energy_saver
+    icon: mdi:lightning-bolt

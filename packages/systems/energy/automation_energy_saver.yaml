@@ -1,0 +1,41 @@
+automation:
+  - id: "Energy Saver - Turn On"
+    alias: "Energy Saver - Turn off non-essential appliances"
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.energy_saver
+        from: "off"
+        to: "on"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket
+            - switch.bedroom_1_bed_power_socket
+            - switch.bedroom_2_power_socket
+            - switch.bedroom_2_bed_power_socket
+            - switch.main_bedroom_power_socket
+            - switch.spare_room_power_socket
+            - switch.lounge_power_socket
+            - switch.lounge_window_power_socket
+  - id: "Energy Saver - Turn Off"
+    alias: "Energy Saver - Turn on non-essential appliances"
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.energy_saver
+        from: "on"
+        to: "off"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket
+            - switch.bedroom_1_bed_power_socket
+            - switch.bedroom_2_power_socket
+            - switch.bedroom_2_bed_power_socket
+            - switch.main_bedroom_power_socket
+            - switch.spare_room_power_socket
+            - switch.lounge_power_socket
+            - switch.lounge_window_power_socket

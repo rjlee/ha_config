@@ -1,6 +1,6 @@
 automation:
-  - id: "spare_room_power_socket_on"
-    alias: Spare Room - Power Socket On
+  - id: "spare_room_energy_timed_saver_on"
+    alias: Spare Room - Timed Energy Saver On
     description: ""
     trigger:
       - platform: time
@@ -13,14 +13,17 @@ automation:
           - condition: state
             entity_id: input_boolean.school_holidays
             state: "off"
+          - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
     action:
       - service: switch.turn_on
         target:
           entity_id:
             - switch.spare_room_power_socket
     mode: single
-  - id: "spare_room_power_socket_off"
-    alias: Spare Room - Power Socket Off
+  - id: "spare_room_energy_timed_saver_off"
+    alias: Spare Room - Energy Saver Off
     description: ""
     trigger:
       - platform: time
@@ -39,8 +42,8 @@ automation:
           entity_id:
             - switch.spare_room_power_socket
     mode: single
-  - id: "spare_room_power_socket_energy_saver_on"
-    alias:  Spare Room Power Socket Energy Saver On
+  - id: "spare_room_energy_saver_on"
+    alias:  Spare Room - Energy Saver On
     description: ""
     trigger:
       - platform: state
@@ -55,6 +58,9 @@ automation:
             entity_id: input_boolean.school_holidays
             state: "off"
           - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
+          - condition: state
             entity_id: switch.spare_room_power_socket
             state: "off"
           - condition: time
@@ -66,8 +72,8 @@ automation:
           entity_id:
             - switch.spare_room_power_socket
     mode: single
-  - id: "spare_room_power_socket_energy_saver_off"
-    alias: Spare Room - Power Socket Energy Saver Off
+  - id: "spare_room_power_energy_saver_off"
+    alias: Spare Room - Energy Saver Off
     description: ""
     trigger:
       - platform: state

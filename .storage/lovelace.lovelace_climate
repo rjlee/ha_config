@@ -28,6 +28,10 @@
               "type": "entities",
               "entities": [
                 {
+                  "entity": "input_boolean.energy_saver",
+                  "name": "Energy Saver"
+                },
+                {
                   "entity": "input_boolean.school_holidays",
                   "name": "School Holidays"
                 },

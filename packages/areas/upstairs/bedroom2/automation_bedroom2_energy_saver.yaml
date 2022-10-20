@@ -1,6 +1,6 @@
 automation:
-  - id: "bedroom2_power_socket_on"
-    alias: Bedroom 2 - Power Socket On
+  - id: "bedroom2_energy_timed_saver_on"
+    alias: Bedroom 2 - Timed Energy Saver On
     description: ""
     trigger:
       - platform: time
@@ -13,14 +13,17 @@ automation:
           - condition: state
             entity_id: input_boolean.school_holidays
             state: "off"
+          - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
     action:
       - service: switch.turn_on
         target:
           entity_id:
             - switch.bedroom_2_power_socket
     mode: single
-  - id: "bedroom2_power_socket_off"
-    alias: Bedroom 2 - Power Socket Off
+  - id: "bedroom2_energy_timed_saver_off"
+    alias: Bedroom 2 - Timed Energy Saver Off
     description: ""
     trigger:
       - platform: time
@@ -39,8 +42,8 @@ automation:
           entity_id:
             - switch.bedroom_2_power_socket
     mode: single
-  - id: "bedroom_2_power_socket_energy_saver_on"
-    alias:  Bedroom 2 Power Socket Energy Saver On
+  - id: "bedroom_2_energy_saver_on"
+    alias:  Bedroom 2 - Energy Saver On
     description: ""
     trigger:
       - platform: state
@@ -55,6 +58,9 @@ automation:
             entity_id: input_boolean.school_holidays
             state: "off"
           - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
+          - condition: state
             entity_id: switch.bedroom_2_power_socket
             state: "off"
           - condition: time
@@ -67,8 +73,8 @@ automation:
             - switch.bedroom_2_power_socket
             - switch.bedroom_2_bed_power_socket
     mode: single
-  - id: "bedroom_2_power_socket_energy_saver_off"
-    alias: Bedroom 2 - Power Socket Energy Saver Off
+  - id: "bedroom_2_energy_saver_off"
+    alias: Bedroom 2 - Energy Saver Off
     description: ""
     trigger:
       - platform: state
@@ -88,7 +94,7 @@ automation:
             state: "on"
           - condition: time
             after: "08:00:00"
-            before: "15:00:00"
+            before: "20:00:00"
     action:
       - service: switch.turn_off
         target:

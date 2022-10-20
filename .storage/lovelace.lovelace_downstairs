@@ -73,6 +73,10 @@
                 {
                   "entity": "light.lounge_lights_light_0",
                   "name": "Lights"
+                },
+                {
+                  "entity": "switch.lounge_window_power_socket",
+                  "name": "Power Socket"
                 }
               ]
             },

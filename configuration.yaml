@@ -10,6 +10,7 @@ logger:
   default: warning
 #  default: info
   logs:
+    custom_components.overkiz: debug
     custom_components.reolink_dev: debug
     custom_components.reolink_dev.base.data: warning
     reolink: debug
