@@ -16,9 +16,9 @@ automation:
     alias: Bedroom 1 - Set State Awake
     description: ""
     trigger:
-      - platform: state
-        entity_id: binary_sensor.bedroom1_noise_sensor
-        to: "on"
+#      - platform: state
+#        entity_id: binary_sensor.bedroom1_noise_sensor
+#        to: "on"
       - platform: state
         entity_id: binary_sensor.bedroom_1_motion_sensor_motion
         to: "on"
@@ -31,45 +31,45 @@ automation:
         data: {}
         entity_id: timer.bedroom1_awake
     mode: single
-  - id: "bedroom1_noise_sensor_off"
-    alias: Bedroom 1 - Noise Sensor - Off
-    description: ""
-    trigger:
-      - platform: state
-        entity_id: input_boolean.bedroom1_noise_sensor_on
-        from: "on"
-        to: "off"
-    condition: []
-    action:
-      - service: ffmpeg.stop
-        data:
-          entity_id: binary_sensor.bedroom1_noise_sensor
-    mode: single
-  - id: "bedroom1_noise_sensor_on"
-    alias: Bedroom 1 - Noise Sensor - On
-    description: ""
-    trigger:
-      - platform: state
-        entity_id: input_boolean.bedroom1_noise_sensor_on
-        from: "off"
-        to: "on"
-    condition: []
-    action:
-      - service: ffmpeg.start
-        data:
-          entity_id: binary_sensor.bedroom1_noise_sensor
-    mode: single
-  - id: "bedroom1_noise_sensor_status"
-    alias: Bedroom 1 - Noise Sensor Status
-    description: ""
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.bedroom1_noise_sensor
-        to: unavailable
-        for: 00:00:10
-    condition: []
-    action:
-      - service: ffmpeg.restart
-        data: {}
-        entity_id: binary_sensor.bedroom1_noise_sensor
-    mode: single
+#  - id: "bedroom1_noise_sensor_off"
+#    alias: Bedroom 1 - Noise Sensor - Off
+#    description: ""
+#    trigger:
+#      - platform: state
+#        entity_id: input_boolean.bedroom1_noise_sensor_on
+#        from: "on"
+#        to: "off"
+#    condition: []
+#    action:
+#      - service: ffmpeg.stop
+#        data:
+#          entity_id: binary_sensor.bedroom1_noise_sensor
+#    mode: single
+#  - id: "bedroom1_noise_sensor_on"
+#    alias: Bedroom 1 - Noise Sensor - On
+#    description: ""
+#    trigger:
+#      - platform: state
+#        entity_id: input_boolean.bedroom1_noise_sensor_on
+#        from: "off"
+#        to: "on"
+#    condition: []
+#    action:
+#      - service: ffmpeg.start
+#        data:
+#          entity_id: binary_sensor.bedroom1_noise_sensor
+#    mode: single
+#  - id: "bedroom1_noise_sensor_status"
+#    alias: Bedroom 1 - Noise Sensor Status
+#    description: ""
+#    trigger:
+#      - platform: state
+#        entity_id: binary_sensor.bedroom1_noise_sensor
+#        to: unavailable
+#        for: 00:00:10
+#    condition: []
+#    action:
+#      - service: ffmpeg.restart
+#        data: {}
+#        entity_id: binary_sensor.bedroom1_noise_sensor
+#    mode: single

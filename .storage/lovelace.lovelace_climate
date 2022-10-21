@@ -207,6 +207,235 @@
         },
         {
           "theme": "Backend-selected",
+          "title": "Power",
+          "path": "power",
+          "type": "custom:vertical-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "horizontal-stack",
+              "title": "Main Bedroom",
+              "cards": [
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.main_bedroom_light_power_0",
+                      "name": "Lights"
+                    }
+                  ],
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.main_bedroom_power_socket_energy_power",
+                      "name": "TV"
+                    }
+                  ],
+                  "line_color": "#e74c3c",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "markdown",
+                  "content": "<p></p>"
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "title": "Bedroom 1",
+              "cards": [
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_1_light_power_0",
+                      "name": "Lights"
+                    }
+                  ],
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_1_power_socket_energy_power",
+                      "name": "TV"
+                    }
+                  ],
+                  "line_color": "#e74c3c",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_1_bed_power_socket_energy_power",
+                      "name": "Bed"
+                    }
+                  ],
+                  "line_color": "var(--accent-color)",
+                  "line_width": 8,
+                  "font_size": 75
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "title": "Bedroom 2",
+              "cards": [
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_2_light_power_0",
+                      "name": "Lights"
+                    }
+                  ],
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_2_power_socket_energy_power",
+                      "name": "TV"
+                    }
+                  ],
+                  "line_color": "#e74c3c",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_2_bed_power_socket_energy_power",
+                      "name": "Bed"
+                    }
+                  ],
+                  "line_color": "var(--accent-color)",
+                  "line_width": 8,
+                  "font_size": 75
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "title": "Spare Room",
+              "cards": [
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.spare_room_light_power_0",
+                      "name": "Lights"
+                    }
+                  ],
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.spare_room_power_socket_energy_power",
+                      "name": "TV"
+                    }
+                  ],
+                  "line_color": "#e74c3c",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "markdown",
+                  "content": "<p></p>"
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "title": "Lounge",
+              "cards": [
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.lounge_lights_power_0",
+                      "name": "Lights"
+                    }
+                  ],
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.lounge_power_socket_energy_power",
+                      "name": "TV"
+                    }
+                  ],
+                  "line_color": "#e74c3c",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.lounge_window_power_socket_energy_power",
+                      "name": "Window"
+                    }
+                  ],
+                  "line_color": "var(--accent-color)",
+                  "line_width": 8,
+                  "font_size": 75
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "title": "Study",
+              "cards": [
+                {
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.study_power_socket_energy_power",
+                      "name": "Socket"
+                    }
+                  ],
+                  "line_color": "blue",
+                  "line_width": 8,
+                  "font_size": 75
+                },
+                {
+                  "type": "markdown",
+                  "content": "<p></p>"
+                },
+                {
+                  "type": "markdown",
+                  "content": "<p></p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
           "title": "Network",
           "path": "network",
           "type": "custom:vertical-layout",

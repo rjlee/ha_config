@@ -162,10 +162,6 @@
                             "name": ""
                           },
                           {
-                            "entity": "binary_sensor.bedroom1_noise_sensor",
-                            "name": ""
-                          },
-                          {
                             "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
                             "name": ""
                           }
@@ -183,10 +179,6 @@
                           },
                           {
                             "entity": "timer.bedroom1_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom1_noise_sensor",
                             "name": ""
                           },
                           {
@@ -252,10 +244,6 @@
                 {
                   "entity": "input_boolean.bedroom1_in_bed",
                   "name": "In Bed"
-                },
-                {
-                  "entity": "binary_sensor.bedroom1_noise_sensor",
-                  "name": "Noise"
                 }
               ],
               "show_header_toggle": false

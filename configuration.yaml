@@ -51,5 +51,5 @@ recorder:
       - sensor.4g*
       - sensor.adsl*
       - main_bedroom_dads_bedside_lamp*
-    entities:
-      - binary_sensor.bedroom1_noise_sensor
+#    entities:
+#      - binary_sensor.bedroom1_noise_sensor
