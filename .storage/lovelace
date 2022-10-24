@@ -382,7 +382,7 @@
                       "name": "Front"
                     },
                     {
-                      "entity": "binary_sensor.lounge_camera_person_occupancy",
+                      "entity": "binary_sensor.lounge_motion_sensor_composite_motion",
                       "name": "Lounge"
                     },
                     {

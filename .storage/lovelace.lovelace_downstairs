@@ -65,7 +65,7 @@
             {
               "type": "area",
               "area": "lounge",
-              "show_camera": true
+              "show_camera": false
             },
             {
               "type": "entities",
@@ -76,7 +76,11 @@
                 },
                 {
                   "entity": "switch.lounge_window_power_socket",
-                  "name": "Power Socket"
+                  "name": "TV Socket"
+                },
+                {
+                  "entity": "switch.lounge_camera_socket",
+                  "name": "Camera"
                 }
               ]
             },
@@ -167,7 +171,7 @@
                   "entities": [
                     {
                       "entity": "switch.lounge_window_power_socket",
-                      "name": "Power Socket"
+                      "name": "TV Socket"
                     },
                     {
                       "entity": "media_player.samsung_q60_series_lounge",
