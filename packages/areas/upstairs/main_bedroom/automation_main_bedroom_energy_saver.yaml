@@ -8,9 +8,6 @@ automation:
     condition:
       - and:
           - condition: state
-            entity_id: input_boolean.on_holiday
-            state: "off"
-          - condition: state
             entity_id: input_boolean.school_holidays
             state: "off"
           - condition: state
