@@ -230,11 +230,15 @@
             {
               "type": "area",
               "area": "da734d0b00ba11ebbfc457dafaa650cb",
-              "show_camera": true
+              "show_camera": false
             },
             {
               "type": "entities",
               "entities": [
+                {
+                  "entity": "switch.kitchen_camera_socket",
+                  "name": "Camera"
+                },
                 {
                   "entity": "switch.kitchen_tv_switch",
                   "name": "TV"

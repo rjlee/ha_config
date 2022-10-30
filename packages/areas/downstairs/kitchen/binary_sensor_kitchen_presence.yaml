@@ -1,0 +1,8 @@
+template:
+  - binary_sensor:
+      - name: kitchen_motion_sensor_composite_motion
+        unique_id: kitchen_motion_sensor_composite_motion
+        device_class: motion
+        state: >
+          {{ is_state('binary_sensor.kitchen_camera_person_occupancy', 'on')
+             or is_state('binary_sensor.kitchen_motion_sensor', 'on') }}
