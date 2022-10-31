@@ -1,6 +1,6 @@
 automation:
-  - id: "bedroom1_energy_timed_saver_on"
-    alias: Bedroom 1 - Timed Energy Saver On
+  - id: "bedroom1_energy_timed_saver_on_1"
+    alias: Bedroom 1 - Timed Energy Saver On 1
     description: ""
     trigger:
       - platform: time
@@ -18,6 +18,26 @@ automation:
         target:
           entity_id:
             - switch.bedroom_1_power_socket
+    mode: single
+  - id: "bedroom1_energy_timed_saver_on_2"
+    alias: Bedroom 1 - Timed Energy Saver On 2
+    description: ""
+    trigger:
+      - platform: time
+        at: '22:00'
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bedroom_1_bed_power_socket
     mode: single
   - id: "bedroom1_energy_timed_saver_off"
     alias: Bedroom 1 - Timed Energy Saver Off

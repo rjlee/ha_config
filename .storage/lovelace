@@ -78,6 +78,7 @@
               "entities": [
                 "sensor.bedroom_1_motion_sensor_battery",
                 "sensor.bedroom_2_motion_sensor_battery",
+                "sensor.lounge_motion_sensor_battery",
                 "sensor.upstairs_bathroom_motion_sensor_battery",
                 "sensor.downstairs_bathroom_motion_sensor_battery",
                 "sensor.back_door_battery",
