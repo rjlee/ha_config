@@ -24,6 +24,10 @@
                   "entity": "binary_sensor.front_gate_contact_sensor_status",
                   "name": "Front Gate",
                   "icon": "mdi:gate"
+                },
+                {
+                  "entity": "binary_sensor.front_door_contact_sensor",
+                  "name": "Front Door"
                 }
               ]
             },

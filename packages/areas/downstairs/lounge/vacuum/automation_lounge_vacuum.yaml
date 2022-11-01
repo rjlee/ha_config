@@ -4,7 +4,7 @@ automation:
     description: ""
     trigger:
       - platform: time
-        at: "12:10:00"
+        at: "13:00"
     condition:
       - condition: state
         entity_id: input_boolean.on_holiday
