@@ -22,6 +22,7 @@ automation:
         target:
           entity_id:
             - switch.lounge_camera_socket
+            - switch.kitchen_camera_socket
     mode: single
   - id: "leave_home"
     alias: Presence - Leave Home
@@ -46,6 +47,7 @@ automation:
         target:
           entity_id:
             - switch.lounge_camera_socket
+            - switch.kitchen_camera_socket
     mode: single
   - id: "leave_home_ethan"
     alias: Presence - Leave Home Ethan
