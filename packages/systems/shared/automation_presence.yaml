@@ -68,4 +68,9 @@ automation:
       - service: media_player.turn_off
         data: {}
         entity_id: media_player.xbox_bedroom_1
+      - delay: 10
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bedroom_1_power_socket      
     mode: single
