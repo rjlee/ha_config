@@ -1,0 +1,8 @@
+template:
+  - binary_sensor:
+      - name: main_bedroom_presence_sensor_composite_presence
+        unique_id: main_bedroom_presence_sensor_composite_presence
+        device_class: motion
+        state: >
+          {{ is_state('sensor.main_bedroom_presence_sensor_presence', 'presence')
+             or is_state('sensor.main_bedroom_presence_sensor_presence', 'presence') }}

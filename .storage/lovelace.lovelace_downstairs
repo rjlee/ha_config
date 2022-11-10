@@ -240,6 +240,14 @@
               "type": "entities",
               "entities": [
                 {
+                  "entity": "switch.kitchen_tv_power_socket",
+                  "name": "TV Socket"
+                },
+                {
+                  "entity": "switch.kitchen_sky_power_socket",
+                  "name": "Sky Socket"
+                },
+                {
                   "entity": "switch.kitchen_camera_socket",
                   "name": "Camera"
                 },

@@ -4,7 +4,7 @@ automation:
     description: ""
     trigger:
       - platform: numeric_state
-        entity_id: sensor.kitchen_tv_power_switch_energy_power
+        entity_id: sensor.kitchen_tv_power_socket_energy_power
         above: "5"
     action:
       - service: input_boolean.turn_on
@@ -15,7 +15,7 @@ automation:
     description: ""
     trigger:
       - platform: numeric_state
-        entity_id: sensor.kitchen_tv_power_switch_energy_power
+        entity_id: sensor.kitchen_tv_power_socket_energy_power
         below: "5"
     action:
       - service: input_boolean.turn_off
