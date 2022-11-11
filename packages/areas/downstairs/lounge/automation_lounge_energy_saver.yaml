@@ -19,6 +19,7 @@ automation:
           entity_id:
             - switch.lounge_window_power_socket
             - switch.lounge_power_socket
+            - switch.lounge_door_power_socket
     mode: single
   - id: "lounge_energy_timed_saver_off"
     alias: Lounge - Timed Energy Saver Off
@@ -40,6 +41,7 @@ automation:
           entity_id:
             - switch.lounge_window_power_socket
             - switch.lounge_power_socket
+            - switch.lounge_door_power_socket
     mode: single
   - id: "lounge_energy_saver_on"
     alias: Lounge - Energy Saver On
@@ -65,6 +67,7 @@ automation:
           entity_id:
             - switch.lounge_window_power_socket
             - switch.lounge_power_socket
+            - switch.lounge_door_power_socket
     mode: single
   - id: "lounge_energy_saver_off"
     alias: Lounge - Energy Saver Off
@@ -100,4 +103,5 @@ automation:
           entity_id:
             - switch.lounge_window_power_socket
             - switch.lounge_power_socket
+            - switch.lounge_door_power_socket
     mode: single
