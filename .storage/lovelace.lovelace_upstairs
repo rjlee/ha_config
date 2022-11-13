@@ -32,7 +32,11 @@
               "entities": [
                 {
                   "entity": "switch.main_bedroom_power_socket",
-                  "name": "Power Socket"
+                  "name": "TV Socket"
+                },
+                {
+                  "entity": "switch.main_bedroom_bed_1_power_socket",
+                  "name": "Bed Socket Deb"
                 },
                 {
                   "entity": "switch.main_bedroom_tv_switch",
