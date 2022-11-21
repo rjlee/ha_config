@@ -79,8 +79,12 @@
                   "name": "Lights"
                 },
                 {
-                  "entity": "switch.lounge_window_power_socket",
+                  "entity": "switch.lounge_power_socket",
                   "name": "TV Socket"
+                },
+                {
+                  "entity": "switch.lounge_door_power_socket",
+                  "name": "Door Socket"
                 },
                 {
                   "entity": "switch.lounge_camera_socket",
