@@ -84,5 +84,4 @@ automation:
         target:
           entity_id:
             - switch.main_bedroom_power_socket
-            - switch.main_bedroom_bed_1_power_socket
     mode: single
