@@ -34,11 +34,81 @@ automation:
               - service: light.turn_off
                 target:
                   entity_id: light.front_floodlight
+  - id: "front_floodlight_alert_90"
+    alias: "Front - Floodlight - Notify if powered on for too long 90 mins"
+    trigger:
+      - entity_id: light.front_floodlight
+        for: "01:30:00"
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - alias: "Set up variables for the actions"
+        variables:
+          action_off: "{{ 'OFF_' ~ context.id }}"
+      - alias: "Ask to turn off the light"
+        service: notify.family
+        data:
+          title: "Floodlight"
+          message: "The front floodlight has been on for an hour and a half, do you want to turn it off ?"
+          data:
+            sticky: "true"
+            actions:
+              - action: "{{ action_off }}"
+                title: Turn Off
+      - alias: "Wait for a response"
+        wait_for_trigger:
+          - platform: event
+            event_type: mobile_app_notification_action
+            event_data:
+              action: "{{ action_off }}"
+      - alias: "Perform the action"
+        choose:
+          - conditions: "{{ wait.trigger.event.data.action == action_off }}"
+            sequence:
+              - service: light.turn_off
+                target:
+                  entity_id: light.front_floodlight
+  - id: "front_floodlight_alert_120"
+    alias: "Front - Floodlight - Notify if powered on for too long 120 mins"
+    trigger:
+      - entity_id: light.front_floodlight
+        for: "02:00:00"
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - alias: "Set up variables for the actions"
+        variables:
+          action_off: "{{ 'OFF_' ~ context.id }}"
+      - alias: "Ask to turn off the light"
+        service: notify.family
+        data:
+          title: "Floodlight"
+          message: "The front floodlight has been on for two hours, do you want to turn it off ?"
+          data:
+            sticky: "true"
+            actions:
+              - action: "{{ action_off }}"
+                title: Turn Off
+      - alias: "Wait for a response"
+        wait_for_trigger:
+          - platform: event
+            event_type: mobile_app_notification_action
+            event_data:
+              action: "{{ action_off }}"
+      - alias: "Perform the action"
+        choose:
+          - conditions: "{{ wait.trigger.event.data.action == action_off }}"
+            sequence:
+              - service: light.turn_off
+                target:
+                  entity_id: light.front_floodlight                  
   - id: "front_floodlight_manage"
     alias: "Front - Floodlight - Turn off powered on for too long"
     trigger:
       - entity_id: light.front_floodlight
-        for: "02:30:00"
+        for: "03:00:00"
         platform: state
         to: "on"
     condition: []
