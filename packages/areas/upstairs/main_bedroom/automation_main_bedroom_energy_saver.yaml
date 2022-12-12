@@ -62,6 +62,7 @@ automation:
           entity_id:
             - switch.main_bedroom_power_socket
             - switch.main_bedroom_bed_1_power_socket
+            - switch.main_bedroom_bed_2_power_socket
     mode: single
   - id: "main_bedroom_energy_saver_off"
     alias: Main Bedroom - Energy Saver Off
@@ -84,4 +85,5 @@ automation:
         target:
           entity_id:
             - switch.main_bedroom_power_socket
+            - switch.main_bedroom_bed_2_power_socket
     mode: single

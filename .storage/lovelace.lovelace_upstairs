@@ -36,7 +36,11 @@
                 },
                 {
                   "entity": "switch.main_bedroom_bed_1_power_socket",
-                  "name": "Bed Socket Deb"
+                  "name": "Bed Socket - Deb"
+                },
+                {
+                  "entity": "switch.main_bedroom_bed_2_power_socket",
+                  "name": "Bed Socket - Rob"
                 },
                 {
                   "entity": "switch.main_bedroom_tv_switch",
@@ -493,7 +497,7 @@
                   "name": "Alexa"
                 },
                 {
-                  "entity": "binary_sensor.lumi_lumi_sensor_wleak_aq1_iaszone",
+                  "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood",
                   "name": "Leak"
                 }
               ]

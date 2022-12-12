@@ -242,8 +242,16 @@
                   "font_size": 75
                 },
                 {
-                  "type": "markdown",
-                  "content": "<p></p>"
+                  "type": "custom:mini-graph-card",
+                  "entities": [
+                    {
+                      "entity": "sensor.main_bedroom_bed_sockets_energy",
+                      "name": "Bed"
+                    }
+                  ],
+                  "line_color": "var(--accent-color)",
+                  "line_width": 8,
+                  "font_size": 75
                 }
               ]
             },

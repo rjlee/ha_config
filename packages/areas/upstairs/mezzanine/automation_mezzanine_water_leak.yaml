@@ -1,17 +1,17 @@
 automation:
-  - id: "Upstairs - Bathroom Water Leak Notification"
-    alias: "Upstairs - Bathroom Water Leak Notification"
+  - id: "Mezzanine - Water Leak Notification"
+    alias: "Mezzanine - Water Leak Notification"
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.upstairs_bathroom_flood_sensor_flood
+          - binary_sensor.mezzanine_flood_sensor_flood
         from: "off"
         to: "on"
     action:
       service: notify.family
       data:
-        title: "Upstairs Bathroom Water Leak !"
-        message: "Have you left the bath running ?"
+        title: "Belltower Water Leak !"
+        message: "Have you left the sink running ?"
         data:
           push:
             sound:
