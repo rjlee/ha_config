@@ -1,6 +1,6 @@
 automation:
-  - id: "lounge_energy_timed_saver_on"
-    alias: Lounge - Timed Energy Saver on
+  - id: "study_energy_timed_saver_on"
+    alias: Study - Timed Energy Saver on
     description: ""
     trigger:
       - platform: time
@@ -17,12 +17,10 @@ automation:
       - service: switch.turn_on
         target:
           entity_id:
-            - switch.lounge_window_power_socket
-            - switch.lounge_power_socket
-            - switch.lounge_door_power_socket
+            - switch.study_power_socket_on_off
     mode: single
-  - id: "lounge_energy_timed_saver_off"
-    alias: Lounge - Timed Energy Saver Off
+  - id: "study_energy_timed_saver_off"
+    alias: Study - Timed Energy Saver Off
     description: ""
     trigger:
       - platform: time
@@ -39,16 +37,14 @@ automation:
       - service: switch.turn_off
         target:
           entity_id:
-            - switch.lounge_window_power_socket
-            - switch.lounge_power_socket
-            - switch.lounge_door_power_socket
+            - switch.study_power_socket_on_off
     mode: single
-  - id: "lounge_energy_saver_on"
-    alias: Lounge - Energy Saver On
+  - id: "study_energy_saver_on"
+    alias: Study - Energy Saver On
     description: ""
     trigger:
       - platform: state
-        entity_id: binary_sensor.lounge_motion_sensor_composite_motion
+        entity_id: binary_sensor.study_motion_sensor_motion
         to: "on"
     condition:
       - and:
@@ -62,15 +58,14 @@ automation:
       - service: switch.turn_on
         target:
           entity_id:
-            - switch.lounge_power_socket
-            - switch.lounge_door_power_socket
+            - switch.study_power_socket_on_off
     mode: single
-  - id: "lounge_energy_saver_off"
-    alias: Lounge - Energy Saver Off
+  - id: "study_energy_saver_off"
+    alias: Study - Energy Saver Off
     description: ""
     trigger:
       - platform: state
-        entity_id: binary_sensor.lounge_motion_sensor_composite_motion
+        entity_id: binary_sensor.study_motion_sensor_motion
         to: "off"
         for: 00:30:00
     condition:
@@ -81,20 +76,9 @@ automation:
           - condition: state
             entity_id: input_boolean.school_holidays
             state: "off"
-          - condition: time
-            after: "09:00:00"
-            before: "15:00:00"
-            weekday:
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
     action:
       - service: switch.turn_off
         target:
           entity_id:
-            - switch.lounge_window_power_socket
-            - switch.lounge_power_socket
-            - switch.lounge_door_power_socket
+            - switch.study_power_socket_on_off
     mode: single

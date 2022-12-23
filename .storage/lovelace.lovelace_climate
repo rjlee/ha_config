@@ -82,7 +82,9 @@
                 "sensor.back_door_battery",
                 "sensor.spare_room_motion_sensor_battery",
                 "sensor.downstairs_hall_smoke_alarm_power",
-                "sensor.lumi_lumi_sensor_wleak_aq1_battery"
+                "sensor.upstairs_bathroom_flood_sensor_battery",
+                "sensor.mezzanine_flood_sensor_battery",
+                "sensor.lounge_window_tv_button_battery"
               ],
               "filter": {
                 "exclude": [
