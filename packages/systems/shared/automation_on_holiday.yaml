@@ -87,6 +87,8 @@ automation:
       - service: alarm_control_panel.alarm_arm_away
         target:
           entity_id: alarm_control_panel.alarmo
+      - service: homeassistant.turn_off
+        entity_id: group.power_sockets
 
   - id: "On Holiday - Set Home"
     alias: "On Holiday - Set Home for heating, cameras and alarm"
@@ -105,3 +107,5 @@ automation:
       - service: alarm_control_panel.alarm_disarm
         target:
           entity_id: alarm_control_panel.alarmo
+      - service: homeassistant.turn_on
+        entity_id: group.power_sockets

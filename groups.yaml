@@ -13,6 +13,22 @@ parents:
       - person.dad
       - person.mum
 
+power_sockets:
+  name: Power Sockets
+  entities:
+    - switch.lounge_power_socket
+    - switch.lounge_door_power_socket
+    - switch.lounge_window_power_socket
+    - switch.study_power_socket_on_off
+    - switch.bedroom_1_power_socket
+    - switch.bedroom_1_bed_power_socket
+    - switch.bedroom_2_power_socket
+    - switch.bedroom_2_bed_power_socket
+    - switch.spare_room_power_socket
+    - switch.main_bedroom_bed_1_power_socket
+    - switch.main_bedroom_bed_2_power_socket
+    - switch.main_bedroom_power_socket
+
 echos:
     name: echos
     entities:

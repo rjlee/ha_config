@@ -50,9 +50,6 @@ automation:
           - condition: state
             entity_id: input_boolean.on_holiday
             state: "off"
-          - condition: state
-            entity_id: input_boolean.school_holidays
-            state: "off"
     action:
       - service: switch.turn_off
         target:
@@ -96,9 +93,6 @@ automation:
       - and:
           - condition: state
             entity_id: input_boolean.on_holiday
-            state: "off"
-          - condition: state
-            entity_id: input_boolean.school_holidays
             state: "off"
           - condition: state
             entity_id: input_boolean.energy_saver
