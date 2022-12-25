@@ -1,24 +1,24 @@
 automation:
-  - id: "spare_room_energy_timed_saver_on"
-    alias: Spare Room - Timed Energy Saver On
-    description: ""
-    trigger:
-      - platform: time
-        at: 06:00
-    condition:
-      - and:
-          - condition: state
-            entity_id: input_boolean.on_holiday
-            state: "off"
-          - condition: state
-            entity_id: input_boolean.energy_saver
-            state: "off"
-    action:
-      - service: switch.turn_on
-        target:
-          entity_id:
-            - switch.spare_room_power_socket
-    mode: single
+#  - id: "spare_room_energy_timed_saver_on"
+#    alias: Spare Room - Timed Energy Saver On
+#    description: ""
+#    trigger:
+#      - platform: time
+#        at: 06:00
+#    condition:
+#      - and:
+#          - condition: state
+#            entity_id: input_boolean.on_holiday
+#            state: "off"
+#          - condition: state
+#            entity_id: input_boolean.energy_saver
+#            state: "off"
+#    action:
+#      - service: switch.turn_on
+#        target:
+#          entity_id:
+#            - switch.spare_room_power_socket
+#    mode: single
   - id: "spare_room_energy_timed_saver_off"
     alias: Spare Room - Energy Saver Off
     description: ""

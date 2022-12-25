@@ -75,6 +75,6 @@ automation:
       - service: switch.turn_off
         target:
           entity_id:
-#            - switch.main_bedroom_power_socket
+            - switch.main_bedroom_power_socket
             - switch.main_bedroom_bed_2_power_socket
     mode: single
