@@ -8,7 +8,7 @@ automation:
     condition:
       - and:
           - condition: state
-            entity_id: input_boolean.energy_saver
+            entity_id: input_boolean.on_holiday
             state: "off"
     action:
       - service: switch.turn_on
