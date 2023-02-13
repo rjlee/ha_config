@@ -44,6 +44,14 @@
         "url_path": "energy-glow",
         "id": "energy_glow",
         "icon": "mdi:lightning-bolt"
+      },
+      {
+        "show_in_sidebar": true,
+        "title": "Mushroom",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-mushroom",
+        "id": "dashboard_mushroom"
       }
     ]
   }
