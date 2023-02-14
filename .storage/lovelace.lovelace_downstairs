@@ -230,73 +230,153 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "icon": "",
           "title": "Kitchen",
           "path": "kitchen",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "da734d0b00ba11ebbfc457dafaa650cb",
-              "show_camera": false
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.kitchen_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.kitchen_motion_sensor"
+                }
+              ],
+              "alignment": "center"
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "horizontal-stack",
+              "cards": [
                 {
-                  "entity": "switch.kitchen_tv_power_socket",
-                  "name": "TV Socket"
+                  "type": "custom:mushroom-template-card",
+                  "primary": "TV Socket",
+                  "secondary": "{{ states('sensor.kitchen_tv_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.kitchen_tv_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.kitchen_tv_power_socket"
                 },
                 {
-                  "entity": "switch.kitchen_sky_power_socket",
-                  "name": "Sky Socket"
-                },
-                {
-                  "entity": "switch.kitchen_camera_socket",
-                  "name": "Camera"
-                },
-                {
-                  "entity": "switch.kitchen_tv_switch",
-                  "name": "TV"
-                },
-                {
-                  "entity": "media_player.kitchen_sky_q",
-                  "name": "Sky Q",
-                  "icon": "mdi:television-guide"
-                },
-                {
-                  "entity": "media_player.kitchen",
-                  "name": "Alexa",
-                  "icon": ""
-                },
-                {
-                  "entity": "climate.kitchen",
-                  "name": "Heating",
-                  "icon": "mdi:thermometer"
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Sky Socket",
+                  "secondary": "{{ states('sensor.kitchen_sky_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.kitchen_sky_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.kitchen_sky_power_socket"
                 }
               ]
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "switch.dishwasher_power"
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
                 },
                 {
-                  "entity": "switch.dishwasher_program_eco50"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.kitchen",
+                      "name": "Alexa",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.kitchen_tv_switch",
+                      "name": "TV",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.kitchen_sky_q",
+                      "name": "Sky Q",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-vacuum-card",
+                      "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
+                      "name": "Vacuum",
+                      "icon_animation": true,
+                      "fill_container": false,
+                      "layout": "vertical"
+                    }
+                  ]
                 },
                 {
-                  "entity": "sensor.kitchen_dishwasher_duration_friendly",
-                  "name": "Dishwasher Duration"
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Dishwasher"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.dishwasher_power",
+                      "name": "Power"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.dishwasher_program_eco50",
+                      "name": "Eco 50"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.dishwasher_duration",
+                      "name": "Duration"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "type": "custom:vacuum-card",
-              "image": "default",
-              "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
-              "compact_view": false,
-              "map": "camera.deebot_ozmo_t8_aivi_kitchen_live_map"
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.kitchen"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.kitchen_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.kitchen_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },

@@ -14,52 +14,60 @@
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "30d68fe5058411eba52633f70609353b"
-            },
-            {
-              "type": "entities",
-              "entities": [
+              "type": "custom:mushroom-chips-card",
+              "chips": [
                 {
-                  "entity": "light.main_bedroom_light",
-                  "name": "Lights"
+                  "type": "entity",
+                  "entity": "person.mum",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.main_bedroom_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.main_bedroom_presence_sensor_composite_presence"
                 }
               ],
-              "show_header_toggle": false
+              "alignment": "center"
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "horizontal-stack",
+              "cards": [
                 {
-                  "entity": "switch.main_bedroom_power_socket",
-                  "name": "TV Socket"
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.main_bedroom_light",
+                  "name": "Lights",
+                  "use_light_color": true,
+                  "show_brightness_control": true,
+                  "layout": "horizontal"
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "TV",
+                  "secondary": "{{ states('sensor.main_bedroom_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.main_bedroom_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
                 },
                 {
-                  "entity": "switch.main_bedroom_bed_1_power_socket",
-                  "name": "Bed Socket - Deb"
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Deb",
+                  "secondary": "{{ states('sensor.main_bedroom_bed_1_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.main_bedroom_bed_1_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
                 },
                 {
-                  "entity": "switch.main_bedroom_bed_2_power_socket",
-                  "name": "Bed Socket - Rob"
-                },
-                {
-                  "entity": "switch.main_bedroom_tv_switch",
-                  "name": "TV"
-                },
-                {
-                  "entity": "media_player.master_bedroom_skyq",
-                  "name": "Sky Q",
-                  "icon": "mdi:television-guide"
-                },
-                {
-                  "entity": "media_player.mum_and_dad",
-                  "name": "Alexa",
-                  "icon": ""
-                },
-                {
-                  "entity": "climate.main_bedroom",
-                  "name": "Heating",
-                  "icon": "mdi:thermometer"
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Rob",
+                  "secondary": "{{ states('sensor.main_bedroom_bed_2_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.main_bedroom_bed_2_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
                 }
               ]
             },
@@ -67,23 +75,97 @@
               "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "entities",
-                  "entities": [
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
                     {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.mum_and_dad",
+                      "name": "Alexa"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.main_bedroom_tv_switch",
+                      "name": "TV"
+                    },
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.master_bedroom_skyq",
+                      "name": "Sky Q"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-cover-card",
                       "entity": "cover.main_bedroom_1",
-                      "name": "Blind 1"
+                      "name": "Blind 1",
+                      "layout": "vertical"
                     },
                     {
+                      "type": "custom:mushroom-cover-card",
                       "entity": "cover.main_bedroom_2",
-                      "name": "Blind 2"
+                      "name": "Blind 2",
+                      "layout": "vertical"
                     },
                     {
+                      "type": "custom:mushroom-cover-card",
                       "entity": "cover.mainbedroomcurtains",
-                      "name": "Curtains"
+                      "name": "Curtains",
+                      "layout": "vertical"
                     },
                     {
+                      "type": "custom:mushroom-cover-card",
                       "entity": "cover.belltower",
-                      "name": "Belltower Blind"
+                      "name": "Belltower",
+                      "layout": "vertical"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.main_bedroom",
+                      "name": "Heating"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.main_bedroom_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.main_bedroom_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
                     }
                   ]
                 }
@@ -100,161 +182,191 @@
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "08d28e33074111eba671674299d472f6"
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "person.ethan",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.bedroom_1_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.bedroom_1_motion_sensor_motion"
+                },
+                {
+                  "type": "template",
+                  "icon": "mdi:bed",
+                  "content": "{% if is_state('input_boolean.bedroom1_in_bed', 'off') %}\n  Vacant\n{% elif is_state('input_boolean.bedroom1_asleep', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}",
+                  "icon_color": "{% if is_state('input_boolean.bedroom1_asleep', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "input_boolean.bedroom1_asleep",
+                  "double_tap_action": {
+                    "action": "none"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  }
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_1_light",
+                  "name": "Lights",
+                  "use_light_color": true,
+                  "secondary_info": "none"
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_1_bedside_lamp",
+                  "name": "Lamp",
+                  "secondary_info": "none",
+                  "use_light_color": true
+                }
+              ]
+            },
+            {
+              "square": false,
+              "columns": 1,
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Socket",
+                      "secondary": "{{ states('sensor.bedroom_1_power_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "icon_color": "{% if is_state('switch.bedroom_1_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.bedroom_1_power_socket"
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Bed Socket",
+                      "secondary": "{{ states('sensor.bedroom_1_bed_power_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "icon_color": "{% if is_state('switch.bedroom_1_bed_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.bedroom_1_bed_power_socket"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "square": false,
+              "columns": 1,
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.bedroom_1_alexa",
+                      "name": "Alexa"
+                    },
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.xbox_bedroom_1",
+                      "name": "XBox"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.bedroom1_laptop_switch",
+                      "name": "Laptop"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "square": false,
+              "columns": 1,
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-cover-card",
+                      "entity": "cover.bedroom_1",
+                      "name": "Blind"
+                    },
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.bedroom_1",
+                      "name": "Heating"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.bedroom_1_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.bedroom_1_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "input_boolean.bedroom1_in_bed",
-                      "state": "off"
-                    }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "icon": "mdi:account-check-outline",
-                            "name": "Occupied"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "icon": "mdi:account-cancel-outline",
-                            "name": "Vacant"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Sensors"
                 },
                 {
-                  "type": "conditional",
-                  "conditions": [
+                  "type": "horizontal-stack",
+                  "cards": [
                     {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
+                      "name": "Motion"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "input_boolean.bedroom1_in_bed",
-                      "state_not": "off"
+                      "name": "In Bed"
                     }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "input_boolean.bedroom1_asleep",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom1_asleep",
-                            "icon": "mdi:bed",
-                            "name": "Asleep"
-                          },
-                          {
-                            "entity": "timer.bedroom1_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom1_asleep",
-                            "icon": "mdi:baby-face-outline",
-                            "name": "Awake"
-                          },
-                          {
-                            "entity": "timer.bedroom1_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
+                  ]
                 }
               ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "light.bedroom_1_bedside_lamp",
-                  "name": "Bedside Lamp"
-                },
-                {
-                  "entity": "switch.bedroom_1_power_socket",
-                  "name": "TV Power Socket"
-                },
-                {
-                  "entity": "switch.bedroom_1_bed_power_socket",
-                  "name": "Bed Power Socket"
-                },
-                {
-                  "entity": "media_player.bedroom_1_alexa",
-                  "name": "Alexa",
-                  "icon": ""
-                },
-                {
-                  "entity": "media_player.xbox_bedroom_1",
-                  "name": "Xbox"
-                },
-                {
-                  "entity": "switch.bedroom1_laptop_switch",
-                  "name": "Laptop"
-                }
-              ],
-              "show_header_toggle": false
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "climate.bedroom_1"
-                },
-                {
-                  "entity": "cover.bedroom_1",
-                  "name": "Velux Blind"
-                }
-              ],
-              "show_header_toggle": false
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "input_boolean.bedroom1_in_bed",
-                  "name": "In Bed"
-                }
-              ],
-              "show_header_toggle": false
             }
           ]
         },
@@ -266,239 +378,388 @@
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "30aa463f0b3311eba8b961560a186240"
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "person.edward",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.bedroom_2_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.bedroom_2_motion_sensor_motion"
+                },
+                {
+                  "type": "template",
+                  "icon": "mdi:bed",
+                  "icon_color": "{% if is_state('input_boolean.bedroom2_in_bed', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{% if is_state('input_boolean.bedroom2_in_bed_in_bed', 'off') %}\n  Vacant\n{% elif is_state('input_boolean.bedroom2_in_bed', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}"
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom2_light",
+                  "name": "Light",
+                  "layout": "vertical",
+                  "use_light_color": true
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_2_bedside_lamp",
+                  "name": "Lamp",
+                  "layout": "vertical",
+                  "use_light_color": true
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_2_led_lamp",
+                  "name": "LED Lamp",
+                  "layout": "vertical"
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_2_led_sign",
+                  "name": "Sign",
+                  "layout": "vertical"
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Socket",
+                  "secondary": "{{ states('sensor.bedroom_2_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.bedroom_2_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.bedroom_2_power_socket"
+                },
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Bed Socket",
+                  "secondary": "{{ states('sensor.bedroom_2_bed_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.bedroom_2_bed_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.bedroom_2_bed_power_socket"
+                }
+              ]
             },
             {
               "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "conditional",
-                  "conditions": [
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
                     {
-                      "entity": "input_boolean.bedroom2_in_bed",
-                      "state": "off"
-                    }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "icon": "mdi:account-check-outline",
-                            "name": "Occupied"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "icon": "mdi:account-cancel-outline",
-                            "name": "Vacant"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
-                },
-                {
-                  "type": "conditional",
-                  "conditions": [
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.bedroom_2_alexa",
+                      "name": "Alexa"
+                    },
                     {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.xbox_bedroom_2",
+                      "name": "Xbox"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-cover-card",
+                      "entity": "cover.bedroom_2",
+                      "name": "Blind"
+                    },
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.bedroom_2",
+                      "name": "Heating"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.bedroom_2_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.bedroom_2_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Sensors"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
+                      "name": "Motion"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "input_boolean.bedroom2_in_bed",
-                      "state_not": "off"
+                      "name": "In Bed"
                     }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "input_boolean.bedroom2_asleep",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom2_asleep",
-                            "icon": "mdi:bed",
-                            "name": "Asleep"
-                          },
-                          {
-                            "entity": "timer.bedroom2_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom2_asleep",
-                            "icon": "mdi:baby-face-outline",
-                            "name": "Awake"
-                          },
-                          {
-                            "entity": "timer.bedroom2_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "light.bedroom_2_bedside_lamp",
-                  "name": "Bedside Lamp"
-                },
-                {
-                  "entity": "light.bedroom_2_led_lamp",
-                  "name": "LED Corner Lamp"
-                },
-                {
-                  "entity": "light.bedroom_2_led_sign",
-                  "name": "LED Gaming Sign"
-                },
-                {
-                  "entity": "switch.bedroom_2_power_socket",
-                  "name": "TV Power Socket"
-                },
-                {
-                  "entity": "switch.bedroom_2_bed_power_socket",
-                  "name": "Bed Power Socket"
-                },
-                {
-                  "entity": "media_player.bedroom_2_alexa",
-                  "name": "Alexa",
-                  "icon": ""
-                },
-                {
-                  "entity": "switch.bedroom2_tv_switch",
-                  "name": "TV",
-                  "icon": "mdi:television"
-                },
-                {
-                  "entity": "media_player.xbox_bedroom_2",
-                  "name": "Xbox"
-                },
-                {
-                  "entity": "sensor.bedroom_2_laptop_sessionstate",
-                  "icon": "mdi:laptop",
-                  "name": "Laptop"
-                },
-                {
-                  "entity": "input_select.bedroom_2_laptop_options",
-                  "icon": "mdi:laptop",
-                  "secondary_info": "none"
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "climate.bedroom_2",
-                  "name": "Heating"
-                },
-                {
-                  "entity": "cover.bedroom_2",
-                  "name": "Velux Blind"
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "input_boolean.bedroom2_in_bed",
-                  "name": "In Bed"
+                  ]
                 }
               ]
             }
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Spare Room",
           "path": "spare-room",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "088e1ead17b611eb81dd5f71ec537caf"
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "person.dad",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.spare_room_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.spare_room_motion_sensor_motion"
+                }
+              ],
+              "alignment": "center"
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "horizontal-stack",
+              "cards": [
                 {
-                  "entity": "media_player.spare_room",
-                  "name": "Alexa",
-                  "icon": ""
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.spare_room_light",
+                  "use_light_color": true,
+                  "name": "Lights"
                 },
                 {
-                  "entity": "binary_sensor.dads_work_laptop_active",
-                  "name": "Macbook Air",
-                  "icon": "mdi:laptop"
-                },
-                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Socket",
+                  "secondary": "{{ states('sensor.spare_room_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
                   "entity": "switch.spare_room_power_socket",
-                  "name": "Power Socket"
+                  "icon_color": "{% if is_state('switch.spare_room_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "vertical-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-title-card",
+                      "title": "",
+                      "subtitle": "Devices"
+                    },
+                    {
+                      "type": "horizontal-stack",
+                      "cards": [
+                        {
+                          "type": "custom:mushroom-media-player-card",
+                          "entity": "media_player.spare_room",
+                          "name": "Alexa"
+                        },
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "binary_sensor.dads_work_laptop_active",
+                          "name": "Work Laptop"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
                 },
                 {
-                  "entity": "cover.spare_room",
-                  "name": "Velux Blind"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-cover-card",
+                      "entity": "cover.spare_room",
+                      "name": "Blind"
+                    },
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.spare_room",
+                      "name": "Heating"
+                    }
+                  ]
                 },
                 {
-                  "entity": "climate.spare_room",
-                  "name": "Heating",
-                  "icon": "mdi:thermometer"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.spare_room_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.spare_room_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
                 }
               ]
             }
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Bathroom",
           "path": "",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "upstairs_bathroom"
-            },
-            {
-              "type": "entities",
-              "entities": [
+              "type": "custom:mushroom-chips-card",
+              "chips": [
                 {
-                  "entity": "media_player.upstairs_bathroom",
-                  "name": "Alexa"
+                  "type": "entity",
+                  "entity": "sensor.upstairs_bathroom_flood_sensor_temperature"
                 },
                 {
-                  "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood",
-                  "name": "Leak"
+                  "type": "entity",
+                  "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood"
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.upstairs_bathroom_light",
+                  "name": "Lights"
+                },
+                {
+                  "type": "custom:mushroom-media-player-card",
+                  "entity": "media_player.upstairs_bathroom",
+                  "name": "Alexa"
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.upstairs_bathroom_flood_sensor_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Sensors"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
+                      "name": "Motion"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood",
+                      "name": "Leak"
+                    }
+                  ]
                 }
               ]
             }

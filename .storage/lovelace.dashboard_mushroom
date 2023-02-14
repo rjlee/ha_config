@@ -8,80 +8,9 @@
         {
           "theme": "Backend-selected",
           "title": "Bedroom 1",
-          "type": "custom:horizontal-layout",
+          "type": "custom:vertical-layout",
           "badges": [],
-          "cards": [
-            {
-              "square": false,
-              "columns": 1,
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "area",
-                  "area": "08d28e33074111eba671674299d472f6"
-                },
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_1_light",
-                  "name": "Light"
-                },
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_1_bedside_lamp",
-                  "name": "Lamp"
-                }
-              ]
-            },
-            {
-              "square": false,
-              "columns": 1,
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "custom:mushroom-media-player-card",
-                  "entity": "media_player.bedroom_1_alexa",
-                  "name": "Alexa"
-                },
-                {
-                  "type": "custom:mushroom-entity-card",
-                  "entity": "switch.bedroom_1_power_socket",
-                  "name": "Socket"
-                },
-                {
-                  "type": "custom:mushroom-entity-card",
-                  "entity": "switch.bedroom_1_bed_power_socket",
-                  "name": "Bed Socket"
-                },
-                {
-                  "type": "custom:mushroom-media-player-card",
-                  "entity": "media_player.xbox_bedroom_1",
-                  "name": "XBox"
-                },
-                {
-                  "type": "custom:mushroom-entity-card",
-                  "entity": "switch.bedroom1_laptop_switch",
-                  "name": "Laptop"
-                }
-              ]
-            },
-            {
-              "square": false,
-              "columns": 1,
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "custom:mushroom-cover-card",
-                  "entity": "cover.bedroom_1",
-                  "name": "Blind"
-                },
-                {
-                  "type": "custom:mushroom-climate-card",
-                  "entity": "climate.bedroom_1",
-                  "name": "Heating"
-                }
-              ]
-            }
-          ]
+          "cards": []
         },
         {
           "theme": "Backend-selected",
