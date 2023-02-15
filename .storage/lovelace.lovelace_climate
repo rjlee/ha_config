@@ -6,94 +6,115 @@
     "config": {
       "views": [
         {
+          "theme": "Backend-selected",
           "title": "Summary",
           "path": "summary",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
-              "type": "conditional",
-              "conditions": [
+              "type": "custom:mushroom-chips-card",
+              "chips": [
                 {
-                  "entity": "sensor.watchman_missing_entities",
-                  "state_not": "0"
+                  "type": "entity",
+                  "entity": "person.dad",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "person.mum",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "person.ethan",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "person.edward",
+                  "use_entity_picture": true
                 }
               ],
-              "card": {
-                "type": "markdown",
-                "content": "{%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}]</td></tr></table> {%- endfor %}",
-                "title": "Unavailable Entities"
-              }
+              "alignment": "center"
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "input_boolean.energy_saver",
-                  "name": "Energy Saver"
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Controls"
                 },
                 {
-                  "entity": "input_boolean.school_holidays",
-                  "name": "School Holidays"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "input_boolean.school_holidays",
+                      "name": "School Holidays",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "input_boolean.on_holiday",
+                      "name": "On Holiday",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "input_boolean.energy_saver",
+                      "name": "Energy Saver",
+                      "layout": "vertical"
+                    }
+                  ]
                 },
                 {
-                  "entity": "input_boolean.on_holiday",
-                  "name": "On Holiday"
-                },
-                {
-                  "entity": "group.lights"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-light-card",
+                      "entity": "group.lights",
+                      "fill_container": false
+                    }
+                  ]
                 }
-              ],
-              "show_header_toggle": false,
-              "title": "House Controls"
+              ]
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "person.dad"
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Battery Level"
                 },
                 {
-                  "entity": "person.mum"
-                },
-                {
-                  "entity": "person.ethan"
-                },
-                {
-                  "entity": "person.edward"
-                },
-                {
-                  "entity": "person.libby",
-                  "name": "Libby"
-                }
-              ],
-              "title": "People",
-              "show_header_toggle": true
-            },
-            {
-              "type": "custom:battery-state-card",
-              "title": "Battery Level",
-              "sort_by_level": "asc",
-              "entities": [
-                "sensor.bedroom_1_motion_sensor_battery",
-                "sensor.bedroom_2_motion_sensor_battery",
-                "sensor.upstairs_bathroom_motion_sensor_battery",
-                "sensor.downstairs_bathroom_motion_sensor_battery",
-                "sensor.lounge_motion_sensor_battery",
-                "sensor.back_door_battery",
-                "sensor.spare_room_motion_sensor_battery",
-                "sensor.downstairs_hall_smoke_alarm_power",
-                "sensor.upstairs_bathroom_flood_sensor_battery",
-                "sensor.mezzanine_flood_sensor_battery",
-                "sensor.lounge_window_tv_button_battery"
-              ],
-              "filter": {
-                "exclude": [
-                  {
-                    "name": "state",
-                    "value": "Unavailable"
+                  "type": "custom:battery-state-card",
+                  "sort_by_level": "asc",
+                  "entities": [
+                    "sensor.bedroom_1_motion_sensor_battery",
+                    "sensor.bedroom_2_motion_sensor_battery",
+                    "sensor.upstairs_bathroom_motion_sensor_battery",
+                    "sensor.downstairs_bathroom_motion_sensor_battery",
+                    "sensor.lounge_motion_sensor_battery",
+                    "sensor.back_door_battery",
+                    "sensor.spare_room_motion_sensor_battery",
+                    "sensor.downstairs_hall_smoke_alarm_power",
+                    "sensor.upstairs_bathroom_flood_sensor_battery",
+                    "sensor.mezzanine_flood_sensor_battery",
+                    "sensor.lounge_window_tv_button_battery"
+                  ],
+                  "filter": {
+                    "exclude": [
+                      {
+                        "name": "state",
+                        "value": "Unavailable"
+                      }
+                    ]
                   }
-                ]
-              }
+                }
+              ]
             },
             {
               "type": "iframe",
@@ -111,100 +132,60 @@
           "badges": [],
           "cards": [
             {
-              "type": "entities",
-              "entities": [
+              "type": "horizontal-stack",
+              "cards": [
                 {
-                  "entity": "sensor.outdoor_temperature"
+                  "hours_to_show": 24,
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.home_outdoor_temperature",
+                  "detail": 1,
+                  "name": "Outdoor"
                 },
                 {
-                  "entity": "sensor.indoor_temperature"
+                  "hours_to_show": 24,
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.indoor_temperature",
+                  "detail": 1,
+                  "name": "Indoor"
                 },
                 {
-                  "entity": "sensor.lounge_awair_score",
-                  "name": "Indoor Air Quality",
-                  "icon": "mdi:blur"
+                  "hours_to_show": 24,
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.temperature_2",
+                  "detail": 1,
+                  "name": "Cellar"
                 }
-              ],
-              "title": "Climate"
+              ]
             },
             {
-              "type": "history-graph",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "sensor.lounge_awair_temp"
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Heating"
                 },
                 {
-                  "entity": "sensor.lounge_awair_score"
-                },
-                {
-                  "entity": "sensor.lounge_awair_co2"
-                },
-                {
-                  "entity": "sensor.lounge_awair_pm25"
-                },
-                {
-                  "entity": "sensor.lounge_awair_voc"
-                },
-                {
-                  "entity": "sensor.lounge_awair_humid"
-                }
-              ],
-              "title": "Indoor",
-              "hours_to_show": 24,
-              "refresh_interval": 60
-            },
-            {
-              "type": "custom:auto-entities",
-              "card": {
-                "type": "entities",
-                "title": "Heating",
-                "show_header_toggle": false
-              },
-              "filter": {
-                "include": [
-                  {
-                    "group": "group.heating"
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "show_header_toggle": false
                   },
-                  {
-                    "group": "group.radiators"
+                  "filter": {
+                    "include": [
+                      {
+                        "group": "group.heating"
+                      },
+                      {
+                        "group": "group.radiators"
+                      }
+                    ]
                   }
-                ]
-              }
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "cover.main_bedroom_1",
-                  "name": "Main Bedroom - Blind 1"
-                },
-                {
-                  "entity": "cover.main_bedroom_2",
-                  "name": "Main Bedroom - Blind 2"
-                },
-                {
-                  "entity": "cover.mainbedroomcurtains",
-                  "name": "Main Bedroom Curtains",
-                  "secondary_info": "none"
-                },
-                {
-                  "entity": "cover.belltower",
-                  "name": "Bell Tower"
-                },
-                {
-                  "entity": "cover.bedroom_1",
-                  "name": "Ethan's Room"
-                },
-                {
-                  "entity": "cover.bedroom_2",
-                  "name": "Edward's Room"
-                },
-                {
-                  "entity": "cover.spare_room",
-                  "name": "Spare Room"
                 }
-              ],
-              "title": "Blinds"
+              ]
             }
           ]
         },
@@ -453,85 +434,44 @@
           "badges": [],
           "cards": [
             {
-              "type": "entities",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "sensor.internet_isp",
-                  "name": "ISP",
-                  "icon": "mdi:web"
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "House Internet"
                 },
                 {
-                  "entity": "sensor.internet_wan_download_speed",
-                  "name": "WAN Download",
-                  "icon": "mdi:gauge"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-cover-card",
+                      "entity": "sensor.internet_isp"
+                    }
+                  ]
                 },
                 {
-                  "entity": "sensor.internet_wan_upload_speed",
-                  "name": "WAN Upload",
-                  "icon": "mdi:gauge"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.internet_wan_download_speed",
+                      "detail": 1,
+                      "name": "Download Speed"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.internet_wan_upload_speed",
+                      "detail": 1,
+                      "name": "Upload Speed"
+                    }
+                  ]
                 }
-              ],
-              "title": "House Internet"
-            },
-            {
-              "type": "iframe",
-              "url": "http://monitoring.home:3000/d-solo/9WaGWZaZk/unifi-poller-network-sites-prometheus?orgId=1&refresh=1m&var-Controller=https%3A%2F%2F192.168.20.1&var-Site=All&var-Subsystem=All&var-Smooth=1m&panelId=15\" width=\"450\" height=\"200\" frameborder=\"0\"",
-              "aspect_ratio": "100%"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "switch.pihole1_home",
-                  "name": "Enabled"
-                },
-                {
-                  "entity": "sensor.pihole1_home_domains_blocked",
-                  "name": "Domains Blocklist Size"
-                },
-                {
-                  "entity": "sensor.pihole1_home_ads_blocked_today",
-                  "name": "Ads Blocked Today"
-                },
-                {
-                  "entity": "sensor.pihole1_home_seen_clients",
-                  "name": "Clients Today"
-                }
-              ],
-              "state_color": true,
-              "title": "Pihole1"
-            },
-            {
-              "type": "custom:uptime-card",
-              "entity": "binary_sensor.host_pihole1_availability",
-              "title_template": "Ping - Pihole1",
-              "alias": {
-                "ok": "up",
-                "ko": "down"
-              }
-            },
-            {
-              "type": "custom:uptime-card",
-              "entity": "binary_sensor.host_unifi_availability",
-              "title_template": "Ping - Unifi",
-              "alias": {
-                "ok": "up",
-                "ko": "down"
-              },
-              "bar": {},
-              "init": {
-                "animation": "raise"
-              },
-              "color": {}
-            },
-            {
-              "type": "custom:uptime-card",
-              "entity": "binary_sensor.host_synology_availability",
-              "title_template": "Ping - Synology",
-              "alias": {
-                "ok": "up",
-                "ko": "down"
-              }
+              ]
             },
             {
               "type": "custom:transmission-card"
@@ -549,6 +489,12 @@
               "type": "custom:frigate-card",
               "cameras": [
                 {
+                  "camera_entity": "camera.front_camera",
+                  "frigate": {
+                    "client_id": "frigate0"
+                  }
+                },
+                {
                   "camera_entity": "camera.lounge_camera",
                   "frigate": {
                     "client_id": "frigate0"
@@ -561,33 +507,12 @@
                   }
                 },
                 {
-                  "camera_entity": "camera.front_camera",
-                  "frigate": {
-                    "client_id": "frigate0"
-                  }
-                },
-                {
                   "camera_entity": "camera.back_camera",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 }
               ]
-            },
-            {
-              "type": "custom:auto-entities",
-              "card": {
-                "type": "entities",
-                "title": "Rear Doorbell",
-                "show_header_toggle": false
-              },
-              "filter": {
-                "include": [
-                  {
-                    "entity_id": "/back_door/"
-                  }
-                ]
-              }
             }
           ]
         },

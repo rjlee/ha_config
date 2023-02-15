@@ -30,6 +30,29 @@
           ],
           "cards": [
             {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.smart_meter_electricity_power"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.internet_wan_download_speed",
+                  "icon": "mdi:cloud-arrow-down-outline"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.internet_wan_upload_speed",
+                  "icon": "mdi:cloud-arrow-up-outline"
+                },
+                {
+                  "type": "menu"
+                }
+              ],
+              "alignment": "center"
+            },
+            {
               "type": "conditional",
               "conditions": [
                 {
@@ -103,143 +126,16 @@
               }
             },
             {
-              "type": "alarm-panel",
-              "name": "House Alarm",
-              "states": [
-                "arm_home",
-                "arm_away"
-              ],
-              "entity": "alarm_control_panel.alarmo"
-            },
-            {
-              "type": "custom:power-flow-card",
-              "title": "Electricity Usage",
-              "watt_threshold": 1000,
-              "entities": {
-                "grid": "sensor.smart_meter_electricity_power"
-              }
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.internet_isp",
-                  "name": "ISP",
-                  "icon": "mdi:web"
-                },
-                {
-                  "entity": "sensor.internet_wan_download_speed",
-                  "name": "WAN Download",
-                  "icon": "mdi:gauge"
-                },
-                {
-                  "entity": "sensor.internet_wan_upload_speed",
-                  "name": "WAN Upload",
-                  "icon": "mdi:gauge"
-                }
-              ],
-              "title": "House Internet"
-            },
-            {
-              "type": "vertical-stack",
+              "type": "horizontal-stack",
               "cards": [
                 {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "input_boolean.bedroom1_in_bed",
-                      "state": "off"
-                    },
-                    {
-                      "entity": "binary_sensor.bedtime",
-                      "state": "on"
-                    }
+                  "type": "custom:mushroom-alarm-control-panel-card",
+                  "entity": "alarm_control_panel.alarmo",
+                  "states": [
+                    "armed_home",
+                    "armed_away"
                   ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "icon": "mdi:account-check-outline",
-                            "name": "Bedroom 1 Occupied"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "icon": "mdi:account-cancel-outline",
-                            "name": "Bedroom 1 Vacant"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
-                },
-                {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "input_boolean.bedroom1_in_bed",
-                      "state_not": "off"
-                    }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "input_boolean.bedroom1_asleep",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom1_asleep",
-                            "icon": "mdi:bed",
-                            "name": "Bed 1 Asleep"
-                          },
-                          {
-                            "entity": "timer.bedroom1_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom1_asleep",
-                            "icon": "mdi:baby-face-outline",
-                            "name": "Bed 1 Awake"
-                          },
-                          {
-                            "entity": "timer.bedroom1_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
+                  "name": "House Alarm"
                 }
               ]
             },
@@ -247,189 +143,260 @@
               "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "input_boolean.bedroom2_in_bed",
-                      "state": "off"
-                    },
-                    {
-                      "entity": "binary_sensor.bedtime",
-                      "state": "on"
-                    }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "icon": "mdi:account-check-outline",
-                            "name": "Bedroom 2 Occupied"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "icon": "mdi:account-cancel-outline",
-                            "name": "Bedroom 2 Vacant"
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Upstairs Rooms"
                 },
                 {
-                  "type": "conditional",
-                  "conditions": [
+                  "type": "horizontal-stack",
+                  "cards": [
                     {
-                      "entity": "input_boolean.bedroom2_in_bed",
-                      "state_not": "off"
-                    }
-                  ],
-                  "card": {
-                    "type": "custom:state-switch",
-                    "entity": "input_boolean.bedroom2_asleep",
-                    "states": {
-                      "on": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom2_asleep",
-                            "icon": "mdi:bed",
-                            "name": "Bed 2 Asleep"
-                          },
-                          {
-                            "entity": "timer.bedroom2_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
+                      "type": "custom:mushroom-entity-card",
+                      "name": "Main",
+                      "icon": "mdi:bed-king-outline",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-upstairs/main-bedroom"
                       },
-                      "off": {
-                        "type": "glance",
-                        "entities": [
-                          {
-                            "entity": "input_boolean.bedroom2_asleep",
-                            "icon": "mdi:baby-face-outline",
-                            "name": "Bed 2 Awake"
-                          },
-                          {
-                            "entity": "timer.bedroom2_awake",
-                            "name": ""
-                          },
-                          {
-                            "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                            "name": ""
-                          }
-                        ],
-                        "show_state": false,
-                        "title": null
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "custom:vertical-stack-in-card",
-              "cards": [
-                {
-                  "type": "glance",
-                  "show_name": true,
-                  "show_icon": true,
-                  "show_state": false,
-                  "entities": [
-                    {
                       "entity": "binary_sensor.main_bedroom_presence_sensor_composite_presence",
-                      "name": "Main"
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      },
+                      "layout": "vertical",
+                      "secondary_info": "none"
                     },
                     {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                      "name": "Bed 1"
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-upstairs/ethans-room"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      },
+                      "name": "Ethan",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "icon": "mdi:bed"
                     },
                     {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                      "name": "Bed 2"
+                      "name": "Edward",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-upstairs/edwards-room"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      },
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "icon": "mdi:bed"
                     },
                     {
-                      "entity": "binary_sensor.spare_room_motion_sensor_motion",
-                      "name": "Spare Room"
-                    },
-                    {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
-                      "name": "WC"
+                      "icon": "mdi:toilet",
+                      "name": "WC",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-upstairs/upstairs-bathroom"
+                      },
+                      "icon_color": "blue"
                     }
-                  ],
-                  "state_color": true
-                },
-                {
-                  "type": "glance",
-                  "show_name": true,
-                  "show_icon": true,
-                  "show_state": false,
-                  "entities": [
-                    {
-                      "entity": "binary_sensor.front_camera_person_occupancy",
-                      "name": "Front"
-                    },
-                    {
-                      "entity": "binary_sensor.lounge_motion_sensor_composite_motion",
-                      "name": "Lounge"
-                    },
-                    {
-                      "entity": "binary_sensor.kitchen_motion_sensor",
-                      "name": "Kitchen"
-                    },
-                    {
-                      "entity": "binary_sensor.downstairs_bathroom_motion_sensor_motion",
-                      "name": "WC"
-                    },
-                    {
-                      "entity": "binary_sensor.back_camera_person_occupancy",
-                      "name": "Back"
-                    }
-                  ],
-                  "state_color": true
+                  ]
                 }
               ]
             },
             {
-              "type": "custom:vertical-stack-in-card",
-              "title": "Collection Days",
+              "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "custom:garbage-collection-card",
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Downstairs Rooms"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.lounge_motion_sensor_composite_motion",
+                      "name": "Lounge",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/lounge"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "mdi:television"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.kitchen_motion_sensor_composite_motion",
+                      "name": "Kitchen",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/kitchen"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "mdi:food"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.study_motion_sensor_motion",
+                      "name": "Study",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/study"
+                      },
+                      "icon": "mdi:desk"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.downstairs_bathroom_motion_sensor_motion",
+                      "name": "WC",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/downstairs-bathroom"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "mdi:toilet"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.front_camera_person_occupancy",
+                      "name": "Front",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/front"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.back_camera_person_occupancy",
+                      "name": "Back",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/back"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "",
+                  "secondary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {{ counter }} day{% if counter >1 %}s{% endif %} ",
+                  "icon": "mdi:delete",
+                  "icon_color": "black",
                   "entity": "sensor.rubbish_collection",
-                  "icon_size": "35px",
-                  "icon_color": "black"
+                  "layout": "vertical",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "double_tap_action": {
+                    "action": "none"
+                  }
                 },
                 {
-                  "type": "custom:garbage-collection-card",
+                  "type": "custom:mushroom-template-card",
+                  "primary": "",
+                  "secondary": "{% set counter = state_attr('sensor.recycling_collection','days') %} {{ counter }} day{% if counter >1 %}s{% endif %} ",
+                  "icon": "mdi:recycle",
+                  "icon_color": "green",
+                  "layout": "vertical",
                   "entity": "sensor.recycling_collection",
-                  "icon_size": "35px",
-                  "icon_color": "green"
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "double_tap_action": {
+                    "action": "none"
+                  }
                 },
                 {
-                  "type": "custom:garbage-collection-card",
+                  "type": "custom:mushroom-template-card",
+                  "primary": "",
+                  "secondary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %} {{ counter }} day{% if counter >1 %}s{% endif %} ",
+                  "icon": "mdi:delete",
+                  "icon_color": "brown",
                   "entity": "sensor.garden_refuse_collection",
-                  "icon_size": "35px",
-                  "icon_color": "#8B4513"
+                  "layout": "vertical",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "double_tap_action": {
+                    "action": "none"
+                  }
                 }
               ]
             }

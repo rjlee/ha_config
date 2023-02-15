@@ -13,49 +13,92 @@
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "front",
-              "show_camera": true
-            },
-            {
-              "type": "entities",
-              "entities": [
+              "type": "custom:mushroom-chips-card",
+              "chips": [
                 {
+                  "type": "entity",
+                  "entity": "sensor.ecowitt_outdoor_temperature"
+                },
+                {
+                  "type": "entity",
                   "entity": "binary_sensor.front_gate_contact_sensor_status",
                   "name": "Front Gate",
                   "icon": "mdi:gate"
                 },
                 {
-                  "entity": "binary_sensor.front_door_contact_sensor",
-                  "name": "Front Door"
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.hottub_pump_temp",
-                  "name": "HotTub Water Temperature"
+                  "type": "entity",
+                  "entity": "binary_sensor.front_door_contact_sensor"
                 },
                 {
-                  "entity": "sensor.hottub_pump_target"
+                  "type": "entity",
+                  "entity": "camera.front_camera",
+                  "use_entity_picture": true
                 },
                 {
-                  "entity": "switch.hottub_power"
-                },
-                {
-                  "entity": "switch.hottub_heat"
-                },
-                {
-                  "entity": "switch.hottub_filter"
-                },
-                {
-                  "entity": "switch.hottub_bubbles"
+                  "type": "menu"
                 }
               ],
-              "title": "Hot Tub",
-              "show_header_toggle": false
+              "alignment": "center"
+            },
+            {
+              "type": "area",
+              "area": "front",
+              "show_camera": true
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Hottub"
+                },
+                {
+                  "type": "vertical-stack",
+                  "cards": [
+                    {
+                      "type": "horizontal-stack",
+                      "cards": [
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "switch.hottub_power",
+                          "layout": "vertical"
+                        },
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "switch.hottub_filter",
+                          "layout": "vertical"
+                        },
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "switch.hottub_heat",
+                          "layout": "vertical"
+                        },
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "switch.hottub_bubbles",
+                          "layout": "vertical"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "horizontal-stack",
+                      "cards": [
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "sensor.hottub_pump_temp",
+                          "name": "Temperature"
+                        },
+                        {
+                          "type": "custom:mushroom-entity-card",
+                          "entity": "sensor.hottub_pump_target",
+                          "name": "Target"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -64,37 +107,140 @@
           "title": "Lounge",
           "path": "lounge",
           "icon": "",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "lounge",
-              "show_camera": false
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.lounge_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.lounge_motion_sensor_composite_motion"
+                },
+                {
+                  "type": "entity",
+                  "entity": "camera.lounge_camera",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "menu"
+                }
+              ],
+              "alignment": "center"
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "light.lounge_lights_light_0",
-                  "name": "Lights"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-light-card",
+                      "entity": "light.lounge_lights_light_0",
+                      "name": "Lights",
+                      "use_light_color": true,
+                      "show_brightness_control": true,
+                      "collapsible_controls": true
+                    }
+                  ]
                 },
                 {
-                  "entity": "switch.lounge_power_socket",
-                  "name": "TV Socket"
-                },
-                {
-                  "entity": "switch.lounge_door_power_socket",
-                  "name": "Door Socket"
-                },
-                {
-                  "entity": "switch.lounge_camera_socket",
-                  "name": "Camera"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "TV",
+                      "secondary": "{{ states('sensor.lounge_power_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "layout": "vertical",
+                      "icon_color": "{% if is_state('switch.lounge_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.lounge_power_socket"
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Door",
+                      "secondary": "{{ states('sensor.lounge_door_power_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "layout": "vertical",
+                      "icon_color": "{% if is_state('switch.lounge_door_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.lounge_door_power_socket"
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Window TV",
+                      "secondary": "{{ states('sensor.lounge_window_power_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "layout": "vertical",
+                      "icon_color": "{% if is_state('switch.lounge_window_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.lounge_window_power_socket"
+                    }
+                  ]
                 }
               ]
             },
             {
               "type": "vertical-stack",
               "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.lounge",
+                      "name": "Alexa",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Camera",
+                      "secondary": "{{ states('sensor.lounge_camera_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "icon_color": "{% if is_state('switch.lounge_camera_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.lounge_camera_socket",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-vacuum-card",
+                      "entity": "vacuum.deebot_ozmo_920_lounge",
+                      "name": "Vacuum",
+                      "layout": "vertical"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Main TV"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "media_player.lounge_sky_q",
+                      "name": "Sky Q"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "media_player.xbox_lounge",
+                      "name": "XBox"
+                    }
+                  ]
+                },
                 {
                   "type": "custom:harmony-card",
                   "entity": "remote.lounge",
@@ -157,75 +303,80 @@
                     "xbox": {
                       "hide": true
                     }
-                  },
-                  "name": "Main TV"
+                  }
                 }
               ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "media_player.xbox_lounge"
-                }
-              ],
-              "show_header_toggle": false
             },
             {
               "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "entities",
-                  "entities": [
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Window TV"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
                     {
-                      "entity": "switch.lounge_window_power_socket",
-                      "name": "TV Socket"
-                    },
-                    {
+                      "type": "custom:mushroom-media-player-card",
                       "entity": "media_player.samsung_q60_series_lounge",
-                      "icon": "mdi:television",
                       "name": "TV"
                     },
                     {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "media_player.lounge_window_sky_q",
-                      "name": "Sky Q",
-                      "icon": "mdi:television-guide"
+                      "name": "Sky Q"
                     },
                     {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "media_player.xbox_lounge_window",
-                      "name": "XBox",
-                      "icon": "mdi:gamepad-variant"
-                    },
-                    {
-                      "entity": "input_select.loungevr_options",
-                      "name": "PC"
+                      "name": "XBox"
                     }
-                  ],
-                  "title": "Window TV"
+                  ]
                 }
               ]
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "media_player.lounge",
-                  "name": "Alexa",
-                  "icon": ""
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
                 },
                 {
-                  "entity": "climate.lounge",
-                  "name": "Heating",
-                  "icon": "mdi:thermometer"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.lounge",
+                      "name": "Heating"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.lounge_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.lounge_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
                 }
               ]
-            },
-            {
-              "type": "custom:vacuum-card",
-              "entity": "vacuum.deebot_ozmo_920_lounge",
-              "image": "default",
-              "compact_view": false,
-              "map": "camera.deebot_ozmo_920_lounge_live_map"
             }
           ]
         },
@@ -247,6 +398,14 @@
                 {
                   "type": "entity",
                   "entity": "binary_sensor.kitchen_motion_sensor"
+                },
+                {
+                  "type": "entity",
+                  "entity": "camera.kitchen_camera",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "menu"
                 }
               ],
               "alignment": "center"
@@ -322,17 +481,20 @@
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "switch.dishwasher_power",
-                      "name": "Power"
+                      "name": "Power",
+                      "layout": "vertical"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "switch.dishwasher_program_eco50",
-                      "name": "Eco 50"
+                      "name": "Eco 50",
+                      "layout": "vertical"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.dishwasher_duration",
-                      "name": "Duration"
+                      "name": "Duration",
+                      "layout": "vertical"
                     }
                   ]
                 }
@@ -386,77 +548,230 @@
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "e4dc218e0ed411eb896345735c4f7890"
-            }
-          ]
-        },
-        {
-          "title": "Hallway",
-          "path": "hallway",
-          "badges": [],
-          "cards": [
-            {
-              "type": "area",
-              "area": "downstairs_hallway"
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.downstairs_bathroom_motion_sensor_motion"
+                },
+                {
+                  "type": "menu"
+                }
+              ],
+              "alignment": "center"
             },
             {
-              "type": "entities",
-              "entities": [
+              "type": "horizontal-stack",
+              "cards": [
                 {
-                  "entity": "light.downstairs_hall_lamp_level_light_color_on_off",
-                  "name": "Lamp"
-                },
-                {
-                  "entity": "climate.downstairs_hallway",
-                  "name": "Heating"
-                },
-                {
-                  "entity": "switch.alarm_key_switch",
-                  "name": "House Alarm",
-                  "icon": "mdi:alarm-light"
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.downstairs_bathroom_light",
+                  "name": "Lights",
+                  "use_light_color": true
                 }
               ]
             }
           ]
         },
         {
-          "title": "Study",
-          "path": "study",
-          "icon": "",
+          "theme": "Backend-selected",
+          "title": "Hallway",
+          "path": "hallway",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
-              "type": "area",
-              "area": "260a1e561b9911ebbd4ffb671ecb77c1"
-            },
-            {
-              "type": "entities",
-              "entities": [
+              "type": "custom:mushroom-chips-card",
+              "chips": [
                 {
-                  "entity": "switch.study_power_socket_on_off",
-                  "name": "Power Socket",
-                  "secondary_info": "none"
+                  "type": "entity",
+                  "entity": "sensor.downstairs_hallway_temperature"
                 },
                 {
-                  "entity": "climate.study",
-                  "name": "Heating"
-                },
-                {
-                  "entity": "group.study",
-                  "name": "Alexa"
-                },
-                {
-                  "entity": "switch.study_oil_radiator",
-                  "name": "Oil Radiator"
-                },
-                {
-                  "entity": "sensor.study_oil_radiator_status",
-                  "name": "Oil Radiator Thermostat",
-                  "icon": "mdi:fire"
+                  "type": "menu"
                 }
               ],
-              "show_header_toggle": false
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.downstairs_hall_lamp_level_light_color_on_off",
+                  "name": "Lamp",
+                  "use_light_color": true,
+                  "show_brightness_control": true,
+                  "show_color_temp_control": true,
+                  "show_color_control": true,
+                  "collapsible_controls": true
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.alarm_key_switch",
+                      "name": "House Alarm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "horizontal-stack",
+                      "cards": [
+                        {
+                          "type": "custom:mushroom-climate-card",
+                          "entity": "climate.downstairs_hallway",
+                          "name": "Heating"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.downstairs_hallway_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.downstairs_hallway_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Study",
+          "path": "study",
+          "icon": "",
+          "type": "custom:vertical-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.study_temperature"
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.study_motion_sensor_motion"
+                },
+                {
+                  "type": "menu"
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Socket",
+                  "secondary": "{{ states('sensor.study_power_socket_energy_power') }}W",
+                  "icon": "mdi:toggle-switch-variant",
+                  "icon_color": "{% if is_state('switch.study_power_socket_on_off', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Devices"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.study"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Climate"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-climate-card",
+                      "entity": "climate.study",
+                      "name": "Heating"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.study_temperature",
+                      "detail": 1,
+                      "name": "Temperature"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.study_humidity",
+                      "detail": 1,
+                      "name": "Humidity"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -465,6 +780,28 @@
           "path": "back",
           "badges": [],
           "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.back_door_contact_sensor"
+                },
+                {
+                  "type": "entity",
+                  "entity": "camera.back_camera",
+                  "use_entity_picture": true
+                },
+                {
+                  "type": "entity",
+                  "entity": "binary_sensor.back_camera_motion"
+                },
+                {
+                  "type": "menu"
+                }
+              ],
+              "alignment": "center"
+            },
             {
               "type": "area",
               "area": "fc1ec4ee0e6011eb85e98da66e03329c",

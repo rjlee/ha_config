@@ -28,6 +28,9 @@
                 {
                   "type": "entity",
                   "entity": "binary_sensor.main_bedroom_presence_sensor_composite_presence"
+                },
+                {
+                  "type": "menu"
                 }
               ],
               "alignment": "center"
@@ -53,21 +56,24 @@
                   "primary": "TV",
                   "secondary": "{{ states('sensor.main_bedroom_power_socket_energy_power') }}W",
                   "icon": "mdi:toggle-switch-variant",
-                  "icon_color": "{% if is_state('switch.main_bedroom_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
+                  "icon_color": "{% if is_state('switch.main_bedroom_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.main_bedroom_power_socket"
                 },
                 {
                   "type": "custom:mushroom-template-card",
                   "primary": "Deb",
                   "secondary": "{{ states('sensor.main_bedroom_bed_1_power_socket_energy_power') }}W",
                   "icon": "mdi:toggle-switch-variant",
-                  "icon_color": "{% if is_state('switch.main_bedroom_bed_1_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
+                  "icon_color": "{% if is_state('switch.main_bedroom_bed_1_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.main_bedroom_bed_1_power_socket"
                 },
                 {
                   "type": "custom:mushroom-template-card",
                   "primary": "Rob",
                   "secondary": "{{ states('sensor.main_bedroom_bed_2_power_socket_energy_power') }}W",
                   "icon": "mdi:toggle-switch-variant",
-                  "icon_color": "{% if is_state('switch.main_bedroom_bed_2_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
+                  "icon_color": "{% if is_state('switch.main_bedroom_bed_2_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.main_bedroom_bed_2_power_socket"
                 }
               ]
             },
@@ -95,7 +101,8 @@
                     {
                       "type": "custom:mushroom-media-player-card",
                       "entity": "media_player.master_bedroom_skyq",
-                      "name": "Sky Q"
+                      "name": "Sky Q",
+                      "use_media_info": true
                     }
                   ]
                 }
@@ -212,6 +219,9 @@
                   "hold_action": {
                     "action": "none"
                   }
+                },
+                {
+                  "type": "menu"
                 }
               ],
               "alignment": "center"
@@ -398,6 +408,9 @@
                   "icon": "mdi:bed",
                   "icon_color": "{% if is_state('input_boolean.bedroom2_in_bed', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
                   "content": "{% if is_state('input_boolean.bedroom2_in_bed_in_bed', 'off') %}\n  Vacant\n{% elif is_state('input_boolean.bedroom2_in_bed', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}"
+                },
+                {
+                  "type": "menu"
                 }
               ],
               "alignment": "center"
@@ -574,6 +587,9 @@
                 {
                   "type": "entity",
                   "entity": "binary_sensor.spare_room_motion_sensor_motion"
+                },
+                {
+                  "type": "menu"
                 }
               ],
               "alignment": "center"
@@ -678,7 +694,7 @@
         {
           "theme": "Backend-selected",
           "title": "Bathroom",
-          "path": "",
+          "path": "upstairs-bathroom",
           "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
@@ -696,6 +712,9 @@
                 {
                   "type": "entity",
                   "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood"
+                },
+                {
+                  "type": "menu"
                 }
               ],
               "alignment": "center"
@@ -733,31 +752,6 @@
                       "entity": "sensor.upstairs_bathroom_flood_sensor_temperature",
                       "detail": 1,
                       "name": "Temperature"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "custom:mushroom-title-card",
-                  "title": "",
-                  "subtitle": "Sensors"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
-                      "name": "Motion"
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood",
-                      "name": "Leak"
                     }
                   ]
                 }
