@@ -32,10 +32,11 @@
                 {
                   "type": "entity",
                   "entity": "camera.front_camera",
-                  "use_entity_picture": true
+                  "use_entity_picture": true,
+                  "content_info": "none"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -114,8 +115,17 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "sensor.lounge_temperature"
+                  "type": "template",
+                  "entity": "climate.lounge",
+                  "icon": "{% if is_state_attr('climate.lounge', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.lounge', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.lounge\",\"current_temperature\") }} °C",
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "entity",
@@ -124,10 +134,11 @@
                 {
                   "type": "entity",
                   "entity": "camera.lounge_camera",
-                  "use_entity_picture": true
+                  "use_entity_picture": true,
+                  "content_info": "none"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -346,14 +357,8 @@
                   "subtitle": "Climate"
                 },
                 {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-climate-card",
-                      "entity": "climate.lounge",
-                      "name": "Heating"
-                    }
-                  ]
+                  "type": "custom:mushroom-climate-card",
+                  "entity": "climate.lounge"
                 },
                 {
                   "type": "horizontal-stack",
@@ -392,8 +397,17 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "sensor.kitchen_temperature"
+                  "type": "template",
+                  "entity": "climate.kitchen",
+                  "icon": "{% if is_state_attr('climate.kitchen', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.kitchen', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.kitchen\",\"current_temperature\") }} °C",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "entity",
@@ -402,10 +416,11 @@
                 {
                   "type": "entity",
                   "entity": "camera.kitchen_camera",
-                  "use_entity_picture": true
+                  "use_entity_picture": true,
+                  "content_info": "none"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -555,7 +570,7 @@
                   "entity": "binary_sensor.downstairs_bathroom_motion_sensor_motion"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -584,11 +599,20 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "sensor.downstairs_hallway_temperature"
+                  "type": "template",
+                  "icon": "{% if is_state_attr('climate.downstairs_hallway', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.downstairs_hallway', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.downstairs_hallway\",\"current_temperature\") }} °C",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "climate.downstairs_hallway"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -688,15 +712,27 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "sensor.study_temperature"
+                  "type": "template",
+                  "entity": "climate.study",
+                  "icon": "{% if is_state_attr('climate.study', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.study', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.study\",\"current_temperature\") }} °C",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "entity",
                   "entity": "binary_sensor.study_motion_sensor_motion"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -709,7 +745,8 @@
                   "primary": "Socket",
                   "secondary": "{{ states('sensor.study_power_socket_energy_power') }}W",
                   "icon": "mdi:toggle-switch-variant",
-                  "icon_color": "{% if is_state('switch.study_power_socket_on_off', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}"
+                  "icon_color": "{% if is_state('switch.study_power_socket_on_off', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "entity": "switch.study_power_socket_on_off"
                 }
               ]
             },
@@ -790,14 +827,11 @@
                 {
                   "type": "entity",
                   "entity": "camera.back_camera",
-                  "use_entity_picture": true
+                  "use_entity_picture": true,
+                  "content_info": "none"
                 },
                 {
-                  "type": "entity",
-                  "entity": "binary_sensor.back_camera_motion"
-                },
-                {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"

@@ -1,0 +1,4 @@
+input_boolean:
+  bedroom2_asleep:
+    name: bedroom2_asleep
+    icon: mdi:bed

@@ -3,4 +3,4 @@ template:
       - name: "Indoor Temperature"
         unit_of_measurement: "°C"
         state: >
-          {{ states('sensor.lounge_awair_temp') | float }}
+          {{ states('sensor.lounge_awair_temp') | float | round(1) }}

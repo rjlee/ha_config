@@ -22,15 +22,24 @@
                   "use_entity_picture": true
                 },
                 {
-                  "type": "entity",
-                  "entity": "sensor.main_bedroom_temperature"
+                  "type": "template",
+                  "entity": "climate.main_bedroom",
+                  "icon": "{% if is_state_attr('climate.main_bedroom', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.main_bedroom', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.main_bedroom\",\"current_temperature\") }} °C",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "entity",
                   "entity": "binary_sensor.main_bedroom_presence_sensor_composite_presence"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -192,13 +201,17 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "person.ethan",
-                  "use_entity_picture": true
-                },
-                {
-                  "type": "entity",
-                  "entity": "sensor.bedroom_1_temperature"
+                  "type": "template",
+                  "entity": "climate.bedroom_1",
+                  "icon": "{% if is_state_attr('climate.bedroom_1', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.bedroom_1', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.bedroom_1\",\"current_temperature\") }} °C",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "entity",
@@ -207,7 +220,7 @@
                 {
                   "type": "template",
                   "icon": "mdi:bed",
-                  "content": "{% if is_state('input_boolean.bedroom1_in_bed', 'off') %}\n  Vacant\n{% elif is_state('input_boolean.bedroom1_asleep', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}",
+                  "content": "{% if is_state('input_boolean.bedroom1_in_bed', 'off') %}\n  {% if is_state('binary_sensor.bedroom_1_motion_sensor_motion', 'off') %}\n  Vacant\n  {% else %}\n  Occupied\n  {% endif %}\n{% elif is_state('input_boolean.bedroom1_asleep', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}",
                   "icon_color": "{% if is_state('input_boolean.bedroom1_asleep', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
                   "entity": "input_boolean.bedroom1_asleep",
                   "double_tap_action": {
@@ -221,7 +234,7 @@
                   }
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -367,12 +380,26 @@
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.bedroom_1_motion_sensor_motion",
-                      "name": "Motion"
+                      "name": "Motion",
+                      "layout": "vertical"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "input_boolean.bedroom1_in_bed",
-                      "name": "In Bed"
+                      "name": "In Bed",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "input_boolean.bedroom1_asleep",
+                      "layout": "vertical",
+                      "name": "Asleep"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "timer.bedroom1_awake",
+                      "name": "Timer",
+                      "layout": "vertical"
                     }
                   ]
                 }
@@ -391,13 +418,17 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "person.edward",
-                  "use_entity_picture": true
-                },
-                {
-                  "type": "entity",
-                  "entity": "sensor.bedroom_2_temperature"
+                  "type": "template",
+                  "icon": "{% if is_state_attr('climate.bedroom_2', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "entity": "climate.bedroom_2",
+                  "icon_color": "{% if is_state_attr('climate.bedroom_2', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "content": "{{ state_attr(\"climate.bedroom_2\",\"current_temperature\") }} °C"
                 },
                 {
                   "type": "entity",
@@ -406,11 +437,21 @@
                 {
                   "type": "template",
                   "icon": "mdi:bed",
-                  "icon_color": "{% if is_state('input_boolean.bedroom2_in_bed', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
-                  "content": "{% if is_state('input_boolean.bedroom2_in_bed_in_bed', 'off') %}\n  Vacant\n{% elif is_state('input_boolean.bedroom2_in_bed', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}"
+                  "icon_color": "{% if is_state('input_boolean.bedroom2_asleep', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{% if is_state('input_boolean.bedroom2_in_bed', 'off') %}\n  {% if is_state('binary_sensor.bedroom_2_motion_sensor_motion', 'off') %}\n  Vacant\n  {% else %}\n  Occupied\n  {% endif %}\n{% elif is_state('input_boolean.bedroom2_asleep', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}",
+                  "entity": "input_boolean.bedroom2_asleep",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -552,12 +593,26 @@
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.bedroom_2_motion_sensor_motion",
-                      "name": "Motion"
+                      "name": "Motion",
+                      "layout": "vertical"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "input_boolean.bedroom2_in_bed",
-                      "name": "In Bed"
+                      "name": "In Bed",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "input_boolean.bedroom2_asleep",
+                      "name": "Asleep",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "timer.bedroom2_awake",
+                      "name": "Timer",
+                      "layout": "vertical"
                     }
                   ]
                 }
@@ -581,15 +636,24 @@
                   "use_entity_picture": true
                 },
                 {
-                  "type": "entity",
-                  "entity": "sensor.spare_room_temperature"
+                  "type": "template",
+                  "entity": "climate.spare_room",
+                  "icon": "{% if is_state_attr('climate.spare_room', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
+                  "icon_color": "{% if is_state_attr('climate.spare_room', 'hvac_action', 'heating') %}\n  red\n{% else %}\n  grey\n{% endif %}",
+                  "content": "{{ state_attr(\"climate.spare_room\",\"current_temperature\") }} °C",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "entity",
                   "entity": "binary_sensor.spare_room_motion_sensor_motion"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -714,7 +778,7 @@
                   "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood"
                 },
                 {
-                  "type": "menu"
+                  "type": "back"
                 }
               ],
               "alignment": "center"

@@ -3,4 +3,4 @@ template:
       - name: "Outdoor Temperature"
         unit_of_measurement: "°C"
         state: >
-          {{ states('sensor.ecowitt_outdoor_temperature') | float }}
+          {{ states('sensor.ecowitt_outdoor_temperature') | float | round(1) }}

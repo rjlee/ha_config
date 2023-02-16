@@ -138,7 +138,7 @@
                   "hours_to_show": 24,
                   "graph": "line",
                   "type": "sensor",
-                  "entity": "sensor.home_outdoor_temperature",
+                  "entity": "sensor.outdoor_temperature",
                   "detail": 1,
                   "name": "Outdoor"
                 },

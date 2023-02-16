@@ -1,0 +1,37 @@
+automation:
+  - id: "bedroom2_set_state_asleep"
+    alias: Bedroom 2 - Set State Asleep
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: timer.bedroom2_awake
+        to: idle
+    condition:
+      - and:
+        - condition: state
+          entity_id: input_boolean.bedroom2_in_bed
+          state: "on" 
+        - condition: state
+          entity_id: binary_sensor.bedroom_2_motion_sensor_motion
+          state: "off"     
+    action:
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.bedroom2_asleep
+    mode: single
+  - id: "bedroom2_set_state_awake"
+    alias: Bedroom 2 - Set State Awake
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bedroom_2_motion_sensor_motion
+        to: "on"
+    condition: []
+    action:
+      - service: input_boolean.turn_off
+        data: {}
+        entity_id: input_boolean.bedroom2_asleep
+      - service: timer.start
+        data: {}
+        entity_id: timer.bedroom2_awake
+    mode: single

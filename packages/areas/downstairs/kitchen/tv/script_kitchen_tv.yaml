@@ -8,6 +8,12 @@ script:
       - condition: state
         entity_id: input_boolean.kitchen_tv_switch
         state: "off"
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.kitchen_tv_power_socket
+            - switch.kitchen_sky_power_socket
+      - delay: 1
       - service: remote.send_command
         entity_id: remote.kitchen_broadlink_ir_blaster_remote
         data:
