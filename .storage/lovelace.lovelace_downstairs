@@ -411,7 +411,7 @@
                 },
                 {
                   "type": "entity",
-                  "entity": "binary_sensor.kitchen_motion_sensor"
+                  "entity": "binary_sensor.kitchen_motion_sensor_composite_motion"
                 },
                 {
                   "type": "entity",
@@ -482,6 +482,15 @@
                       "icon_animation": true,
                       "fill_container": false,
                       "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.kitchen_camera_socket",
+                      "layout": "vertical",
+                      "name": "Camera",
+                      "tap_action": {
+                        "action": "toggle"
+                      }
                     }
                   ]
                 },
