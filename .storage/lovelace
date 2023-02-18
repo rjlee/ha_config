@@ -70,7 +70,7 @@
                   "type": "template",
                   "entity": "sensor.smart_meter_electricity_power",
                   "icon": "mdi:lightning-bolt",
-                  "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}}W",
+                  "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}} W",
                   "double_tap_action": {
                     "action": "more-info"
                   },
@@ -217,19 +217,35 @@
                       "layout": "vertical",
                       "secondary_info": "none",
                       "icon": "mdi:bed"
-                    },
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
-                      "icon": "mdi:toilet",
-                      "name": "WC",
+                      "entity": "binary_sensor.spare_room_motion_sensor_motion",
+                      "name": "Spare Room",
                       "layout": "vertical",
                       "secondary_info": "none",
                       "tap_action": {
                         "action": "navigate",
-                        "navigation_path": "/lovelace-upstairs/upstairs-bathroom"
+                        "navigation_path": "/lovelace-upstairs/spare-room"
                       },
-                      "icon_color": "blue"
+                      "icon": "mdi:bed-double-outline"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion",
+                      "name": "WC",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "icon": "mdi:toilet",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-upstairs/upstairs-bathroom"
+                      }
                     }
                   ]
                 }

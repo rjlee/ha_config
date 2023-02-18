@@ -522,12 +522,26 @@
                     {
                       "type": "custom:mushroom-media-player-card",
                       "entity": "media_player.bedroom_2_alexa",
-                      "name": "Alexa"
+                      "name": "Alexa",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "media_player.bedroom2_tv",
+                      "name": "TV",
+                      "layout": "vertical"
                     },
                     {
                       "type": "custom:mushroom-media-player-card",
                       "entity": "media_player.xbox_bedroom_2",
-                      "name": "Xbox"
+                      "name": "Xbox",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "button.bedroom_2_laptop_sleep",
+                      "layout": "vertical",
+                      "name": "Laptop"
                     }
                   ]
                 }
