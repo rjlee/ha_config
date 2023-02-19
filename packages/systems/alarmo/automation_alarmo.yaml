@@ -3,12 +3,18 @@ automation:
     alias: Alarmo - Arm Night Mode
     description: ""
     trigger:
-      - platform: time
-        at: "00:00:00"
+      - platform: state
+        entity_id: binary_sensor.lounge_motion_sensor_composite_motion
+        to: "off"
+        for: 00:30:00
     condition:
-      - condition: state
-        entity_id: input_boolean.on_holiday
-        state: "off"
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: time
+            after: "00:00:00"
+            before: "06:00:00"
     action:
       - service: alarmo.arm
         data:
