@@ -68,9 +68,24 @@
                 },
                 {
                   "type": "template",
-                  "entity": "sensor.smart_meter_electricity_power",
-                  "icon": "mdi:lightning-bolt",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
                   "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}} W",
+                  "icon": "mdi:lightning-bolt",
+                  "entity": "sensor.smart_meter_electricity_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "template",
+                  "entity": "sensor.smart_meter_cost_today",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|float) }}",
                   "double_tap_action": {
                     "action": "more-info"
                   },
@@ -348,6 +363,27 @@
                       },
                       "double_tap_action": {
                         "action": "none"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "icon": "mdi:home-outline",
+                      "name": "Hall",
+                      "entity": "light.downstairs_hall_lamp_level_light_color_on_off",
+                      "icon_color": "grey",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/hallway"
+                      },
+                      "hold_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/hallway"
+                      },
+                      "double_tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-downstairs/hallway"
                       }
                     },
                     {

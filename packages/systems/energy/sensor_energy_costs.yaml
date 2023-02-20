@@ -22,3 +22,11 @@ template:
           * states('sensor.smart_meter_gas_import_unit_rate') | float
           + states('sensor.smart_meter_gas_import_standing_charge') | float
           ) | round(2) }}"
+  - sensor:
+    - name: "Smart Meter: Cost (Today)"
+      unique_id: "smart_meter_total_cost_today"
+      device_class: monetary
+      unit_of_measurement: "GBP"
+      state_class: "total_increasing"
+      icon: mdi:cash
+      state: "{{ states('sensor.smart_meter_electricity_cost_today') | float + states('sensor.smart_meter_gas_cost_today') | float }}"

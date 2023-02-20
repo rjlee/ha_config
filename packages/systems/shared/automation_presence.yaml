@@ -9,11 +9,11 @@ automation:
         to: home
     condition: []
     action:
-      - device_id: 0fa5fbc01b9911ebb57d7bea9876cb88
-        domain: climate
-        entity_id: climate.lounge
-        type: set_preset_mode
-        preset_mode: home
+#      - device_id: 0fa5fbc01b9911ebb57d7bea9876cb88
+#        domain: climate
+#        entity_id: climate.lounge
+#        type: set_preset_mode
+#        preset_mode: home
       - service: light.turn_on
         target:
           entity_id:
@@ -34,11 +34,11 @@ automation:
         to: not_home
     condition: []
     action:
-      - device_id: 0fa5fbc01b9911ebb57d7bea9876cb88
-        domain: climate
-        entity_id: climate.lounge
-        type: set_preset_mode
-        preset_mode: away
+#      - device_id: 0fa5fbc01b9911ebb57d7bea9876cb88
+#        domain: climate
+#        entity_id: climate.lounge
+#        type: set_preset_mode
+#        preset_mode: away
       - service: light.turn_off
         target:
           entity_id:
