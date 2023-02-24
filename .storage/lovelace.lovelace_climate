@@ -161,6 +161,14 @@
               ]
             },
             {
+              "hours_to_show": 8,
+              "graph": "line",
+              "type": "sensor",
+              "entity": "sensor.outdoor_illuminance",
+              "detail": 2,
+              "name": "Outdoor Illuminance"
+            },
+            {
               "type": "vertical-stack",
               "cards": [
                 {
@@ -489,25 +497,25 @@
               "type": "custom:frigate-card",
               "cameras": [
                 {
-                  "camera_entity": "camera.front_camera",
+                  "camera_entity": "camera.front_sub",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 },
                 {
-                  "camera_entity": "camera.lounge_camera",
+                  "camera_entity": "camera.lounge_sub",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 },
                 {
-                  "camera_entity": "camera.kitchen_camera",
+                  "camera_entity": "camera.kitchen_sub",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 },
                 {
-                  "camera_entity": "camera.back_camera",
+                  "camera_entity": "camera.back_sub",
                   "frigate": {
                     "client_id": "frigate0"
                   }

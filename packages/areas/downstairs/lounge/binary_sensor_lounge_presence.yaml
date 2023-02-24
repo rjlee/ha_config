@@ -4,5 +4,5 @@ template:
         unique_id: lounge_motion_sensor_composite_motion
         device_class: motion
         state: >
-          {{ is_state('binary_sensor.lounge_camera_person_occupancy', 'on')
+          {{ is_state('binary_sensor.lounge_person', 'on')
              or is_state('binary_sensor.lounge_motion_sensor_motion', 'on') }}

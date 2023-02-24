@@ -1,0 +1,4 @@
+sensor:
+  - platform: illuminance
+    entity_id: weather.home
+    name: outdoor_illuminance

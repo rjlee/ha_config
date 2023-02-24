@@ -3,8 +3,9 @@ automation:
     alias: Downstairs Hall - Good Morning
     description: ""
     trigger:
-      - platform: time
-        at: 06:00
+      - platform: numeric_state
+        entity_id: sensor.outdoor_illuminance
+        below: 10000
     condition:
       - condition: state
         entity_id: input_boolean.on_holiday
@@ -19,8 +20,9 @@ automation:
     alias: Downstairs Hall - Good Night
     description: ""
     trigger:
-      - platform: time
-        at: 00:00
+      - platform: numeric_state
+        entity_id: sensor.outdoor_illuminance
+        above: 10000
     condition: []
     action:
       - service: light.turn_off

@@ -142,7 +142,6 @@
             },
             {
               "type": "custom:battery-state-card",
-              "title": "Battery Level",
               "sort_by_level": "asc",
               "entities": [
                 "sensor.bedroom_1_motion_sensor_battery",
@@ -350,7 +349,7 @@
                   "cards": [
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.front_camera_person_occupancy",
+                      "entity": "binary_sensor.front_person",
                       "name": "Front",
                       "layout": "vertical",
                       "secondary_info": "none",
@@ -388,7 +387,7 @@
                     },
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.back_camera_person_occupancy",
+                      "entity": "binary_sensor.back_person",
                       "name": "Back",
                       "layout": "vertical",
                       "secondary_info": "none",
