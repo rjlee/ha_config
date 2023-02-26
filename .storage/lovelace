@@ -85,7 +85,7 @@
                   "type": "template",
                   "entity": "sensor.smart_meter_cost_today",
                   "icon": "mdi:lightning-bolt",
-                  "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|float) }}",
+                  "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|round(default=0)|float) }}",
                   "double_tap_action": {
                     "action": "more-info"
                   },

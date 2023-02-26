@@ -1,11 +1,47 @@
 automation:
-  - id: "downstairs_hall_good_morning"
-    alias: Downstairs Hall - Good Morning
+  - id: "downstairs_hall_illuminance_on"
+    alias: Downstairs Hall - Illuminance On
     description: ""
     trigger:
       - platform: numeric_state
         entity_id: sensor.outdoor_illuminance
-        below: 10000
+        below: 15000
+    condition:
+        - condition: state
+          entity_id: input_boolean.on_holiday
+          state: "off"
+    action:
+      - service: light.turn_on
+        target:
+          entity_id:
+            - light.downstairs_hall_lamp_level_light_color_on_off
+    mode: single
+  - id: "downstairs_hall_illuminance_off"
+    alias: Downstairs Hall - Illuminance Off
+    description: ""
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.outdoor_illuminance
+        above: 15000
+    condition:
+      - and:
+        - condition: state
+          entity_id: input_boolean.on_holiday
+          state: "off"
+        - condition: time
+          after: 06:00
+    action:
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.downstairs_hall_lamp_level_light_color_on_off
+    mode: single
+  - id: "downstairs_hall_good_morning"
+    alias: Downstairs Hall - Good Morning
+    description: ""
+    trigger:
+      - platform: time
+        at: 06:00
     condition:
       - condition: state
         entity_id: input_boolean.on_holiday
@@ -20,9 +56,8 @@ automation:
     alias: Downstairs Hall - Good Night
     description: ""
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.outdoor_illuminance
-        above: 10000
+      - platform: time
+        at: 00:00
     condition: []
     action:
       - service: light.turn_off
