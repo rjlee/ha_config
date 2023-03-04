@@ -8,7 +8,7 @@ script:
         entity_id: script.bedroom2_blind_open
       - delay: 00:00:10
       - service: light.turn_off
-        entity_id: light.bedroom_2_bedside_lamp
+        entity_id: light.bedroom_2_bedside_lamp_local
   bedroom2_good_night:
     alias: Bedroom 2 Good Night
     mode: single
@@ -18,4 +18,4 @@ script:
         entity_id: script.bedroom2_blind_close
       - delay: 00:00:10
       - service: light.turn_on
-        entity_id: light.bedroom_2_bedside_lamp
+        entity_id: light.bedroom_2_bedside_lamp_local

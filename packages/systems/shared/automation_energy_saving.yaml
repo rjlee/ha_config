@@ -23,8 +23,8 @@ automation:
           entity_id:
             - light.bedroom_1_light
             - light.bedroom2_light
-            - light.bedroom_1_bedside_lamp
-            - light.bedroom_2_bedside_lamp
+            - light.bedroom_1_bedside_lamp_local
+            - light.bedroom_2_bedside_lamp_local
       - service: media_player.turn_off
         target:
           entity_id:

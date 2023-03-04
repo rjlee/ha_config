@@ -16,6 +16,6 @@ script:
       - service: light.turn_off
         entity_id: light.bedroom2_light
       - service: light.turn_off
-        entity_id: light.bedroom_2_bedside_lamp
+        entity_id: light.bedroom_2_bedside_lamp_local
       - service: light.turn_off
         entity_id: light.bedroom_2_led_sign

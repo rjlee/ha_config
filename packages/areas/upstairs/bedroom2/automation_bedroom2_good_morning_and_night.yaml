@@ -26,7 +26,7 @@ automation:
       - service: light.turn_off
         target:
           entity_id:
-            - light.bedroom_2_bedside_lamp
+            - light.bedroom_2_bedside_lamp_local
     mode: single
   - id: "bedroom2_good_morning_weekend"
     alias: Bedroom 2 - Good Morning - Weekend

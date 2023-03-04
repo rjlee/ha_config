@@ -251,7 +251,7 @@
                 },
                 {
                   "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_1_bedside_lamp",
+                  "entity": "light.bedroom_1_bedside_lamp_local",
                   "name": "Lamp",
                   "secondary_info": "none",
                   "use_light_color": true
@@ -468,7 +468,7 @@
                 },
                 {
                   "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_2_bedside_lamp",
+                  "entity": "light.bedroom_2_bedside_lamp_local",
                   "name": "Lamp",
                   "layout": "vertical",
                   "use_light_color": true

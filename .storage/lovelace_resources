@@ -108,6 +108,11 @@
         "url": "/hacsfiles/power-flow-card/power-flow-card.js?hacstag=484538222261",
         "type": "module",
         "id": "55e06069b8d841dfaebdf2eab2c04a8e"
+      },
+      {
+        "url": "/hacsfiles/lovelace-rpi-monitor-card/rpi-monitor-card.js?hacstag=281214271142",
+        "type": "module",
+        "id": "0585d30819e1465fa7d12a15e9b835b7"
       }
     ]
   }

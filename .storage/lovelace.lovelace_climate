@@ -482,6 +482,118 @@
               ]
             },
             {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "pihole1"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_disk_used_pihole1",
+                      "name": "Disk",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_cpu_use_pihole1",
+                      "name": "CPU",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "button.rpi_reboot_pihole1_command",
+                      "name": "Reboot",
+                      "layout": "vertical",
+                      "secondary_info": "none"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-title-card",
+                      "title": "",
+                      "subtitle": "pihole2"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_disk_used_pihole2",
+                      "name": "Disk",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_cpu_use_pihole2",
+                      "name": "CPU",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "button.rpi_reboot_pihole1_command",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "name": "Reboot"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-title-card",
+                      "title": "",
+                      "subtitle": "synology"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.synology_volume_1_volume_used",
+                      "name": "Disk",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.synology_cpu_utilization_total",
+                      "name": "CPU",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "button.synology_reboot",
+                      "layout": "vertical",
+                      "secondary_info": "none",
+                      "name": "Reboot"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "type": "custom:transmission-card"
             }
           ]
