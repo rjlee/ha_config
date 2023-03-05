@@ -173,7 +173,7 @@
                 {
                   "type": "custom:mushroom-title-card",
                   "title": "",
-                  "subtitle": "Upstairs Rooms"
+                  "subtitle": "Upstairs"
                 },
                 {
                   "type": "horizontal-stack",
@@ -271,7 +271,7 @@
                 {
                   "type": "custom:mushroom-title-card",
                   "title": "",
-                  "subtitle": "Downstairs Rooms"
+                  "subtitle": "Downstairs"
                 },
                 {
                   "type": "horizontal-stack",
@@ -462,6 +462,108 @@
                   "double_tap_action": {
                     "action": "none"
                   }
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "House"
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.smart_meter_electricity_power",
+                      "name": "Energy",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/energy-glow"
+                      },
+                      "hold_action": {
+                        "action": "navigate",
+                        "navigation_path": "/energy-glow"
+                      },
+                      "layout": "vertical",
+                      "icon_color": "disabled"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.internet_isp",
+                      "icon": "mdi:cloud-outline",
+                      "name": "Network",
+                      "secondary_info": "none",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/network"
+                      },
+                      "hold_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/network"
+                      },
+                      "icon_color": "disabled"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "zone.home",
+                      "name": "Cameras",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/cameras"
+                      },
+                      "hold_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/cameras"
+                      },
+                      "secondary_info": "none",
+                      "layout": "vertical",
+                      "icon": "mdi:camera-outline",
+                      "icon_color": "disabled"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "zone.home",
+                      "name": "Climate",
+                      "secondary_info": "none",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/house"
+                      },
+                      "hold_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/house"
+                      },
+                      "layout": "vertical",
+                      "icon_color": "disabled"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.smart_meter_electricity_power",
+                      "name": "Power",
+                      "secondary_info": "none",
+                      "layout": "vertical",
+                      "icon_color": "disabled",
+                      "tap_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/power"
+                      },
+                      "hold_action": {
+                        "action": "navigate",
+                        "navigation_path": "/lovelace-climate/power"
+                      }
+                    }
+                  ]
                 }
               ]
             }

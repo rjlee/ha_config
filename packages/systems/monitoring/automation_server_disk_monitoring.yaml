@@ -1,0 +1,45 @@
+automation:
+  - id: "server_disk_monitoring_pihole1"
+    alias: "Server disk monitoring pihole1"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.rpi_disk_used_pihole1
+        above: 90
+    action:
+      service: notify.dad
+      data:
+        title: pihole1 disk usage warning"
+        message: "pihole1 above 90% disk usage"
+  - id: "server_disk_monitoring_pihole2"
+    alias: "Server disk monitoring pihole2"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.rpi_disk_used_pihole2
+        above: 90
+    action:
+      service: notify.dad
+      data:
+        title: pihole2 disk usage warning"
+        message: "pihole2 above 90% disk usage"
+  - id: "server_disk_monitoring_synology"
+    alias: "Server disk monitoring synology"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.synology_volume_1_used_space
+        above: 90
+    action:
+      service: notify.dad
+      data:
+        title: synology disk usage warning"
+        message: "synology above 90% disk usage"
+  - id: "server_disk_monitoring_proxmox"
+    alias: "Server disk monitoring proxmox"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.node_proxmox_proxmox_home_8006_disk_free_percentage
+        below: 10
+    action:
+      service: notify.dad
+      data:
+        title: proxmox disk usage warning"
+        message: "proxmox above 90% disk usage"

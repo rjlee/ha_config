@@ -1,0 +1,45 @@
+automation:
+  - id: "server_status_monitoring_pihole1"
+    alias: "Server status monitoring pihole1"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_pihole1_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: pihole1 connectivity warning"
+        message: "pihole1 not on the network"
+  - id: "server_status_monitoring_pihole2"
+    alias: "Server status monitoring pihole2"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_pihole2_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: pihole2 connectivity warning"
+        message: "pihole2 not on the network"
+  - id: "server_status_monitoring_synology"
+    alias: "Server status monitoring synology"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_synology_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: synology connectivity warning"
+        message: "synology not on the network"
+  - id: "server_status_monitoring_proxmox"
+    alias: "Server status monitoring proxmox"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.node_proxmox_proxmox_home_8006_status
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: proxmox connectivity warning"
+        message: "proxmox not on the network"

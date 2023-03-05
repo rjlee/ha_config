@@ -132,6 +132,15 @@
           "badges": [],
           "cards": [
             {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "back"
+                }
+              ],
+              "alignment": "end"
+            },
+            {
               "type": "horizontal-stack",
               "cards": [
                 {
@@ -149,14 +158,6 @@
                   "entity": "sensor.indoor_temperature",
                   "detail": 1,
                   "name": "Indoor"
-                },
-                {
-                  "hours_to_show": 24,
-                  "graph": "line",
-                  "type": "sensor",
-                  "entity": "sensor.temperature_2",
-                  "detail": 1,
-                  "name": "Cellar"
                 }
               ]
             },
@@ -204,6 +205,15 @@
           "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "back"
+                }
+              ],
+              "alignment": "end"
+            },
             {
               "type": "horizontal-stack",
               "title": "Main Bedroom",
@@ -442,6 +452,15 @@
           "badges": [],
           "cards": [
             {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "back"
+                }
+              ],
+              "alignment": "end"
+            },
+            {
               "type": "vertical-stack",
               "cards": [
                 {
@@ -494,6 +513,12 @@
                   "cards": [
                     {
                       "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.host_pihole1_availability",
+                      "name": "Status",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_disk_used_pihole1",
                       "name": "Disk",
                       "layout": "vertical"
@@ -506,10 +531,9 @@
                     },
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "button.rpi_reboot_pihole1_command",
-                      "name": "Reboot",
-                      "layout": "vertical",
-                      "secondary_info": "none"
+                      "entity": "sensor.rpi_mem_used_pihole1",
+                      "name": "Memory",
+                      "layout": "vertical"
                     }
                   ]
                 }
@@ -533,6 +557,12 @@
                   "cards": [
                     {
                       "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.host_pihole2_availability",
+                      "name": "Status",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_disk_used_pihole2",
                       "name": "Disk",
                       "layout": "vertical"
@@ -545,10 +575,9 @@
                     },
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "button.rpi_reboot_pihole1_command",
+                      "entity": "sensor.rpi_mem_used_pihole2",
                       "layout": "vertical",
-                      "secondary_info": "none",
-                      "name": "Reboot"
+                      "name": "Memory"
                     }
                   ]
                 }
@@ -572,6 +601,12 @@
                   "cards": [
                     {
                       "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.host_synology_availability",
+                      "name": "Status",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
                       "entity": "sensor.synology_volume_1_volume_used",
                       "name": "Disk",
                       "layout": "vertical"
@@ -584,10 +619,79 @@
                     },
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "button.synology_reboot",
+                      "entity": "sensor.synology_memory_usage_real",
                       "layout": "vertical",
-                      "secondary_info": "none",
-                      "name": "Reboot"
+                      "name": "Memory"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-title-card",
+                      "title": "",
+                      "subtitle": "proxmox"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
+                      "name": "Status",
+                      "layout": "vertical",
+                      "icon": "mdi:server"
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Disk",
+                      "secondary": "{{ states(\"sensor.synology_volume_1_used_space\") }}%",
+                      "icon": "mdi:harddisk",
+                      "entity": "sensor.node_proxmox_proxmox_home_8006_disk_free_percentage",
+                      "layout": "vertical",
+                      "icon_color": "blue",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "double_tap_action": {
+                        "action": "more-info"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.node_proxmox_proxmox_home_8006_cpu_used",
+                      "name": "CPU",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Memory",
+                      "secondary": "{{100-(states(\"sensor.node_proxmox_proxmox_home_8006_memory_free_percentage\")|int) }}%",
+                      "icon": "mdi:memory",
+                      "layout": "vertical",
+                      "entity": "sensor.node_proxmox_proxmox_home_8006_memory_free_percentage",
+                      "badge_color": "",
+                      "icon_color": "blue",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "double_tap_action": {
+                        "action": "more-info"
+                      }
                     }
                   ]
                 }
@@ -606,28 +710,37 @@
           "badges": [],
           "cards": [
             {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "back"
+                }
+              ],
+              "alignment": "end"
+            },
+            {
               "type": "custom:frigate-card",
               "cameras": [
                 {
-                  "camera_entity": "camera.front_sub",
+                  "camera_entity": "camera.front_main",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 },
                 {
-                  "camera_entity": "camera.lounge_sub",
+                  "camera_entity": "camera.lounge_main",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 },
                 {
-                  "camera_entity": "camera.kitchen_sub",
+                  "camera_entity": "camera.kitchen_main",
                   "frigate": {
                     "client_id": "frigate0"
                   }
                 },
                 {
-                  "camera_entity": "camera.back_sub",
+                  "camera_entity": "camera.back_main",
                   "frigate": {
                     "client_id": "frigate0"
                   }

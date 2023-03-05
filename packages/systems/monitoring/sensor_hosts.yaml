@@ -14,3 +14,8 @@ binary_sensor:
     name: "host_pihole1_availability"
     count: 5
     scan_interval: 60
+  - platform: ping
+    host: !secret host_monitor_pihole2
+    name: "host_pihole2_availability"
+    count: 5
+    scan_interval: 60
