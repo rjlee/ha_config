@@ -94,50 +94,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "custom:mushroom-title-card",
-                  "title": "",
-                  "subtitle": "Sensors"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.front_camera_person_occupancy",
-                      "name": "Frigate Person",
-                      "layout": "vertical"
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.front_person",
-                      "name": "Reolink Person",
-                      "layout": "vertical"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.front_camera_motion",
-                      "layout": "vertical",
-                      "name": "Frigate Motion"
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.front_motion",
-                      "name": "Reolink Motion",
-                      "layout": "vertical"
-                    }
-                  ]
-                }
-              ]
             }
           ]
         },
@@ -869,50 +825,6 @@
               "type": "area",
               "area": "fc1ec4ee0e6011eb85e98da66e03329c",
               "show_camera": true
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "custom:mushroom-title-card",
-                  "title": "",
-                  "subtitle": "Sensors"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.back_camera_person_occupancy",
-                      "name": "Frigate Person",
-                      "layout": "vertical"
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.back_person",
-                      "name": "Reolink Person",
-                      "layout": "vertical"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.back_camera_motion",
-                      "layout": "vertical",
-                      "name": "Frigate Motion"
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.back_motion",
-                      "name": "Reolink Motion",
-                      "layout": "vertical"
-                    }
-                  ]
-                }
-              ]
             }
           ]
         }

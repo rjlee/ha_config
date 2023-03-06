@@ -1,0 +1,20 @@
+automation:
+  - id: "lounge_proxmox_scheduled_start"
+    alias: Lounge - Proxmox Scheduled Start
+    description: ""
+    trigger:
+      - platform: time
+        at: "06:00"
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: time
+            weekday:
+              - sat
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: 18:c0:4d:14:77:a1
+    mode: single
