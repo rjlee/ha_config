@@ -628,74 +628,83 @@
               ]
             },
             {
-              "type": "vertical-stack",
-              "cards": [
+              "type": "conditional",
+              "conditions": [
                 {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-title-card",
-                      "title": "",
-                      "subtitle": "proxmox"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
-                      "name": "Status",
-                      "layout": "vertical",
-                      "icon": "mdi:server"
-                    },
-                    {
-                      "type": "custom:mushroom-template-card",
-                      "primary": "Disk",
-                      "secondary": "{{ states(\"sensor.synology_volume_1_used_space\") }}%",
-                      "icon": "mdi:harddisk",
-                      "entity": "sensor.node_proxmox_proxmox_home_8006_disk_free_percentage",
-                      "layout": "vertical",
-                      "icon_color": "blue",
-                      "tap_action": {
-                        "action": "more-info"
-                      },
-                      "hold_action": {
-                        "action": "more-info"
-                      },
-                      "double_tap_action": {
-                        "action": "more-info"
-                      }
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "sensor.node_proxmox_proxmox_home_8006_cpu_used",
-                      "name": "CPU",
-                      "layout": "vertical"
-                    },
-                    {
-                      "type": "custom:mushroom-template-card",
-                      "primary": "Memory",
-                      "secondary": "{{100-(states(\"sensor.node_proxmox_proxmox_home_8006_memory_free_percentage\")|int) }}%",
-                      "icon": "mdi:memory",
-                      "layout": "vertical",
-                      "entity": "sensor.node_proxmox_proxmox_home_8006_memory_free_percentage",
-                      "badge_color": "",
-                      "icon_color": "blue",
-                      "tap_action": {
-                        "action": "more-info"
-                      },
-                      "hold_action": {
-                        "action": "more-info"
-                      },
-                      "double_tap_action": {
-                        "action": "more-info"
-                      }
-                    }
-                  ]
+                  "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
+                  "state": "running"
                 }
-              ]
+              ],
+              "card": {
+                "type": "vertical-stack",
+                "cards": [
+                  {
+                    "type": "horizontal-stack",
+                    "cards": [
+                      {
+                        "type": "custom:mushroom-title-card",
+                        "title": "",
+                        "subtitle": "proxmox"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "horizontal-stack",
+                    "cards": [
+                      {
+                        "type": "custom:mushroom-entity-card",
+                        "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
+                        "name": "Status",
+                        "layout": "vertical",
+                        "icon": "mdi:server"
+                      },
+                      {
+                        "type": "custom:mushroom-template-card",
+                        "primary": "Disk",
+                        "secondary": "{{ states(\"sensor.synology_volume_1_used_space\") }}%",
+                        "icon": "mdi:harddisk",
+                        "entity": "sensor.node_proxmox_proxmox_home_8006_disk_free_percentage",
+                        "layout": "vertical",
+                        "icon_color": "blue",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "hold_action": {
+                          "action": "more-info"
+                        },
+                        "double_tap_action": {
+                          "action": "more-info"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-entity-card",
+                        "entity": "sensor.node_proxmox_proxmox_home_8006_cpu_used",
+                        "name": "CPU",
+                        "layout": "vertical"
+                      },
+                      {
+                        "type": "custom:mushroom-template-card",
+                        "primary": "Memory",
+                        "secondary": "{{100-(states(\"sensor.node_proxmox_proxmox_home_8006_memory_free_percentage\")|int) }}%",
+                        "icon": "mdi:memory",
+                        "layout": "vertical",
+                        "entity": "sensor.node_proxmox_proxmox_home_8006_memory_free_percentage",
+                        "badge_color": "",
+                        "icon_color": "blue",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "hold_action": {
+                          "action": "more-info"
+                        },
+                        "double_tap_action": {
+                          "action": "more-info"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
             },
             {
               "type": "custom:transmission-card"

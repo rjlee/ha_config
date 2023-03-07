@@ -539,7 +539,7 @@
                     },
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "button.bedroom_2_laptop_sleep",
+                      "entity": "sensor.bedroom_2_laptop_sessionstate",
                       "layout": "vertical",
                       "name": "Laptop"
                     }
