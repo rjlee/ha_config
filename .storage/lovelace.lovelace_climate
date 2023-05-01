@@ -34,6 +34,9 @@
                   "type": "entity",
                   "entity": "person.edward",
                   "use_entity_picture": true
+                },
+                {
+                  "type": "back"
                 }
               ],
               "alignment": "center"
@@ -76,6 +79,40 @@
                       "type": "custom:mushroom-light-card",
                       "entity": "group.lights",
                       "fill_container": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "vertical-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-title-card",
+                      "title": "",
+                      "subtitle": "Power Usage"
+                    },
+                    {
+                      "chart_type": "line",
+                      "period": "5minute",
+                      "days_to_show": 1,
+                      "type": "statistics-graph",
+                      "entities": [
+                        {
+                          "entity": "sensor.smart_meter_electricity_power_in_watts",
+                          "name": "Actual"
+                        },
+                        {
+                          "entity": "sensor.house_combined_power",
+                          "name": "Estimated"
+                        }
+                      ],
+                      "stat_types": [
+                        "mean"
+                      ]
                     }
                   ]
                 }
@@ -473,7 +510,23 @@
                   "cards": [
                     {
                       "type": "custom:mushroom-cover-card",
-                      "entity": "sensor.internet_isp"
+                      "entity": "sensor.internet_isp",
+                      "icon": "mdi:web",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "double_tap_action": {
+                        "action": "more-info"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.unifi_gateway_www_status",
+                      "name": "Unifi Status",
+                      "icon_color": "disabled"
                     }
                   ]
                 },
@@ -481,20 +534,21 @@
                   "type": "horizontal-stack",
                   "cards": [
                     {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.internet_wan_download_speed",
-                      "detail": 1,
-                      "name": "Download Speed"
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.internet_wan_upload_speed",
-                      "detail": 1,
-                      "name": "Upload Speed"
+                      "type": "custom:mini-graph-card",
+                      "name": "Internet Speed",
+                      "icon": "mdi:web",
+                      "entities": [
+                        {
+                          "entity": "sensor.unifi_gateway_www_rx",
+                          "name": "Download",
+                          "show_state": true
+                        },
+                        {
+                          "entity": "sensor.unifi_gateway_www_tx",
+                          "name": "Upload",
+                          "show_state": true
+                        }
+                      ]
                     }
                   ]
                 }
@@ -515,25 +569,29 @@
                       "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.host_pihole1_availability",
                       "name": "Status",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_disk_used_pihole1",
                       "name": "Disk",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_cpu_use_pihole1",
                       "name": "CPU",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_mem_used_pihole1",
                       "name": "Memory",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     }
                   ]
                 }
@@ -559,25 +617,29 @@
                       "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.host_pihole2_availability",
                       "name": "Status",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_disk_used_pihole2",
                       "name": "Disk",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_cpu_use_pihole2",
                       "name": "CPU",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.rpi_mem_used_pihole2",
                       "layout": "vertical",
-                      "name": "Memory"
+                      "name": "Memory",
+                      "icon_color": "disabled"
                     }
                   ]
                 }
@@ -603,25 +665,29 @@
                       "type": "custom:mushroom-entity-card",
                       "entity": "binary_sensor.host_synology_availability",
                       "name": "Status",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.synology_volume_1_volume_used",
                       "name": "Disk",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.synology_cpu_utilization_total",
                       "name": "CPU",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon_color": "disabled"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.synology_memory_usage_real",
                       "layout": "vertical",
-                      "name": "Memory"
+                      "name": "Memory",
+                      "icon_color": "disabled"
                     }
                   ]
                 }
@@ -632,7 +698,7 @@
               "conditions": [
                 {
                   "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
-                  "state": "running"
+                  "state": "on"
                 }
               ],
               "card": {
@@ -656,7 +722,8 @@
                         "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
                         "name": "Status",
                         "layout": "vertical",
-                        "icon": "mdi:server"
+                        "icon": "mdi:server",
+                        "icon_color": "disabled"
                       },
                       {
                         "type": "custom:mushroom-template-card",
@@ -665,7 +732,7 @@
                         "icon": "mdi:harddisk",
                         "entity": "sensor.node_proxmox_proxmox_home_8006_disk_free_percentage",
                         "layout": "vertical",
-                        "icon_color": "blue",
+                        "icon_color": "grey",
                         "tap_action": {
                           "action": "more-info"
                         },
@@ -680,7 +747,8 @@
                         "type": "custom:mushroom-entity-card",
                         "entity": "sensor.node_proxmox_proxmox_home_8006_cpu_used",
                         "name": "CPU",
-                        "layout": "vertical"
+                        "layout": "vertical",
+                        "icon_color": "disabled"
                       },
                       {
                         "type": "custom:mushroom-template-card",
@@ -690,7 +758,7 @@
                         "layout": "vertical",
                         "entity": "sensor.node_proxmox_proxmox_home_8006_memory_free_percentage",
                         "badge_color": "",
-                        "icon_color": "blue",
+                        "icon_color": "grey",
                         "tap_action": {
                           "action": "more-info"
                         },
@@ -705,6 +773,54 @@
                   }
                 ]
               }
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-title-card",
+                      "title": "",
+                      "subtitle": "somfypi"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "binary_sensor.host_somfypi_availability",
+                      "name": "Status",
+                      "layout": "vertical",
+                      "icon_color": "disabled"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_disk_used_somfypi",
+                      "name": "Disk",
+                      "layout": "vertical",
+                      "icon_color": "disabled"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_cpu_use_somfypi",
+                      "name": "CPU",
+                      "layout": "vertical",
+                      "icon_color": "disabled"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "sensor.rpi_mem_used_somfypi",
+                      "layout": "vertical",
+                      "name": "Memory",
+                      "icon_color": "disabled"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "custom:transmission-card"
@@ -765,6 +881,15 @@
           "badges": [],
           "cards": [
             {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "back"
+                }
+              ],
+              "alignment": "end"
+            },
+            {
               "type": "markdown",
               "content": "<h2> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman report<h2> <h3>Missing Entities: {{ states.sensor.watchman_missing_entities.state }} </h3> {%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}] <a title=\"{{item.occurrences}}\"> {{item.occurrences.split('/')[-1].split(':')[0]}}</a> </td></tr></table> {%- endfor %}\n",
               "card_mod": {
@@ -782,17 +907,6 @@
           "path": "smart-devices",
           "badges": [],
           "cards": [
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.dads_toothbrush"
-                },
-                {
-                  "entity": "input_datetime.dad_last_cleaned_teeth"
-                }
-              ]
-            },
             {
               "type": "custom:auto-entities",
               "card": {

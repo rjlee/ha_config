@@ -1,24 +1,4 @@
 automation:
-#  - id: "study_energy_timed_saver_on"
-#    alias: Study - Timed Energy Saver on
-#    description: ""
-#    trigger:
-#      - platform: time
-#        at: 06:00
-#    condition:
-#      - and:
-#          - condition: state
-#            entity_id: input_boolean.on_holiday
-#            state: "off"
-#          - condition: state
-#            entity_id: input_boolean.energy_saver
-#            state: "off"
-#    action:
-#      - service: switch.turn_on
-#        target:
-#          entity_id:
-#            - switch.study_power_socket_on_off
-#    mode: single
   - id: "study_energy_timed_saver_off"
     alias: Study - Timed Energy Saver Off
     description: ""

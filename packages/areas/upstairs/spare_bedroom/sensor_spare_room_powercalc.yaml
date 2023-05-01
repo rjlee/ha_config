@@ -1,0 +1,6 @@
+sensor:
+  - platform: powercalc
+    entities:
+      - entity_id: binary_sensor.dads_work_laptop_active
+        fixed:
+          power: 10

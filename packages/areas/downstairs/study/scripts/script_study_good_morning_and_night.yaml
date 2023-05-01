@@ -1,0 +1,18 @@
+script:
+  study_good_morning:
+    alias: Study Good Morning
+    mode: single
+    icon: mdi:weather-sunny
+    sequence:
+      - service: script.turn_on
+        entity_id: script.study_blind_open
+  study_good_night:
+    alias: Study Good Night
+    mode: single
+    icon: mdi:weather-night
+    sequence:
+      - service: script.turn_on
+        entity_id: script.study_blind_close
+      - delay: 60
+      - service: switch.turn_off
+        entity_id: switch.study_power_socket_on_off

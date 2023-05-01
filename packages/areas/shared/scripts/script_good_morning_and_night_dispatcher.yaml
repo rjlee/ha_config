@@ -21,6 +21,8 @@ script:
               script.spare_room_good_morning
             {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
               script.lounge_light_on
+            {%- elif is_state('sensor.last_alexa', 'media_player.study') -%}
+              script.study_good_morning
             {%- endif -%}
   good_night_dispatch:
     alias: "Good Night Dispatcher"
@@ -44,4 +46,6 @@ script:
               script.spare_room_good_night
             {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
               script.lounge_light_off
+            {%- elif is_state('sensor.last_alexa', 'media_player.study') -%}
+              script.study_good_night
             {%- endif -%}

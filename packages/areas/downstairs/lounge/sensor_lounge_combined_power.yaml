@@ -1,0 +1,10 @@
+template:
+  - sensor:
+    - name: Lounge Combined Power
+      state_class: measurement
+      device_class: power
+      unit_of_measurement: "W"
+      icon: mdi:lightning
+      state: >
+        {% set power = expand('group.lounge_power_sensors')| rejectattr('state', 'in', ['unavailable', 'unknown', 'NaN'])| map(attribute='state') | map('float', 0) | list %}
+        {{ (power | sum | round(1)) }}

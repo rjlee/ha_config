@@ -1,0 +1,9 @@
+sensor:
+  - platform: powercalc
+    entities:
+      - entity_id: light.bedroom_1_bedside_lamp_local
+        fixed:
+          power: 6
+      - entity_id: media_player.xbox_bedroom_1
+        fixed:
+          power: 45

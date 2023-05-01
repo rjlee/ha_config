@@ -1,0 +1,29 @@
+sensor:
+  - platform: unifigateway
+    host: unifi.home
+    port: 8443
+    version: UDMP-unifiOS
+    username: !secret unifigateway_username
+    password: !secret unifigateway_password
+    monitored_conditions:
+      - www
+      - wlan
+      - lan
+      - alerts
+      - firmware
+  - platform: template
+    sensors:
+      unifi_gateway_www_status:
+        friendly_name: 'UDM Pro Internet Status'
+        value_template: "{{ state_attr('sensor.unifi_gateway_www','status') | upper }}"
+        icon_template: mdi:web
+      unifi_gateway_www_rx:
+        friendly_name: 'UDM Pro Internet Download Speed'
+        value_template: "{{ (state_attr('sensor.unifi_gateway_www','rx_bytes-r') | float / 125000) | round(2) }}"
+        icon_template: mdi:cloud-arrow-down-outline
+        unit_of_measurement: 'Mbps' 
+      unifi_gateway_www_tx:
+        friendly_name: 'UDM Pro Internet Upload Speed'
+        value_template: "{{ (state_attr('sensor.unifi_gateway_www','tx_bytes-r') | float / 125000) | round(2) }}"
+        icon_template: mdi:cloud-arrow-up-outline
+        unit_of_measurement: 'Mbit/s'

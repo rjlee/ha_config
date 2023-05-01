@@ -1,0 +1,13 @@
+template:
+  - sensor:
+    - name: House Combined Power
+      state_class: measurement
+      device_class: power
+      unit_of_measurement: "W"
+      icon: mdi:lightning
+      state: >
+        {% set power = expand('group.house_power_sensors')| rejectattr('state', 'in', ['unavailable', 'unknown', 'NaN'])| map(attribute='state') | map('float', 0) | list %}
+        {{ (power | sum | round(1)) }}
+      availability: >
+        {% set sensors = expand('group.house_power_sensors') %}
+        {{ sensors | selectattr('state','in', ['unknown','unavailable']) | list | length == 0 }}

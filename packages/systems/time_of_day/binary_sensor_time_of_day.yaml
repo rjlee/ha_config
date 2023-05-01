@@ -7,3 +7,14 @@ binary_sensor:
     name: morning
     after: "07:00"
     before: "09:00"
+
+# used by mini-graph card to show night shading
+sensor:
+  - platform: template
+    sensors:
+      nighttime:
+        value_template: >-
+           {% if is_state('sun.sun', 'below_horizon') %}1{% else %}0{% endif %}
+
+
+

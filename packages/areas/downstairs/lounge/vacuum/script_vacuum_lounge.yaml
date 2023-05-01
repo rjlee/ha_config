@@ -4,7 +4,7 @@ script:
     sequence:
       - service: vacuum.start
         data:
-          entity_id: vacuum.deebot_ozmo_920_lounge
+          entity_id: vacuum.lounge_s5
     mode: single
     icon: mdi:robot-vacuum-variant
   vacuum_lounge_stop:
@@ -12,7 +12,7 @@ script:
     sequence:
       - service: vacuum.return_to_base
         data:
-          entity_id: vacuum.deebot_ozmo_920_lounge
+          entity_id: vacuum.lounge_s5
     mode: single
     icon: mdi:robot-vacuum-variant
   vacuum_lounge_pause:
@@ -20,6 +20,6 @@ script:
     sequence:
       - service: vacuum.stop
         data:
-          entity_id: vacuum.deebot_ozmo_920_lounge
+          entity_id: vacuum.lounge_s5
     mode: single
     icon: mdi:robot-vacuum-variant

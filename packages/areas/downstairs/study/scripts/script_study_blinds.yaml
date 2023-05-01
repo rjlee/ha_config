@@ -1,0 +1,17 @@
+script:
+  study_blind_open:
+    alias: Study Blinds Open
+    mode: single
+    icon: mdi:window-shutter
+    sequence:
+      - service: cover.open_cover
+        target:
+          entity_id: cover.study_blind_cover
+  study_blind_close:
+    alias: Study Blinds Close
+    mode: single
+    icon: mdi:window-shutter
+    sequence:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.study_blind_cover

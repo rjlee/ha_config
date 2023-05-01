@@ -17,11 +17,6 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "person.mum",
-                  "use_entity_picture": true
-                },
-                {
                   "type": "template",
                   "entity": "climate.main_bedroom",
                   "icon": "{% if is_state_attr('climate.main_bedroom', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
@@ -35,8 +30,26 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "entity": "sensor.main_bedroom_combined_power",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.main_bedroom_combined_power\")|float)|round(0)}} W",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.main_bedroom_presence_sensor_composite_presence"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -144,7 +157,8 @@
                       "type": "custom:mushroom-cover-card",
                       "entity": "cover.mainbedroomcurtains",
                       "name": "Curtains",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "icon": "mdi:curtains"
                     },
                     {
                       "type": "custom:mushroom-cover-card",
@@ -186,6 +200,77 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.main_bedroom_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -214,12 +299,23 @@
                   }
                 },
                 {
-                  "type": "entity",
-                  "entity": "binary_sensor.bedroom_1_motion_sensor_motion"
+                  "type": "template",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.bedroom_1_combined_power\")|float)|round(0)}} W",
+                  "entity": "sensor.bedroom_1_combined_power",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "template",
-                  "icon": "mdi:bed",
+                  "icon": "{% if is_state('input_boolean.bedroom1_in_bed', 'off') %}\n  {% if is_state('binary_sensor.bedroom_1_motion_sensor_motion', 'off') %}\n  mdi:motion-sensor-off\n  {% else %}\n  mdi:motion-sensor\n  {% endif %}\n{% elif is_state('input_boolean.bedroom1_asleep', 'on') %}\n  mdi:bed\n{% else %}\n  mdi:bed-clock\n{% endif %}",
                   "content": "{% if is_state('input_boolean.bedroom1_in_bed', 'off') %}\n  {% if is_state('binary_sensor.bedroom_1_motion_sensor_motion', 'off') %}\n  Vacant\n  {% else %}\n  Occupied\n  {% endif %}\n{% elif is_state('input_boolean.bedroom1_asleep', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}",
                   "icon_color": "{% if is_state('input_boolean.bedroom1_asleep', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
                   "entity": "input_boolean.bedroom1_asleep",
@@ -232,6 +328,9 @@
                   "hold_action": {
                     "action": "none"
                   }
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -247,14 +346,16 @@
                   "entity": "light.bedroom_1_light",
                   "name": "Lights",
                   "use_light_color": true,
-                  "secondary_info": "none"
+                  "secondary_info": "none",
+                  "icon": ""
                 },
                 {
                   "type": "custom:mushroom-light-card",
                   "entity": "light.bedroom_1_bedside_lamp_local",
                   "name": "Lamp",
                   "secondary_info": "none",
-                  "use_light_color": true
+                  "use_light_color": true,
+                  "icon": "mdi:lamp"
                 }
               ]
             },
@@ -372,6 +473,77 @@
                 {
                   "type": "custom:mushroom-title-card",
                   "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.bedroom_1_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
                   "subtitle": "Sensors"
                 },
                 {
@@ -431,12 +603,23 @@
                   "content": "{{ state_attr(\"climate.bedroom_2\",\"current_temperature\") }} °C"
                 },
                 {
-                  "type": "entity",
-                  "entity": "binary_sensor.bedroom_2_motion_sensor_motion"
+                  "type": "template",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.bedroom_2_combined_power\")|float)|round(0)}} W",
+                  "entity": "sensor.bedroom_2_combined_power",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "template",
-                  "icon": "mdi:bed",
+                  "icon": "{% if is_state('input_boolean.bedroom2_in_bed', 'off') %}\n  {% if is_state('binary_sensor.bedroom_2_motion_sensor_motion', 'off') %}\n  mdi:motion-sensor-off\n  {% else %}\n  mdi:motion-sensor\n  {% endif %}\n{% elif is_state('input_boolean.bedroom2_asleep', 'on') %}\n  mdi:bed\n{% else %}\n  mdi:bed-clock\n{% endif %}",
                   "icon_color": "{% if is_state('input_boolean.bedroom2_asleep', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
                   "content": "{% if is_state('input_boolean.bedroom2_in_bed', 'off') %}\n  {% if is_state('binary_sensor.bedroom_2_motion_sensor_motion', 'off') %}\n  Vacant\n  {% else %}\n  Occupied\n  {% endif %}\n{% elif is_state('input_boolean.bedroom2_asleep', 'on') %}\n  Asleep\n{% else %}\n  Awake\n{% endif %}",
                   "entity": "input_boolean.bedroom2_asleep",
@@ -451,41 +634,13 @@
                   }
                 },
                 {
+                  "type": "spacer"
+                },
+                {
                   "type": "back"
                 }
               ],
               "alignment": "center"
-            },
-            {
-              "type": "horizontal-stack",
-              "cards": [
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom2_light",
-                  "name": "Light",
-                  "layout": "vertical",
-                  "use_light_color": true
-                },
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_2_bedside_lamp_local",
-                  "name": "Lamp",
-                  "layout": "vertical",
-                  "use_light_color": true
-                },
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_2_led_lamp",
-                  "name": "LED Lamp",
-                  "layout": "vertical"
-                },
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.bedroom_2_led_sign",
-                  "name": "Sign",
-                  "layout": "vertical"
-                }
-              ]
             },
             {
               "type": "horizontal-stack",
@@ -505,6 +660,41 @@
                   "icon": "mdi:toggle-switch-variant",
                   "icon_color": "{% if is_state('switch.bedroom_2_bed_power_socket', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
                   "entity": "switch.bedroom_2_bed_power_socket"
+                }
+              ]
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom2_light",
+                  "name": "Light",
+                  "layout": "vertical",
+                  "use_light_color": true,
+                  "icon": ""
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_2_bedside_lamp_local",
+                  "name": "Lamp",
+                  "layout": "vertical",
+                  "use_light_color": true,
+                  "icon": "mdi:lamp"
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_2_led_lamp",
+                  "name": "LED Lamp",
+                  "layout": "vertical",
+                  "icon": "mdi:lamps"
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.bedroom_2_led_sign",
+                  "name": "Sign",
+                  "layout": "vertical",
+                  "icon": "mdi:sign-text"
                 }
               ]
             },
@@ -599,6 +789,77 @@
                 {
                   "type": "custom:mushroom-title-card",
                   "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.bedroom_2_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
                   "subtitle": "Sensors"
                 },
                 {
@@ -645,11 +906,6 @@
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
-                  "type": "entity",
-                  "entity": "person.dad",
-                  "use_entity_picture": true
-                },
-                {
                   "type": "template",
                   "entity": "climate.spare_room",
                   "icon": "{% if is_state_attr('climate.spare_room', 'hvac_action', 'heating') %}\n  mdi:fire\n{% else %}\n  mdi:thermometer\n{% endif %}",
@@ -663,8 +919,17 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{states(\"sensor.spare_room_combined_power\")|float|round(0)}} W",
+                  "entity": "sensor.spare_room_combined_power"
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.spare_room_motion_sensor_motion"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -766,6 +1031,77 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.spare_room_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -784,12 +1120,30 @@
                   "entity": "sensor.upstairs_bathroom_flood_sensor_temperature"
                 },
                 {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "sensor.upstairs_bathroom_combined_power",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.smart_meter_electricity_power\")|float|round(0))}} W",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.upstairs_bathroom_motion_sensor_motion"
                 },
                 {
                   "type": "entity",
                   "entity": "binary_sensor.upstairs_bathroom_flood_sensor_flood"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -830,6 +1184,77 @@
                       "entity": "sensor.upstairs_bathroom_flood_sensor_temperature",
                       "detail": 1,
                       "name": "Temperature"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.upstairs_bathroom_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
                     }
                   ]
                 }

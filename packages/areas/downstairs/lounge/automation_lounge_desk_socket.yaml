@@ -1,0 +1,43 @@
+automation:
+  - id: "lounge_desk_socket_on"
+    alias: Lounge - Desk Socket On
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_window_power_socket
+        to: "on"
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.lounge_desk_socket
+    mode: single
+  - id: "lounge_desk_socket_off"
+    alias: Lounge - Desk Socket Off
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_window_power_socket
+        to: "off"
+    condition:
+      - and:
+          - condition: state
+            entity_id: input_boolean.on_holiday
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.energy_saver
+            state: "off"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.lounge_desk_socket
+    mode: single

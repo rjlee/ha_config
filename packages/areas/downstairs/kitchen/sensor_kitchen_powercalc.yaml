@@ -1,0 +1,16 @@
+sensor:
+#  - platform: powercalc
+#    entities:
+#      - entity_id: switch.dishwasher_power
+#        fixed:
+#          power: 10
+  - platform: powercalc
+    name: Kitchen Alexa Show 5
+    daily_fixed_energy:
+      value: 3.5
+      unit_of_measurement: W
+  - platform: powercalc
+    name: Kitchen Fridge Freezer
+    daily_fixed_energy:
+      value: 80
+      unit_of_measurement: W

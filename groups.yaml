@@ -41,17 +41,6 @@ echos:
       - media_player.upstairs_bathroom
       - media_player.study
 
-blinds:
-    name: Blinds
-    icon: mdi:blinds
-    entities:
-      - cover.velux_internal_cover
-      - cover.velux_internal_cover_2
-      - cover.velux_internal_cover_3
-      - cover.velux_internal_cover_4
-      - cover.velux_internal_cover_5
-      - cover.velux_internal_cover_6
-
 curtains:
     name: Blinds
     icon: mdi:blinds
@@ -168,14 +157,7 @@ back:
     name: Back
     icon: mdi:door
     entities:
-      - binary_sensor.back_door_ding
-      - binary_sensor.back_door_motion
-      - sensor.back_door_battery
-      - sensor.back_door_volume
-      - sensor.back_door_last_activity
-      - sensor.back_door_last_ding
-      - sensor.back_door_last_motion
-      - camera.back_camera
+      - camera.back_main
 
 # Upstairs
 
@@ -191,7 +173,7 @@ ethans_room:
     name: Ethans Room
     icon: mdi:bed
     entities:
-      - cover.velux_internal_cover_4
+      - cover.bedroom_1
       - media_player.bedroom_1_alexa
       - climate.bedroom_1
 
@@ -199,7 +181,7 @@ edwards_room:
     name: Edwards Room
     icon: mdi:bed
     entities:
-      - cover.velux_internal_cover_5
+      - cover.bedroom_2
       - media_player.bedroom_2_alexa
       - climate.bedroom_2
 
@@ -213,8 +195,124 @@ spare_room:
     name: Spare Room
     icon: mdi:bed
     entities:
-      - cover.velux_internal_cover_6
+      - cover.spare_room
       - media_player.spare_room
       - climate.spare_room
       - light.spare_room_light
 
+bedroom_1_power_sensors:
+  name: Bedroom 1 Power Sensors
+  icon: mdi:lightning
+  entities:
+    - sensor.bedroom_1_power_socket_energy_power
+    - sensor.bedroom_1_bed_power_socket_energy_power
+    - sensor.bedroom_1_light_power_0
+    - sensor.bedroom_1_bedside_lamp_local_power
+    - sensor.xbox_bedroom_1_power  
+
+bedroom_2_power_sensors:
+  name: Bedroom 2 Power Sensors
+  icon: mdi:lightning
+  entities:
+    - sensor.bedroom_2_power_socket_energy_power
+    - sensor.bedroom_2_bed_power_socket_energy_power
+    - sensor.bedroom_2_light_power_0
+    - sensor.bedroom_2_led_sign_energy_power 
+    - sensor.xbox_bedroom_2_power
+
+main_bedroom_power_sensors:
+  name: Main Bedroom Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.main_bedroom_unifi_ap_power
+      - sensor.main_bedroom_unifi_switch_power
+      - sensor.main_bedroom_power_socket_energy_power
+      - sensor.main_bedroom_bed_1_power_socket_energy_power
+      - sensor.main_bedroom_bed_2_power_socket_energy_power
+      - sensor.main_bedroom_light_power_0
+      - sensor.main_bedroom_alexa_show_5_power
+
+spare_room_power_sensors:
+  name: Spare Room Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.spare_room_light_power_0
+      - sensor.spare_room_power_socket_energy_power
+      - sensor.dads_work_laptop_active_power
+
+upstairs_bathroom_power_sensors:
+  name: Upstairs Bathroom Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.upstairs_bathroom_alexa_echo_power
+      - sensor.upstairs_bathroom_light_power_0
+
+lounge_power_sensors:
+  name: Lounge Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.lounge_power_socket_energy_power
+      - sensor.lounge_door_power_socket_energy_power
+      - sensor.lounge_window_power_socket_energy_power
+      - sensor.lounge_tv_permanent_socket_power
+
+front_power_sensors:
+  name: Front Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.front_floodlight_power_0
+      - sensor.front_camera_power
+
+back_power_sensors:
+  name: Back Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.back_camera_power
+
+kitchen_power_sensors:
+  name: Kitchen Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.kitchen_alexa_show_5_power
+      - sensor.kitchen_fridge_freezer_power
+      - sensor.kitchen_camera_socket_energy_power
+      - sensor.kitchen_tv_power_socket_energy_power
+      - sensor.kitchen_sky_power_socket_energy_power
+
+downstairs_bathroom_power_sensors:
+  name: Downstairs Bathroom Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.downstairs_bathroom_light_power_0
+
+downstairs_hall_power_sensors:
+  name: Downstairs Hall Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.downstairs_hall_lamp_level_light_color_on_off_power
+
+study_power_sensors:
+  name: Study Power Sensors
+  icon: mdi:lightning
+  entities:
+      - sensor.study_power_socket_energy_power
+      - sensor.study_synology_nas_power
+
+house_power_sensors:
+  name: House Power Sensors
+  icon: mdi:lightning
+  entities:
+    - sensor.upstairs_bathroom_combined_power
+    - sensor.main_bedroom_combined_power
+    - sensor.bedroom_1_combined_power
+    - sensor.bedroom_2_combined_power
+    - sensor.spare_room_combined_power
+    - sensor.lounge_combined_power
+    - sensor.front_combined_power
+    - sensor.back_combined_power
+    - sensor.downstairs_bathroom_combined_power
+    - sensor.downstairs_hall_combined_power
+    - sensor.study_combined_power 
+    - sensor.house_alarm_power
+    - sensor.house_konnected_alarm_power
+    - sensor.house_smoke_alarms_power 

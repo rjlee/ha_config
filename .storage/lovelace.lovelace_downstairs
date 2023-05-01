@@ -30,6 +30,9 @@
                   "entity": "binary_sensor.front_door_contact_sensor"
                 },
                 {
+                  "type": "spacer"
+                },
+                {
                   "type": "back"
                 }
               ],
@@ -94,6 +97,77 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.front_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -122,8 +196,26 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.lounge_combined_power\")|float|round(0))}} W",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "sensor.lounge_combined_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.lounge_motion_sensor_composite_motion"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -209,9 +301,19 @@
                     },
                     {
                       "type": "custom:mushroom-vacuum-card",
-                      "entity": "vacuum.deebot_ozmo_920_lounge",
+                      "entity": "vacuum.lounge_s5",
                       "name": "Vacuum",
                       "layout": "vertical"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.lounge_loungevr_switch",
+                      "layout": "vertical",
+                      "name": "PC",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon": "mdi:desktop-classic"
                     }
                   ]
                 }
@@ -370,6 +472,77 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.lounge_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -398,8 +571,26 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "icon": "mdi:lightning-bolt",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "content": "{{(states(\"sensor.kitchen_combined_power\")|float|round(0))}} W",
+                  "entity": "sensor.kitchen_combined_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.kitchen_motion_sensor_composite_motion"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -440,12 +631,6 @@
                   "type": "horizontal-stack",
                   "cards": [
                     {
-                      "type": "custom:mushroom-media-player-card",
-                      "entity": "media_player.kitchen",
-                      "name": "Alexa",
-                      "layout": "vertical"
-                    },
-                    {
                       "type": "custom:mushroom-entity-card",
                       "entity": "switch.kitchen_tv_switch",
                       "name": "TV",
@@ -458,11 +643,9 @@
                       "layout": "vertical"
                     },
                     {
-                      "type": "custom:mushroom-vacuum-card",
-                      "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
-                      "name": "Vacuum",
-                      "icon_animation": true,
-                      "fill_container": false,
+                      "type": "custom:mushroom-media-player-card",
+                      "entity": "media_player.kitchen",
+                      "name": "Alexa",
                       "layout": "vertical"
                     },
                     {
@@ -477,30 +660,51 @@
                   ]
                 },
                 {
-                  "type": "custom:mushroom-title-card",
-                  "title": "",
-                  "subtitle": "Dishwasher"
-                },
-                {
                   "type": "horizontal-stack",
                   "cards": [
                     {
-                      "type": "custom:mushroom-entity-card",
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Dishwasher",
+                      "secondary": "{% if is_state('sensor.dishwasher_operation_state','Run') %}\n{{ states('sensor.kitchen_dishwasher_duration_friendly') }} left ({{ states('sensor.dishwasher_program_progress') }}%) \n{% else %}\nOff\n{% endif %}",
+                      "icon": "{% if is_state('sensor.dishwasher_operation_state','Run') %}\n  mdi:dishwasher\n{% else %}\n  mdi:dishwasher-off\n{% endif %}",
                       "entity": "switch.dishwasher_power",
-                      "name": "Power",
+                      "icon_color": "{% if is_state('sensor.dishwasher_operation_state','Run') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "double_tap_action": {
+                        "action": "more-info"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-vacuum-card",
+                      "entity": "vacuum.deebot_ozmo_t8_aivi_kitchen",
+                      "name": "Vacuum",
+                      "icon_animation": true,
+                      "fill_container": false,
                       "layout": "vertical"
                     },
                     {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "switch.dishwasher_program_eco50",
-                      "name": "Eco 50",
-                      "layout": "vertical"
-                    },
-                    {
-                      "type": "custom:mushroom-entity-card",
-                      "entity": "sensor.dishwasher_duration",
-                      "name": "Duration",
-                      "layout": "vertical"
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Washing Machine",
+                      "secondary": "{% if is_state('sensor.washing_machine_mode','Running') %}\n{{ states('sensor.washing_machine_remaining_time') }}m left \n{% else %}\nOff\n{% endif %}",
+                      "icon": "{% if is_state('sensor.washing_machine_mode','Running') %}\n  mdi:washing-machine\n{% else %}\n  mdi:washing-machine-off\n{% endif %}",
+                      "entity": "sensor.washing_machine_mode",
+                      "icon_color": "{% if is_state('sensor.washing_machine_mode','Running') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "double_tap_action": {
+                        "action": "more-info"
+                      }
                     }
                   ]
                 }
@@ -545,20 +749,111 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.kitchen_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Bathroom",
           "path": "downstairs-bathroom",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "sensor.downstairs_bathroom_combined_power",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.downstairs_bathroom_combined_power\")|float|round(0))}} W",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.downstairs_bathroom_motion_sensor_motion"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -574,6 +869,77 @@
                   "entity": "light.downstairs_bathroom_light",
                   "name": "Lights",
                   "use_light_color": true
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.downstairs_bathroom_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -601,6 +967,24 @@
                     "action": "more-info"
                   },
                   "entity": "climate.downstairs_hallway"
+                },
+                {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "sensor.downstairs_hall_combined_power",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.downstairs_hall_combined_power\")|float|round(0))}} W",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -688,6 +1072,77 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.downstairs_hall_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -719,27 +1174,32 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.study_combined_power\")|float|round(0))}} W",
+                  "entity": "sensor.study_combined_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.study_motion_sensor_motion"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
                 }
               ],
               "alignment": "center"
-            },
-            {
-              "type": "horizontal-stack",
-              "cards": [
-                {
-                  "type": "custom:mushroom-template-card",
-                  "primary": "Socket",
-                  "secondary": "{{ states('sensor.study_power_socket_energy_power') }}W",
-                  "icon": "mdi:toggle-switch-variant",
-                  "icon_color": "{% if is_state('switch.study_power_socket_on_off', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
-                  "entity": "switch.study_power_socket_on_off"
-                }
-              ]
             },
             {
               "type": "vertical-stack",
@@ -753,8 +1213,18 @@
                   "type": "horizontal-stack",
                   "cards": [
                     {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "Socket",
+                      "secondary": "{{ states('sensor.study_power_socket_energy_power') }}W",
+                      "icon": "mdi:toggle-switch-variant",
+                      "icon_color": "{% if is_state('switch.study_power_socket_on_off', 'on') %}\n  blue\n{% else %}\n  grey\n{% endif %}",
+                      "entity": "switch.study_power_socket_on_off"
+                    },
+                    {
                       "type": "custom:mushroom-media-player-card",
-                      "entity": "media_player.study"
+                      "entity": "media_player.study",
+                      "name": "Alexa",
+                      "icon": ""
                     }
                   ]
                 }
@@ -771,6 +1241,11 @@
                 {
                   "type": "horizontal-stack",
                   "cards": [
+                    {
+                      "type": "custom:mushroom-cover-card",
+                      "entity": "cover.study_blind_cover",
+                      "name": "Blind"
+                    },
                     {
                       "type": "custom:mushroom-climate-card",
                       "entity": "climate.study",
@@ -800,20 +1275,124 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.study_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom:collapsable-cards",
+              "title_card": {
+                "type": "custom:mushroom-title-card",
+                "title": "",
+                "subtitle": "Controls"
+              },
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "input_boolean.cover_study_blind_open",
+                      "name": "Study Blind Open",
+                      "icon": "mdi:blinds-horizontal",
+                      "layout": "vertical"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Back",
           "path": "back",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
               "type": "custom:mushroom-chips-card",
               "chips": [
                 {
+                  "type": "template",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{(states(\"sensor.back_combined_power\")|float|round(0))}} W",
+                  "entity": "sensor.back_combined_power"
+                },
+                {
                   "type": "entity",
                   "entity": "binary_sensor.back_door_contact_sensor"
+                },
+                {
+                  "type": "spacer"
                 },
                 {
                   "type": "back"
@@ -825,6 +1404,77 @@
               "type": "area",
               "area": "fc1ec4ee0e6011eb85e98da66e03329c",
               "show_camera": true
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-title-card",
+                  "title": "",
+                  "subtitle": "Power Usage"
+                },
+                {
+                  "type": "custom:apexcharts-card",
+                  "apex_config": {
+                    "tooltip": {
+                      "enabled": true,
+                      "x": {
+                        "show": false
+                      },
+                      "fixed": {
+                        "enabled": true,
+                        "position": "topRight"
+                      }
+                    },
+                    "grid": {
+                      "show": false
+                    },
+                    "chart": {
+                      "height": "150px"
+                    },
+                    "xaxis": {
+                      "tooltip": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "header": {
+                    "show": false
+                  },
+                  "all_series_config": {
+                    "stroke_width": 1,
+                    "type": "line"
+                  },
+                  "yaxis": [
+                    {
+                      "apex_config": {
+                        "forceNiceScale": true,
+                        "title": {
+                          "text": "W",
+                          "style": {
+                            "color": "grey"
+                          }
+                        },
+                        "labels": {
+                          "formatter": "EVAL:function(value) {\nlet result = parseFloat(value).toFixed(0);\nreturn result;\n}\n"
+                        }
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "entity": "sensor.back_combined_power",
+                      "type": "area",
+                      "opacity": 0.2,
+                      "statistics": {
+                        "type": "mean",
+                        "period": "5minute",
+                        "align": "end"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

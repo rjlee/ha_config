@@ -4,7 +4,7 @@ template:
         unique_id: kitchen_dishwasher_duration_friendly
         state: >
           {% if states('sensor.dishwasher_remaining_program_time')  != 'unavailable' %}
-            {{ (as_timestamp(states('sensor.dishwasher_remaining_program_time')) - as_timestamp(utcnow())) | timestamp_custom('%H:%M', false) }}
+            {{ (as_timestamp(states('sensor.dishwasher_remaining_program_time')) - as_timestamp(utcnow())) | timestamp_custom('%-Hh %Mm', false) }}
           {% else %}
             Not running
           {% endif %}

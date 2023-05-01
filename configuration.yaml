@@ -3,13 +3,12 @@ homeassistant:
   packages: !include_dir_named packages
   currency: GBP
   country: GB
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 logger:
-  default: warning
-#  default: info
+#  default: warning
+  default: info
   logs:
     custom_components.overkiz: debug
     custom_components.reolink_dev: debug
@@ -38,11 +37,11 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-panel_iframe:
-  vscode:
-    title: VSCode
-    icon: mdi:wrench
-    url: http://ha.home:8888
+#panel_iframe:
+#  vscode:
+#    title: VSCode
+#    icon: mdi:wrench
+#    url: http://ha.home:8888
 
 python_script:
 

@@ -1,0 +1,8 @@
+sensor:
+  - platform: powercalc
+    entities:
+      - entity_id: media_player.xbox_bedroom_2
+        fixed:
+          power: 45
+# TV ?
+# Xbox - no ?

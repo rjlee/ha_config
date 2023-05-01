@@ -21,6 +21,17 @@ automation:
       data:
         title: pihole2 disk usage warning"
         message: "pihole2 above 90% disk usage"
+  - id: "server_disk_monitoring_somfypi"
+    alias: "Server disk monitoring somfypi"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.rpi_disk_used_somfypi
+        above: 90
+    action:
+      service: notify.dad
+      data:
+        title: somfypi disk usage warning"
+        message: "somfypi above 90% disk usage"  
   - id: "server_disk_monitoring_synology"
     alias: "Server disk monitoring synology"
     trigger:

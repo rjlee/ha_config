@@ -32,14 +32,36 @@ automation:
       data:
         title: "synology connectivity warning"
         message: "synology not on the network"
-#  - id: "server_status_monitoring_proxmox"
-#    alias: "Server status monitoring proxmox"
-#    trigger:
-#      - platform: state
-#        entity_id: binary_sensor.node_proxmox_proxmox_home_8006_status
-#        from: 'on'
-#    action:
-#      service: notify.dad
-#      data:
-#        title: "proxmox connectivity warning"
-#        message: "proxmox not on the network"
+  - id: "server_status_monitoring_pihole1_iot"
+    alias: "Server status monitoring pihole1 IOT"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_pihole1_iot_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: "pihole1 connectivity warning"
+        message: "pihole1 not on the IOT network"
+  - id: "server_status_monitoring_pihole2_iot"
+    alias: "Server status monitoring pihole2 IOT"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_pihole2_iot_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: "pihole2 connectivity warning"
+        message: "pihole2 not on the IOT network"
+  - id: "server_status_monitoring_somfypi"
+    alias: "Server status monitoring somfypi"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_somfypi_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: "somfypi connectivity warning"
+        message: "somfypi not on the IOT network"

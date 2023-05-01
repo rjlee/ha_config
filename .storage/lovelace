@@ -38,13 +38,21 @@
                 },
                 {
                   "type": "entity",
-                  "entity": "sensor.internet_wan_download_speed",
-                  "icon": "mdi:cloud-arrow-down-outline"
+                  "entity": "sensor.unifi_gateway_www_rx",
+                  "icon": "mdi:cloud-arrow-down-outline",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-climate/network"
+                  }
                 },
                 {
                   "type": "entity",
-                  "entity": "sensor.internet_wan_upload_speed",
-                  "icon": "mdi:cloud-arrow-up-outline"
+                  "entity": "sensor.unifi_gateway_www_tx",
+                  "icon": "mdi:cloud-arrow-up-outline",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-climate/network"
+                  }
                 },
                 {
                   "type": "menu"
@@ -362,7 +370,8 @@
                       },
                       "double_tap_action": {
                         "action": "none"
-                      }
+                      },
+                      "icon": "mdi:flower"
                     },
                     {
                       "type": "custom:mushroom-entity-card",
@@ -400,7 +409,8 @@
                       },
                       "double_tap_action": {
                         "action": "none"
-                      }
+                      },
+                      "icon": "mdi:car"
                     }
                   ]
                 }
@@ -561,7 +571,8 @@
                       "hold_action": {
                         "action": "navigate",
                         "navigation_path": "/lovelace-climate/power"
-                      }
+                      },
+                      "icon": "mdi:power-socket-uk"
                     }
                   ]
                 }

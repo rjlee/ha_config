@@ -5,11 +5,6 @@
   "data": {
     "items": [
       {
-        "url": "/hacsfiles/lovelace-state-switch/state-switch.js?hacstag=158756598195",
-        "type": "module",
-        "id": "98b2474ceb754567a9398773ff4201a8"
-      },
-      {
         "url": "/hacsfiles/harmony-card/harmony-card.js?hacstag=2375327500141",
         "type": "module",
         "id": "5b3a8ee07bd94b8381ccb391bc4cf03f"
@@ -20,7 +15,7 @@
         "id": "3fe32ce15d4d42e980e83a71c149db9b"
       },
       {
-        "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js?hacstag=2070182001224",
+        "url": "/hacsfiles/garbage-collection-card/garbage-collection-card.js?hacstag=2070182001234",
         "type": "module",
         "id": "b76242780a214d09adc89daa4e92b76f"
       },
@@ -30,14 +25,9 @@
         "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
       },
       {
-        "url": "/hacsfiles/transmission-card/transmission-card.js?hacstag=3150444660121",
+        "url": "/hacsfiles/transmission-card/transmission-card.js?hacstag=3150444660122",
         "type": "module",
         "id": "cb9d00fe1a0b470d94a622490fec471a"
-      },
-      {
-        "url": "/hacsfiles/button-card/button-card.js",
-        "type": "module",
-        "id": "d483028062714d8c90e1c76c4fd36664"
       },
       {
         "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
@@ -45,12 +35,7 @@
         "id": "0db750640e354b4b8692f6e18faef0d7"
       },
       {
-        "url": "/hacsfiles/bar-card/bar-card.js?hacstag=163363577320",
-        "type": "module",
-        "id": "271aeb7582cf4f8bbfcb1200b5fa8657"
-      },
-      {
-        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524320",
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524322",
         "type": "module",
         "id": "0607c62adee040dbab2c22f1da5f681a"
       },
@@ -65,14 +50,9 @@
         "id": "56b4922242c8421a84aba338d58199c9"
       },
       {
-        "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152202",
+        "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152204",
         "type": "module",
         "id": "6810d8c57e3e4a6ea44ef6f7a7f6b444"
-      },
-      {
-        "url": "/hacsfiles/uptime-card/uptime-card.js?hacstag=3505098670140",
-        "type": "module",
-        "id": "373c26562a1e483c97b4a13198004e59"
       },
       {
         "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866244",
@@ -90,29 +70,29 @@
         "id": "3bee5ebd39984bab9907a52cb1c78418"
       },
       {
-        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791110",
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791111",
         "type": "module",
         "id": "3a823bc924514593b915c989daa9f548"
       },
       {
-        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375261",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375271",
         "type": "module",
         "id": "bd8e68bfcd4e4a0898f51ab155cee524"
       },
       {
-        "url": "/hacsfiles/ha-card-weather-conditions/ha-card-weather-conditions.js?hacstag=2609401361912",
+        "url": "/hacsfiles/homeassistant-minimalistic-area-card/minimalistic-area-card.js?hacstag=4894573571116",
         "type": "module",
-        "id": "7a85dc02782c4fe090922f9675f0577f"
+        "id": "aac91950c51141f7b709e88712614a5d"
       },
       {
-        "url": "/hacsfiles/power-flow-card/power-flow-card.js?hacstag=484538222261",
+        "url": "/hacsfiles/homeassistant-minimalistic-area-card/minimalistic-area-card.js?hacstag=489457357118",
         "type": "module",
-        "id": "55e06069b8d841dfaebdf2eab2c04a8e"
+        "id": "1697ec9674e540b9afafce67f9c91f2c"
       },
       {
-        "url": "/hacsfiles/lovelace-rpi-monitor-card/rpi-monitor-card.js?hacstag=281214271142",
+        "url": "/hacsfiles/lovelace-collapsable-cards/collapsable-cards.js?hacstag=364978303070",
         "type": "module",
-        "id": "0585d30819e1465fa7d12a15e9b835b7"
+        "id": "4e926f8c8d1447839d029dd9eba922f7"
       }
     ]
   }

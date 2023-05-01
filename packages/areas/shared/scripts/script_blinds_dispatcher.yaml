@@ -19,6 +19,8 @@ script:
               script.bedroom1_blind_open
             {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
               script.spare_room_blind_open
+            {%- elif is_state('sensor.last_alexa', 'media_player.study') -%}
+              script.study_blind_open
             {%- endif -%}
   blind_dispatch_off:
     alias: "Blind Dispatcher Close"
@@ -40,4 +42,6 @@ script:
               script.bedroom1_blind_close
             {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
               script.spare_room_blind_close
+            {%- elif is_state('sensor.last_alexa', 'media_player.study') -%}
+              script.study_blind_close
             {%- endif -%}

@@ -1,0 +1,20 @@
+switch:
+  - platform: template
+    switches:
+      lounge_loungevr_switch:
+        friendly_name: "Lounge LoungeVR Switch"
+        value_template: "{{ is_state('sensor.loungevr_sessionstate', 'Unlocked') or is_state('sensor.loungevr_sessionstate', 'Locked') }}"
+        turn_on:
+          service: wake_on_lan.send_magic_packet
+          data:
+            mac: fc:aa:14:62:3c:e3
+        turn_off:
+          service: button.press
+          target:
+            entity_id: button.loungevr_sleep
+        icon_template: >-
+          {% if is_state('sensor.loungevr_sessionstate', 'Unlocked') or is_state('sensor.loungevr_sessionstate', 'Locked') %}
+            mdi:desktop-mac
+          {% else %}
+            mdi:desktop-mac
+          {% endif %}
