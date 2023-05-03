@@ -1,0 +1,27 @@
+automation:
+  - id: "kitchen_camera_socket_on"
+    alias: Kitchen - Camera Socket On
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.kitchen_camera_socket
+        to: "on"
+    condition: []
+    action:
+      - service: homeassistant.enable_config_entry
+        data:
+          config_entry_id: "{{ config_entry_id('camera.kitchen_main') }}"
+    mode: single
+  - id: "kitchen_camera_socket_off"
+    alias: Kitchen - Camera Socket Off
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.kitchen_camera_socket
+        to: "off"
+    condition: []
+    action:
+      - service: homeassistant.disable_config_entry
+        data:
+          config_entry_id: "{{ config_entry_id('camera.kitchen_main') }}"
+    mode: single

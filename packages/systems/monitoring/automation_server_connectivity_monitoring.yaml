@@ -65,3 +65,14 @@ automation:
       data:
         title: "somfypi connectivity warning"
         message: "somfypi not on the IOT network"
+  - id: "server_status_monitoring_hoas"
+    alias: "Server status monitoring hoas"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.host_haos_availability
+        from: 'on'
+    action:
+      service: notify.dad
+      data:
+        title: "haos connectivity warning"
+        message: "haos not on the network"

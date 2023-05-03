@@ -34,3 +34,8 @@ binary_sensor:
     name: "host_somfypi_availability"
     count: 5
     scan_interval: 60
+  - platform: ping
+    host: !secret host_monitor_haos
+    name: "host_haos_availability"
+    count: 5
+    scan_interval: 60

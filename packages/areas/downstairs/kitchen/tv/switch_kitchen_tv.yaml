@@ -2,6 +2,7 @@ switch:
   - platform: template
     switches:
       kitchen_tv_switch:
+        unique_id: kitchen_tv_switch
         friendly_name: "Kitchen TV"
         icon_template: mdi:television
         value_template: "{{ is_state('input_boolean.kitchen_tv_switch', 'on') }}"

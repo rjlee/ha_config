@@ -9,7 +9,6 @@ sensor:
       - www
       - wlan
       - lan
-      - alerts
       - firmware
   - platform: template
     sensors:

@@ -37,7 +37,11 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-#panel_iframe:
+panel_iframe:
+  tasmoadmin:
+    title: TasmoAdmin
+    icon: mdi:wrench
+    url: http://ha.home:9541/
 #  vscode:
 #    title: VSCode
 #    icon: mdi:wrench

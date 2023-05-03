@@ -1,0 +1,27 @@
+automation:
+  - id: "lounge_camera_socket_on"
+    alias: Lounge - Camera Socket On
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_camera_socket
+        to: "on"
+    condition: []
+    action:
+      - service: homeassistant.enable_config_entry
+        data:
+          config_entry_id: "{{ config_entry_id('camera.lounge_main') }}"
+    mode: single
+  - id: "lounge_camera_socket_off"
+    alias: Lounge - Camera Socket Off
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_camera_socket
+        to: "off"
+    condition: []
+    action:
+      - service: homeassistant.disable_config_entry
+        data:
+          config_entry_id: "{{ config_entry_id('camera.lounge_main') }}"
+    mode: single

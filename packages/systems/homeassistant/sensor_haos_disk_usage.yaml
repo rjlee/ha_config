@@ -1,0 +1,9 @@
+template:
+  - sensor:
+    - name: haos_disk_free_percentage
+      state_class: measurement
+      unit_of_measurement: "%"
+      icon: mdi:pie-chart
+      state: >
+        {{ (100-(states('sensor.home_assistant_host_disk_free')| float) / (states('sensor.home_assistant_host_disk_total') | float) * 100 | float) | round(1) }}
+ 

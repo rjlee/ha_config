@@ -8,7 +8,7 @@ automation:
     action:
       service: notify.dad
       data:
-        title: pihole1 disk usage warning"
+        title: "pihole1 disk usage warning"
         message: "pihole1 above 90% disk usage"
   - id: "server_disk_monitoring_pihole2"
     alias: "Server disk monitoring pihole2"
@@ -19,7 +19,7 @@ automation:
     action:
       service: notify.dad
       data:
-        title: pihole2 disk usage warning"
+        title: "pihole2 disk usage warning"
         message: "pihole2 above 90% disk usage"
   - id: "server_disk_monitoring_somfypi"
     alias: "Server disk monitoring somfypi"
@@ -30,7 +30,7 @@ automation:
     action:
       service: notify.dad
       data:
-        title: somfypi disk usage warning"
+        title: "somfypi disk usage warning"
         message: "somfypi above 90% disk usage"  
   - id: "server_disk_monitoring_synology"
     alias: "Server disk monitoring synology"
@@ -41,7 +41,7 @@ automation:
     action:
       service: notify.dad
       data:
-        title: synology disk usage warning"
+        title: "synology disk usage warning"
         message: "synology above 90% disk usage"
   - id: "server_disk_monitoring_proxmox"
     alias: "Server disk monitoring proxmox"
@@ -52,5 +52,16 @@ automation:
     action:
       service: notify.dad
       data:
-        title: proxmox disk usage warning"
+        title: "proxmox disk usage warning"
         message: "proxmox above 90% disk usage"
+  - id: "server_disk_monitoring_haos"
+    alias: "Server disk monitoring haos"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.haos_disk_free_percentage
+        below: 10
+    action:
+      service: notify.dad
+      data:
+        title: "haos disk usage warning"
+        message: "haos above 90% disk usage"    

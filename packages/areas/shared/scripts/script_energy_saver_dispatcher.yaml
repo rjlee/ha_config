@@ -1,0 +1,29 @@
+script:
+  energy_saver_dispatch_on:
+    alias: "Energy Saver Dispatcher On"
+    icon: "mdi:lightning"
+    description: "Turns energy saver on from the room called from"
+    mode: single
+    sequence:
+      - service: alexa_media.update_last_called
+        data: {}
+      - delay: 2
+      - service: homeassistant.turn_off
+        target:
+          area_id: >  
+            {%- if is_state('sensor.last_alexa', 'media_player.mum_and_dad') -%}
+              {{ area_id('Main Bedroom') }}
+            {%- elif is_state('sensor.last_alexa', 'media_player.kitchen') -%}
+              {{ area_id('Kitchen') }}
+            {%- elif is_state('sensor.last_alexa', 'media_player.lounge') -%}
+              {{ area_id('Lounge') }}
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_2_alexa') -%}
+              {{ area_id('Edwards Room') }}
+            {%- elif is_state('sensor.last_alexa', 'media_player.bedroom_1_alexa') -%}
+              {{ area_id('Ethans Room') }}
+            {%- elif is_state('sensor.last_alexa', 'media_player.upstairs_bathroom') -%} 
+              {{ area_id('Upstairs Bathroom') }}
+            {%- elif is_state('sensor.last_alexa', 'media_player.spare_room') -%}
+              {{ area_id('Spare Room') }}
+            {%- endif -%}
+ 

@@ -5,6 +5,7 @@ people:
       - person.dad
       - person.mum
       - person.ethan
+      - person.edward
 
 parents:
     name: Parents
@@ -19,6 +20,7 @@ power_sockets:
     - switch.lounge_power_socket
     - switch.lounge_door_power_socket
     - switch.lounge_window_power_socket
+    - switch.lounge_desk_power_socket
     - switch.study_power_socket_on_off
     - switch.bedroom_1_power_socket
     - switch.bedroom_1_bed_power_socket
@@ -115,9 +117,8 @@ lounge:
     icon: mdi:television
     entities:
       - remote.lounge
-      - media_player.lounge
       - climate.lounge
-      - input_select.loungevr_options
+      - media_player.lounge
       - media_player.xbox_lounge
       - media_player.xbox_lounge_window
       - light.lounge_lights_light_0
@@ -252,6 +253,7 @@ lounge_power_sensors:
   icon: mdi:lightning
   entities:
       - sensor.lounge_power_socket_energy_power
+      - sensor.lounge_desk_power_socket_energy_power
       - sensor.lounge_door_power_socket_energy_power
       - sensor.lounge_window_power_socket_energy_power
       - sensor.lounge_tv_permanent_socket_power

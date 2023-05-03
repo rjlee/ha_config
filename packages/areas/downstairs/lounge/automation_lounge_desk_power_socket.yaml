@@ -1,5 +1,5 @@
 automation:
-  - id: "lounge_desk_socket_on"
+  - id: "lounge_desk_power_socket_on"
     alias: Lounge - Desk Socket On
     description: ""
     trigger:
@@ -18,9 +18,9 @@ automation:
       - service: switch.turn_on
         target:
           entity_id:
-            - switch.lounge_desk_socket
+            - switch.lounge_desk_power_socket
     mode: single
-  - id: "lounge_desk_socket_off"
+  - id: "lounge_desk_power_socket_off"
     alias: Lounge - Desk Socket Off
     description: ""
     trigger:
@@ -39,5 +39,5 @@ automation:
       - service: switch.turn_off
         target:
           entity_id:
-            - switch.lounge_desk_socket
+            - switch.lounge_desk_power_socket
     mode: single
