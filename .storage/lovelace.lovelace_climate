@@ -714,7 +714,10 @@
                       "name": "Status",
                       "layout": "vertical",
                       "icon_color": "disabled",
-                      "entity": "binary_sensor.host_haos_availability"
+                      "entity": "binary_sensor.host_haos_availability",
+                      "tap_action": {
+                        "action": "more-info"
+                      }
                     },
                     {
                       "type": "custom:mushroom-template-card",
@@ -722,21 +725,31 @@
                       "secondary": "{{ states('sensor.haos_disk_free_percentage') }}%\n       ",
                       "icon": "mdi:chart-pie",
                       "icon_color": "",
-                      "layout": "vertical"
+                      "layout": "vertical",
+                      "entity": "sensor.haos_disk_free_percentage",
+                      "tap_action": {
+                        "action": "more-info"
+                      }
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.home_assistant_core_cpu_percent",
                       "name": "CPU",
                       "layout": "vertical",
-                      "icon_color": "disabled"
+                      "icon_color": "disabled",
+                      "tap_action": {
+                        "action": "more-info"
+                      }
                     },
                     {
                       "type": "custom:mushroom-entity-card",
                       "entity": "sensor.home_assistant_core_memory_percent",
                       "layout": "vertical",
                       "name": "Memory",
-                      "icon_color": "disabled"
+                      "icon_color": "disabled",
+                      "tap_action": {
+                        "action": "more-info"
+                      }
                     }
                   ]
                 }
@@ -777,7 +790,7 @@
                       {
                         "type": "custom:mushroom-template-card",
                         "primary": "Disk",
-                        "secondary": "{{ states(\"sensor.synology_volume_1_used_space\") }}%",
+                        "secondary": "{{ (100 - states(\"sensor.node_proxmox_proxmox_home_8006_disk_free_percentage\") | float) | round(2) }}%",
                         "icon": "mdi:harddisk",
                         "entity": "sensor.node_proxmox_proxmox_home_8006_disk_free_percentage",
                         "layout": "vertical",

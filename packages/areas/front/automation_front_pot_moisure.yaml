@@ -5,7 +5,7 @@ automation:
     mode: single
     trigger:
       - platform: numeric_state
-        entity_id: sensor.soil_moisture_1
+        entity_id: sensor.gw1100a_v2_2_3_soil_moisture_1
         below: "15"
         for: "00:10:00"
     condition:

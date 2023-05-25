@@ -21,7 +21,7 @@ automation:
     description: ""
     trigger:
       - platform: state
-        entity_id: binary_sensor.study_motion_sensor_motion
+        entity_id: binary_sensor.study_motion_sensor
         to: "on"
     condition:
       - and:
@@ -42,7 +42,7 @@ automation:
     description: ""
     trigger:
       - platform: state
-        entity_id: binary_sensor.study_motion_sensor_motion
+        entity_id: binary_sensor.study_motion_sensor
         to: "off"
         for: 00:30:00
     condition:

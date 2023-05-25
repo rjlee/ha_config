@@ -322,7 +322,7 @@
                     },
                     {
                       "type": "custom:mushroom-entity-card",
-                      "entity": "binary_sensor.study_motion_sensor_motion",
+                      "entity": "binary_sensor.study_motion_sensor",
                       "name": "Study",
                       "layout": "vertical",
                       "secondary_info": "none",

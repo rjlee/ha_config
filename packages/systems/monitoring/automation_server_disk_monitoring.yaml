@@ -47,7 +47,7 @@ automation:
     alias: "Server disk monitoring proxmox"
     trigger:
       - platform: numeric_state
-        entity_id: sensor.node_proxmox_proxmox_home_8006_disk_free_percentage
+        entity_id: sensor.prox
         below: 10
     action:
       service: notify.dad

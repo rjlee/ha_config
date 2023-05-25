@@ -1,0 +1,15 @@
+automation:
+  - id: "kitchen_fridge_power_socket_on"
+    alias: Kitchen - Fridge Socket On
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: switch.kitchen_fridge_power_socket
+        to: "off"
+    condition: []
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.kitchen_fridge_power_socket
+    mode: single

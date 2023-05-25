@@ -276,10 +276,11 @@ kitchen_power_sensors:
   icon: mdi:lightning
   entities:
       - sensor.kitchen_alexa_show_5_power
-      - sensor.kitchen_fridge_freezer_power
       - sensor.kitchen_camera_socket_energy_power
       - sensor.kitchen_tv_power_socket_energy_power
       - sensor.kitchen_sky_power_socket_energy_power
+      - sensor.kitchen_dishwasher_power_socket_energy_power
+      - sensor.kitchen_fridge_power_socket_energy_power
 
 downstairs_bathroom_power_sensors:
   name: Downstairs Bathroom Power Sensors
@@ -310,6 +311,7 @@ house_power_sensors:
     - sensor.bedroom_2_combined_power
     - sensor.spare_room_combined_power
     - sensor.lounge_combined_power
+    - sensor.kitchen_combined_power
     - sensor.front_combined_power
     - sensor.back_combined_power
     - sensor.downstairs_bathroom_combined_power

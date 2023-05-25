@@ -73,7 +73,7 @@ automation:
             state: "off"
           - condition: time
             after: "08:00:00"
-            before: "20:00:00"
+            before: "22:00:00"
     action:
       - service: switch.turn_on
         target:
@@ -102,7 +102,7 @@ automation:
             state: "off"
           - condition: time
             after: "08:00:00"
-            before: "22:00:00"
+            before: "20:00:00"
     action:
       - service: switch.turn_off
         target:
