@@ -17,7 +17,7 @@
               "chips": [
                 {
                   "type": "entity",
-                  "entity": "sensor.ecowitt_outdoor_temperature"
+                  "entity": "sensor.outdoor_temperature"
                 },
                 {
                   "type": "entity",

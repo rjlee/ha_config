@@ -759,7 +759,7 @@
               "type": "conditional",
               "conditions": [
                 {
-                  "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
+                  "entity": "binary_sensor.node_proxmox_status",
                   "state": "on"
                 }
               ],
@@ -781,7 +781,7 @@
                     "cards": [
                       {
                         "type": "custom:mushroom-entity-card",
-                        "entity": "binary_sensor.node_proxmox_proxmox_home_8006_status",
+                        "entity": "binary_sensor.node_proxmox_status",
                         "name": "Status",
                         "layout": "vertical",
                         "icon": "mdi:server",
@@ -790,9 +790,9 @@
                       {
                         "type": "custom:mushroom-template-card",
                         "primary": "Disk",
-                        "secondary": "{{ (100 - states(\"sensor.node_proxmox_proxmox_home_8006_disk_free_percentage\") | float) | round(2) }}%",
+                        "secondary": "{{ (states(\"sensor.node_proxmox_disk_used_percentage\") | float) | round(2) }}%",
                         "icon": "mdi:harddisk",
-                        "entity": "sensor.node_proxmox_proxmox_home_8006_disk_free_percentage",
+                        "entity": "sensor.node_proxmox_disk_used_percentage",
                         "layout": "vertical",
                         "icon_color": "grey",
                         "tap_action": {
@@ -807,7 +807,7 @@
                       },
                       {
                         "type": "custom:mushroom-entity-card",
-                        "entity": "sensor.node_proxmox_proxmox_home_8006_cpu_used",
+                        "entity": "sensor.node_proxmox_cpu_used",
                         "name": "CPU",
                         "layout": "vertical",
                         "icon_color": "disabled"
@@ -815,10 +815,10 @@
                       {
                         "type": "custom:mushroom-template-card",
                         "primary": "Memory",
-                        "secondary": "{{100-(states(\"sensor.node_proxmox_proxmox_home_8006_memory_free_percentage\")|int) }}%",
+                        "secondary": "{{(states(\"sensor.node_proxmox_memory_used_percentage\")|float | round(2)) }}%",
                         "icon": "mdi:memory",
                         "layout": "vertical",
-                        "entity": "sensor.node_proxmox_proxmox_home_8006_memory_free_percentage",
+                        "entity": "sensor.node_proxmox_memory_used_percentage",
                         "badge_color": "",
                         "icon_color": "grey",
                         "tap_action": {
