@@ -1,9 +1,10 @@
 automation:
   - alias: Automatic Backup
-    trigger: 
+    trigger:
       - platform: time_pattern
         hours: "/23"
     action:
       - service: auto_backup.backup_full
         data:
-          keep_days: 7
+          keep_days: 3
+          download_path: ["/backup/ha"]

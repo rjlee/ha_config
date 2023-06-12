@@ -44,7 +44,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.study_motion_sensor
         to: "off"
-        for: 00:30:00
+        for: 00:60:00
     condition:
       - and:
           - condition: state

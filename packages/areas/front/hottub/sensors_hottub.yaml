@@ -26,34 +26,32 @@ sensor:
       Content-Type: application/x-www-form-urlencoded
     method: POST
     payload: !secret hottub_api_did
-    value_template: "{{ value_json.data.attr.power }}"
-    json_attributes_path: "$.data.attr"
+    #value_template: "{{ value_json.data.attr.power }}"
+    #json_attributes_path: "$.data.attr"
+    value_template: "{{ value_json.data.power }}"
+    json_attributes_path: "$.data"
     json_attributes:
       - system_err2
-      - wave_appm_min
-      - heat_timer_min
-      - heat_power
-      - earth
-      - wave_timer_min
-      - system_err6
-      - system_err7
-      - system_err4
-      - system_err5
-      - heat_temp_reach
-      - system_err3
-      - system_err1
-      - system_err8
-      - system_err9
-      - filter_timer_min
-      - heat_appm_min
       - power
-      - temp_set_unit
-      - filter_appm_min
+      - heat
+      - airjet
+      - filter
+      - hydro
       - temp_now
-      - wave_power
-      - locked
-      - filter_power
       - temp_set
+      - temp_unit
+      - timer_delay
+      - timer_duration
+      - e01
+      - e02
+      - e03
+      - e04
+      - e05
+      - e06
+      - e07
+      - e08
+      - e09
+
   - platform: template
     sensors:
       hottub_pump_temp:
@@ -78,6 +76,6 @@ sensor:
       hottub_error:
         availability_template: "{{ states('sensor.hottub_online') }}"
         friendly_name: "HotTub Error"
-        value_template: "{% if ( state_attr('sensor.hottub_status','system_err1') + state_attr('sensor.hottub_status','system_err2') + state_attr('sensor.hottub_status','system_err3') + state_attr('sensor.hottub_status','system_err4') + state_attr('sensor.hottub_status','system_err5') + state_attr('sensor.hottub_status','system_err6') + state_attr('sensor.hottub_status','system_err7') + state_attr('sensor.hottub_status','system_err8') + state_attr('sensor.hottub_status','system_err9') + state_attr('sensor.hottub_status','earth')) > 0 %}on{% else %}off{% endif %}"
+        value_template: "{% if ( state_attr('sensor.hottub_status','e01') + state_attr('sensor.hottub_status','e02') + state_attr('sensor.hottub_status','e03') + state_attr('sensor.hottub_status','e04') + state_attr('sensor.hottub_status','e05') + state_attr('sensor.hottub_status','e06') + state_attr('sensor.hottub_status','e07') + state_attr('sensor.hottub_status','e08') + state_attr('sensor.hottub_status','e09')) > 0 %}on{% else %}off{% endif %}"
       hottub_api_did:
         value_template: !secret hottub_api_did

@@ -11,11 +11,9 @@ logger:
   default: info
   logs:
     custom_components.overkiz: debug
-    custom_components.reolink_dev: debug
-    custom_components.reolink_dev.base.data: warning
-    reolink: debug
 #  default: critical
 #  logs:
+#    homeassistant.components.rest: debug
 #    custom_components.entity_controller: debug
 #    pyhap: debug
 #    homeassistant.components.python_script: debug
