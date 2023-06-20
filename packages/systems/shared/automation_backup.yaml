@@ -7,4 +7,3 @@ automation:
       - service: auto_backup.backup_full
         data:
           keep_days: 3
-          download_path: ["/backup/ha"]
