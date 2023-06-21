@@ -1,9 +1,14 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "input_boolean",
-    "data": {
-        "items": [
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_boolean",
+  "data": {
+    "items": [
+      {
+        "id": "kindle_battery_charging",
+        "name": "Kindle Battery Charging",
+        "icon": "mdi:power-plug"
+      }
+    ]
+  }
 }

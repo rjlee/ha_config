@@ -83,6 +83,16 @@
         "url": "/hacsfiles/lovelace-collapsable-cards/collapsable-cards.js?hacstag=364978303070",
         "type": "module",
         "id": "4e926f8c8d1447839d029dd9eba922f7"
+      },
+      {
+        "id": "a9956faf384543e49a7eadba24742123",
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128200",
+        "type": "module"
+      },
+      {
+        "id": "bce9aa0ae8074b91b4e79b5354999575",
+        "url": "/hacsfiles/lovelace-hourly-weather/hourly-weather.js?hacstag=4992702024120",
+        "type": "module"
       }
     ]
   }

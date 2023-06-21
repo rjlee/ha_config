@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_screensaver",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "0",
+          "path": "0",
+          "theme": "eink",
+          "type": "custom:vertical-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.outdoor_temperature",
+                  "name": "Outdoor",
+                  "icon": "mdi:sun-thermometer"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.indoor_temperature",
+                  "icon": "mdi:home-thermometer-outline"
+                },
+                {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}} W",
+                  "icon": "mdi:lightning-bolt",
+                  "entity": "sensor.smart_meter_electricity_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "template",
+                  "entity": "sensor.smart_meter_cost_today",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|round(2,default=0)|float) }}",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "custom:hourly-weather",
+              "entity": "weather.met_office_otley",
+              "icons": true,
+              "show_precipitation_amounts": false,
+              "show_precipitation_probability": false,
+              "label_spacing": "2",
+              "name": " ",
+              "colors": {
+                "clear-night": "#D3D3D3"
+              },
+              "num_segments": "6"
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "vertical-stack",
+                  "cards": []
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {% if counter <=1 %}  {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "secondary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {% if counter >1 %}  {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "icon": "mdi:delete",
+                      "icon_color": "black",
+                      "entity": "sensor.rubbish_collection",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{% set counter = state_attr('sensor.recycling_collection','days') %}{% if counter <=1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %} ",
+                      "secondary": "{% set counter = state_attr('sensor.recycling_collection','days') %}{% if counter >1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %} ",
+                      "icon": "mdi:recycle",
+                      "icon_color": "green",
+                      "layout": "vertical",
+                      "entity": "sensor.recycling_collection",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %}{% if counter <=1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "secondary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %}{% if counter >1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "icon": "mdi:sprout-outline",
+                      "icon_color": "brown",
+                      "entity": "sensor.garden_refuse_collection",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "1",
+          "path": "1",
+          "theme": "eink",
+          "type": "custom:vertical-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.outdoor_temperature",
+                  "name": "Outdoor",
+                  "icon": "mdi:sun-thermometer"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.indoor_temperature",
+                  "icon": "mdi:home-thermometer-outline"
+                },
+                {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}} W",
+                  "icon": "mdi:lightning-bolt",
+                  "entity": "sensor.smart_meter_electricity_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "template",
+                  "entity": "sensor.smart_meter_cost_today",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|round(2,default=0)|float) }}",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "custom:hourly-weather",
+              "entity": "weather.met_office_otley",
+              "icons": true,
+              "show_precipitation_amounts": false,
+              "show_precipitation_probability": false,
+              "label_spacing": "2",
+              "name": " ",
+              "colors": {
+                "clear-night": "#D3D3D3"
+              },
+              "num_segments": "6"
+            },
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "template",
+                  "content": "{{ states(\"sensor.rubbish_collection\") }} days",
+                  "icon": "mdi:delete",
+                  "entity": "sensor.rubbish_collection"
+                },
+                {
+                  "type": "template",
+                  "content": "{{ states(\"sensor.recycling_collection\") }} days",
+                  "icon": "mdi:recycle",
+                  "entity": "sensor.recycling_collection"
+                },
+                {
+                  "type": "template",
+                  "content": "{{ states(\"sensor.garden_refuse_collection\") }} days",
+                  "icon": "mdi:leaf",
+                  "entity": "sensor.garden_refuse_collection"
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "spacer"
+                }
+              ]
+            },
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "spacer"
+                }
+              ]
+            },
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "spacer"
+                }
+              ]
+            },
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "template",
+                  "content": "Last Updated: {{ '%0.2d'|format(now().day) }}/{{ '%0.2d'|format(now().month) }}/{{ '%0.2d'|format(now().year) }} {{ '%0.2d'|format(now().hour) }}:{{ '%0.2d'|format(now().minute) }}"
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_number.kindle_battery_level"
+                }
+              ],
+              "alignment": "end"
+            }
+          ]
+        },
+        {
+          "title": "2",
+          "path": "2",
+          "type": "custom:vertical-layout",
+          "theme": "eink",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.outdoor_temperature",
+                  "name": "Outdoor",
+                  "icon": "mdi:sun-thermometer"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.indoor_temperature",
+                  "icon": "mdi:home-thermometer-outline"
+                },
+                {
+                  "type": "template",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}} W",
+                  "icon": "mdi:lightning-bolt",
+                  "entity": "sensor.smart_meter_electricity_power",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "template",
+                  "entity": "sensor.smart_meter_cost_today",
+                  "icon": "mdi:lightning-bolt",
+                  "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|round(2,default=0)|float) }}",
+                  "double_tap_action": {
+                    "action": "more-info"
+                  },
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                }
+              ],
+              "alignment": "center"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-person-card",
+                  "entity": "person.dad",
+                  "layout": "vertical",
+                  "icon_type": "entity-picture"
+                },
+                {
+                  "type": "custom:mushroom-person-card",
+                  "entity": "person.mum",
+                  "layout": "vertical",
+                  "icon_type": "entity-picture"
+                },
+                {
+                  "type": "custom:mushroom-person-card",
+                  "entity": "person.ethan",
+                  "layout": "vertical",
+                  "icon_type": "entity-picture"
+                },
+                {
+                  "type": "custom:mushroom-person-card",
+                  "entity": "person.edward",
+                  "layout": "vertical",
+                  "icon_type": "entity-picture"
+                }
+              ]
+            },
+            {
+              "show_current": true,
+              "show_forecast": false,
+              "type": "weather-forecast",
+              "entity": "weather.met_office_otley_daily",
+              "name": "Otley",
+              "secondary_info_attribute": "wind_speed"
+            },
+            {
+              "type": "custom:hourly-weather",
+              "entity": "weather.met_office_otley",
+              "icons": true,
+              "show_precipitation_amounts": false,
+              "show_precipitation_probability": false,
+              "label_spacing": "2",
+              "name": " ",
+              "colors": {
+                "clear-night": "#D3D3D3"
+              },
+              "num_segments": "6"
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "vertical-stack",
+                  "cards": []
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {% if counter <=1 %}  {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "secondary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {% if counter >1 %}  {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "icon": "mdi:delete",
+                      "icon_color": "black",
+                      "entity": "sensor.rubbish_collection",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{% set counter = state_attr('sensor.recycling_collection','days') %}{% if counter <=1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %} ",
+                      "secondary": "{% set counter = state_attr('sensor.recycling_collection','days') %}{% if counter >1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %} ",
+                      "icon": "mdi:recycle",
+                      "icon_color": "green",
+                      "layout": "vertical",
+                      "entity": "sensor.recycling_collection",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %}{% if counter <=1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "secondary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %}{% if counter >1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "icon": "mdi:sprout-outline",
+                      "icon_color": "brown",
+                      "entity": "sensor.garden_refuse_collection",
+                      "layout": "vertical",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "hold_action": {
+                        "action": "none"
+                      },
+                      "double_tap_action": {
+                        "action": "none"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom:mushroom-chips-card",
+              "chips": [
+                {
+                  "type": "template",
+                  "content": "Last Updated: {{ '%0.2d'|format(now().day) }}/{{ '%0.2d'|format(now().month) }}/{{ '%0.2d'|format(now().year) }} {{ '%0.2d'|format(now().hour) }}:{{ '%0.2d'|format(now().minute) }}"
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_number.kindle_battery_level"
+                }
+              ],
+              "alignment": "end"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

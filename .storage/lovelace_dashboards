@@ -44,6 +44,15 @@
         "url_path": "energy-glow",
         "id": "energy_glow",
         "icon": "mdi:lightning-bolt"
+      },
+      {
+        "id": "dashboard_screensaver",
+        "show_in_sidebar": false,
+        "icon": "mdi:monitor-screenshot",
+        "title": "Screensaver",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-screensaver"
       }
     ]
   }

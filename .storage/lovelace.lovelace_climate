@@ -169,15 +169,6 @@
           "badges": [],
           "cards": [
             {
-              "type": "custom:mushroom-chips-card",
-              "chips": [
-                {
-                  "type": "back"
-                }
-              ],
-              "alignment": "end"
-            },
-            {
               "type": "horizontal-stack",
               "cards": [
                 {

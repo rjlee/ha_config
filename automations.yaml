@@ -1,1 +1,8 @@
-[]
+- id: '1687286996630'
+  alias: Kindle Screensaver Battery Level
+  description: ''
+  use_blueprint:
+    path: sibbl/battery_sensor_blueprint.yaml
+    input:
+      battery_level: input_number.kindle_battery_level
+      battery_charging: input_boolean.kindle_battery_charging

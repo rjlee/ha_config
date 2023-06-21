@@ -22,12 +22,6 @@
           "badges": [],
           "cards": [
             {
-              "type": "energy-date-selection",
-              "view_layout": {
-                "grid-area": "date"
-              }
-            },
-            {
               "type": "custom:layout-card",
               "layout_type": "grid",
               "layout": {
@@ -179,6 +173,66 @@
                   "content": "[Energy Dashboard](/energy)"
                 }
               ]
+            },
+            {
+              "type": "custom:layout-card",
+              "layout_type": "grid",
+              "layout": {
+                "margin": "0 -4px",
+                "grid-template-columns": "1fr 1fr",
+                "grid-template-rows": "auto",
+                "mediaquery": {
+                  "(max-width: 900px)": {
+                    "grid-template-columns": "1fr"
+                  }
+                }
+              },
+              "cards": [
+                {
+                  "type": "energy-usage-graph",
+                  "title": "Electricity usage"
+                },
+                {
+                  "type": "energy-gas-graph",
+                  "title": "Gas usage"
+                }
+              ],
+              "view_layout": {
+                "grid-area": "graphs"
+              }
+            },
+            {
+              "type": "energy-date-selection",
+              "view_layout": {
+                "grid-area": "date"
+              }
+            },
+            {
+              "type": "custom:layout-card",
+              "layout_type": "grid",
+              "layout": {
+                "margin": "0 -4px",
+                "grid-template-columns": "1fr 1fr",
+                "grid-template-rows": "auto",
+                "mediaquery": {
+                  "(max-width: 900px)": {
+                    "grid-template-columns": "1fr"
+                  }
+                }
+              },
+              "cards": [
+                {
+                  "type": "energy-usage-graph",
+                  "title": "Electricity usage"
+                },
+                {
+                  "type": "energy-gas-graph",
+                  "title": "Gas usage"
+                }
+              ],
+              "view_layout": {
+                "grid-area": "graphs"
+              }
             }
           ]
         }
