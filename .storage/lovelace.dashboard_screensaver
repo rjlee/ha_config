@@ -70,7 +70,7 @@
               "colors": {
                 "clear-night": "#D3D3D3"
               },
-              "num_segments": "6"
+              "num_segments": "4"
             },
             {
               "type": "vertical-stack",
@@ -84,7 +84,7 @@
                   "cards": [
                     {
                       "type": "custom:mushroom-template-card",
-                      "primary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {% if counter <=1 %}  {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "primary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} \n{% if counter == 0 %}\nToday\n{% elif counter == 1 %}\nTomorrow\n{% endif %}",
                       "secondary": "{% set counter = state_attr('sensor.rubbish_collection','days') %} {% if counter >1 %}  {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
                       "icon": "mdi:delete",
                       "icon_color": "black",
@@ -102,7 +102,7 @@
                     },
                     {
                       "type": "custom:mushroom-template-card",
-                      "primary": "{% set counter = state_attr('sensor.recycling_collection','days') %}{% if counter <=1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %} ",
+                      "primary": "{% set counter = state_attr('sensor.recycling_collection','days') %} \n{% if counter == 0 %}\nToday\n{% elif counter == 1 %}\nTomorrow\n{% endif %}",
                       "secondary": "{% set counter = state_attr('sensor.recycling_collection','days') %}{% if counter >1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %} ",
                       "icon": "mdi:recycle",
                       "icon_color": "green",
@@ -120,7 +120,7 @@
                     },
                     {
                       "type": "custom:mushroom-template-card",
-                      "primary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %}{% if counter <=1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
+                      "primary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %} \n{% if counter == 0 %}\nToday\n{% elif counter == 1 %}\nTomorrow\n{% endif %}",
                       "secondary": "{% set counter = state_attr('sensor.garden_refuse_collection','days') %}{% if counter >1 %} {{ counter }} day{% if counter ==0 or counter >1 %}s{% endif %}{% endif %}",
                       "icon": "mdi:sprout-outline",
                       "icon_color": "brown",
