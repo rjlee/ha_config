@@ -28,21 +28,6 @@
                 },
                 {
                   "type": "template",
-                  "double_tap_action": {
-                    "action": "more-info"
-                  },
-                  "content": "{{((states(\"sensor.smart_meter_electricity_power\")|float)*1000)|round(0)}} W",
-                  "icon": "mdi:lightning-bolt",
-                  "entity": "sensor.smart_meter_electricity_power",
-                  "tap_action": {
-                    "action": "more-info"
-                  },
-                  "hold_action": {
-                    "action": "more-info"
-                  }
-                },
-                {
-                  "type": "template",
                   "entity": "sensor.smart_meter_cost_today",
                   "icon": "mdi:lightning-bolt",
                   "content": "{{ \"£%.2f\" | format(states(\"sensor.smart_meter_cost_today\")|round(2,default=0)|float) }}",
@@ -55,6 +40,10 @@
                   "hold_action": {
                     "action": "more-info"
                   }
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_number.kindle_battery_level"
                 }
               ],
               "alignment": "center"
