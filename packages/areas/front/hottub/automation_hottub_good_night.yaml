@@ -10,7 +10,7 @@ automation:
         entity_id: input_boolean.on_holiday
         state: "off"
       - condition: state
-        entity_id: sensor.hottub_online
+        entity_id: binary_sensor.spa_connected
         state: "true"
     action:
       - service: rest_command.hottub_temp_set

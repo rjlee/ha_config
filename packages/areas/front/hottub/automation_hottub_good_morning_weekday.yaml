@@ -17,13 +17,15 @@ automation:
           - thu
           - fri
       - condition: state
-        entity_id: sensor.hottub_online
+        entity_id: binary_sensor.spa_connected
         state: "true"
       - condition: numeric_state
         entity_id: sensor.otley_probability_of_precipitation
         below: 80
     action:
-      - service: rest_command.hottub_temp_set
+      - service: climate.set_temperature
+        target:
+          entity_id: climate.spa_thermostat
         data:
-          hottub_water_target: 20
+          temperature: 20
     mode: single

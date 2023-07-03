@@ -59,38 +59,36 @@
                       "cards": [
                         {
                           "type": "custom:mushroom-entity-card",
-                          "entity": "switch.hottub_power",
-                          "layout": "vertical"
+                          "entity": "switch.spa_filter",
+                          "layout": "vertical",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "switch.toggle",
+                            "target": {
+                              "entity_id": "switch.spa_filter"
+                            },
+                            "data": {}
+                          }
                         },
                         {
                           "type": "custom:mushroom-entity-card",
-                          "entity": "switch.hottub_filter",
-                          "layout": "vertical"
+                          "entity": "climate.spa_thermostat",
+                          "layout": "vertical",
+                          "name": "Heater"
                         },
                         {
                           "type": "custom:mushroom-entity-card",
-                          "entity": "switch.hottub_heat",
-                          "layout": "vertical"
-                        },
-                        {
-                          "type": "custom:mushroom-entity-card",
-                          "entity": "switch.hottub_bubbles",
-                          "layout": "vertical"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "horizontal-stack",
-                      "cards": [
-                        {
-                          "type": "custom:mushroom-entity-card",
-                          "entity": "sensor.hottub_pump_temp",
-                          "name": "Temperature"
-                        },
-                        {
-                          "type": "custom:mushroom-entity-card",
-                          "entity": "sensor.hottub_pump_target",
-                          "name": "Target"
+                          "entity": "switch.spa_bubbles",
+                          "layout": "vertical",
+                          "name": "Bubbles",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "switch.toggle",
+                            "target": {
+                              "entity_id": "switch.spa_bubbles"
+                            },
+                            "data": {}
+                          }
                         }
                       ]
                     }
