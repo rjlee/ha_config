@@ -15,7 +15,7 @@ automation:
           - sun
       - condition: state
         entity_id: binary_sensor.spa_connected
-        state: "true"
+        state: "on"
     action:
       - service: climate.set_temperature
         target:
