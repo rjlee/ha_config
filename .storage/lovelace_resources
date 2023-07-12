@@ -25,7 +25,7 @@
         "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
       },
       {
-        "url": "/hacsfiles/transmission-card/transmission-card.js?hacstag=3150444660122",
+        "url": "/hacsfiles/transmission-card/transmission-card.js?hacstag=3150444660123",
         "type": "module",
         "id": "cb9d00fe1a0b470d94a622490fec471a"
       },
@@ -75,7 +75,7 @@
         "id": "3a823bc924514593b915c989daa9f548"
       },
       {
-        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375301",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375303",
         "type": "module",
         "id": "bd8e68bfcd4e4a0898f51ab155cee524"
       },
@@ -86,7 +86,7 @@
       },
       {
         "id": "a9956faf384543e49a7eadba24742123",
-        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128200",
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128300",
         "type": "module"
       },
       {
