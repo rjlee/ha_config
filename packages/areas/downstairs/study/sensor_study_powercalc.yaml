@@ -1,6 +1,6 @@
-sensor:
-  - platform: powercalc
-    name: Study Synology NAS
-    daily_fixed_energy:
-      value: 25
-      unit_of_measurement: W
+powercalc:
+  sensors:
+    - name: Study Synology NAS
+      daily_fixed_energy:
+        value: 25
+        unit_of_measurement: W

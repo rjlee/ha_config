@@ -1,6 +1,6 @@
-sensor:
-  - platform: powercalc
-    name: Upstairs Bathroom Alexa Echo
-    daily_fixed_energy:
-      value: 3.3
-      unit_of_measurement: W
+powercalc:
+  sensors:
+    - name: Upstairs Bathroom Alexa Echo
+      daily_fixed_energy:
+        value: 3.3
+        unit_of_measurement: W

@@ -1,6 +1,6 @@
-sensor:
-  - platform: powercalc
-    name: Back Camera
-    daily_fixed_energy:
-      value: 5
-      unit_of_measurement: W
+powercalc:
+  sensors:
+    - name: Back Camera
+      daily_fixed_energy:
+        value: 5
+        unit_of_measurement: W

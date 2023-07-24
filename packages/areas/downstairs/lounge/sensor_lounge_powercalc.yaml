@@ -1,6 +1,6 @@
-sensor:
-  - platform: powercalc
-    name: Lounge TV Permanent Socket
-    daily_fixed_energy:
-      value: 60
-      unit_of_measurement: W
+powercalc:
+  sensors:
+    - name: Lounge TV Permanent Socket
+      daily_fixed_energy:
+        value: 60
+        unit_of_measurement: W
