@@ -20,7 +20,7 @@
         "id": "b76242780a214d09adc89daa4e92b76f"
       },
       {
-        "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295273",
+        "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=261291295274",
         "type": "module",
         "id": "4f4af006ae1342b2af1d1de3dc7b91f8"
       },
@@ -91,7 +91,7 @@
       },
       {
         "id": "bce9aa0ae8074b91b4e79b5354999575",
-        "url": "/hacsfiles/lovelace-hourly-weather/hourly-weather.js?hacstag=4992702024120",
+        "url": "/hacsfiles/lovelace-hourly-weather/hourly-weather.js?hacstag=4992702024130",
         "type": "module"
       }
     ]
